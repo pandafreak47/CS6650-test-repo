@@ -1,0 +1,17 @@
+{
+  "_comment": "Maps each code file to the files it directly imports. Used by the test runner to build context_files for each task.",
+  "main.py":                        ["api/routes.py", "api/middleware.py"],
+  "api/routes.py":                  ["api/middleware.py", "services/user_service.py", "services/order_service.py", "services/email_service.py"],
+  "api/middleware.py":              ["utils/auth.py"],
+  "services/user_service.py":       ["db/user_repo.py", "utils/validators.py", "utils/auth.py"],
+  "services/order_service.py":      ["db/order_repo.py", "services/user_service.py", "utils/validators.py"],
+  "services/email_service.py":      ["utils/templates.py"],
+  "db/user_repo.py":                ["db/connection.py", "models/user.py"],
+  "db/order_repo.py":               ["db/connection.py", "models/order.py"],
+  "models/order.py":                ["models/user.py"],
+  "utils/auth.py":                  ["db/user_repo.py", "utils/validators.py"],
+  "models/user.py":                 [],
+  "db/connection.py":               [],
+  "utils/validators.py":            [],
+  "utils/templates.py":             []
+}
