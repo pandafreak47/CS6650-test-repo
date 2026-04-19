@@ -37,8 +37,13 @@ class Order:
         """
         Generate a string representation of the order.
         
+        Returns a formatted string containing the order ID, username, and status.
+        
+        Args:
+            None
+        
         Returns:
-            A formatted string containing the order ID, username, and status.
+            str: A formatted string containing the order ID, username, and status.
         """
         return f"Order({self.id}, user={self.user.username}, status={self.status.value})"
 ```
