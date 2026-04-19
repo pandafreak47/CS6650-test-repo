@@ -5,12 +5,15 @@ from models.order import Order, OrderStatus
 from services.user_service import UserService
 from utils.validators import validate_order_items
 
-# Constants
+# Error Messages
 _INACTIVE_USER_ERROR = "Inactive users cannot place orders"
 _ORDER_NOT_FOUND_ERROR = "Order {order_id} not found"
 _INVALID_CANCEL_STATUS_ERROR = "Cannot cancel order in status: {status}"
 _INVALID_TOTAL_ERROR = "Order total must be positive"
+
+# Business Rules
 _CANCELLABLE_STATUSES = (OrderStatus.PENDING, OrderStatus.CONFIRMED)
+_MIN_TOTAL = 0
 
 _user_repo = UserRepo()
 _order_repo = OrderRepo(_user_repo)
@@ -23,7 +26,7 @@ class OrderService:
         if not user.is_active:
             raise PermissionError(_INACTIVE_USER_ERROR)
         validate_order_items(items)
-        if total <= 0:
+        if total <= _MIN_TOTAL:
             raise ValueError(_INVALID_TOTAL_ERROR)
         return _order_repo.insert(user, items, total)
 
