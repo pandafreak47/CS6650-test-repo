@@ -1,8 +1,12 @@
+```python
+import logging
 from db.user_repo import UserRepo
 from db.order_repo import OrderRepo
 from models.order import Order, OrderStatus
 from services.user_service import UserService
 from utils.validators import validate_order_items
+
+logger = logging.getLogger(__name__)
 
 _user_repo = UserRepo()
 _order_repo = OrderRepo(_user_repo)
@@ -11,6 +15,7 @@ _user_svc = UserService()
 
 class OrderService:
     def place(self, user_id: int, items: list[str], total: float) -> Order:
+        logger.info(f"Placing order for user_id: {user_id}, items: {items}, total: {total}")
         user = _user_svc.get(user_id)
         if not user.is_active:
             raise PermissionError("Inactive users cannot place orders")
@@ -20,12 +25,14 @@ class OrderService:
         return _order_repo.insert(user, items, total)
 
     def get(self, order_id: int) -> Order:
+        logger.info(f"Getting order by id: {order_id}")
         order = _order_repo.get_by_id(order_id)
         if not order:
             raise LookupError(f"Order {order_id} not found")
         return order
 
     def cancel(self, order_id: int) -> Order:
+        logger.info(f"Cancelling order_id: {order_id}")
         order = self.get(order_id)
         if order.status not in (OrderStatus.PENDING, OrderStatus.CONFIRMED):
             raise ValueError(f"Cannot cancel order in status: {order.status.value}")
@@ -33,5 +40,7 @@ class OrderService:
         return self.get(order_id)
 
     def list_for_user(self, user_id: int) -> list[Order]:
+        logger.info(f"Listing orders for user_id: {user_id}")
         _user_svc.get(user_id)  # raises if not found
         return _order_repo.list_for_user(user_id)
+```
