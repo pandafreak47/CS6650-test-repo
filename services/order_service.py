@@ -1,3 +1,4 @@
+```python
 from db.user_repo import UserRepo
 from db.order_repo import OrderRepo
 from models.order import Order, OrderStatus
@@ -35,3 +36,4 @@ class OrderService:
     def list_for_user(self, user_id: int) -> list[Order]:
         _user_svc.get(user_id)  # raises if not found
         return _order_repo.list_for_user(user_id)
+```
