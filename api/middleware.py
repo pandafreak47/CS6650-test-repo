@@ -1,14 +1,34 @@
+```python
 from functools import wraps
 from http import HTTPStatus
 from utils.auth import verify_token
 
 
 class AuthError(Exception):
+    """Exception raised when authentication fails."""
     status = HTTPStatus.UNAUTHORIZED
 
 
 def require_auth(fn):
-    """Decorator: injects `current_user` (username str) from Bearer token."""
+    """
+    Decorator that enforces authentication for a function.
+    
+    Extracts and validates a Bearer token from the Authorization header,
+    verifies it, and injects the authenticated username as `current_user`
+    into the decorated function.
+    
+    Args:
+        fn: The function to decorate.
+    
+    Returns:
+        A wrapped function that requires a valid Bearer token. The wrapped
+        function receives an additional `current_user` keyword argument
+        containing the authenticated username.
+    
+    Raises:
+        AuthError: If the Authorization header is missing/malformed or if
+                   the token is invalid or expired.
+    """
     @wraps(fn)
     def wrapper(*args, token: str = "", **kwargs):
         if not token.startswith("Bearer "):
@@ -18,3 +38,4 @@ def require_auth(fn):
             raise AuthError("Invalid or expired token")
         return fn(*args, current_user=username, **kwargs)
     return wrapper
+```
