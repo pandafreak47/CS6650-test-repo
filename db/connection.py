@@ -20,6 +20,7 @@ def get_connection() -> sqlite3.Connection:
 
 
 def _bootstrap(conn: sqlite3.Connection) -> None:
+    logger.debug("_bootstrap() called")
     conn.executescript("""
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
