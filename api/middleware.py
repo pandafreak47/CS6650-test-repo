@@ -18,19 +18,17 @@ def require_auth(fn):
             raise AuthError("Authorization header must be a string")
         if not token:
             raise AuthError("Missing or malformed Authorization header")
-        if not isinstance(token, str) or len(token) == 0:
-            raise AuthError("Missing or malformed Authorization header")
         if not token.startswith("Bearer "):
             raise AuthError("Missing or malformed Authorization header")
         
-        token_value = token.removeprefix("Bearer ")
+        token_value = token[7:]  # Remove "Bearer " prefix
         
         # Validate token_value
         if not isinstance(token_value, str) or not token_value:
             raise AuthError("Missing or malformed Authorization header")
         if len(token_value) > 1000:
             raise AuthError("Token is too long")
-        if not token_value or not all(c in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789:." for c in token_value):
+        if not all(c in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789:." for c in token_value):
             raise AuthError("Invalid token format")
         
         username = verify_token(token_value)
