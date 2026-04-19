@@ -1,3 +1,4 @@
+```python
 """
 Entry point for the Order Management Service.
 
@@ -12,6 +13,8 @@ from http import HTTPStatus
 
 from api.routes import router
 from api.middleware import AuthError
+
+__all__ = ["Handler"]
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s | %(message)s")
 logger = logging.getLogger(__name__)
@@ -59,3 +62,4 @@ if __name__ == "__main__":
     server = HTTPServer(("0.0.0.0", PORT), Handler)
     logger.info("Listening on port %d", PORT)
     server.serve_forever()
+```
