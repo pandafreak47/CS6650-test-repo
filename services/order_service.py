@@ -15,6 +15,7 @@ _user_svc = UserService()
 
 class OrderService:
     def place(self, user_id: int, items: list[str], total: float) -> Order:
+        logger.info(f"OrderService.place() called with user_id: {user_id}, items: {items}, total: {total}")
         logger.info(f"Placing order for user_id: {user_id}, items: {items}, total: {total}")
         user = _user_svc.get(user_id)
         if not user.is_active:
@@ -25,6 +26,7 @@ class OrderService:
         return _order_repo.insert(user, items, total)
 
     def get(self, order_id: int) -> Order:
+        logger.info(f"OrderService.get() called with order_id: {order_id}")
         logger.info(f"Getting order by id: {order_id}")
         order = _order_repo.get_by_id(order_id)
         if not order:
@@ -32,6 +34,7 @@ class OrderService:
         return order
 
     def cancel(self, order_id: int) -> Order:
+        logger.info(f"OrderService.cancel() called with order_id: {order_id}")
         logger.info(f"Cancelling order_id: {order_id}")
         order = self.get(order_id)
         if order.status not in (OrderStatus.PENDING, OrderStatus.CONFIRMED):
@@ -40,6 +43,7 @@ class OrderService:
         return self.get(order_id)
 
     def list_for_user(self, user_id: int) -> list[Order]:
+        logger.info(f"OrderService.list_for_user() called with user_id: {user_id}")
         logger.info(f"Listing orders for user_id: {user_id}")
         _user_svc.get(user_id)  # raises if not found
         return _order_repo.list_for_user(user_id)
