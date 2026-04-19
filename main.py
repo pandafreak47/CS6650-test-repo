@@ -39,6 +39,10 @@ ROUTE_DELIMITER = " "
 # Server constants
 LOCALHOST = "0.0.0.0"
 LOG_PORT_MESSAGE = "Listening on port %d"
+LOG_REQUEST_FORMAT = "%s - %s"
+
+# JSON encoding constants
+JSON_ENCODING = "utf-8"
 
 PORT = int(os.environ.get(PORT_ENV_VAR, DEFAULT_PORT))
 
@@ -77,7 +81,7 @@ class Handler(BaseHTTPRequestHandler):
         self._dispatch(DELETE_METHOD)
 
     def _respond(self, status: HTTPStatus, data: dict):
-        body = json.dumps(data).encode()
+        body = json.dumps(data).encode(JSON_ENCODING)
         self.send_response(status.value)
         self.send_header(CONTENT_TYPE_HEADER, CONTENT_TYPE_JSON)
         self.send_header(CONTENT_LENGTH_HEADER, len(body))
@@ -85,7 +89,7 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def log_message(self, fmt, *args):
-        logger.info("%s - %s", self.address_string(), fmt % args)
+        logger.info(LOG_REQUEST_FORMAT, self.address_string(), fmt % args)
 
 
 if __name__ == "__main__":
