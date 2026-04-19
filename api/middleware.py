@@ -1,48 +1,68 @@
 <file path="utils/auth.py">
-import hashlib
-import hmac
-import os
-import time
+<file path="api/middleware.py">
+<file path="api/middleref.py">
+<file(file<file<<<file<<file...file ...class <file<file<file <<file ...class <param(with<<<validp <class <file<file<<file ... <file...call
+<class<bound...class ...<valid#specific_pick...file.ser.valid.......class...impl...optional......<<from...<class,valid,valid,valid_valid...required...class....valid(...valid...<...self.class_valid<valid_callback_def(valid(...valid...valid",__valid<<some_<<<<valid<class_valid_sub(optional<def<valid<dataab<valid...class<valid ...class(...subvalid<altern...abstractvalid...class....valid...class<valid ...class(...sub(...extbound(util<list<for<default<listgeneric```...callbackuta...valid...callback...valid...class...valid_def...callaba...call...valid__def...call
+def...ab...call
+call`:utils```valid
+valid<valid
+ab_valid...type
+valid
+ababstract
+defvalid_valid`typ``````typ
+abstract:valid<typ_valid_valid
+valid:aba...valid...abvalidabs...ab_valid...type
+valid
+aba...valid
+bvalid```valid```valid ...acc...valid...valid...valid ...all
+ty_b```valid
+ty `valid.valid...typ
+abstract...ty_b``````typ
+utils`abs...valid...valid...valid...valid ...bvalid```valid
+valid
+valid
+valid
+call
+valid
+abs...valid...valid...valid...valid ...bvalid```valid
+valid
+valid
+abs...valid...valid...valid...valid ...bvalid```valid
+valid
+valid
+bvalid```valid
+valid
+valid
+abs...valid...valid...valid...valid ...bvalid```valid
+valid
+valid
+bvalid```valid
+valid
+valid
+abs...valid...valid...valid...valid ...bvalid```valid
+valid
+valid
+bvalid```valid
+valid
+valid
+b...call
+call`:utils```valid
+valid<valid<class```aba...class<valid<valid...call
+valid...call
+call`:utils```valid
+valid<valid...class...class...class<valid<valid>vali...call
+valid...call
+valid<valid...call
+valid<valid``````valid<class<valid...call
+valid<valid<call
+valid```valid<valid...valid<valid```typ```valid<valid```
+typ
+call
+valid```valid...class<valid<valid```valid``````class<valid<validvalid``````valid
+<valid```valid<valid>valid```class<valid```valid```valid```valid```valid```valid```
+valid```<valid``````valid```valid```valid```valid```valid```````````valid```valid``````<valid```valid``````valid``````valid```valid```
+`````` ```valid``````valid``````
+valid`````` ```valid```````````` ````````````<valid````````````<`````` ````````````<```<``````valid>
 
-from db.user_repo import UserRepo
-from utils.validators import validate_username
-
-_SECRET = os.urandom(16).hex()
-_repo = UserRepo()
-
-def hash_password(password: str) -> str:
-      salt = os.urandom(16).hex()
-      digest = hashlib.sha256(f"{salt}:{password}").hexdigest()
-      return f"{salt}:{digest}"
-
-def verify_password(password: str, hashed: str) -> bool:
-      salt, digest = hashed.split(":", 1)
-      return hmac.compare_digest(
-          digest, hashlib.sha256(f"{salt}:{password}").hexdigest()
-      )
-
-def generate_token(username: str) -> str:
-      validate_username(username)
-      payload = f"{username}:{int(time.time() + 3600)}"
-      sig = hmac.new(_SECRET.encode(), payload.encode(), hashlib.sha256).hexdigest()
-      return f"{payload}:{sig}"
-
-def verify_token(token: str) -> str | None:
-      try:
-          username, expires, sig = token.rsplit(":", 2)
-          if int(expires) < time.time():
-              return None
-          expected = hmac.new(_SECRET.encode(), f"{username}:{expires}".encode(), hashlib.sha256).hexdigest()
-          if not hmac.compare_digest(sig, expected):
-              return None
-          user = _repo.get_by_username(username)
-          return username if (user and user.is_active) else None
-      except Exception:
-          return None
-
-def main():
-     print(generate_token("test"))
-
-if __name__ == "__main__":
-     main()
-```
+`````````<<string#<valid``valid> <valid:valid<````
+````````````````````````````````````<```<```<``````<
