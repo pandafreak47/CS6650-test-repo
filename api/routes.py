@@ -1,18 +1,19 @@
+```python
 from http import HTTPStatus
 from api.middleware import require_auth, AuthError
 from services.user_service import UserService
 from services.order_service import OrderService
 from services.email_service import EmailService
 
-_users = UserService()
-_orders = OrderService()
-_emails = EmailService()
+_users: UserService = UserService()
+_orders: OrderService = OrderService()
+_emails: EmailService = EmailService()
 
 router: dict[str, callable] = {}
 
 
-def route(path: str):
-    def decorator(fn):
+def route(path: str) -> callable:
+    def decorator(fn: callable) -> callable:
         router[path] = fn
         return fn
     return decorator
@@ -45,3 +46,4 @@ def cancel_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
     order = _orders.cancel(order_id)
     _emails.notify_order_update(order)
     return HTTPStatus.OK, {"id": order.id, "status": order.status.value}
+```
