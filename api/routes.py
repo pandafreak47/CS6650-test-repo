@@ -93,6 +93,8 @@ def place_order(body: dict, current_user: str = "") -> tuple[int, dict]:
         raise ValueError("Request body must be a JSON object")
     if not isinstance(current_user, str):
         raise ValueError("current_user must be a string")
+    if not current_user:
+        raise ValueError("current_user cannot be empty")
     _validate_place_order_body(body)
     order = _orders.place(body["user_id"], body["items"], body["total"])
     _emails.notify_order_update(order)
@@ -102,5 +104,4 @@ def place_order(body: dict, current_user: str = "") -> tuple[int, dict]:
 @route("GET /orders/{id}")
 @require_auth
 def get_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
-    if not isinstance(order_id, int):
-        raise ValueError("order_id must be an integer
+    if not
