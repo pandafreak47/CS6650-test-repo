@@ -10,7 +10,6 @@ logger = logging.getLogger(__name__)
 class UserRepo:
     def get_by_id(self, user_id: int) -> User | None:
         logger.info(f"Entering get_by_id with user_id: {user_id}")
-        logger.info(f"Getting user by id: {user_id}")
         row = get_connection().execute(
             "SELECT * FROM users WHERE id = ?", (user_id,)
         ).fetchone()
@@ -18,7 +17,6 @@ class UserRepo:
 
     def get_by_username(self, username: str) -> User | None:
         logger.info(f"Entering get_by_username with username: {username}")
-        logger.info(f"Getting user by username: {username}")
         row = get_connection().execute(
             "SELECT * FROM users WHERE username = ?", (username,)
         ).fetchone()
@@ -26,7 +24,6 @@ class UserRepo:
 
     def insert(self, username: str, email: str, hashed_password: str) -> User:
         logger.info(f"Entering insert with username: {username}, email: {email}")
-        logger.info(f"Inserting user: {username}")
         conn = get_connection()
         cur = conn.execute(
             "INSERT INTO users (username, email, hashed_password) VALUES (?, ?, ?)",
@@ -37,7 +34,6 @@ class UserRepo:
 
     def deactivate(self, user_id: int) -> None:
         logger.info(f"Entering deactivate with user_id: {user_id}")
-        logger.info(f"Deactivating user: {user_id}")
         conn = get_connection()
         conn.execute("UPDATE users SET is_active = 0 WHERE id = ?", (user_id,))
         conn.commit()
