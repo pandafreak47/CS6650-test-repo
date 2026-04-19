@@ -30,7 +30,7 @@ class OrderRepo:
         user = self._users.get_by_id(user_id)
         return [_row_to_order(r, user) for r in rows]
 
-    def insert(self, user: User, items: list[str], total: float) -> Order:
+    def insert(self, user: User, items: list[str], total: float) -> Order | None:
         conn = get_connection()
         cur = conn.execute(
             "INSERT INTO orders (user_id, items, total) VALUES (?, ?, ?)",
