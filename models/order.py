@@ -18,6 +18,11 @@ DEFAULT_ORDER_STATUS = OrderStatus.PENDING
 # Display format constants
 ORDER_DISPLAY_FORMAT = "Order({id}, user={user}, status={status})"
 
+# Field name constants for display formatting
+DISPLAY_FORMAT_ID_KEY = "id"
+DISPLAY_FORMAT_USER_KEY = "user"
+DISPLAY_FORMAT_STATUS_KEY = "status"
+
 
 @dataclass
 class Order:
@@ -30,8 +35,10 @@ class Order:
 
     def display(self) -> str:
         return ORDER_DISPLAY_FORMAT.format(
-            id=self.id,
-            user=self.user.username,
-            status=self.status.value
+            **{
+                DISPLAY_FORMAT_ID_KEY: self.id,
+                DISPLAY_FORMAT_USER_KEY: self.user.username,
+                DISPLAY_FORMAT_STATUS_KEY: self.status.value
+            }
         )
 ```
