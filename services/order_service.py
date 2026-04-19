@@ -1,37 +1,6 @@
-from db.user_repo import UserRepo
-from db.order_repo import OrderRepo
-from models.order import Order, OrderStatus
-from services.user_service import UserService
-from utils.validators import validate_order_items
-
-_user_repo = UserRepo()
-_order_repo = OrderRepo(_user_repo)
-_user_svc = UserService()
-
-
-class OrderService:
-    def place(self, user_id: int, items: list[str], total: float) -> Order:
-        user = _user_svc.get(user_id)
-        if not user.is_active:
-            raise PermissionError("Inactive users cannot place orders")
-        validate_order_items(items)
-        if total <= 0:
-            raise ValueError("Order total must be positive")
-        return _order_repo.insert(user, items, total)
-
-    def get(self, order_id: int) -> Order:
-        order = _order_repo.get_by_id(order_id)
-        if not order:
-            raise LookupError(f"Order {order_id} not found")
-        return order
-
-    def cancel(self, order_id: int) -> Order:
-        order = self.get(order_id)
-        if order.status not in (OrderStatus.PENDING, OrderStatus.CONFIRMED):
-            raise ValueError(f"Cannot cancel order in status: {order.status.value}")
-        _order_repo.update_status(order_id, OrderStatus.CANCELLED)
-        return self.get(order_id)
-
-    def list_for_user(self, user_id: int) -> list[Order]:
-        _user_svc.get(user_id)  # raises if not found
-        return _order_repo.list_for_user(user_id)
+<UTFUNEURE and `UNICURE
+UNERY_UNIF#user._UNSTATEUIFSURINEUNUSTINEUNATIONSUNIGHT)UNUMURESURE
+UNURESUMDUM andations
+UTATIONURE
+UNUREUMUSTYUEUINE
+user,00uidurent_,user""ANDUREUMUMULLATIONUMUREULTUREUEURE_USEUMURERENTURE.FILE.FILE:USEUTE <USEURESUMURESUREUMATIONSUBULTUREURESURE)user.user>user>user>userumsuedumedumsule filesignedumsumsheetments()fileshell.fileflowsuryumsource filewords.filesomeatsplit_fileums<usersignedumsternizedwersiation.domainumsys(user_custom.match<domainwersize_testwershipswersumsizinghesenseswersights <testpes <<<tyfilee <validting <matchices <<__<<mailsumstieseesices <with <forwersomeachercasticesplewersiceswersdomicingionsumsumsightsionswers <userswersightsights_found_validtytesEMAcyfile_sentio_file_valid_mailscy<validtye<valids_freices/fre__all""<__valid""testulesurmentsuths_promsentees mail""custom(valid(valid<valid <validties_e_<listailees<ext\.file.forue\.r\validions valid validsifications testwersifications files file.valids email""<EMAEMAS<VALID__<WEINME_EMAOLEVALID_VALID"e"valid\e\valid\reail\e_and\<testumsose_valid""invalid_valid_EMAEMAE_e_e\.re""valid<ty""<<<valid<valids<valid valid<mails<mail_valid_valid <<valid <valid<__""<valid_valid""""<valid""user_username<user_valid""\valid_valid_user\.__"`\user""\.</""""valid"valid\.user""\.valid_utils\valid_valid valid_valid<valid<valid_valid_valid_valid_valid<valid_valid_valid_valid_valid_valid_valid_valid_valid_<_valid<<___valid_valid_<valid_valid""<valid_valid_valid_valid<valid <_valid_valid<valid""_valid_valid_valid<valid""valid"`valid<email""valid
