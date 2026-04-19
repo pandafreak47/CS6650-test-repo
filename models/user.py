@@ -77,13 +77,7 @@ class User:
 
     def display(self) -> str:
         """Return a string representation of the user."""
-        if not isinstance(self.id, int) or isinstance(self.id, bool):
-            raise TypeError("id must be an integer")
-        if not isinstance(self.username, str):
-            raise TypeError("username must be a string")
-        if self.id <= 0:
-            raise ValueError("id must be a positive integer")
-        if not self.username or not self.username.strip():
-            raise ValueError("username cannot be empty")
+        self._validate_id(self.id)
+        self._validate_username(self.username)
         return f"User({self.id}, {self.username})"
 ```
