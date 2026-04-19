@@ -1,12 +1,13 @@
+```python
 from db.user_repo import UserRepo
 from db.order_repo import OrderRepo
 from models.order import Order, OrderStatus
 from services.user_service import UserService
 from utils.validators import validate_order_items
 
-_user_repo = UserRepo()
-_order_repo = OrderRepo(_user_repo)
-_user_svc = UserService()
+_user_repo: UserRepo = UserRepo()
+_order_repo: OrderRepo = OrderRepo(_user_repo)
+_user_svc: UserService = UserService()
 
 
 class OrderService:
@@ -35,3 +36,4 @@ class OrderService:
     def list_for_user(self, user_id: int) -> list[Order]:
         _user_svc.get(user_id)  # raises if not found
         return _order_repo.list_for_user(user_id)
+```
