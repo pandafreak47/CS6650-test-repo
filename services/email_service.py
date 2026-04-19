@@ -1,3 +1,4 @@
+```python
 import logging
 from models.order import Order, OrderStatus
 from utils.templates import render_confirmation, render_cancellation
@@ -19,3 +20,4 @@ class EmailService:
     def _send(self, to: str, subject: str, body: str) -> None:
         logger.info("EMAIL to=%s subject=%r", to, subject)
         logger.debug("Body:\n%s", body)
+```
