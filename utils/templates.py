@@ -11,8 +11,12 @@ def render_confirmation(order: Order) -> str:
         raise ValueError("order.id cannot be None")
     if order.items is None:
         raise ValueError("order.items cannot be None")
+    if not order.items:
+        raise ValueError("order.items cannot be empty")
     if order.total is None:
         raise ValueError("order.total cannot be None")
+    if order.total < 0:
+        raise ValueError("order.total cannot be negative")
     
     lines = [
         f"Hi {order.user.username},",
@@ -38,6 +42,8 @@ def render_cancellation(order: Order) -> str:
         raise ValueError("order.id cannot be None")
     if order.total is None:
         raise ValueError("order.total cannot be None")
+    if order.total < 0:
+        raise ValueError("order.total cannot be negative")
     
     return (
         f"Hi {order.user.username},\n\n"
