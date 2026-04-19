@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 
 def get_connection() -> sqlite3.Connection:
-    logger.debug("get_connection() called")
+    logger.info("get_connection() called")
     global _conn
     if _conn is None:
         _conn = sqlite3.connect(_DB_PATH, check_same_thread=False)
