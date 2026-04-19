@@ -46,3 +46,4 @@ def _row_to_order(row, user: User) -> Order:
         total=row["total"], status=OrderStatus(row["status"]),
         created_at=datetime.fromisoformat(row["created_at"]),
     )
+# modified by cs6650-agent
