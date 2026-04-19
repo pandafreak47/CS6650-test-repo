@@ -39,7 +39,7 @@ class Handler(BaseHTTPRequestHandler):
             self._respond(HTTPStatus.UNAUTHORIZED, {"error": str(e)})
         except (LookupError, ValueError) as e:
             self._respond(HTTPStatus.BAD_REQUEST, {"error": str(e)})
-        except Exception as e:
+        except BaseException as e:
             logger.error("Unhandled exception: %s", str(e))
             self._respond(HTTPStatus.INTERNAL_SERVER_ERROR, {"error": "Internal server error"})
 
