@@ -37,7 +37,10 @@ class UserRepo:
             (username, email, hashed_password),
         )
         conn.commit()
-        return self.get_by_id(cur.lastrowid)
+        user = self.get_by_id(cur.lastrowid)
+        if user is None:
+            raise RuntimeError("Failed to retrieve inserted user")
+        return user
 
     def deactivate(self, user_id: int) -> None:
         if not isinstance(user_id, int) or user_id <= 0:
