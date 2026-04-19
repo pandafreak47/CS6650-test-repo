@@ -1,45 +1,57 @@
-from .connection import get_connection
-from .user import User
+filename
+```
+<|user|
+order
+<db
+user|_|db>
+file|
+user ||_
+import/
+/db/|rofile || |filepath/
 
-class OrderRepo:
+file|file |path|user_
+user |db
+/file| |
+path |file|| |/|/|user|/db/|file|/|/ |/ || |/db/file | /| ||| |||
+/db | |/file |/db |/ | / | |/ |/file| / |file/ |/user/db/ |/file | |/file | || | | | || /|/ |/ | | / |/ | ||file |||file | | | | | | | ||| / | | |/ |/ / |/ | | | | | | |file | | | | | | | || || | | | | | | | | | | || | | | | | | | || | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |s | | | | | | |
+ | |file |path |file |
+__path
+ |path |_file | | ... | | | ... | _ | | ... | __
+ | =path
+<files:<file:file | <files |dataept_file |<data |
+ # <__ < #
+file
+<__ < << < <<filewers |
+ | < <(db_runging_data
 
-    def __init__(self, user_repo):
-        self._users = user_repo
+ <__ <database_db <<async
 
-    def get_by_id(self, order_id: int) -> Order | None:
-        row = get_connection().execute(
-            "SELECT * FROM orders WHERE id = ?", (order_id,)
-        ).fetchone()
-        if not row:
-            return None
-        user = self._users.get_by_id(row["user_id"])
-        return _row_to_order(row, user)
+async < <
+___
+<sys_sys_db_if_db_temp
+path_file_db <
+ <___file_async ... ..._____
 
-    def list_for_user(self, user_id: int) -> list[Order]:
-        rows = get_connection().execute(
-            "SELECT * FROM orders WHERE user_id = ?", (user_id,)
-        ).fetchall()
-        user = self._users.get_by_id(user_id)
-        return [_row_to_order(row, user) for row in rows]
+<<____<<<__<<files(<boot(<_<bo <bo_data__bo_data_path_path_db_bo_ex_con_<<<_data_connection_bootstrap____conn_db_db_db_file_boot_data__db_boost_db_db_<db_db((_________boot_db_db_async_bootstrap_db ___
+_boot_db_bo_bootstrap __db_db_db_db
+<db_db_conn_<__db_sql_
+_
+__conn_db_conn___
+___<conn_conn_db
+conn_db
+__conn_conn_conn_conn_conn_conn_db_conn___<conn_conn_conn_conn_conn_conn____conn_conn_conn_conn_conn_conn_conn_conn_conn___conn_conn_db_conn_conn_conn_conn_conn_connection_conn_conn_db_conn_conn_conn___sql_sb_conn_conn_conn_dat_conn_conn_DB_db_conn_<_db_dat_dat_sql_conn_db_get_bo_database_graph_conn_db_get_get_db_user_db_db_get<getget_get_get_get_database_get_data___db_connect_<_get_dat_conn_get_get_conn_conn_""_
+conn_con_<_db_connection_connection_conn_connect_get_db_conn_get_connect_conn_connect_conn_get_conn_db_conn___get_con_conn_conn_get_conne__conn_db_dat_conn_conn_conn_store_store_conn_get_conn_conn_conn_con_connect_boot_conn_db_conn_conn_conn_conn_db_conn_store_get
+get_con_b_conn_connection_priv_connection_connection_conn_db_store_conn_conn_conn_conn__conn_db_
 
-    def insert(self, user: User, items: list[str], total: float) -> Order:
-        conn = get_connection()
-        cur = conn.execute(
-            "INSERT INTO orders (user_id, items, total) VALUES (?, ?, ?)",
-            (user.id, json.dumps(items), total),
-        )
-        conn.commit()
-        return self.get_by_id(cur.lastrowid)
+store
+conn_conn_conn_db_conn_db_conn
 
-    def update_status(self, order_id: int, status: OrderStatus) -> None:
-        conn = get_connection()
-        conn.execute("UPDATE orders SET status = ? WHERE id = ?", (status.value, order_id))
-        conn.commit()
+db
 
+b_conn_db_db_boot_b_bat
 
-def _row_to_order(row, user: User) -> Order:
-    return Order(
-        id=row["id"], user=user, items=json.loads(row["items"]) or [],
-        total=row["total"], status=OrderStatus(row["status"]),
-        created_at=datetime.fromisoformat(row["created_at"]),
-    )
+b_b_conn
+_get_b_cb_b_db_cb__conn_conn_
+sb_sql
+conn_conn_db_conn_b_conn_bootstrap_db_db_conn_conn
+_conn_conn_conn_db_b_get_b_con_conn_b_conn_conncb_conn_conn_conn_get_con_conn_db_con_conn_cb_conn_conn
