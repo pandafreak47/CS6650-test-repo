@@ -43,3 +43,4 @@ def verify_token(token: str) -> str | None:
         return username if (user and user.is_active) else None
     except Exception:
         return None
+# modified by cs6650-agent
