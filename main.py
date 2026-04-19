@@ -40,8 +40,16 @@ STATUS_BAD_REQUEST = HTTPStatus.BAD_REQUEST
 
 # Route format constants
 ROUTE_FORMAT = "{method} {path}"
-DISPATCH_FORMAT_POST = "{method} {path}"
-DISPATCH_FORMAT_OTHER = "{method} {path}"
+
+# Response message constants
+ERROR_KEY = "error"
+LISTENING_MESSAGE = "Listening on port %d"
+
+# Exception tuple for error handling
+HANDLER_EXCEPTIONS = (LookupError, ValueError)
+
+# Header utility constants
+TOKEN_PARAM_NAME = "token"
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -54,16 +62,16 @@ class Handler(BaseHTTPRequestHandler):
         route_key = ROUTE_FORMAT.format(method=method, path=self.path)
         handler = router.get(route_key)
         if handler is None:
-            self._respond(STATUS_NOT_FOUND, {"error": NOT_FOUND_ERROR})
+            self._respond(STATUS_NOT_FOUND, {ERROR_KEY: NOT_FOUND_ERROR})
             return
 
         try:
             status, data = handler(body, token=token) if method == POST_METHOD else handler(token=token)
             self._respond(status, data)
         except AuthError as e:
-            self._respond(STATUS_UNAUTHORIZED, {"error": str(e)})
-        except (LookupError, ValueError) as e:
-            self._respond(STATUS_BAD_REQUEST, {"error": str(e)})
+            self._respond(STATUS_UNAUTHORIZED, {ERROR_KEY: str(e)})
+        except HANDLER_EXCEPTIONS as e:
+            self._respond(STATUS_BAD_REQUEST, {ERROR_KEY: str(e)})
 
     def do_GET(self):
         self._dispatch(GET_METHOD)
@@ -88,6 +96,6 @@ class Handler(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     server = HTTPServer((HOST, PORT), Handler)
-    logger.info("Listening on port %d", PORT)
+    logger.info(LISTENING_MESSAGE, PORT)
     server.serve_forever()
 ```
