@@ -20,5 +20,14 @@ class Order:
     status: OrderStatus = OrderStatus.PENDING
     created_at: datetime = field(default_factory=datetime.utcnow)
 
-    def display(self) -> str:
-        return f"Order({self.id}, user={self.user.username}, status={self.status.value})"
+     def display(self) -> str:
+         return f"Order({self.id}, user={self.user.username}, status={self.status.value})"
+
+```
+
+To execute the task, run the `python3` file.
+```
+python3 data_classes_task.py
+```
+
+The output should contain the revised code, with the logging statements included in the file content.
