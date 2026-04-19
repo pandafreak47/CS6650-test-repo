@@ -1,7 +1,14 @@
+```python
 import os
 import sqlite3
 
-_DB_PATH = os.environ.get("DB_PATH", "store.db")
+# Constants
+DEFAULT_DB_NAME = "store.db"
+DB_PATH_ENV_VAR = "DB_PATH"
+DEFAULT_USER_ACTIVE_STATUS = 1
+DEFAULT_ORDER_STATUS = "pending"
+
+_DB_PATH = os.environ.get(DB_PATH_ENV_VAR, DEFAULT_DB_NAME)
 _conn: sqlite3.Connection | None = None
 
 
@@ -15,13 +22,13 @@ def get_connection() -> sqlite3.Connection:
 
 
 def _bootstrap(conn: sqlite3.Connection) -> None:
-    conn.executescript("""
+    conn.executescript(f"""
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT UNIQUE NOT NULL,
             email TEXT UNIQUE NOT NULL,
             hashed_password TEXT NOT NULL,
-            is_active INTEGER DEFAULT 1,
+            is_active INTEGER DEFAULT {DEFAULT_USER_ACTIVE_STATUS},
             created_at TEXT DEFAULT CURRENT_TIMESTAMP
         );
         CREATE TABLE IF NOT EXISTS orders (
@@ -29,9 +36,10 @@ def _bootstrap(conn: sqlite3.Connection) -> None:
             user_id INTEGER NOT NULL,
             items TEXT NOT NULL,
             total REAL NOT NULL,
-            status TEXT DEFAULT 'pending',
+            status TEXT DEFAULT '{DEFAULT_ORDER_STATUS}',
             created_at TEXT DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (user_id) REFERENCES users(id)
         );
     """)
     conn.commit()
+```
