@@ -31,6 +31,13 @@ class UserRepo:
         if not isinstance(hashed_password, str) or not hashed_password.strip():
             raise ValueError("hashed_password must be a non-empty string")
         
+        if len(username) > 255:
+            raise ValueError("username must not exceed 255 characters")
+        if len(email) > 255:
+            raise ValueError("email must not exceed 255 characters")
+        if len(hashed_password) > 255:
+            raise ValueError("hashed_password must not exceed 255 characters")
+        
         conn = get_connection()
         cur = conn.execute(
             "INSERT INTO users (username, email, hashed_password) VALUES (?, ?, ?)",
@@ -52,6 +59,9 @@ class UserRepo:
 
 
 def _row_to_user(row) -> User:
+    if row is None:
+        raise TypeError("row cannot be None")
+    
     return User(
         id=row["id"], username=row["username"], email=row["email"],
         hashed_password=row["hashed_password"], is_active=bool(row["is_active"]),
