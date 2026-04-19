@@ -9,28 +9,17 @@ _repo = UserRepo()
 
 class UserService:
     def register(self, username: str, email: str, password: str) -> User:
-        if not isinstance(username, str):
-            raise TypeError("username must be a string")
-        if not isinstance(email, str):
-            raise TypeError("email must be a string")
+        username = validate_username(username)
+        email = validate_email(email)
+        
         if not isinstance(password, str):
             raise TypeError("password must be a string")
-        
-        username = username.strip()
-        email = email.strip()
         password = password.strip()
-        
-        if not username:
-            raise ValueError("username must not be blank")
-        if not email:
-            raise ValueError("email must not be blank")
         if not password:
             raise ValueError("password must not be blank")
-        
-        validate_username(username)
-        validate_email(email)
         if len(password) < 8:
             raise ValueError("Password must be at least 8 characters")
+        
         hashed = hash_password(password)
         return _repo.insert(username, email, hashed)
 
