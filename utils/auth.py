@@ -1,109 +1,49 @@
-import hashlib
-import hmac
-import os
-import time
+file<file<file <file =file:file:<file <file
+class<<parameter(some <<valid <<validible<validient<file <class<class ...<```
 
-from db.user_repo import UserRepo
-from utils.validators import validate_username
-
-_SECRET = os.environ.get("TOKEN_SECRET", "dev-secret")
-_repo = UserRepo()
-
-def hash_password(password: str) -> str:
-      salt = os.uraudom(16).hex()
-      digest = hashlib.sha256(f"{salt}:{password}")
-      return f"{salt}:{digest}"
-
-def verify_password(password: str, hashed: str) -> bool:
-      salt, digest = hashed.split(":" nothrow")
-      if salt nothash:
-          if salt not digest:
-            validate
-_password
-      elif salt:
-          s_hash password
-      else
-          digest: password:
-          salt:password:dig password:"password"
-          salt:password"
-password")
-password:user
-password")
-username:password
-user:
-password:
-user:password")
-username_username
-password:hash
-username
-password:"username
-password
-password": "password")
-username
-password
-password")
-
-password:user
-user
-password
-username
-username
-username "username
-user:username
-username
-username:usernameuser:user,filepuzz
-username
-username,password
-un>user>passworduser
-user, user,user
-
-user, username
-user
-user, username, 
-user
-user, u, user, username, u, username, user)
-y, username, username
-user, u, u
-
-user, u, u, u, u, u, u, u, u, u, u, u, u, u, u, u, user, u, u, u, u, u, u, u, u, u, u, u, u, u, u, u, u, u, u, u, u, u <user, u, u, u, u, u, u #ut<self ... ...user #file = user
-<file #file, ...file(file
-```class, file(file(file #file #file
-<file #file <file <file.file:file:file #file.file.file #<file<file #file
-file
-file
-file <class ...<<file <file<<file <file =file<file<<user #file
-<file<param(some <<<class<<<class<<<<<class<class<class<<<<valid<<file <file ...class(class(file<file.file ...<file()<class ...<utils.pick.<class<class...<class...class<```class<class#class...class<class...class ...class...class ...class #utils...class ......bound_
-<<```...file....class...valid...<impl...class
-class.........<class...<valid,valid,required_class...class_valid...valid ...valid<def...valid ...class_ut...class_utils<class(class_class(...file_file ...class...class...valid ...class(...valid_valid(...valid #...subvalid_valid
-<class<valid<valid_valid_valid...valid...valid_valid...altern...sub_abstract...red_utbound<valid<subsome_impl<abstract_valid ...red(...valid_validab_classall<abstract(...<abstractlist<list...file<valid ```......valid(...def...validutil_validabvalidutimplutils<valid_validututilsvalid_class_valid_utils__valid #validvalid
-classabstract<utilsall<typ...def(...call ...valid(valid_utils...```call:validate...valid#ab_order_serialab...valid
-type_valid
+class<class
+<file<class<file(<<file<utils<file<<<class<<for_<<function<```classclass...valid...class#class...class<class...<class...def...class...valid...sign...valid...<<serial_block...class...<...<<ser...```...valid<con...<classvalid...<class,<class......valid,valid,valid,valid
+def...class...impl...classdef<valid...class...alternut_optional_con:valid<valid<valid_valid<file_sub...valid_function_,valid...valid...valid(...<valid<valid_<valid<servalid<utils<valid_valid_valid(valid<...valid<typ...valid<class...valid_valid<test...valid<data<implclassvalid_based<valid<ab...classself_abstractdef...class<all(utilsvalidpath<extyp`````````...list...valid```validabstractvalid##validimplvalidvalidtyp...valid...deftyvalidvalidclassutabvalid__typ_utilsababimplutils ...def ......validstaticcallbackimpl_utilscallback<<typ(valid_classutvalid ...utils
+classvalid...valid_def```...abstract_ab_def__ab<class
+ab<valid(...valid
+validate
+valid...ab
+utilsab_validutilsvalutil
+classab_absolutealltyp ...valid__valid ```utilsvalid```valid
+abc...validvalid```util...validate
+genericabstract""ab_valid ...typ
+utils_valid ...valid
+...len_valid
 valid
-valid...utils...valid
-acc
-util_def
-abab
-``````validvalutvalid ```defabutilsvalidababvalid...magab ...ab...self...abstractvalid_typ
-user ...valid<validabselfabimplvalid_type
+ab ...def valid
+self_valid<impl ...ty<valid
+valid
+call...valid:typ_ababself...abab_validvalid_valid<valid<valid<valid
+valid...<valid
+```validate```
+```def<typ
 
-valid ```...def ...
-type ...```validate
-class
-valid<%=valid.validate
-valid:impl:ab ...abtype__valid ......validate:ty:ty<valid...serialimpl{{red<utils<abstract<abstract<valid<serialabvalid...ab
+valid
+ab<valid
+valid
+acc<valid
 valid
 valid
-utils
-serial
-sub
-
-```valid
+abstract_typ...utilstyab_valid...metaab...staticab{{meta...abstract...call<call:valid:ab...valid<valid```impl
+valid...valid<implvalidvalidclass```validabvalid
 valid
-valid
-valid
-
-static
-call
+```valid...valid ...valid
+valid<validvalidco...validvalidation
+validvalid
+valid<valid
+ab<valid
 abstract
 valid
-def...abmet...fromabalab<
+<ababstractabcall
+abstractvalid
+valid
+from
+from<class__valid:valid_valid```...valid
+acc...asyncvalidvalidmag...valid_validvalid:valid_valid_valid...validab...valid:valid...valid...valid...valid
+valid...valid
+valids_valid<validvalid...validvalid...valid_valid ...valid<valid...valid...valid...valid_validvalid{{validvalid<valid#valid<valid_valid<reut...defexabb_valid_ex_valid...classvalid...withvalid<valid...valid_class...valid...implvalid:declass:class...class...prom_class_class_ab...re_typ_impl_valid...m...with...valid_re...impl_class_impl():class:result_static_impl_validate_ut_re_valid_valid_impl_valid_validvalidate__class_class_exut_type_e_valid_mmeta_metself_valid_valid<valid__valid_task_ut_validation_impl_utils_valid_mag_type_from_valid_met_class_meta_ab_from_validate_static_type_self_valid_impl_type_meta_type_call_impl_class_impl_ab_valid_class_type_met_impl_type_type_impl<type_class_utils_type_valid_class_impl_class():valid:impl:self:valid(...impl_call(valid_impl_typ_def_meta_impl(ser_with_impl:...typ...met_vimpl:met:met:impl:call_classimpl_dec_met_bvalid_impl_validimpl(ex_impl(dis_magimpl_metimplimpl(impl_classall_self(self(m(typ_impl(all_self_impl_impltype_class(valid(type_ab(impl_impl_meta_implimpl{{def_re_{{b_impl:self(b_classbmet_allco_impl(class(class_self(test_co_self_self_typeimplselfself_mag_valid(type(valid(typeself_type_
