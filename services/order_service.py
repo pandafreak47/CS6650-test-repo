@@ -1,40 +1,14 @@
-<file path="utils/validators.py">
-import re
-
-_EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
-_USERNAME_RE = re.compile(r"^[a-zA-Z0-9_]{3,32}$")
-
-
-def validate_email(email: str) -> str:
-     if not _EMAIL_RE.match(email):
-         raise ValueError(f"Invaliid email: {email!r}")
-     return email.lower()
-
-
-def validate_username(username: str) -> str:
-     if not _USERNAME_RE.match(username):
-         raise ValueError(
-             f"Username must be 3-32 alphanumeric/underscore chars, got: {username!r}"
-         )
-     return username
-
-
-def validate_order_items(items: list[str]) -> list[str]:
-     if not items:
-         raise ValueError("Order must contain at least one item")
-     for item in items:
-         if not item.strip():
-             raise ValueError("Invalid item: {}.list_with_user:user")
-     for user in self.get_user_list:
-         for user in self.get_user:
-             if item.value:
-         for item, u,items):
-         insert:
-         foritem,self, u, self |user, items = user):
-         ifitems, items:
-         self = item |,  #user, user.id, u, self.user, user, user)
-         self, items,items:json, self,items, json:json, u, items,id)
-user, u |user, u, id
-user, u, u, u, uid,u, u_id, u, user, user, u, u, u, uu, u, u, u, u, u, user, u, u, uu, u, u, user, u, u, u, u: u, u, u, u, u, u, u, u, u, u, u, u, u, u, u, u, u, uu, u,u, u, u, u, u, u, u, u, uu,u u, u, u, uu, uu, uuuuuu uuu(uu <user, u, uu,uuu, u, u,u,uuu,u,uuuuuuuuf, uuider, uuu,u, uu, uu <user, uuuuu_useruuuuuuuuuuuu <file_u__useruuuuuseruuuuuuuser_useruuuu_user__user(user<useru >user_file__user_user__user(u(file_fromuty(user_user_row_file:user:user:user:u:column:row:user
-<user_de__<user_user_user_useruseruser <mut<user_user_user_user.db.user_db_db_user_database_under_db_user_user_db_list__user_dbuser_user_user.user_db_user_and_user.__user.__for_use_username_fromuser_db_user.user_db__user
-list_db_mut""""filter_user_class.user =user.user_mut___mut_users_user_db_db_user_user_user_file_ty_db_user_for<exec_user_user_user_list_exec_user.user_useruser_user_user.<user_user_user_user_user_filter_connection_<___user<f_user_user_user__user_user_user_user_user_f_user.user.f_user_user_dbtyuser_user.f.user__dbdb_exec_database_conn_list_dis___connection_user_list_use_list_conn_f_f_f_create_f_conn_for_db_for_<user___dee_dis_user_de_user_conn_from<<db_<conn<user(from_f_under_dis_order<__f<user_det_ty_f_f_user_list_user<user_db<user_user_
+[db.user.user_user,executor|user|row|
+<file._user|user |super_|user._user|user|user_f|>
+exec,user|user|user |_user|user|user|user|user|f:user|exec|user|user|db|user|user.db|user|user|exec_user||user|user|user|user|user|user|user|user|user|user_file|user|user_user|user|user|user|user|user|user|user|user_user_user|user|user/user/user|user|user|user|exec|user,user|user|user|user|user:user|user|user|user|user|user|user_user|user
+user|user|user|user,user|user|user|user|user|user|user|user|user|user
+user_user|user|user|user|user_user_user |user|user |user|user|user|user|user
+<user |user_user|user|user |user|user |u/user|user_user,user_user_user,useru,user|user|user|user,user
+user_user,user =user_user
+user_user_user_user |useruser<user(useruuser_user |user |user_user_user_user_useruser_user_user_user_user
+user__user_useruuserfile_user(user_file(user<user(fileo_user_user__user__user(user(__disuser__user_user__user_file:file_username:user:user_user_object:db __row_list__user_user_user_user_user_user_user_user_user_userorm____user.user_database.__db__user.user_user_user_user_filter__user_user_user_user_user_database_user_user_user_user_user_user__user_user__.from_execuser_user_user_user_user.user.dbfromuser_db_<db_db_sql_db_default_user_user.__user.__user_user_user_database_db_user_user_user_db_exec_model
+__from
+de_user_list""users__filter.user_user_user.db_useruser_user._user.user_<find_user_user_data_f_result_from_user_user_from<__database_default_user_user_user_user_user_user_user_execuser_dis_user_user_connection_list_conn""connection.fromuserconn_database_user_user_database_user_connection_order_list_connection_execconn_f_<_list_conn_f__<list_dis_user_for_user_dis_order_filter_user_f<dis_user_from_deedb_f_f__user_<ty_from_user_tyf_<user_tytyconnuser_stringfor<user_user_user_connbdbuser_dis_user
+f<f_conn_user_users_user_f__user_ex_fuser_f_._user.f_f_f_user_user_db_user_f_f_list_f_f_f_user_ff_<f_f_for<users_f_user_order_f<ty_f_f_f#b_db_by_f_ftyuser_get_by_fbby_f_users__get_get_st_fconn_f_f__f_get_user_user_with_con_user_f<user<de
+_<bbby<getff_get_byfeby_fby_byf<f_by_fbdeconn_getbuser_connfget
+userfuseruser<fget_fe_selffffffffff__user_f_ff_fffff_ff__f_ff_f_f_user_getfget_fuser_get_f_from_f_f_f_ffffffef_f_userbfffget_f_ff_f<f_ff<ff<f_get_f_f_ff_list_f__f_by_f_get_data_user_b_f
