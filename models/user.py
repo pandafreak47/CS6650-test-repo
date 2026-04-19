@@ -14,25 +14,50 @@ class User:
 
     def __post_init__(self):
         """Validate input fields after initialization."""
-        if not isinstance(self.id, int) or self.id <= 0:
+        self._validate_id(self.id)
+        self._validate_username(self.username)
+        self._validate_email(self.email)
+        self._validate_hashed_password(self.hashed_password)
+        self._validate_created_at(self.created_at)
+        self._validate_is_active(self.is_active)
+
+    @staticmethod
+    def _validate_id(id_value: int) -> None:
+        """Validate id field."""
+        if not isinstance(id_value, int) or id_value <= 0:
             raise ValueError("id must be a positive integer")
-        
-        if not isinstance(self.username, str) or not self.username.strip():
+
+    @staticmethod
+    def _validate_username(username: str) -> None:
+        """Validate username field."""
+        if not isinstance(username, str) or not username.strip():
             raise ValueError("username must be a non-empty string")
-        
-        if not isinstance(self.email, str) or not self.email.strip():
+
+    @staticmethod
+    def _validate_email(email: str) -> None:
+        """Validate email field."""
+        if not isinstance(email, str) or not email.strip():
             raise ValueError("email must be a non-empty string")
         
-        if "@" not in self.email or "." not in self.email.split("@")[1]:
+        if "@" not in email or "." not in email.split("@")[1]:
             raise ValueError("email must be a valid email address")
-        
-        if not isinstance(self.hashed_password, str) or not self.hashed_password.strip():
+
+    @staticmethod
+    def _validate_hashed_password(hashed_password: str) -> None:
+        """Validate hashed_password field."""
+        if not isinstance(hashed_password, str) or not hashed_password.strip():
             raise ValueError("hashed_password must be a non-empty string")
-        
-        if not isinstance(self.created_at, datetime):
+
+    @staticmethod
+    def _validate_created_at(created_at: datetime) -> None:
+        """Validate created_at field."""
+        if not isinstance(created_at, datetime):
             raise ValueError("created_at must be a datetime object")
-        
-        if not isinstance(self.is_active, bool):
+
+    @staticmethod
+    def _validate_is_active(is_active: bool) -> None:
+        """Validate is_active field."""
+        if not isinstance(is_active, bool):
             raise ValueError("is_active must be a boolean")
 
     def display(self) -> str:
