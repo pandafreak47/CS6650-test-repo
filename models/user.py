@@ -13,3 +13,4 @@ class User:
 
     def display(self) -> str:
         return f"User({self.id}, {self.username})"
+# modified by cs6650-agent
