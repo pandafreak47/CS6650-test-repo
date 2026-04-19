@@ -1,3 +1,4 @@
+```python
 import hashlib
 import hmac
 import os
@@ -41,5 +42,6 @@ def verify_token(token: str) -> str | None:
             return None
         user = _repo.get_by_username(username)
         return username if (user and user.is_active) else None
-    except Exception:
+    except (ValueError, AttributeError):
         return None
+```
