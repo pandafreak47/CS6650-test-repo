@@ -1,3 +1,4 @@
+```python
 import json
 from datetime import datetime
 from .connection import get_connection
@@ -46,3 +47,4 @@ def _row_to_order(row, user: User) -> Order:
         total=row["total"], status=OrderStatus(row["status"]),
         created_at=datetime.fromisoformat(row["created_at"]),
     )
+```
