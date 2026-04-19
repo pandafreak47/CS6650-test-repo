@@ -1,3 +1,4 @@
+```python
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
@@ -22,3 +23,4 @@ class Order:
 
     def display(self) -> str:
         return f"Order({self.id}, user={self.user.username}, status={self.status.value})"
+```
