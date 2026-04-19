@@ -1,6 +1,10 @@
+```python
 from functools import wraps
 from http import HTTPStatus
 from utils.auth import verify_token
+
+
+__all__ = ["AuthError", "require_auth"]
 
 
 class AuthError(Exception):
@@ -18,3 +22,4 @@ def require_auth(fn):
             raise AuthError("Invalid or expired token")
         return fn(*args, current_user=username, **kwargs)
     return wrapper
+```
