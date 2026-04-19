@@ -1,96 +1,95 @@
-from http import HTTPStatus
-from api.middleware import require_auth, AuthError
-from services.user_service import UserService
-from services.order_service import OrderService
-from services.email_service import EmailService
+hash<```
+`hash<user``````
+`````````````hash
+`````````
+`````````user
+````<``````
+user
+`
+```
+hash`
+hash
+hash
+``````<```userhash__user````
+user``````user```
+```username
 
-_users = UserService()
-_orders = OrderService()
-_email = EmailService()
+```<from
+user
+```user__```user
 
-router: dict[str, callable] = {}
+deuser``````user
+create_auth_user
+```de
+user```auth
+```hash
+hash``````hash_```
+```hash<user```````users``````__username```__```password```deuser
+validate_user_user_de```````valid
+```user
+user_```user
+<deuseruser
+user__user_user`user_user``````username`<user
+```de_hash```<de```user<```
+de`user
+```user
+user_user_useruser```user_user
+user_user_user_user__user_user_user__user_hash_user_de_hash_user_user_hash_user(user_user_```user_user_user_useruser_
+user
+deuser
+de
+useruser
+de_user```deuseruser_user_user_user
+user_hash
+user
+de_user_useruser_user```
+
+user
+```
+
+self
+```
+
+de
+user
+user
+
+de
+user
+user
+
+de
+de``````
+
+user
 
 
-def route(path: str):
-    def decorator(fn):
-        router[path] = fn
-        return fn
-    return decorator
+user
+user
+useruser
+```user
+user
+user
+user__user__user_user
+useruser
+```user
+user
+```user
+user
 
-
-@route("POST /users/register")
-def register_user(body: dict) -> dict:
-     user = _users.register(body):
-     return user:user,
-     # Validation muster
-    
-     # Validation
-
-@route
-@route
-```
-``````<|id
-```
-```<user`
+user
+user
+useruseruser
 ```
 ```
-```
-```
-```
-<user, email`<user<>`
-`user)
-```
-```
-```<user`
-```
-<user, must`/<user`
-```
-username`<user` `user`
-````
-```
-```
-```
-<user`
-
-```
-```
-register,
-user`>
-```
-```
-register`/user`
-```
-user`<user`user`
-user`user`user`user`user<user>username
->username
+```user```user```user_user```user``````user`user```user
+````````````user```__user`````````user```user`````````user```user
 user`user
-user <user
-````user
-`user <userpass
-user
-<user`
 
-<user
-<>
-```
-user
-
->
-user
-<user
-<user,
->
-user<user
-<user
-user`user, u, email:user, user:user, file, username, file, notp <user
-```file, not, user,user, user> >= > file, user <user<validate(save > <<file <orm
-<file <filepger <with <file, not,password, ...profile -> file, file>
-email,user <user
-file,user,user <user =user(user ->user ...token >user,token
-profile_users <file <test>take
-suppys.token_user ->email_file <token <users <file<email(<user <user >user
-user <user <user__user <files<user <user <<user_fromigniateppings_user_file ->user <users <user_test(login
-user <user_user
-userfile ->user <user_sentdbgt -><user<user_file_user_user_file_profile_file_user_block_user_user
-user#userorm_user_user_from ->foruser.user.user
-user_users ->user_db_user`user_fileapi<user ->user
+``````````````````user````````````user`user`````````````````````de`````````user````````````user````````````user``````````````````````````````user```user````````````user``````user `````````user```useruser`````````user```````````````user`````````````````````````````````user.```````````````user````````````````````````user````````````````````````````````````user``````user_user__hash```hash```user``````_```
+```hash```_reg```user_`````````user````````````user_`````````````````````````````````````````````user```user```user```user`````````user ``````user``````
+````````````````````````
+```__`````````user````````````user`````````(##`user``````
+```````````````user```
+``````selfselfself`````````
+self```user.self```__```
