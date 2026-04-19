@@ -49,6 +49,8 @@ class OrderRepo:
             raise ValueError("items list cannot be empty")
         if not all(isinstance(item, str) for item in items):
             raise TypeError("all items must be strings")
+        if not all(item.strip() for item in items):
+            raise ValueError("all items must be non-empty strings")
         if not isinstance(total, (int, float)):
             raise TypeError("total must be a number")
         if total <= 0:
@@ -80,6 +82,8 @@ class OrderRepo:
 def _row_to_order(row, user: User) -> Order:
     if row is None:
         raise ValueError("row cannot be None")
+    if user is None:
+        raise ValueError("user cannot be None")
     if not isinstance(user, User):
         raise TypeError("user must be a User instance")
     
