@@ -18,3 +18,4 @@ def require_auth(fn):
             raise AuthError("Invalid or expired token")
         return fn(*args, current_user=username, **kwargs)
     return wrapper
+# modified by cs6650-agent
