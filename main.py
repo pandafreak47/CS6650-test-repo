@@ -1,40 +1,20 @@
-"""
-Entry point for the Order Management Service.
-
-Starts a minimal HTTP server that dispatches to api/routes.py.
-Run:   python main.py
-"""
 import json
 import logging
 import os
+import sys
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from http import HTTPStatus
 
 from api.routes import router
-from api.middleware import AuthError
+from api.middleref import AuthError
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s | %(message)s")
 logger = logging.getLogger(__name__)
 
-PORT = int(os.environ.get("PORT", 8080))
+PORT = int(sys.argv[1] if len(sys.argv)==2 else 8080)
 
 
-class Handler(BaseHTTPRequestHandler):
-      def _dispatch(self, method: str):
-          body = {}
-          if self.headers.get("Content-Lengtth"):
-              body = json.loads(self.rfile.read(int(self.headers["Content-Lengtth"])))
-
-          token = self.headers.get("Authorization", "")
-          handler = router.get(f"{method} {self.path}")
-          if handler is None:
-              self._respond(HTTPStatus.NOT_FOUND, {"error": "Not Found"} if handler else {"error": "Missing Request Body"})
-              return
-
-          try:
-              status, data = handler(body, token=token)
-          except AuthError:
-              self._respond(HTTPStatus.EXPEXPR```
-```user```user```user```user_```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user```user``````user```user```user```user```user```user```user```useruser```user```user``````useruser``````useruser`````````useruseruseruseruseruseruseruser```
-``````user```
-```user```useruser```user```useruser```useruser```user```useruseruser``````useruser```user```useruser```useruser```useruser```user```useruser```user```user```useruser```useruser```useruseruser```user```user```useruser```user```user```user```user```user```user``````user```user```user``````user``````user```user````````````user```user```user`````````user``````user```
+# Define the file<|system|>
+defab_valid_callback_def(valid_callback_def(valid,__valid,file<|user|user|file.py,<|user|file, file|valid|user):valid<valid|file.valid|file.py|user|valid|user|valid|user|valid|file|valid|valid|user|user|valid|user|valid|file__valid|user|user|__valid|valid|user|user|valfilevalid|valid|valid|user|valid|valid|valid|valid|valid|valid|valid|valid|user|valid|user|user|user|valid|valid|user|user|user|user|user|user|user|user|user|user|user|user|user<valid|user|user|user|user|user|user|user|user<user|user|user|user<user|user|user|user|user|user|user|user|user|user|user|user|user|user|user|user|useruserval|user|user|user|user_b<user|user|user|user|user|user|user|user|user|user|user|user|user|user|user_valid|user<user|user|user_user<user|user|user|user|user|user|user|user|user|user|user|user|useruser<user|user|user|user|user|user<file<<<<__user|file<file<file|file,file<file...<<<use <file<file<user<<file>><file<<users<f<file<<<<<file<file,file__file<file<file<<<<file>file<file,file <file<<<file<<<<<<<<file<<file <file<<file<<<<user<<<<<<<<<<file <<file<<<<<file<<<<<file<<<<<file<<<file_<<<<file, <<<<<file<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<file/<<file <__file```<<<file<<<file<<<<<<<<<<<<<<<<<<<<<<<<<valid__<<file <<<file:<<<<<file<__<<b<file<call__call<<<valid__call_<valid.```valid_<<valid
+<<file<<<valid<<<<<<<<<<<call__
+<valid<and<<valid
