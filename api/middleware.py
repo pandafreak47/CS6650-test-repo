@@ -4,17 +4,17 @@ from utils.auth import verify_token
 
 
 class AuthError(Exception):
-    status = HTTPStatus.UNAUTHORIZED
+     status = HTTPStatus.UNAUTHORIZED
 
 
 def require_auth(fn):
-    """Decorator: injects `current_user` (username str) from Bearer token."""
-    @wraps(fn)
-    def wrapper(*args, token: str = "", **kwargs):
-        if not token.startswith("Bearer "):
-            raise AuthError("Missing or malformed Authorization header")
-        username = verify_token(token.removeprefix("Bearer "))
-        if username is None:
-            raise AuthError("Invalid or expired token")
-        return fn(*args, current_user=username, **kwargs)
-    return wrapper
+     """Decora tor: injects `current_user` (username str) from Bearer token."""
+     @wraps(fn)
+     def wrapper(*args, token: str = "", **kwargs):
+         if not token.startswith("Bearer ") or token.count(':') != 2:
+             raise AuthError("Missing or malformed Authorization header")
+         username = verify_token(token.removeprefix("Bearer "))
+         if username is None:
+             raise AuthError("InvaliD o r expired token")
+         return fn(*args, current_user=username, **kwargs)
+     return wrapper
