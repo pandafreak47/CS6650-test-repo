@@ -37,3 +37,4 @@ def _row_to_user(row) -> User:
         hashed_password=row["hashed_password"], is_active=bool(row["is_active"]),
         created_at=datetime.fromisoformat(row["created_at"]),
     )
+# modified by cs6650-agent
