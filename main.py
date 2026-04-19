@@ -41,11 +41,20 @@ class Handler(BaseHTTPRequestHandler):
         except (LookupError, ValueError) as e:
             self._respond(HTTPStatus.BAD_REQUEST, {"error": str(e)})
 
-    def do_GET(self):  self._dispatch("GET")
-    def do_POST(self): self._dispatch("POST")
-    def do_DELETE(self): self._dispatch("DELETE")
+    def do_GET(self):
+        logger.info("GET request received")
+        self._dispatch("GET")
+
+    def do_POST(self):
+        logger.info("POST request received")
+        self._dispatch("POST")
+
+    def do_DELETE(self):
+        logger.info("DELETE request received")
+        self._dispatch("DELETE")
 
     def _respond(self, status: HTTPStatus, data: dict):
+        logger.info("Responding with status %d", status.value)
         body = json.dumps(data).encode()
         self.send_response(status.value)
         self.send_header("Content-Type", "application/json")
