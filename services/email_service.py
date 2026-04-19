@@ -9,6 +9,10 @@ logger = logging.getLogger(__name__)
 SUBJECT_ORDER_CONFIRMED = "Your order is confirmed"
 SUBJECT_ORDER_CANCELLED = "Your order has been cancelled"
 
+# Logging format constants
+LOG_EMAIL_FORMAT = "EMAIL to=%s subject=%r"
+LOG_BODY_FORMAT = "Body:\n%s"
+
 
 class EmailService:
     """Simulates sending transactional emails (logs to stdout in dev)."""
@@ -22,6 +26,6 @@ class EmailService:
             self._send(order.user.email, SUBJECT_ORDER_CANCELLED, body)
 
     def _send(self, to: str, subject: str, body: str) -> None:
-        logger.info("EMAIL to=%s subject=%r", to, subject)
-        logger.debug("Body:\n%s", body)
+        logger.info(LOG_EMAIL_FORMAT, to, subject)
+        logger.debug(LOG_BODY_FORMAT, body)
 ```
