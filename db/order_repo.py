@@ -1,9 +1,13 @@
 ```python
 import json
 from datetime import datetime
+from typing import TYPE_CHECKING
 from .connection import get_connection
 from models.order import Order, OrderStatus
 from models.user import User
+
+if TYPE_CHECKING:
+    from db.user_repo import UserRepo
 
 
 class OrderRepo:
@@ -41,7 +45,7 @@ class OrderRepo:
         conn.commit()
 
 
-def _row_to_order(row: dict, user: User) -> Order:
+def _row_to_order(row: dict, user: User | None) -> Order:
     return Order(
         id=row["id"], user=user, items=json.loads(row["items"]),
         total=row["total"], status=OrderStatus(row["status"]),
