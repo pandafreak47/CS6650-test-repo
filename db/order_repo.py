@@ -1,6 +1,7 @@
 ```python
 import json
 import logging
+import sqlite3
 from datetime import datetime
 from .connection import get_connection
 from models.order import Order, OrderStatus
