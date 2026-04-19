@@ -1,4 +1,11 @@
+```python
 import re
+
+__all__ = [
+    "validate_email",
+    "validate_username",
+    "validate_order_items",
+]
 
 _EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 _USERNAME_RE = re.compile(r"^[a-zA-Z0-9_]{3,32}$")
@@ -25,3 +32,4 @@ def validate_order_items(items: list[str]) -> list[str]:
         if not item.strip():
             raise ValueError("Order items must not be blank")
     return [i.strip() for i in items]
+```
