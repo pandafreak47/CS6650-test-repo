@@ -66,9 +66,13 @@ class Handler(BaseHTTPRequestHandler):
         logger.info("%s - %s", self.address_string(), fmt % args)
 
 
-if __name__ == "__main__":
+def main():
     logger.info("Starting Order Management Service")
     server = HTTPServer(("0.0.0.0", PORT), Handler)
     logger.info("Listening on port %d", PORT)
     server.serve_forever()
+
+
+if __name__ == "__main__":
+    main()
 ```
