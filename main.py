@@ -1,3 +1,4 @@
+```python
 """
 Entry point for the Order Management Service.
 
@@ -21,6 +22,7 @@ PORT = int(os.environ.get("PORT", 8080))
 
 class Handler(BaseHTTPRequestHandler):
     def _dispatch(self, method: str):
+        logger.info("Dispatching %s %s", method, self.path)
         body = {}
         if self.headers.get("Content-Length"):
             body = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
@@ -56,6 +58,8 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
+    logger.info("Starting Order Management Service")
     server = HTTPServer(("0.0.0.0", PORT), Handler)
     logger.info("Listening on port %d", PORT)
     server.serve_forever()
+```
