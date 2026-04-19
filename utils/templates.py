@@ -1,3 +1,4 @@
+```python
 from models.order import Order
 
 
@@ -23,3 +24,4 @@ def render_cancellation(order: Order) -> str:
         f"Your order #{order.id} has been cancelled.\n"
         f"A refund of ${order.total:.2f} will be processed within 3-5 business days.\n"
     )
+```
