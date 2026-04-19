@@ -1,5 +1,8 @@
+```python
 import os
 import sqlite3
+
+__all__ = ["get_connection"]
 
 _DB_PATH = os.environ.get("DB_PATH", "store.db")
 _conn: sqlite3.Connection | None = None
@@ -35,3 +38,4 @@ def _bootstrap(conn: sqlite3.Connection) -> None:
         );
     """)
     conn.commit()
+```
