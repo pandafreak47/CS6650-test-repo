@@ -22,6 +22,8 @@ class OrderRepo:
             return _row_to_order(row, user)
         except sqlite3.DatabaseError as e:
             raise sqlite3.DatabaseError(f"Failed to retrieve order {order_id}: {str(e)}")
+        except ValueError as e:
+            raise sqlite3.DatabaseError(f"Failed to retrieve order {order_id}: {str(e)}")
 
     def list_for_user(self, user_id: int) -> list[Order]:
         try:
@@ -31,6 +33,8 @@ class OrderRepo:
             user = self._users.get_by_id(user_id)
             return [_row_to_order(r, user) for r in rows]
         except sqlite3.DatabaseError as e:
+            raise sqlite3.DatabaseError(f"Failed to retrieve orders for user {user_id}: {str(e)}")
+        except ValueError as e:
             raise sqlite3.DatabaseError(f"Failed to retrieve orders for user {user_id}: {str(e)}")
 
     def insert(self, user: User, items: list[str], total: float) -> Order:
@@ -42,7 +46,9 @@ class OrderRepo:
             )
             conn.commit()
             return self.get_by_id(cur.lastrowid)
-        except (sqlite3.DatabaseError, json.JSONDecodeError) as e:
+        except sqlite3.DatabaseError as e:
+            raise sqlite3.DatabaseError(f"Failed to insert order: {str(e)}")
+        except json.JSONDecodeError as e:
             raise sqlite3.DatabaseError(f"Failed to insert order: {str(e)}")
 
     def update_status(self, order_id: int, status: OrderStatus) -> None:
@@ -61,6 +67,10 @@ def _row_to_order(row, user: User) -> Order:
             total=row["total"], status=OrderStatus(row["status"]),
             created_at=datetime.fromisoformat(row["created_at"]),
         )
-    except (json.JSONDecodeError, ValueError, KeyError) as e:
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Failed to parse order row: {str(e)}")
+    except ValueError as e:
+        raise ValueError(f"Failed to parse order row: {str(e)}")
+    except KeyError as e:
         raise ValueError(f"Failed to parse order row: {str(e)}")
 ```
