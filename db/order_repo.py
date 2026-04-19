@@ -50,6 +50,7 @@ class OrderRepo:
 
 
 def _row_to_order(row, user: User) -> Order:
+    logger.info(f"_row_to_order() called with row id: {row['id']}, user: {user.id}")
     return Order(
         id=row["id"], user=user, items=json.loads(row["items"]),
         total=row["total"], status=OrderStatus(row["status"]),
