@@ -15,6 +15,7 @@ def get_connection() -> sqlite3.Connection:
         
     Raises:
         ValueError: If database path is invalid.
+        TypeError: If connection object is invalid.
     """
     global _conn
     if _conn is None:
@@ -33,14 +34,17 @@ def _validate_db_path(db_path: str) -> None:
         db_path: The database file path.
         
     Raises:
-        ValueError: If database path is None, empty, or not a string.
+        ValueError: If database path is None, empty, not a string, or too long.
+        TypeError: If database path is not a string.
     """
+    if db_path is None:
+        raise ValueError("Database path cannot be None")
     if not isinstance(db_path, str):
-        raise ValueError("Database path must be a string")
+        raise TypeError("Database path must be a string")
     if not db_path.strip():
         raise ValueError("Database path cannot be empty")
     if len(db_path) > 260:
-        raise ValueError("Database path is too long")
+        raise ValueError("Database path is too long (maximum 260 characters)")
 
 
 def _bootstrap(conn: sqlite3.Connection) -> None:
@@ -54,6 +58,8 @@ def _bootstrap(conn: sqlite3.Connection) -> None:
         TypeError: If conn is not a sqlite3.Connection object.
         sqlite3.DatabaseError: If schema creation fails.
     """
+    if conn is None:
+        raise TypeError("Connection object cannot be None")
     if not isinstance(conn, sqlite3.Connection):
         raise TypeError("Connection must be a sqlite3.Connection object")
     
