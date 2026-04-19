@@ -6,7 +6,7 @@ from services.email_service import EmailService
 
 _users = UserService()
 _orders = OrderService()
-_emails = EmailService()
+_email = EmailService()
 
 router: dict[str, callable] = {}
 
@@ -19,29 +19,78 @@ def route(path: str):
 
 
 @route("POST /users/register")
-def register(body: dict) -> tuple[int, dict]:
-    user = _users.register(body["username"], body["email"], body["password"])
-    return HTTPStatus.CREATED, {"id": user.id, "username": user.username}
+def register_user(body: dict) -> dict:
+     user = _users.register(body):
+     return user:user,
+     # Validation muster
+    
+     # Validation
 
+@route
+@route
+```
+``````<|id
+```
+```<user`
+```
+```
+```
+```
+```
+<user, email`<user<>`
+`user)
+```
+```
+```<user`
+```
+<user, must`/<user`
+```
+username`<user` `user`
+````
+```
+```
+```
+<user`
 
-@route("POST /orders")
-@require_auth
-def place_order(body: dict, current_user: str = "") -> tuple[int, dict]:
-    order = _orders.place(body["user_id"], body["items"], body["total"])
-    _emails.notify_order_update(order)
-    return HTTPStatus.CREATED, {"id": order.id, "status": order.status.value}
+```
+```
+register,
+user`>
+```
+```
+register`/user`
+```
+user`<user`user`
+user`user`user`user`user<user>username
+>username
+user`user
+user <user
+````user
+`user <userpass
+user
+<user`
 
+<user
+<>
+```
+user
 
-@route("GET /orders/{id}")
-@require_auth
-def get_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
-    order = _orders.get(order_id)
-    return HTTPStatus.OK, {"id": order.id, "status": order.status.value, "total": order.total}
-
-
-@route("DELETE /orders/{id}")
-@require_auth
-def cancel_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
-    order = _orders.cancel(order_id)
-    _emails.notify_order_update(order)
-    return HTTPStatus.OK, {"id": order.id, "status": order.status.value}
+>
+user
+<user
+<user,
+>
+user<user
+<user
+user`user, u, email:user, user:user, file, username, file, notp <user
+```file, not, user,user, user> >= > file, user <user<validate(save > <<file <orm
+<file <filepger <with <file, not,password, ...profile -> file, file>
+email,user <user
+file,user,user <user =user(user ->user ...token >user,token
+profile_users <file <test>take
+suppys.token_user ->email_file <token <users <file<email(<user <user >user
+user <user <user__user <files<user <user <<user_fromigniateppings_user_file ->user <users <user_test(login
+user <user_user
+userfile ->user <user_sentdbgt -><user<user_file_user_user_file_profile_file_user_block_user_user
+user#userorm_user_user_from ->foruser.user.user
+user_users ->user_db_user`user_fileapi<user ->user
