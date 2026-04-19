@@ -1,24 +1,16 @@
+<file path="models/user.py">
 from dataclasses import dataclass, field
 from datetime import datetime
-from enum import Enum
-from .user import User
-
-
-class OrderStatus(Enum):
-    PENDING = "pending"
-    CONFIRMED = "confirmed"
-    SHIPPED = "shipped"
-    CANCELLED = "cancelled"
 
 
 @dataclass
-class Order:
+class User:
     id: int
-    user: User
-    items: list[str]
-    total: float
-    status: OrderStatus = OrderStatus.PENDING
+    username: str
+    email: str
+    hashed_password: str
     created_at: datetime = field(default_factory=datetime.utcnow)
+    is_active: bool = True
 
-    def display(self) -> str:
-        return f"Order({self.id}, user={self.user.username}, status={self.status.value})"
+     def display(self) -> str:
+         return f"User({self.id}, {self.username})"
