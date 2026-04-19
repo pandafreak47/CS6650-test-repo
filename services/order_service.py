@@ -23,10 +23,10 @@ class OrderService:
         if total <= 0:
             raise ValueError("Order total must be positive")
         
+        validate_order_items(items)
         user = _user_svc.get(user_id)
         if not user.is_active:
             raise PermissionError("Inactive users cannot place orders")
-        validate_order_items(items)
         return _order_repo.insert(user, items, total)
 
     def get(self, order_id: int) -> Order:
