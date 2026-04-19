@@ -29,6 +29,9 @@ TOTAL_KEY = "total"
 ID_KEY = "id"
 STATUS_KEY = "status"
 
+# Default values
+DEFAULT_CURRENT_USER = ""
+
 
 def route(path: str):
     def decorator(fn):
@@ -45,7 +48,7 @@ def register(body: dict) -> tuple[int, dict]:
 
 @route(PLACE_ORDER_PATH)
 @require_auth
-def place_order(body: dict, current_user: str = "") -> tuple[int, dict]:
+def place_order(body: dict, current_user: str = DEFAULT_CURRENT_USER) -> tuple[int, dict]:
     order = _orders.place(body[USER_ID_KEY], body[ITEMS_KEY], body[TOTAL_KEY])
     _emails.notify_order_update(order)
     return HTTPStatus.CREATED, {ID_KEY: order.id, STATUS_KEY: order.status.value}
@@ -53,14 +56,14 @@ def place_order(body: dict, current_user: str = "") -> tuple[int, dict]:
 
 @route(GET_ORDER_PATH)
 @require_auth
-def get_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
+def get_order(order_id: int, current_user: str = DEFAULT_CURRENT_USER) -> tuple[int, dict]:
     order = _orders.get(order_id)
     return HTTPStatus.OK, {ID_KEY: order.id, STATUS_KEY: order.status.value, TOTAL_KEY: order.total}
 
 
 @route(CANCEL_ORDER_PATH)
 @require_auth
-def cancel_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
+def cancel_order(order_id: int, current_user: str = DEFAULT_CURRENT_USER) -> tuple[int, dict]:
     order = _orders.cancel(order_id)
     _emails.notify_order_update(order)
     return HTTPStatus.OK, {ID_KEY: order.id, STATUS_KEY: order.status.value}
