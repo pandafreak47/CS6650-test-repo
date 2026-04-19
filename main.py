@@ -51,12 +51,19 @@ HANDLER_EXCEPTIONS = (LookupError, ValueError)
 # Header utility constants
 TOKEN_PARAM_NAME = "token"
 
+# Response encoding constants
+ENCODING_UTF8 = "utf-8"
+
+# Index constants
+ZERO_INDEX = 0
+
 
 class Handler(BaseHTTPRequestHandler):
     def _dispatch(self, method: str):
         body = {}
         if self.headers.get(CONTENT_LENGTH_HEADER):
-            body = json.loads(self.rfile.read(int(self.headers[CONTENT_LENGTH_HEADER])))
+            content_length = int(self.headers[CONTENT_LENGTH_HEADER])
+            body = json.loads(self.rfile.read(content_length))
 
         token = self.headers.get(AUTHORIZATION_HEADER, EMPTY_TOKEN)
         route_key = ROUTE_FORMAT.format(method=method, path=self.path)
@@ -66,7 +73,10 @@ class Handler(BaseHTTPRequestHandler):
             return
 
         try:
-            status, data = handler(body, token=token) if method == POST_METHOD else handler(token=token)
+            if method == POST_METHOD:
+                status, data = handler(body, token=token)
+            else:
+                status, data = handler(token=token)
             self._respond(status, data)
         except AuthError as e:
             self._respond(STATUS_UNAUTHORIZED, {ERROR_KEY: str(e)})
@@ -83,7 +93,7 @@ class Handler(BaseHTTPRequestHandler):
         self._dispatch(DELETE_METHOD)
 
     def _respond(self, status: HTTPStatus, data: dict):
-        body = json.dumps(data).encode()
+        body = json.dumps(data).encode(ENCODING_UTF8)
         self.send_response(status.value)
         self.send_header(CONTENT_TYPE_HEADER, CONTENT_TYPE_JSON)
         self.send_header(CONTENT_LENGTH_HEADER, len(body))
