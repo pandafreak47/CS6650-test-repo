@@ -12,23 +12,27 @@ _user_svc = UserService()
 
 class OrderService:
     def place(self, user_id: int, items: list[str], total: float) -> Order:
-        if not isinstance(user_id, int) or user_id <= 0:
+        if not isinstance(user_id, int):
+            raise TypeError("user_id must be an integer")
+        if user_id <= 0:
             raise ValueError("user_id must be a positive integer")
         if not isinstance(items, list):
-            raise ValueError("items must be a list")
+            raise TypeError("items must be a list")
         if not isinstance(total, (int, float)):
-            raise ValueError("total must be a number")
+            raise TypeError("total must be a number")
+        if total <= 0:
+            raise ValueError("Order total must be positive")
         
         user = _user_svc.get(user_id)
         if not user.is_active:
             raise PermissionError("Inactive users cannot place orders")
         validate_order_items(items)
-        if total <= 0:
-            raise ValueError("Order total must be positive")
         return _order_repo.insert(user, items, total)
 
     def get(self, order_id: int) -> Order:
-        if not isinstance(order_id, int) or order_id <= 0:
+        if not isinstance(order_id, int):
+            raise TypeError("order_id must be an integer")
+        if order_id <= 0:
             raise ValueError("order_id must be a positive integer")
         
         order = _order_repo.get_by_id(order_id)
@@ -37,7 +41,9 @@ class OrderService:
         return order
 
     def cancel(self, order_id: int) -> Order:
-        if not isinstance(order_id, int) or order_id <= 0:
+        if not isinstance(order_id, int):
+            raise TypeError("order_id must be an integer")
+        if order_id <= 0:
             raise ValueError("order_id must be a positive integer")
         
         order = self.get(order_id)
@@ -47,7 +53,9 @@ class OrderService:
         return self.get(order_id)
 
     def list_for_user(self, user_id: int) -> list[Order]:
-        if not isinstance(user_id, int) or user_id <= 0:
+        if not isinstance(user_id, int):
+            raise TypeError("user_id must be an integer")
+        if user_id <= 0:
             raise ValueError("user_id must be a positive integer")
         
         _user_svc.get(user_id)  # raises if not found
