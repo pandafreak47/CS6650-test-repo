@@ -1,11 +1,16 @@
+```python
 import os
 import sqlite3
+import logging
 
 _DB_PATH = os.environ.get("DB_PATH", "store.db")
 _conn: sqlite3.Connection | None = None
 
+logger = logging.getLogger(__name__)
+
 
 def get_connection() -> sqlite3.Connection:
+    logger.debug("get_connection() called")
     global _conn
     if _conn is None:
         _conn = sqlite3.connect(_DB_PATH, check_same_thread=False)
@@ -35,3 +40,4 @@ def _bootstrap(conn: sqlite3.Connection) -> None:
         );
     """)
     conn.commit()
+```
