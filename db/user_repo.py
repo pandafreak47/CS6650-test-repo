@@ -1,5 +1,6 @@
 ```python
 from datetime import datetime
+import sqlite3
 from .connection import get_connection
 from models.user import User
 
