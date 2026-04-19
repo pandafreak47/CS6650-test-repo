@@ -46,3 +46,4 @@ def cancel_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
     _emails.notify_order_update(order)
     return HTTPStatus.OK, {"id": order.id, "status": order.status.value}
 # modified by cs6650-agent
+# modified by cs6650-agent
