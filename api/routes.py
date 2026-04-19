@@ -63,8 +63,24 @@ def _validate_order_id(order_id: int) -> None:
         raise ValueError("order_id must be a positive integer")
 
 
+def _validate_user_id(user_id: int) -> None:
+    """Validate user_id parameter."""
+    if not isinstance(user_id, int) or user_id <= 0:
+        raise ValueError("user_id must be a positive integer")
+
+
+def _validate_token(token: str) -> None:
+    """Validate token parameter."""
+    if not isinstance(token, str):
+        raise ValueError("Authorization header must be a string")
+    if not token:
+        raise ValueError("Authorization header cannot be empty")
+
+
 @route("POST /users/register")
 def register(body: dict) -> tuple[int, dict]:
+    if not isinstance(body, dict):
+        raise ValueError("Request body must be a JSON object")
     _validate_register_body(body)
     user = _users.register(body["username"], body["email"], body["password"])
     return HTTPStatus.CREATED, {"id": user.id, "username": user.username}
@@ -73,6 +89,10 @@ def register(body: dict) -> tuple[int, dict]:
 @route("POST /orders")
 @require_auth
 def place_order(body: dict, current_user: str = "") -> tuple[int, dict]:
+    if not isinstance(body, dict):
+        raise ValueError("Request body must be a JSON object")
+    if not isinstance(current_user, str):
+        raise ValueError("current_user must be a string")
     _validate_place_order_body(body)
     order = _orders.place(body["user_id"], body["items"], body["total"])
     _emails.notify_order_update(order)
@@ -82,16 +102,5 @@ def place_order(body: dict, current_user: str = "") -> tuple[int, dict]:
 @route("GET /orders/{id}")
 @require_auth
 def get_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
-    _validate_order_id(order_id)
-    order = _orders.get(order_id)
-    return HTTPStatus.OK, {"id": order.id, "status": order.status.value, "total": order.total}
-
-
-@route("DELETE /orders/{id}")
-@require_auth
-def cancel_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
-    _validate_order_id(order_id)
-    order = _orders.cancel(order_id)
-    _emails.notify_order_update(order)
-    return HTTPStatus.OK, {"id": order.id, "status": order.status.value}
-```
+    if not isinstance(order_id, int):
+        raise ValueError("order_id must be an integer
