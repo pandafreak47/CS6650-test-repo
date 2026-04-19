@@ -35,3 +35,4 @@ class OrderService:
     def list_for_user(self, user_id: int) -> list[Order]:
         _user_svc.get(user_id)  # raises if not found
         return _order_repo.list_for_user(user_id)
+# modified by cs6650-agent
