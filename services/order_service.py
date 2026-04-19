@@ -24,90 +24,17 @@ def validate_order_items(items: list[str]) -> list[str]:
          raise ValueError("Order must contain at least one item")
      for item in items:
          if not item.strip():
-             raise ValueError("Order items must not be blank")
-     return [i.strip() for i in items]
-
-
-def validate_order_total(total: float) -> bool:
-     if not total > 0:
-         raise ValueError("Order total must be positive")
-     return True
-
-
-class OrderService:
-     def __init__(self, user_repo: UserRepo):
-         self.user_repo = user_repo
-
-     def place(self, user_id: int, items: list[str], total: float) -> Order:
-         user = self.user_repo.get(user_id)
-         if not user.is_active:
-             raise PermissionError("Inactive users cannot place orders")
-         validate_order_items(items)
-         if total <= 0:
-             raise ValueError("Order total must be positive")
-         return self.user_repo.insert(user, items, total)
-
-     def get(self, order_id: int) -> Order:
-         order = self.user_repo.get_by_id(order_id)
-         if not order:
-             raise LookupError(f"Order {order_id} not found")
-         return order
-
-     def cancel(self, order_id: int) -> Order:
-         order = self.user_repo.get(order_id)
-         if not order:
-             raise LookupError('Order not found')
-         return self.user, order)
-
-     def list_for_items(self, user_id)
-         self
-
-```
-```
-
-#
-order_id:
-user_id)
-
-# order
-
-_user:
-
-,
-items)
-user
-for, order
-user, order_id,
-import
-# order, user
-import, user, row, user, order
-
-list, status, user, items, user, json:
-user
-_id:order, # Order
-
-user
-
-
-
-
-
-
-
-
-user,
-user
-
-
-user
-id
-#user
-user,id_user, user,user>
-user>user,user,user,user, u, user, id, user, user,
-user,user
-user, user, u, User, u, u, user, user
-user, user, user, user, user, user, User, u, user, user, u, u
-user
-user, user, u,user, u, user,u,user, user, user, u, u,user, u, u, user, u, u, u,user,u,u,user,user,u,user, u
-user, uiduids(user,user:user(file <user |file, #file, uyd |user,file =user,user,user,user,user,user,user,id =userpide_useru_user, uuser,user,user,user_user,user,user_user_user_user_file_file_user
-file__user_user_user_user__user_file_user__from__user =user_from_from_user_user_from__<user_from__user__list_dbuser_with_user(from_data__with__user_list_filter_user_saved:user_model_user:__user_user_object__user_user__user
+             raise ValueError("Invalid item: {}.list_with_user:user")
+     for user in self.get_user_list:
+         for user in self.get_user:
+             if item.value:
+         for item, u,items):
+         insert:
+         foritem,self, u, self |user, items = user):
+         ifitems, items:
+         self = item |,  #user, user.id, u, self.user, user, user)
+         self, items,items:json, self,items, json:json, u, items,id)
+user, u |user, u, id
+user, u, u, u, uid,u, u_id, u, user, user, u, u, u, uu, u, u, u, u, u, user, u, u, uu, u, u, user, u, u, u, u: u, u, u, u, u, u, u, u, u, u, u, u, u, u, u, u, u, uu, u,u, u, u, u, u, u, u, u, uu,u u, u, u, uu, uu, uuuuuu uuu(uu <user, u, uu,uuu, u, u,u,uuu,u,uuuuuuuuf, uuider, uuu,u, uu, uu <user, uuuuu_useruuuuuuuuuuuu <file_u__useruuuuuseruuuuuuuser_useruuuu_user__user(user<useru >user_file__user_user__user(u(file_fromuty(user_user_row_file:user:user:user:u:column:row:user
+<user_de__<user_user_user_useruseruser <mut<user_user_user_user.db.user_db_db_user_database_under_db_user_user_db_list__user_dbuser_user_user.user_db_user_and_user.__user.__for_use_username_fromuser_db_user.user_db__user
+list_db_mut""""filter_user_class.user =user.user_mut___mut_users_user_db_db_user_user_user_file_ty_db_user_for<exec_user_user_user_list_exec_user.user_useruser_user_user.<user_user_user_user_user_filter_connection_<___user<f_user_user_user__user_user_user_user_user_f_user.user.f_user_user_dbtyuser_user.f.user__dbdb_exec_database_conn_list_dis___connection_user_list_use_list_conn_f_f_f_create_f_conn_for_db_for_<user___dee_dis_user_de_user_conn_from<<db_<conn<user(from_f_under_dis_order<__f<user_det_ty_f_f_user_list_user<user_db<user_user_
