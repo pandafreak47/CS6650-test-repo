@@ -1,3 +1,4 @@
+```python
 """
 Entry point for the Order Management Service.
 
@@ -38,10 +39,18 @@ class Handler(BaseHTTPRequestHandler):
             self._respond(HTTPStatus.UNAUTHORIZED, {"error": str(e)})
         except (LookupError, ValueError) as e:
             self._respond(HTTPStatus.BAD_REQUEST, {"error": str(e)})
+        except Exception as e:
+            logger.error("Unhandled exception: %s", str(e))
+            self._respond(HTTPStatus.INTERNAL_SERVER_ERROR, {"error": "Internal server error"})
 
-    def do_GET(self):  self._dispatch("GET")
-    def do_POST(self): self._dispatch("POST")
-    def do_DELETE(self): self._dispatch("DELETE")
+    def do_GET(self):
+        self._dispatch("GET")
+
+    def do_POST(self):
+        self._dispatch("POST")
+
+    def do_DELETE(self):
+        self._dispatch("DELETE")
 
     def _respond(self, status: HTTPStatus, data: dict):
         body = json.dumps(data).encode()
@@ -59,3 +68,4 @@ if __name__ == "__main__":
     server = HTTPServer(("0.0.0.0", PORT), Handler)
     logger.info("Listening on port %d", PORT)
     server.serve_forever()
+```
