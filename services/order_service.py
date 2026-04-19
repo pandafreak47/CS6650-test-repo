@@ -7,6 +7,10 @@ from utils.validators import validate_order_items
 
 # Constants
 MIN_ORDER_TOTAL = 0
+ERROR_INACTIVE_USER = "Inactive users cannot place orders"
+ERROR_INVALID_ORDER_TOTAL = "Order total must be positive"
+ERROR_CANNOT_CANCEL_ORDER = "Cannot cancel order in status: {status}"
+ERROR_ORDER_NOT_FOUND = "Order {order_id} not found"
 
 _user_repo = UserRepo()
 _order_repo = OrderRepo(_user_repo)
@@ -17,22 +21,22 @@ class OrderService:
     def place(self, user_id: int, items: list[str], total: float) -> Order:
         user = _user_svc.get(user_id)
         if not user.is_active:
-            raise PermissionError("Inactive users cannot place orders")
+            raise PermissionError(ERROR_INACTIVE_USER)
         validate_order_items(items)
         if total <= MIN_ORDER_TOTAL:
-            raise ValueError("Order total must be positive")
+            raise ValueError(ERROR_INVALID_ORDER_TOTAL)
         return _order_repo.insert(user, items, total)
 
     def get(self, order_id: int) -> Order:
         order = _order_repo.get_by_id(order_id)
         if not order:
-            raise LookupError(f"Order {order_id} not found")
+            raise LookupError(ERROR_ORDER_NOT_FOUND.format(order_id=order_id))
         return order
 
     def cancel(self, order_id: int) -> Order:
         order = self.get(order_id)
         if order.status not in (OrderStatus.PENDING, OrderStatus.CONFIRMED):
-            raise ValueError(f"Cannot cancel order in status: {order.status.value}")
+            raise ValueError(ERROR_CANNOT_CANCEL_ORDER.format(status=order.status.value))
         _order_repo.update_status(order_id, OrderStatus.CANCELLED)
         return self.get(order_id)
 
