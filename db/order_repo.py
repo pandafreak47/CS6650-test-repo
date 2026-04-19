@@ -68,6 +68,11 @@ class OrderRepo:
 
 
 def _row_to_order(row, user: User) -> Order:
+    if row is None:
+        raise ValueError("row cannot be None")
+    if not isinstance(user, User):
+        raise ValueError("user must be a User instance")
+    
     return Order(
         id=row["id"], user=user, items=json.loads(row["items"]),
         total=row["total"], status=OrderStatus(row["status"]),
