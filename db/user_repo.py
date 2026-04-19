@@ -1,5 +1,6 @@
 ```python
 from datetime import datetime
+from sqlite3 import Row
 from .connection import get_connection
 from models.user import User
 
@@ -32,7 +33,7 @@ class UserRepo:
         conn.commit()
 
 
-def _row_to_user(row: any) -> User:
+def _row_to_user(row: Row) -> User:
     return User(
         id=row["id"], username=row["username"], email=row["email"],
         hashed_password=row["hashed_password"], is_active=bool(row["is_active"]),
