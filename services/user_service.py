@@ -1,26 +1,55 @@
-from db.user_repo import UserRepo
-from models.user import User
-from utils.validators import validate_email, validate_username
-from utils.auth import hash_password
+user, row_file,row,user |user, ify_,user, if |user
+if(user, id
+if |user
+if |user
+user_file |user <user |user |file_id |user
+user_user,user |file
+rowsidey
+id
+filey |user_file
+<user |file if
+if <file
+user
+fileporm
 
-_repo = UserRepo()
+user ifym if =user_filey<user
+user =user |user(user |file =__file ...file()user(file_file
+user_user_user_user(user_userientty__user_user_user__user_db_user___user
+<<user_user <user_table_from__row
+from <column_column
+user_table_user__data
+user_user_column_user_from_dborm_user_user_user(user(user_user_user_user.__username__tim_user_insert_user_user._user.user_user_db.user.user_userpy_user_user_user_user_user_session_if_model
+...row_column_model_from__user.data.tim_for""user
+from ...fromdbuser_dbdb_user_fromuser_user__user""user_user_user__user__useruser_user_c_user_user_id_user...<<django__...user_user_"".user_user_user_user_user_user_user_user...user.<json_user ...
 
+from_user_user_tim_from_<db_user_user_dbuser ...user_user_user_useruser_user_user_user_user_user_user_user_user_user_user.user_<user_user_user_account_user_user_user_user...connect_useruser_db_default_from_username...self_conn_default_from_user_<db_user
+datetime_date_user_tim_dis_user_timestamp_datetime_connect_f_test_db_db_user_dat_tuple_datetime_timestamp_datetime_id_from_datetime_dat_json_sql<for_exec_t<user
+<conn_dis_user_user_if_user_user_f
+user_if_ififif
+if...datetime_user_connection...conn<user_<timestamp.
+insert<._f._tuple_rep_date_f...from_user_f...f_exec__f_user_<f__f_fe_dis_st__fee_from_from_disby
+f_by_connect##e<dat
+__rep
+user_connect_bybyby<user_jsondt<<tuple
+by_get_disf_t_timestamp<tytybyimpl_getconn_conn__check""fe_getby_try_db
+conn_user
+reptyget<disby_getby...__by<fe_by_to_rep_fpytdconnfrep<sync
+tconnection_timf_tototob_ftfgetfromr
 
-class UserService:
-    def register(self, username: str, email: str, password: str) -> User:
-        validate_username(username)
-        validate_email(email)
-        if len(password) < 8:
-            raise ValueError("Password must be at least 8 characters")
-        hashed = hash_password(password)
-        return _repo.insert(username, email, hashed)
+fromfromuser__f<
+get""f""ff_rep_fromtyreptd_impl_fe_rep#f
+serbrep_getf_ty...frep()getf
+self_ff<__getget_f_ff
+f
+ddict
+getrow
+dictffrowffrowf__row
+repff
+fromfreptyfpyto_toto__row_getrowrow...rowrow
+rowrow_row_rowfrow_rowtototorow_serial_f_row_rowfrow_tuple_rep_f_row_row_frow_row_rep_row_by_row_frow_row_by_rep_row_row_row_row_rowrowrow_row_rowrow_row_row_row_f_get_reprow_frow
+row_row_row_row_rep_rep_rep_row
+rep_rep
+rep
+rep_row
 
-    def get(self, user_id: int) -> User:
-        user = _repo.get_by_id(user_id)
-        if not user:
-            raise LookupError(f"User {user_id} not found")
-        return user
-
-    def deactivate(self, user_id: int) -> None:
-        self.get(user_id)  # raises if not found
-        _repo.deactivate(user_id)
+row_row_row_row_row_row_frow_row_self_fromrowgetrowrow_getrow_row_row_row_rowrowrowrowrorep_repby_fby_row...rep_rep.rep_rep_row_rep_by_row_rep_by_rep_row_by_derow_row_fe(row_row_row_f_get_rep_rep_rep_if_getrep
