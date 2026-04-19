@@ -62,7 +62,11 @@ class User:
 
     def display(self) -> str:
         """Return a string representation of the user."""
-        if not isinstance(self.username, str) or not isinstance(self.id, int):
-            raise ValueError("Invalid user data for display")
+        if not isinstance(self.username, str):
+            raise ValueError("username must be a string")
+        if not isinstance(self.id, int):
+            raise ValueError("id must be an integer")
+        if self.id <= 0:
+            raise ValueError("id must be a positive integer")
         return f"User({self.id}, {self.username})"
 ```
