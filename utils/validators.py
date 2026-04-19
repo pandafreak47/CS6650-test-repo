@@ -1,3 +1,4 @@
+```python
 import re
 
 _EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
@@ -25,3 +26,4 @@ def validate_order_items(items: list[str]) -> list[str]:
         if not item.strip():
             raise ValueError("Order items must not be blank")
     return [i.strip() for i in items]
+```
