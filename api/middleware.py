@@ -31,6 +31,20 @@ def require_auth(fn):
     """
     @wraps(fn)
     def wrapper(*args, token: str = "", **kwargs):
+        """
+        Validate the Bearer token and call the decorated function.
+        
+        Args:
+            *args: Positional arguments to pass to the decorated function.
+            token: The Authorization header value containing the Bearer token.
+            **kwargs: Keyword arguments to pass to the decorated function.
+            
+        Returns:
+            The return value of the decorated function.
+            
+        Raises:
+            AuthError: If the token is missing, malformed, invalid, or expired.
+        """
         if not token.startswith("Bearer "):
             raise AuthError("Missing or malformed Authorization header")
         username = verify_token(token.removeprefix("Bearer "))
