@@ -1,8 +1,12 @@
+```python
 import json
+import logging
 from datetime import datetime
 from .connection import get_connection
 from models.order import Order, OrderStatus
 from models.user import User
+
+logger = logging.getLogger(__name__)
 
 
 class OrderRepo:
@@ -10,6 +14,7 @@ class OrderRepo:
         self._users = user_repo
 
     def get_by_id(self, order_id: int) -> Order | None:
+        logger.info(f"Getting order by id: {order_id}")
         row = get_connection().execute(
             "SELECT * FROM orders WHERE id = ?", (order_id,)
         ).fetchone()
@@ -19,6 +24,7 @@ class OrderRepo:
         return _row_to_order(row, user)
 
     def list_for_user(self, user_id: int) -> list[Order]:
+        logger.info(f"Listing orders for user_id: {user_id}")
         rows = get_connection().execute(
             "SELECT * FROM orders WHERE user_id = ?", (user_id,)
         ).fetchall()
@@ -26,6 +32,7 @@ class OrderRepo:
         return [_row_to_order(r, user) for r in rows]
 
     def insert(self, user: User, items: list[str], total: float) -> Order:
+        logger.info(f"Inserting order for user_id: {user.id}, total: {total}")
         conn = get_connection()
         cur = conn.execute(
             "INSERT INTO orders (user_id, items, total) VALUES (?, ?, ?)",
@@ -35,6 +42,7 @@ class OrderRepo:
         return self.get_by_id(cur.lastrowid)
 
     def update_status(self, order_id: int, status: OrderStatus) -> None:
+        logger.info(f"Updating order_id: {order_id} status to: {status.value}")
         conn = get_connection()
         conn.execute("UPDATE orders SET status = ? WHERE id = ?", (status.value, order_id))
         conn.commit()
@@ -46,3 +54,4 @@ def _row_to_order(row, user: User) -> Order:
         total=row["total"], status=OrderStatus(row["status"]),
         created_at=datetime.fromisoformat(row["created_at"]),
     )
+```
