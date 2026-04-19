@@ -1,3 +1,4 @@
+```python
 import json
 from datetime import datetime
 from .connection import get_connection
@@ -6,7 +7,7 @@ from models.user import User
 
 
 class OrderRepo:
-    def __init__(self, user_repo):
+    def __init__(self, user_repo: "UserRepo") -> None:
         self._users = user_repo
 
     def get_by_id(self, order_id: int) -> Order | None:
@@ -40,9 +41,10 @@ class OrderRepo:
         conn.commit()
 
 
-def _row_to_order(row, user: User) -> Order:
+def _row_to_order(row: dict, user: User) -> Order:
     return Order(
         id=row["id"], user=user, items=json.loads(row["items"]),
         total=row["total"], status=OrderStatus(row["status"]),
         created_at=datetime.fromisoformat(row["created_at"]),
     )
+```
