@@ -1,3 +1,4 @@
+```python
 from http import HTTPStatus
 from api.middleware import require_auth, AuthError
 from services.user_service import UserService
@@ -10,6 +11,24 @@ _emails = EmailService()
 
 router: dict[str, callable] = {}
 
+# Route paths
+REGISTER_USER_PATH = "POST /users/register"
+PLACE_ORDER_PATH = "POST /orders"
+GET_ORDER_PATH = "GET /orders/{id}"
+CANCEL_ORDER_PATH = "DELETE /orders/{id}"
+
+# Request body keys
+USERNAME_KEY = "username"
+EMAIL_KEY = "email"
+PASSWORD_KEY = "password"
+USER_ID_KEY = "user_id"
+ITEMS_KEY = "items"
+TOTAL_KEY = "total"
+
+# Response body keys
+ID_KEY = "id"
+STATUS_KEY = "status"
+
 
 def route(path: str):
     def decorator(fn):
@@ -18,30 +37,31 @@ def route(path: str):
     return decorator
 
 
-@route("POST /users/register")
+@route(REGISTER_USER_PATH)
 def register(body: dict) -> tuple[int, dict]:
-    user = _users.register(body["username"], body["email"], body["password"])
-    return HTTPStatus.CREATED, {"id": user.id, "username": user.username}
+    user = _users.register(body[USERNAME_KEY], body[EMAIL_KEY], body[PASSWORD_KEY])
+    return HTTPStatus.CREATED, {ID_KEY: user.id, USERNAME_KEY: user.username}
 
 
-@route("POST /orders")
+@route(PLACE_ORDER_PATH)
 @require_auth
 def place_order(body: dict, current_user: str = "") -> tuple[int, dict]:
-    order = _orders.place(body["user_id"], body["items"], body["total"])
+    order = _orders.place(body[USER_ID_KEY], body[ITEMS_KEY], body[TOTAL_KEY])
     _emails.notify_order_update(order)
-    return HTTPStatus.CREATED, {"id": order.id, "status": order.status.value}
+    return HTTPStatus.CREATED, {ID_KEY: order.id, STATUS_KEY: order.status.value}
 
 
-@route("GET /orders/{id}")
+@route(GET_ORDER_PATH)
 @require_auth
 def get_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
     order = _orders.get(order_id)
-    return HTTPStatus.OK, {"id": order.id, "status": order.status.value, "total": order.total}
+    return HTTPStatus.OK, {ID_KEY: order.id, STATUS_KEY: order.status.value, TOTAL_KEY: order.total}
 
 
-@route("DELETE /orders/{id}")
+@route(CANCEL_ORDER_PATH)
 @require_auth
 def cancel_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
     order = _orders.cancel(order_id)
     _emails.notify_order_update(order)
-    return HTTPStatus.OK, {"id": order.id, "status": order.status.value}
+    return HTTPStatus.OK, {ID_KEY: order.id, STATUS_KEY: order.status.value}
+```
