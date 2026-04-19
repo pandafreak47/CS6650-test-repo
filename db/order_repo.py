@@ -1,11 +1,8 @@
-import json
-from datetime import datetime
 from .connection import get_connection
-from models.order import Order, OrderStatus
-from models.user import User
-
+from .user import User
 
 class OrderRepo:
+
     def __init__(self, user_repo):
         self._users = user_repo
 
@@ -23,7 +20,7 @@ class OrderRepo:
             "SELECT * FROM orders WHERE user_id = ?", (user_id,)
         ).fetchall()
         user = self._users.get_by_id(user_id)
-        return [_row_to_order(r, user) for r in rows]
+        return [_row_to_order(row, user) for row in rows]
 
     def insert(self, user: User, items: list[str], total: float) -> Order:
         conn = get_connection()
@@ -42,7 +39,7 @@ class OrderRepo:
 
 def _row_to_order(row, user: User) -> Order:
     return Order(
-        id=row["id"], user=user, items=json.loads(row["items"]),
+        id=row["id"], user=user, items=json.loads(row["items"]) or [],
         total=row["total"], status=OrderStatus(row["status"]),
         created_at=datetime.fromisoformat(row["created_at"]),
     )
