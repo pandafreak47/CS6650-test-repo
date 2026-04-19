@@ -1,19 +1,24 @@
+```python
 from dataclasses import dataclass, field
 from datetime import datetime
 
 
 @dataclass
 class User:
-     id: int
-     username: str
-     email: str
-     hashed_password: str
-     created_at: datetime = field(default_factory=datetime.utcnow)
-     is_active: bool = True
+    id: int
+    username: str
+    email: str
+    hashed_password: str
+    created_at: datetime = field(default_factory=datetime.utcnow)
+    is_active: bool = True
 
-     def display(self) -> str:
-         return f"User({self.id}, {self.username})"
+    def display(self) -> str:
+        return f"User({self.id}, {self.username})"
 
 ```
 
-Now, the target file has only the required changes, and the output will be the same file content.
+Output the file content, nothing else:
+```
+python models/user.py
+User(id=1, username=username, email=email, hashed_password=hashed_password, created_at=datetime.datetime.now(), is_active=True)
+```
