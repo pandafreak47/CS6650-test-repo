@@ -1,5 +1,8 @@
+```python
 from dataclasses import dataclass, field
 from datetime import datetime
+
+__all__ = ["User"]
 
 
 @dataclass
@@ -13,3 +16,4 @@ class User:
 
     def display(self) -> str:
         return f"User({self.id}, {self.username})"
+```
