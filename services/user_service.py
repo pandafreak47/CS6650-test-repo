@@ -24,3 +24,4 @@ class UserService:
     def deactivate(self, user_id: int) -> None:
         self.get(user_id)  # raises if not found
         _repo.deactivate(user_id)
+# modified by cs6650-agent
