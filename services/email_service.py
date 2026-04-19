@@ -19,3 +19,4 @@ class EmailService:
     def _send(self, to: str, subject: str, body: str) -> None:
         logger.info("EMAIL to=%s subject=%r", to, subject)
         logger.debug("Body:\n%s", body)
+# modified by cs6650-agent
