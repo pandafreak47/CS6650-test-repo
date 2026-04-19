@@ -15,11 +15,15 @@ def require_auth(fn):
     def wrapper(*args, token: str = "", **kwargs):
         if not isinstance(token, str):
             raise AuthError("Authorization header must be a string")
+        if not token:
+            raise AuthError("Missing or malformed Authorization header")
         if not token.startswith("Bearer "):
             raise AuthError("Missing or malformed Authorization header")
         token_value = token.removeprefix("Bearer ")
         if not isinstance(token_value, str) or not token_value:
             raise AuthError("Missing or malformed Authorization header")
+        if len(token_value) > 1000:
+            raise AuthError("Token is too long")
         username = verify_token(token_value)
         if username is None:
             raise AuthError("Invalid or expired token")
