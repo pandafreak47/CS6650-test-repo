@@ -1,50 +1,83 @@
-<file path="tests/test_models.py">
-from unittest import TestCase
-from unittest.mock import Mock
+class User:
+         id: int
+         username: str
+         email: str
+         hashed_password: str
+         created_at: datetime = field(init=field_type(str))
+         is_active: bool = True
 
-from .order import Order
-from .user import User
+         def __post_init__(self):
+             if self.username == "" ...:
+                 raise ValueError("username cannot beempty")
 
+         def __repr(self):
+             return f"User({self.id, username=username,email)
+class User:
+         password:
+self
+username=str, email=username=username)
+> username=email
 
-class TestModel(TestCase):
-    
-     def setUp(self) -> None:
-         Mock(UserWithToken).return_value = Mock()
-         Mock(UserWithPassword).return_value = Mock()
-        
-     def test_display(self):
-         order = Order(id=1, user=User(username="user1"), items=["a", "b", "c"], total=100.0)
-         self.assertEqual(order.display(), f"Order(1, User(username='user1'), items=[a, b, c], total=100.0)")
-         order = Order(id=2, user=User(username="user2"), items=["a", "b", "c"], total=100.0)
-         self.assertEqual(order.display(), f"Order(2, User(username='user2'), items=[a, b, c], total=100.0)")
-         with self.assertRaises(ValueError):
-             Order(id=3, user=User(username="user3"), items=["a", "b", "c"], total=100.0)
-         with self.assertRaises(ValueError):
-             Order(id=4, user=User(username="user4"), items=["a", "b", "c"], total=100.0)
-         with self.assertRaises(ValueError):
-             Order(id=5, user=User(username="user5"), items=["a", "b", "c"], total=100.0)
-         with self.assertRaises(ValueError):
-             Order(id=6, user=User(username="user6"), items=["a", "b", "c"], total=100.0)
-         with self.assertRaises(ValueError):
-             Order(id=7, user=User(username="user7"), items=["a", "b", "c"], total=100.0)
-         with self.assertRaises(ValueError):
-             Order(id=8, user=User(username="user8"), items=["a", "b", "c"], total=100.0)
-         with self.assertRaises(ValueError):
-             Order(id=9, user=User(username="user9"), items=["a", "b", "c"], total=100.0)
-         with self.assertRaises(ValueError):
-             Order(id=10, user=User(username="user10"), items=["a", "b", "c"], total=100.0)
+username
+email
+email=username=user, email, email
 
-     def test_display_with_user(self):
-         order = Order(id=1, user=User(username="user1"), items=["a", "b", "c"], total=100.0)
-         self.assertEqual(order.display(), f"Order({order.id}, User(username='user1'), items=[a, b, c], total=100.0)")
-         with self.assertRaises(ValueError):
-             Order(id=11, user=User(username="user1"), items=["a", "b", "c"], total=100.0)
+username: email
+user, email
 
-     def test_display(self):
-         order = Order(id=1, id2, "user", "email", hash=hash)
-         self.assertEqual(fidict, "Email",fidict[1,items=[a,b]
-            order = fignot[1,email]
-        password_a[1,email,b,email/hash,email,hash,email,items,email,email,email,b,email,email,email
-class,email,email[email, f,hash, username=email,email,f,email,email, email,email,email,email,email,email
-email,email,email,email,email,email,f,email,f,email,email,email,email,email,email,email,email,email,email,email,email, email,email,email,email,email,email,email,email,email,email,email,email
-email,email,email,email,email,email,email,email,email
+user_password=username, email, email=email,email, email=email,email=email, username=email=email, email, email, email= email,email,email, email,email,email,password, email,username
+username,email,email,password, email, email,username,email,email, password, email, email,file,email,username,email,email, email,email,email,email,password
+file,email,email, email, email, email
+email,email,email,email,email,email, email,email, email, email,email,email, username, email,email,email, email, email,email, email, email, email, email, email, email,email, email, email, email,email,email, email,email, email,email, email, email,email, email, email,email,email,email,email,password, email, email,email,username, email,
+ <username,email,email, file, email, email,email, idpurmodel
+
+file
+file<file(email
+user
+file
+file
+
+with_custom
+file
+file <user
+user
+file:file_file
+file
+<FileTokenive:file:file:file:file<<user <fcur_fromfile ...user
+```data<userp<data<user =<<maybe <user <file ...class<<from_required <optional_file <file_custom = ...required
+<maybe_datetime_class<<<nested
+<<mut_required<rep
+<rep__rep_def
+nested__model<__class_<repreprepre<def__default_<class_model__repdefreprep_user =def_rep_reprepmodel
+model__from__subject<for...reprepreprep""follow
+ex<optional<...User__re""repfromrepreprepreprepclass_tuplerep_rep
+reencedfromrep_classfrom__optionaluser_optional__priv_repuser #user...username##re<user_requiredreprepoptional<user_userrepreprepereprerepuser
+for<defaultserial<user<user_fromr__default...ty
+```
+<required
+useruser...<fromsserclassdefault
+classreserfromdefaultuser
+fromrep...fromdef_userreuserreprep__repdeuseruser<<rep__reptyuser```serialext<redictreclass__tuwithrepredict...default
+dict
+rep...default
+
+modelrepndrepuserreprepreprepuser__rep...fromdictdata__type
+rep
+reprequired_tuple___@user__re
+rep_ifdefclassdata_typ<datarep_user_typeetypety<class
+for
+<user
+def<user_dattytyp__
+typedict
+dictsserialrep<user""datetime""__
+<from__types
+euser<user@tyr<reprepreprep<reprereprepreprep<reprereprep
+rep<user""reprep__rep<repreprepreprepreprepreprepdreprep
+rep
+reprepreprepreprepreprepreprepreprepreprepreprepre__repreprereprepreprep__reprepreprepreprepreprepreprcrcrep""repreprep__reprerepreprep
+fromrepReRep
+rep
+reprerepreprep_reprepreprepreprepreprepreprepreprepreprepreReRepReprepreprepRepRepRepRepRepReprepreprepReprepreRepreprepRepRepRepUserreprepreprepreprepReprepreprepreprepreprepdreprepreprepreprepreprepreprep
+fromuser<repfromfromfromTRepTurepRep
+repTypD##repallreprepd
+repTypTuisrepfromfromfromfromfromfromfromfromrep#isa...rep__
