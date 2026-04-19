@@ -24,3 +24,4 @@ def render_cancellation(order: Order) -> str:
         f"A refund of ${order.total:.2f} will be processed within 3-5 business days.\n"
     )
 # modified by cs6650-agent
+# modified by cs6650-agent
