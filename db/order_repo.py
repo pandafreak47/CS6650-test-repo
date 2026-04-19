@@ -11,10 +11,11 @@ logger = logging.getLogger(__name__)
 
 class OrderRepo:
     def __init__(self, user_repo):
+        logger.info(f"Initializing OrderRepo with user_repo: {user_repo}")
         self._users = user_repo
 
     def get_by_id(self, order_id: int) -> Order | None:
-        logger.info(f"Getting order by id: {order_id}")
+        logger.info(f"get_by_id() called with order_id: {order_id}")
         row = get_connection().execute(
             "SELECT * FROM orders WHERE id = ?", (order_id,)
         ).fetchone()
@@ -24,7 +25,7 @@ class OrderRepo:
         return _row_to_order(row, user)
 
     def list_for_user(self, user_id: int) -> list[Order]:
-        logger.info(f"Listing orders for user_id: {user_id}")
+        logger.info(f"list_for_user() called with user_id: {user_id}")
         rows = get_connection().execute(
             "SELECT * FROM orders WHERE user_id = ?", (user_id,)
         ).fetchall()
@@ -32,7 +33,7 @@ class OrderRepo:
         return [_row_to_order(r, user) for r in rows]
 
     def insert(self, user: User, items: list[str], total: float) -> Order:
-        logger.info(f"Inserting order for user_id: {user.id}, total: {total}")
+        logger.info(f"insert() called with user_id: {user.id}, items: {items}, total: {total}")
         conn = get_connection()
         cur = conn.execute(
             "INSERT INTO orders (user_id, items, total) VALUES (?, ?, ?)",
@@ -42,7 +43,7 @@ class OrderRepo:
         return self.get_by_id(cur.lastrowid)
 
     def update_status(self, order_id: int, status: OrderStatus) -> None:
-        logger.info(f"Updating order_id: {order_id} status to: {status.value}")
+        logger.info(f"update_status() called with order_id: {order_id}, status: {status.value}")
         conn = get_connection()
         conn.execute("UPDATE orders SET status = ? WHERE id = ?", (status.value, order_id))
         conn.commit()
