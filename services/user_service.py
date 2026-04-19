@@ -18,6 +18,7 @@ class UserService:
         
         username = username.strip()
         email = email.strip()
+        password = password.strip()
         
         if not username:
             raise ValueError("username must not be blank")
