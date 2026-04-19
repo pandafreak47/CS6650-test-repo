@@ -1,7 +1,10 @@
+```python
 from db.user_repo import UserRepo
 from models.user import User
 from utils.validators import validate_email, validate_username
 from utils.auth import hash_password
+
+__all__ = ["UserService"]
 
 _repo = UserRepo()
 
@@ -24,3 +27,4 @@ class UserService:
     def deactivate(self, user_id: int) -> None:
         self.get(user_id)  # raises if not found
         _repo.deactivate(user_id)
+```
