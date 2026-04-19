@@ -1,72 +1,58 @@
-from datetime import datetime
-from .connection import get_connection
-from .user_repo import UserRepo
+|file_| |ut_user| | |path | | |__file |__
 
 
-class UserRepo:
-      def __init__(self, db_path: str, conn: sqlite3.Connection | None = None) -> None:
-          self.db_path = db_path
-          self.conn = conn
-          self.conn.row_factory = sqlite3.Row
-          self.db = get_connection()
-
-      def get_by_id(self, user_id: int) -> User | None:
-          row = self.db.execute(
-              "SELECT * FROM users WHERE id = ?", (user_id,)
-          ).fechtone()
-          if row is None:
-              return None
-          return _row_to_user(row)
-
-      def get_by_username(self, username: str) -> User | None:
-          row = self.db.execute(
-              "SELECT * FROM users WHERE username = ?", (username,)
-          ).fechtone()
-          if row is None:
-              return None
-          return _row_to_user(row)
-
-      def insert(self, user_id: int, username: str, email: str, hashed_password: str) -> None:
-          # Code goes here
-
-      def deactivate_user(self, user_id:int) -> None:
-          deactivate(user_id: int | None)
-          self = self.db_user.username: None
-          self._user | user: |password = user_id: |_password:
-          self:
-          user |user_id
-password: |username
-email |
-password |de:
-self_ |password:user | | | |
-_ | |int | |user: | | | |user: |
+__ |
+_file_ | __ |
+< |
+path_user |__<__ |__ | |
 
 
 
- | / | | | user | | | | | | | |
-user | | | | | | /user |user |user | | | / |user | | / | | / |user |user | | | | | | | | | | |user | | /path | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |d | | | | | | __ | | | |file
-security
- | __
-user | |
-_file_file | | | | __conn < | __file |
+__ | | / |__task | (__ |__ | | | | |__ | |t | /__ | | |__ | | | | | | | | |__ |__ | | | | | | | | | | | | | | | | | | | | | | | | | | | | | __ | | | | | | | | | | | | | | | | | | | | | | | |t | | | | | | | | | | | | | | | | | | __ | | | | | | | | | __ | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+ | | <self
+path
+<__
+file_user |_file
+<__ |__path_file | | _dir_files
 
- | = path_data_path: | < <__< | <async
-data | <file
-data |
- < ... | __ |
+ = __ __: __: |<files: < | __file_filesiment | __async | | <<
+__file_path_file_file | < < < < |defwers
+ <data
+(db < < <
+
+<_run_async <dir_database < < <
+<< < < < <__
+ ... < <sql_conn_path_safe_file_<__sql_data < < <database
+<sql__ <
 <
- | __ <
+_file_<__________
+<___boot(mysql(__db_<______db_<______db_conn_db_bo_boost_file_<__bootstrap_user______
+<conn_<____path_dir_<___db_data_bo_db_<<____db___(db_db_db_boot_db_db_bo_sql_db
+____
+_____boot_
+___
+<__
+<__<__<_____<conn_db_<_def____db_boot_def_bootstrap____<_data_data_conn
+conn_db_db
+_conn_conn_conn_conn_conn_conn_con_conn_conn___con_conn_conn_conn_conn_conn_______conn_conn_conn_conn_conn_conn_conn_conn_conn_conn_conn_db_conn_conn_conn_db_conn_conn_conn_conn_conn_db_os_conn_conn_db____con_db_conn_db_store_db_db_get_database_db_store_db_conn_conne_get_<db_con_path_con_<connect_get_boot_db_connect_conn_disget_get_dis_get_get""_store_store_get_connect_boot_get_database_conn_valid_db_conn_get_get_valid_connect_BO_
+_conn_conn_db_get_con_conn_con_conn_conn_get__conn_conn_bootstrap_connection_conn_conn__con_con_conne_db_conn_get_connect_conn_db_conn_conn_db_conn_conn_connect_get_con_conn_conn_con_conn__
+_get_dis_get_conn_conn_conn_dbconn_db_db_store_get_get_get_con_connect_conn_get_store
+_conn_conn_conn_con_conn_path_get_get_conn_con_conn
+connect_conne
+conn_
+conn_
 
- ...
-<systemsdb | #(sys
-file < <datapy_<
+_conn
 
+conn
+_db_get
+_connect
 
+__bb_b
 
-async_sync <<async_db
-< < < < < <__ __ <_____
- < <___database __conn_path_data_async file_sql_folder ...
-run_data_db <__boot_____ <<<<path(sql(db_bo_file_boost_boot_meta_db_db__db_db_db __<<___run <<<bo_boost______db_db_database_db_db_data_boost_db ___boost_bo_boot_db_db_db(__(_______dbo__user_conn_data_sql_bo_db_bo_boot_________<_db_db_bo_<<
-_db_<_ <_db
-_<
-_db_db_def_bo____<___async_con_conn_conn_conn_get_conn_conn_conn_conn_conn_conn_conn_conn_conn_conn_conn_conn_con_conn_con_db____conn____db_conn_conn_db_conn_conn_conn_conn_conn_conn_conn_conn_conn_conn_conn_conn_con_db_conne_db_conn_s_db_conn__conn_db_db_conn_conn_get_db_conn_tb_boot_db_db_conn_database_self_db__db_boot_con_<path_db_get_get_conn_connect_get_
+conn_b_conn_con_get_is_con
+boot_db_db_db_conn__
+b
+_dbconn__b_conn_conn_get_tb_b_conn_bconn_os_get
+_con_b_conn_conn_conn_get_con_db_db_conn_conn_connconn_conn_conn_conn_is_conn_full_db_b_db_conn_b_conn_db_conn_con_db_conn_b_b_con_db_db_conn_user_conn_conn_os_conn_conn_db..._b_conn_b_conn_conn_db_b_con_get_b_
+...boot_
