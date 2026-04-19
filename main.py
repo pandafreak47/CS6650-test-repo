@@ -33,6 +33,16 @@ GET_METHOD = "GET"
 POST_METHOD = "POST"
 DELETE_METHOD = "DELETE"
 
+# HTTP status codes
+STATUS_NOT_FOUND = HTTPStatus.NOT_FOUND
+STATUS_UNAUTHORIZED = HTTPStatus.UNAUTHORIZED
+STATUS_BAD_REQUEST = HTTPStatus.BAD_REQUEST
+
+# Route format constants
+ROUTE_FORMAT = "{method} {path}"
+DISPATCH_FORMAT_POST = "{method} {path}"
+DISPATCH_FORMAT_OTHER = "{method} {path}"
+
 
 class Handler(BaseHTTPRequestHandler):
     def _dispatch(self, method: str):
@@ -41,18 +51,19 @@ class Handler(BaseHTTPRequestHandler):
             body = json.loads(self.rfile.read(int(self.headers[CONTENT_LENGTH_HEADER])))
 
         token = self.headers.get(AUTHORIZATION_HEADER, EMPTY_TOKEN)
-        handler = router.get(f"{method} {self.path}")
+        route_key = ROUTE_FORMAT.format(method=method, path=self.path)
+        handler = router.get(route_key)
         if handler is None:
-            self._respond(HTTPStatus.NOT_FOUND, {"error": NOT_FOUND_ERROR})
+            self._respond(STATUS_NOT_FOUND, {"error": NOT_FOUND_ERROR})
             return
 
         try:
             status, data = handler(body, token=token) if method == POST_METHOD else handler(token=token)
             self._respond(status, data)
         except AuthError as e:
-            self._respond(HTTPStatus.UNAUTHORIZED, {"error": str(e)})
+            self._respond(STATUS_UNAUTHORIZED, {"error": str(e)})
         except (LookupError, ValueError) as e:
-            self._respond(HTTPStatus.BAD_REQUEST, {"error": str(e)})
+            self._respond(STATUS_BAD_REQUEST, {"error": str(e)})
 
     def do_GET(self):
         self._dispatch(GET_METHOD)
