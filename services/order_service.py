@@ -13,7 +13,7 @@ _INVALID_TOTAL_ERROR = "Order total must be positive"
 
 # Business Rules
 _CANCELLABLE_STATUSES = (OrderStatus.PENDING, OrderStatus.CONFIRMED)
-_MIN_TOTAL = 0
+_MIN_TOTAL = 0.0
 
 _user_repo = UserRepo()
 _order_repo = OrderRepo(_user_repo)
