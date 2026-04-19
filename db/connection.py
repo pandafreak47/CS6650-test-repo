@@ -1,7 +1,7 @@
 import os
 import sqlite3
 
-_DB_PATH = os.environ.get("DB_PATH", "store.db")
+_DB_PATH = os.getenv("DB_PATH", "store.db")
 _conn: sqlite3.Connection | None = None
 
 
@@ -15,7 +15,7 @@ def get_connection() -> sqlite3.Connection:
 
 
 def _bootstrap(conn: sqlite3.Connection) -> None:
-    conn.executescript("""
+    conn.execute("""
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT UNIQUE NOT NULL,
@@ -29,7 +29,7 @@ def _bootstrap(conn: sqlite3.Connection) -> None:
             user_id INTEGER NOT NULL,
             items TEXT NOT NULL,
             total REAL NOT NULL,
-            status TEXT DEFAULT 'pending',
+            status TEXT DEFAULT 'pendin',
             created_at TEXT DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (user_id) REFERENCES users(id)
         );
