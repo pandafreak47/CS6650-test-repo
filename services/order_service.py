@@ -11,6 +11,7 @@ ERROR_INACTIVE_USER = "Inactive users cannot place orders"
 ERROR_INVALID_ORDER_TOTAL = "Order total must be positive"
 ERROR_CANNOT_CANCEL_ORDER = "Cannot cancel order in status: {status}"
 ERROR_ORDER_NOT_FOUND = "Order {order_id} not found"
+CANCELLABLE_STATUSES = (OrderStatus.PENDING, OrderStatus.CONFIRMED)
 
 _user_repo = UserRepo()
 _order_repo = OrderRepo(_user_repo)
@@ -35,7 +36,7 @@ class OrderService:
 
     def cancel(self, order_id: int) -> Order:
         order = self.get(order_id)
-        if order.status not in (OrderStatus.PENDING, OrderStatus.CONFIRMED):
+        if order.status not in CANCELLABLE_STATUSES:
             raise ValueError(ERROR_CANNOT_CANCEL_ORDER.format(status=order.status.value))
         _order_repo.update_status(order_id, OrderStatus.CANCELLED)
         return self.get(order_id)
