@@ -68,6 +68,7 @@ class Handler(BaseHTTPRequestHandler):
 
 def main():
     logger.info("Starting Order Management Service")
+    logger.info("main() entry point")
     server = HTTPServer(("0.0.0.0", PORT), Handler)
     logger.info("Listening on port %d", PORT)
     server.serve_forever()
