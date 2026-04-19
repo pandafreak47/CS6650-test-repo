@@ -24,6 +24,7 @@ def route(path: str):
 
 @route("POST /users/register")
 def register(body: dict) -> tuple[int, dict]:
+    logger.info("Entering register()")
     logger.info("POST /users/register - user registration attempt")
     logger.debug("register() called with body=%s", body)
     user = _users.register(body["username"], body["email"], body["password"])
@@ -33,6 +34,7 @@ def register(body: dict) -> tuple[int, dict]:
 @route("POST /orders")
 @require_auth
 def place_order(body: dict, current_user: str = "") -> tuple[int, dict]:
+    logger.info("Entering place_order()")
     logger.info("POST /orders - placing order for user_id=%s by %s", body.get("user_id"), current_user)
     logger.debug("place_order() called with body=%s, current_user=%s", body, current_user)
     order = _orders.place(body["user_id"], body["items"], body["total"])
@@ -43,6 +45,7 @@ def place_order(body: dict, current_user: str = "") -> tuple[int, dict]:
 @route("GET /orders/{id}")
 @require_auth
 def get_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
+    logger.info("Entering get_order()")
     logger.info("GET /orders/%s - retrieving order by %s", order_id, current_user)
     logger.debug("get_order() called with order_id=%s, current_user=%s", order_id, current_user)
     order = _orders.get(order_id)
@@ -52,6 +55,7 @@ def get_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
 @route("DELETE /orders/{id}")
 @require_auth
 def cancel_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
+    logger.info("Entering cancel_order()")
     logger.info("DELETE /orders/%s - cancelling order by %s", order_id, current_user)
     logger.debug("cancel_order() called with order_id=%s, current_user=%s", order_id, current_user)
     order = _orders.cancel(order_id)
