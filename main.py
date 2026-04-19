@@ -1,3 +1,4 @@
+```python
 """
 Entry point for the Order Management Service.
 
@@ -16,19 +17,30 @@ from api.middleware import AuthError
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s | %(message)s")
 logger = logging.getLogger(__name__)
 
-PORT = int(os.environ.get("PORT", 8080))
+# Configuration constants
+DEFAULT_PORT = 8080
+PORT_ENV_VAR = "PORT"
+HOST = "0.0.0.0"
+CONTENT_TYPE_JSON = "application/json"
+CONTENT_LENGTH_HEADER = "Content-Length"
+CONTENT_TYPE_HEADER = "Content-Type"
+AUTHORIZATION_HEADER = "Authorization"
+EMPTY_STRING = ""
+NOT_FOUND_ERROR = "Not found"
+
+PORT = int(os.environ.get(PORT_ENV_VAR, DEFAULT_PORT))
 
 
 class Handler(BaseHTTPRequestHandler):
     def _dispatch(self, method: str):
         body = {}
-        if self.headers.get("Content-Length"):
-            body = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
+        if self.headers.get(CONTENT_LENGTH_HEADER):
+            body = json.loads(self.rfile.read(int(self.headers[CONTENT_LENGTH_HEADER])))
 
-        token = self.headers.get("Authorization", "")
+        token = self.headers.get(AUTHORIZATION_HEADER, EMPTY_STRING)
         handler = router.get(f"{method} {self.path}")
         if handler is None:
-            self._respond(HTTPStatus.NOT_FOUND, {"error": "Not found"})
+            self._respond(HTTPStatus.NOT_FOUND, {"error": NOT_FOUND_ERROR})
             return
 
         try:
@@ -46,8 +58,8 @@ class Handler(BaseHTTPRequestHandler):
     def _respond(self, status: HTTPStatus, data: dict):
         body = json.dumps(data).encode()
         self.send_response(status.value)
-        self.send_header("Content-Type", "application/json")
-        self.send_header("Content-Length", len(body))
+        self.send_header(CONTENT_TYPE_HEADER, CONTENT_TYPE_JSON)
+        self.send_header(CONTENT_LENGTH_HEADER, len(body))
         self.end_headers()
         self.wfile.write(body)
 
@@ -56,6 +68,7 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    server = HTTPServer(("0.0.0.0", PORT), Handler)
+    server = HTTPServer((HOST, PORT), Handler)
     logger.info("Listening on port %d", PORT)
     server.serve_forever()
+```
