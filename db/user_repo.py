@@ -3,18 +3,25 @@ from datetime import datetime
 from .connection import get_connection
 from models.user import User
 
-# Constants
+# SQL Query Constants
 _SQL_SELECT_ALL_BY_ID = "SELECT * FROM users WHERE id = ?"
 _SQL_SELECT_ALL_BY_USERNAME = "SELECT * FROM users WHERE username = ?"
 _SQL_INSERT_USER = "INSERT INTO users (username, email, hashed_password) VALUES (?, ?, ?)"
 _SQL_UPDATE_DEACTIVATE = "UPDATE users SET is_active = 0 WHERE id = ?"
-_ACTIVE_STATUS_INACTIVE = 0
+
+# Database Column Constants
 _DB_COLUMN_ID = "id"
 _DB_COLUMN_USERNAME = "username"
 _DB_COLUMN_EMAIL = "email"
 _DB_COLUMN_HASHED_PASSWORD = "hashed_password"
 _DB_COLUMN_IS_ACTIVE = "is_active"
 _DB_COLUMN_CREATED_AT = "created_at"
+
+# Status Constants
+_ACTIVE_STATUS_INACTIVE = 0
+
+# Boolean Conversion Constants
+_BOOL_TRUE = True
 
 
 class UserRepo:
