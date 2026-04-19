@@ -26,6 +26,8 @@ DB_CONSTRAINT_UNIQUE = "UNIQUE"
 DB_CONSTRAINT_NOT_NULL = "NOT NULL"
 DB_CONSTRAINT_DEFAULT = "DEFAULT"
 DB_CONSTRAINT_FOREIGN_KEY = "FOREIGN KEY"
+DB_CONNECTION_CHECK_SAME_THREAD = False
+DB_ROW_FACTORY_TYPE = "Row"
 
 _DB_PATH = os.environ.get(DB_PATH_ENV_VAR, DEFAULT_DB_NAME)
 _conn: sqlite3.Connection | None = None
@@ -34,8 +36,8 @@ _conn: sqlite3.Connection | None = None
 def get_connection() -> sqlite3.Connection:
     global _conn
     if _conn is None:
-        _conn = sqlite3.connect(_DB_PATH, check_same_thread=False)
-        _conn.row_factory = sqlite3.Row
+        _conn = sqlite3.connect(_DB_PATH, check_same_thread=DB_CONNECTION_CHECK_SAME_THREAD)
+        _conn.row_factory = getattr(sqlite3, DB_ROW_FACTORY_TYPE)
         _bootstrap(_conn)
     return _conn
 
