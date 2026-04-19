@@ -25,3 +25,4 @@ class UserService:
         self.get(user_id)  # raises if not found
         _repo.deactivate(user_id)
 # modified by cs6650-agent
+# modified by cs6650-agent
