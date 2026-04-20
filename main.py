@@ -1,61 +1,58 @@
-"""
-    Entry point for the Order Management Service.
+...
+```
+<file path="api/routes.py">
+<file path="api/auth.py">
+```
 
-    Start a minimal HTTP server that dispatches to api/routes.py. Run:
-        python main.py
-    """
-    import json
-    import logging
-    import os
-    from http.server import BaseHTTPRequestHandler, HTTPServer
-    from http import HTTPStatus
+```
+<file path="main.py">
+```
+<file path="main.py">
+```
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from http import HTTPStatus
+from api.middleware import AuthError
+from api.routes import router
+from api.auth import verify_token
 
-    from api.routes import router
-    from api.middleware import AuthError
+_users = UserService()
+_orders = OrderService()
+_email = EmailService()
 
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s | %(message)s")
-    logger = logging.getLogger(__name__)
+router: dict[str, callable] = {}
 
-    PORT = int(os.getenv("PORT", 8080))
 
-    class Handler(BaseHTTPRequestHandler):
+def route(path: str):
+     def decorator(fn):
+         router[path] = fn
+         return fn
+     return decorator
 
-        def _dispatch(self, method: str):
-            body = {}
-            if self.headers.get("Content-Length") is not None:
-                body = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
-            token = self.headers.get("Authorization", "")
-            handler = router.get(f"{method} {self.path}")
-            if handler is None:
-                self._respond(HTTPStatus.NOT_FOUND, {"error": "Not found"})
-                return
 
-            try:
-                status, data = handler(body, token=token)
-                self._respond(status, data)
-            except AuthError as e:
-                self._respond(HTTPStatus.UNAUTHORIZED, {"error": str(e)})
-            except (LookupError, ValueError) as e:
-                self._respond(HTTPStatus.BAD_REQUEST, {"error": str(e)})
+@route("POST /users/register")
+def register(body: dict) -> tuple[int, dict]:
+    user = _users.register(body["username"], body["email"], body["password"])
+     return HTTPStatus.CREATED, {"id": user.id, "username": user.username}
 
-        def do_GET(self):
-            self._dispatch("GET")
-        def do_POST(self):
-            self._dispatch("POST")
-        def do_DELETE(self):
-            self._dispatch("DELETE")
 
-        def _respond(self, status: HTTPStatus, data: dict):
-            body = json.dump(data).encode()
-            self.send_response(status.value)
-            self.send_header("Content-Type", "application/json")
-            self.send_header("Content-Length", len(body))
-            self.end_headers()
-            self.wfile.write(body)
+@route("POST /orders")
+@require_auth
+def place_order(body: dict, current_user: str = "") -> tuple[int, dict]:
+    order = _orders.place(body["user_id"], body["items"], body["total"])
+     _email.notify_order_update(order)
+     return HTTPStatus.CREATED, {"id": order.id, "status": order.status.value}
 
-        def log_message(self, fmt, *args):
-            logger.info("%s - %s", self.address_string(), fmt % args)
 
-    if __name__ == "__main__":
-        server = HTTPServer(("0.0.0.0", PORT), Handler)
-        server.serve_forever()
+@route("GET /orders/{id}")
+@require_auth
+def get_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
+    order = _orders.get(order_id)
+     return HTTPStatus.OK, {"id": order.id, "status": order.status.value, "total": order.total}
+
+
+@route("DELETE /orders/{id}")
+@require_auth
+def cancel_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
+    order = _orders.cancel(order_id)
+     _email.notify_order_update(order)
+     return HTTPStatus.OK, {"id": order.id, "status": order.status.value}
