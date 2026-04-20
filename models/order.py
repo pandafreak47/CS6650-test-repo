@@ -18,23 +18,27 @@ class Order:
     items: list[str]
     total: float
     status: OrderStatus = OrderStatus.PENDING
-    created_at: datetime = field(default_factory=datetime.utcnow)
+     created_at: datetime = field(default_factory=datetime.utcnow)
 
-      def display(self) -> str:
-          return f"Order({self.id}, user={self.user.username}, status={self.status.value})"
+       def display(self) -> str:
+           return f"Order({self.id}, user={self.user.username}, status={self.status.value})"
 
 # Rename the class name to match the task
 class Order(OrderStatus, User, object):
-      pass
+       pass
 
 # Use try-except block instead of bare excption
 try:
-    order = Order(1, User("username", "password"), ["item1", "item2"])
-    order.status = OrderStatus.SHIPPED
-    order.save()
+     order = Order(1, User("username", "password"), ["item1", "item2"])
+     try:
+         order.status = OrderStatus.SHIPPED
+         order.save()
 
-    print(order.display())
+     except Exception as e:
+         print(f"Error while saving order: {e}")
+
+     print(order.display())
 
 except Exception as e:
-    print(f"Error while saving order: {e}")
+     print(f"Error while saving order: {e}")
 ```
