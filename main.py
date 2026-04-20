@@ -1,55 +1,90 @@
-import json
-import logging
-import os
-from http.server import BaseHTTPRequestHandler, HTTPServer
-from http import HTTPStatus
 from api.routes import router
 from api.middleware import AuthError
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s | %(message)s")
-logger = logging.getLogger(__name__)
+_users = UserService()
+_orders = OrderService()
+_emails = EmailService()
 
-PORT = int(os.environ.get("PORT", 8080))
-
-
-class Handler(BaseHTTPRequestHandler):
-     def _dispatch(self, method: str):
-         body = {}
-         if self.headers.get("Content-Length"):
-             body = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
-
-         token = self.headers.get("Authorization", "")
-         handler = router.get(f"{method} {self.path}")
-         if handler is None:
-             self._respond(HTTPStatus.NOT_FOUND, {"error": "Not found"}):
-         else:
-             try:
-                 status, data = handler(body, token=token) if method == "POST" else handler(token=token)
-                 self._respond(status, data)
-             except AuthError as e:
-                 self._respond(HTTPStatus.UNAUTHORIZED, {"error": str(e)})
-             except (LookupError, ValueError) as e:
-                 self._respond(HTTPStatus.BAD_REQUEST, {"error": str(e)})
-         except Exception as e:
-             self._respond(HTTPStatus.INTERNAL_SERVER_ERROR, {"error": str(e)})
-
-     def do_GET(self):   self._dispatch("GET")
-     def do_POST(self): self._dispatch("POST")
-     def do_DELETE(self): self._dispatch("DELETE")
-
-     def _respond(self, status: HTTPStatus, data: dict):
-         body = json.dump(data).encode()
-         self.send_response(status.value)
-         self.send_header("Content-Type", "application/json")
-         self.send_header("Content-Length", len(body))
-         self.end_headers()
-         self.wfile.write(body)
-
-     def log_message(self, fmt, *args):
-         logger.info("%s - %s", self.address_string(), fmt % args)
+router: dict[str, callable] = {}
 
 
-if __name__ == "__main__":
-     server = HTTPServer(("0.0.0.0", PORT), Handler)
-     logger.info("Listening on port %d", PORT)
-     server.serve_forever()
+def route(path: str):
+     def decorator(fn):
+         router[path] = fn
+         return fn
+     return decorator
+
+
+@route("POST /users/register")
+def register(body: dict) -> tuple[int, dict]:
+     user = _users.register(body["username"], body["email"], body["password"])
+     return HTTPStatus.CREATED, {"id": user.id, "username": user.username}
+
+
+@route("POST /orders")
+@require_auth
+def place_order(body: dict, current_user: str = "") -> tuple[int, dict]:
+     order = _orders.place(body["user_id"], body["items"], body["total"])
+     _emails.notify_order_update(order)
+     return HTTPStatus.CREATED, {"id": order.id, "status": order.status.value}
+
+
+@route("GET /orders/{id}")
+@require_auth
+def get_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
+     order = _orders.get(order_id)
+     return HTTPStatus.OK, {"id": order.id, "status": order.status.value, "total": order.total}
+
+
+@route("DELETE /orders/{id}")
+@require_auth
+def cancel_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
+     order = _orders.cancel(order_id)
+     _emails.notify_order_update(order)
+     return HTTPStatus.OK, {"id": order.id, "status": order.status.value}
+
+
+@route("GET /users")
+def get_users() -> tuple[int, dict[str, dict]]:
+     return HTTPStatus.OK, {"users": {}}
+
+
+@route("POST /users")
+def create_user(body: dict) -> tuple[int, dict]:
+     user = _users.create(**body)
+     _emails.notify_user_register(user)
+     return HTTPStatus.CREATED, {"id": user.id}
+
+
+@route("POST /orders")
+def create_order(body: dict) -> tuple[int, dict]:
+     order = _orders.create(**body)
+     _emails.notify_order_update(order)
+     return HTTPStatus.CREATED, {"id": order.id}
+
+
+@route("POST /orders/track")
+@require_auth
+def track_order(body: dict) -> tuple[int, dict]:
+     order = _orders.track(body["order_id"])
+     return HTTPStatus.OK, {"id": order.id}
+
+
+@route("POST /orders/resend")
+def resend_order(body: dict) -> tuple[int, dict]:
+     order_id = body["order_id"]
+     order = _orders.get(order_id)
+     _orders.resend(order)
+     return HTTPStatus.OK, {"id": order_id}
+
+
+@route("GET /orders")
+def get_orders(body: dict) -> tuple[str, dict]:
+     return json.load(body)
+
+```
+
+```
+```
+@route("POST /orders")
+```
