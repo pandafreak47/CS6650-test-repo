@@ -1,47 +1,25 @@
-from http import HTTPStatus
-from api.middleware import require_auth, AuthError
-from services.user_service import UserService
-from services.order_service import OrderService
-from services.email_service import EmailService
+```
+andorder.user>
+>and`
+```""
 
-_users = UserService()
-_orders = OrderService()
-_emails = EmailService()
+```user`user`to`user?file
+to
+```
+to_st,user,userfile
 
-router: dict[str, callable] = {}
+user]
+file
+too"
 
-
-def route(path: str):
-    def decorator(fn):
-        router[path] = fn
-        return fn
-    return decorator
-
-
-@route("POST /users/register")
-def register(body: dict) -> tuple[int, dict]:
-    user = _users.register(body["username"], body["email"], body["password"])
-    return HTTPStatus.CREATED, {"id": user.id, "username": user.username}
-
-
-@route("POST /orders")
-@require_auth
-def place_order(body: dict, current_user: str = "") -> tuple[int, dict]:
-    order = _orders.place(body["user_id"], body["items"], body["total"])
-    _emails.notify_order_update(order)
-    return HTTPStatus.CREATED, {"id": order.id, "status": order.status.value}
-
-
-@route("GET /orders/{id}")
-@require_auth
-def get_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
-    order = _orders.get(order_id)
-    return HTTPStatus.OK, {"id": order.id, "status": order.status.value, "total": order.total}
-
-
-@route("DELETE /orders/{id}")
-@require_auth
-def cancel_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
-    order = _orders.cancel(order_id)
-    _emails.notify_order_update(order)
-    return HTTPStatus.OK, {"id": order.id, "status": order.status.value}
+thisest_st] >and]st_
+thisst]st,andto_tot
+ to_or` tostst
+sts:sts:stststst>st toststststsstst tos tosts tost,filetststststststst:ststststst,filestststststststststststststststststststst,stst, andst andststst<st.st>ststsstststststst (stsstststsstsstststst <filestsststststst_ststst
+stststststsstststst thests.st.stestst<filestsstststs andststsxtestfile,stssts<filedsts.
+<ands orsts<file""file<s.filefstsort andstsandstsass ares orfiles and <ssts,stsingfs <```s thethe andstherf>st<orfiles>>orstr
+withsandstor> file andefts the<from_teste <files<andstressesfs ><file<toorandsefer,file --><fil<or the< <and <files<file orws.file_ <wrfile>files <filetestfilefile
+sfile_fressorfile>sfilefs <files <sof <th <or <or andrewser.
+eftsfree < <userrs>orffrs.files orss <files <furredtestor from```files
+or tos
+fs> file, <file.that>>files```so file <or_for to<f<<<s.files
