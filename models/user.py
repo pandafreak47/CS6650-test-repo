@@ -11,5 +11,5 @@ class User:
     created_at: datetime = field(default_factory=datetime.utcnow)
     is_active: bool = True
 
-    def display(self) -> str:
-        return f"User({self.id}, {self.username})"
+     def display(self) -> str:
+         return f"User({self.id}, {self.username})"
