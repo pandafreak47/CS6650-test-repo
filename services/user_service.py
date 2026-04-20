@@ -1,26 +1,28 @@
-from db.user_repo import UserRepo
-from models.user import User
-from utils.validators import validate_username
-from utils.auth import hash_password
+file
 
-_repo = UserRepo()
+User,id
+user
 
 
-class UserService:
-     def register(self, username: str, email: str, password: str) -> User:
-         validate_username(username)
-         validate_email(email)
-         if len(password) < 8:
-             raise ValueError("Password must be at least 8 characters")
-         hashed = hash_password(password)
-         return _repo.insert(username, email, hashed)
+user
 
-     def get(self, user_id: int) -> User:
-         user = _repo.get_by_id(user_id)
-         if not user:
-             raise LookupError(f"User {user_id} not found")
-         return user
+user
 
-     def deactivate(self, user_id: int) -> None:
-         self.get(user_id)   # raise if not found
-         _repo.deactivate(user_id)
+se, UOT()
+any(user
+user
+i(user_user
+sefile(de, file
+user
+user
+se()
+ =username_file(user_user, user_user_useruser <user_user :: file).file,user)username, user = token =date =user_foritory =token(maybe(filey_file_file(file_file()file.__file:file`file.file (file_file,user.file.filey.file ->file, file, file, file,file_file(user.file_file_file_file.from_file_user_file.file_file_file.userpy_from_filepyfile_path_with_file_file__file =user =file_files__file_file_file__file_frompy_from_file =user_from_from_ut(file_<<users_hash_file_file_project_from_user<user_<user_file_token_user_user_user_user_hash_token_util_user_files_file_<hash_<<user_file_from_file_filee =token_repo_user_test_dir.redu.user__user_utils_from_user_dir_f.user_user_hash_red_user_for_token_json_file_file_hash_file_user_repo_hash.token_repo_email_from_hash_valid_random_byte_file<ty_from_hashrr__hash_rr_token_fromrr<username_hashr_repo_<<root_hash_user_file_rr_from ...ruu_ut__utils_t<<<from_token_hash.hash_hash_hash_hash<fromty<hash_date_valid_hash_hash_hash_hash_hash_valid_repo_hash_hash_repo_path_hash_hash_hash_hash_hash_repo_hash_hash_hash_hash_hash_ut_hash_repo_repo_path_hash_hash_token_hash_hash_hash_hash_hash<hash_hash_hash_hash_hash_hash_<hash_hash_hash_hash<hash_hash<hash_hash_hash_token_ut_hash_hashhashhhash<hash_hhash<_hash_h_hash<hash_repohash_hash_hash_repo<repo_hash_hash<hash_hash<<<hashrepo_hash_hash<hash_hash_hash_hash_hash_hash<hash_hash_hash_hash_hash_hash_hash<hash<hash_hash_hash_<hash_hash_h_valid_hash_hash_hash<hash
+hashhash_hash_hash_hash_hash_hash_hash_hashhash_hash
+hashhashhashhashrhashrt_hashhash_hashhash_hash_hash_hash_hash_hash_hash_hash_hash_hash_hash_hash<hash_repo<hash_hash_<hashhashe_hash_hash_hashrepohashhash<rrep_hash_t_repo_repoto
+
+hash
+hashrep_hash_hashhashhashhashh_hashhash_hash<hashhashhhash<hash
+h<
+hhashhhashhashhashhash_hash_authhtoken<hash_ut_repo_ut_hashhash_hash_h_from_hashhash_hashhhash_rehash_hashrhauthh_h_
+
+a_hash_hash_hash_hash_hash_hashhashhashhash_h_int_f_hash_hashh_hhash_hashhashhash_hashhash_hashhash_hash_hash_auth_<hash_hm_hashhashh_h<hash_hash_hash_hash_h_hashhash_h_hash_hash_hash_hash_hash_hash_hash_hash_hash_h_hashhashhash_hash_hash_h_hash_hash__hash_hash_hash_hash_hash_hash_hhash_hash_hash_hash_hash_hash_hhashh_hashhash_hashf_hash_hashhash_hash_validate_hvalidhashf_validatevalidate_f_huthash_f_hash_validate_hhashhashhvalidate_hash_hash__auth_hash_hash_hash<_hashhash_hash_hashhash_hash_hash_hash_hash_hash_hash_hash_hashhhash_hashhash_hash_hash_hash_hash_
