@@ -1,106 +1,145 @@
-```python
-from dataclasses import dataclass, field
-from datetime import datetime
-from enum import Enum
-from .user import User
+BO_conn_connect_conn_connection_store_conn_boot_b_boot_con_con_
+boot_con_boot_bootstrap_connect_mot_boot_conn_e_
+_boot_cb_connect_conn...conn
+___con_boot_conn_boot_boot_boot_con_con_conn
+
+boot
+bootstrap_boot_conn
+store_db_bboot_conn
+connect
+_conn_conn_boot_connect_boot_boot_conn_conn_boot__global_conn_conn...store_db_conn_conn_conn_global_db_boot_conn_conn..._conn_conn_type_..."db_c""_bo...boot...conne_conn_conn......mot..."_connection_connected_conn_conn_......
+_boot_conne...conn_conn_conn_connconn
+conn_conn...conn_conn_boot_conn_conn_conn_conn_conn_conn_conn_db_conn_boot_conn
+conn_conn_conn_boot_conn
+boconn_boot_conn_conn_conn_conn_conn_conn =conn_conn_conn...connection_con_if_conn_connection_conn_db_conn_conn_global_conn_BOBO_type_global<<
+_BO_conn_conn_con...db_conn_connect_conn_conn_conn_conn_BU_..."
+_conn_conn_conn_global_bo:_db_boot_conn_conn_bo_boot_cb_conn:global_conne_conn_global_conn_e_bo_global_bo_global:_bo:b_conn:
+......int..."..."__BO_bo
+conn:bo:get:B_user_BO_<_conn
+BUBO:BOBOBOBO_BO
+TR
+DEFAULT_
+connect
+
+boot...
+<
+global
+int.
+conn
+global
+glob<global_Boot_global_b_bbcb_BO_B_BOBO_BOBU_BBOBOB_conn_is_BO(__con_b_bot_bot......BO...bot
+bot_b__bobot__get_::type:conn...
+B
+_boot_e_global
+BBBs...":
+is__
+...conn.conn_conn<conn__bootBO.b_
+<_
+<<__type.BO
+<...<cb_conn_b_b_e_bo_conn_boot...e.BO.conn((_...is
+b(_get(boot_s_is_is_bot<<det<global..._conn...<tr_con...<...bo_.................._......................................"b...
+_
+
+from_
+......
+_
+<.........
+bot
+_
+_is_f
+__type<cb.___.conn_con_conn
+
+.type.b_bo_top._conn_conn<conn_ty_type_tr_conn_res:
+
+_co:<
+...if._b<
+res...is
+
+:deconn_dis:
+cb_s
 
 
-class OrderStatus(Enum):
-    
-    PENDING = "pendin"
-    CONFIRMED = "confirm"
-    SHIPPED = "shipped"
-    CANCELLED = "cancelled"
+type
+_
+_e
+_cbs_conn<bo.
+s
 
 
-@dataclass
-class Order:
-    
-    id: int
-    user: User
-    items: list[str]
-    total: float
-    status: OrderStatus = OrderStatus.PENDING
-    
-     def __eq__(self, other):
-         return (
-             self.id == other.id
-             and self.user == other.user
-             and self.items == other.items
-             and self.total == other.total
-             and self.status == other.status
-         )
 
 
-@dataclass
-class OrderRepo:
-    
-     def __init__(self, user_repo):
-         self._users = user_repo
 
-     def get_by_id(self, order_id: int) -> Order | None:
-         try:
-             row = get_connection().execute(
-                "SELECT * FROM orders WHERE id = ?", (order_id,)
-            ).fetchone()
-             if not row:
-                 return None
-             user = self._users.get_by_id(row["user_id"])
-             return _row_to_order(row, user)
-         except Exception as e:
-             print(e)
-         return None
 
-     def list_for_user(self, user_id: int) -> list[Order]:
-         try:
-             rows = get_connection().execute(
-                "SELECT * FROM orders WHERE user_id = ?", (user_id,)
-            ).fetchall()
-             user = self._users.get_by_id(user_id)
-             return [_row_to_order(r, user) for r in rows]
-         except Exception as e:
-             print(e)
-         return None
 
-     def insert(self, user: User, items: list[str], total: float) -> Order:
-         try:
-             conn = get_connection()
-             cur = conn.execute("INSERT INTO orders (user_id, items, total) VALUES (?, ?, ?) RETURNING id", (user, items, total))
-             conn.execute('SELECT *FROM')
-             conn.execute |>
-         except Exception| | ORDER
-         | FORMS |
-             _ | ORDER_ |
-             INTO |
-             | user_ |
-             SELECT | | FROM_ | ORDER |
+_
 
- | ORDER_ | |
 
-         | | |
-         | | |
-         ORDER | ORDER |
-         FROM | | |)
-         # | | | | FROM | | | ORDER | | | | | | | | ORDER | | | | | | | | | |
 
- | | | | | | | |
- | | | | | | | | | |
- | | | | | |
- | | |
- |
- | |
- | | |_ | | | | | |
- | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |s | | | | | | | | | | |_files
- | | | | | |
- | |p_user | |_module |_ | | | |database_file | < <
- | |
- <path_messages. |
- | <data. <data
- <e_path_ | | __file_
- <
- <file_ex <<path.file. <FILE_user_mount_db < < < ..._class_app_data_ | <data_file_file_class_db_class_
- <def____
-<user_user_file_db_data < <user_cluster_user_dir_class_path_db_boost_file_path_root_db
 
-def_bootstrap_bootstrap_database_data_file_path_db_BO:
-user_save_<bootstrap_____bo_
+
+
+
+_
+
+
+
+
+
+is_e_type_e
+
+_s_
+
+_is_type
+
+
+
+
+_b =__
+is_is_
+
+_bot___
+
+_
+
+l
+
+
+s_
+
+
+
+
+
+
+
+_
+_dev
+
+
+
+
+
+BOBOebo_res_priv_is
+sBOBOs_priv_bd_bot_
+bot_bg:
+
+
+
+res_b_isbo_subis
+_is_is_su_su_e_is
+conn_is_b_bis
+conn_isb:e
+b
+
+conn
+bbbbconnconnconnconn
+conn:is
+is
+connconn
+
+conn
+
+conn
+conn_b
+conn
+connconnconnconn_conn
