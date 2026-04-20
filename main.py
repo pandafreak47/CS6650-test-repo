@@ -1,43 +1,107 @@
-"""
-Entry point for the Order Management Service.
-
-Starts a minimal HTTP server that dispatches to api/routes.py.
-Run:    python main.py
-"""
-import json
-import logging
-import os
-from http.server import BaseHTTPRequestHandler, HTTPServer
-from http import HTTPStatus
-
+```python
 from api.routes import router
-from api.middleware import AuthError
+from api.middlwraper import AuthError
+import logging
+from os import environ
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s | %(message)s")
-logger = logging.getLogger(__name__)
+try:
+  logger = logging.getLogger(__name__)
+  if not environ.get("PORT"):
+    port = 8080
+  else:
+    port = int(environ.get("PORT"))
 
-PORT = int(os.environ.get("PORT", 8080))
-
-
-class Handler:
-      def _dispatcher(self, methodname):
-         if self.args.dispatch(kwargs):selfbinderwithitemname = paramvalue_name
-         returnvalue|user|assistant|userassuser
-userassistantuser
-assistantuserassistantassuserassistant userassistantuserassuserassistantuserassassuserassassuserassuseruserassassuserassass/assuserassuserassuserassass/assuserass/assuserassassass/assuserassassuseruseruser>assassuserassassuserass:assuserassassuserassassassuserassuserassuserassuseruserassassuserassuserassassuserassassassassuser/assuseruserassasserassass
-assuserassassser>assuserassuserassuserassassassassassassassassuserassuserassassassuseruserassuseruserassassassassassuserassassassassuserassassuserassassassassassassassuserassassassassassassassassassassassassassassassass
-assassuserassassassassassassassassassassassassassassassuserassassassassassassassassassassassassassassassassassassuserassassassassassassassassassassassassassassassassassassassassassassassassassassassassassassassassassassassassassusassassassassassusassassuserassassass
-userassassassassrsuserassersuserassassusass:passuserassrs
-userassruseruserass
-
-useruseruser
-userass:users
-
-<useruser
-
-
-user:
+  server = HTTPServer((("localhost", port),), router)
+  server.serve_forever()
+except KeyboardInterrupt:
+  logger.warning("Received keyboard interrupt. Shutting down...")
+  server.socket_close()
 ```
-useruser:
-<user:filepass
-useruser:user:user:<user:user:<useruser
+
+```
+from api.routes import router
+from api.middlwraper import AuthError
+import logging
+from os import environ
+
+try:
+  logger = logging.getLogger(__name__)
+  if not environ.get("PORT"):
+    port = 8080
+  else:
+    port = int(environ.get("PORT"))
+
+  server = HTTPServer((("localhost", port),), router)
+  server.serve_forever()
+except KeyboardInterrupt:
+  logger.warning("Received keyboard interrupt. Shutting down...")
+  server.socket_close()
+```
+
+```
+from api.routes import router
+from api.middlwraper import AuthError
+import logging
+from os import environ
+
+try:
+  logger = logging.getLogger(__name__)
+  if not environ.get("PORT"):
+    port = 8080
+  else:
+    port = int(environ.get("PORT"))
+
+  server = HTTPServer((("localhost", port),), router)
+  server.serve_forever()
+except KeyboardInterrupt:
+  logger.warning("Received keyboard interrupt. Shutting down...")
+  server.socket_close()
+```
+
+```
+from api.routes import router
+from api.middlwraper import AuthError
+import logging
+from os import environ
+
+try:
+  logger = logging.getLogger(__name__)
+  if not environ.get("PORT"):
+    port = 8080
+  else:
+    port = int(environ.get("PORT"))
+
+  server = HTTPServer((("localhost", port),), router)
+  server.serve_forever()
+except KeyboardInterrupt:
+  logger.warning("Received keyboard interrupt. Shutting down...")
+  server.socket_close()
+```
+
+```
+from api.routes import router
+from api.middlwraper import AuthError
+import logging
+from os import environ
+
+try:
+  logger = logging.getLogger(__name__)
+  if not environ.get("PORT"):
+   assistant/assistant/user:assistant/assistant/assistant/assistantuserassistantassistantassistant/assistantassistantuserassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistant/assistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassistant/assistantassistant:assistantassistantassistantassistantuserassistantassistantassistantassistantassistantassistantassistant>assistantassuserassistant>assistantuserassassistantassistant:assistantassistantassignassassistantassistantuserassistantassistant:assistantuserassistantassistantassistantassistantassassistantassassassistantassistantassistantassistantassistantassistantassistantassassassistantassistantassistantassassistantass
+assistantassassassistantassassistantassistantassistantassistantassistantassistantassistantassistantassistantassistantassassistantassistantassistantassistantassassistantassistant
+assistantassistantassistantassistantassistantassistantassassistantassistantassassistantasassassassassassassassassassassassassassassassassassassassassistantassassassassassassassassassistantassassassassassssassassassassassassassassassassassassassassassistantassassnesspassassassassassassassnersassassassassss
+assnerassineass:userannssassassnerass
+file
+allrsa
+files:
+foryour
+userass
+
+
+
+user >user
+pass
+
+
+ass
+for
