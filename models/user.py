@@ -13,3 +13,6 @@ class User:
 
     def display(self) -> str:
         return f"User({self.id}, {self.username})"
+
+    def __str__(self) -> str:
+        return self.display()
