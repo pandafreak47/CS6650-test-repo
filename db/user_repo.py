@@ -1,7 +1,5 @@
-from datetime import datetime
 from .connection import get_connection
-from models.user import User
-
+from .user import User
 
 class UserRepo:
     def get_by_id(self, user_id: int) -> User | None:
@@ -30,10 +28,14 @@ class UserRepo:
         conn.execute("UPDATE users SET is_active = 0 WHERE id = ?", (user_id,))
         conn.commit()
 
+    def _row_to_user(self, row) -> User:
+        return User(
+            id=row["id"],
+            username=row["username"],
+            email=row["email"],
+            hashed_password=row["hashed_password"],
+            is_active=bool(row["is_active"]),
+            created_at=datetime.fromisoformat(row["created_at"]),
+        )
 
-def _row_to_user(row) -> User:
-    return User(
-        id=row["id"], username=row["username"], email=row["email"],
-        hashed_password=row["hashed_password"], is_active=bool(row["is_active"]),
-        created_at=datetime.fromisoformat(row["created_at"]),
-    )
+```
