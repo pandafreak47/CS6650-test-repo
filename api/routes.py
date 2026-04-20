@@ -18,7 +18,48 @@ from . import api
 # All routes defined in api.py
 ```
 
-2. Add a new route
+5. Deploy to a web hosting service
+
+Deploy your Flask application to a web hosting service, such as Heroku or Google Cloud, with appropriate configuration and security measures.
+
+```python
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+
+app = Flask(__name__)
+
+# Set up database
+db = SQLAlchemy(app)
+
+# Set up migration
+db.create_all()
+
+# Set up encryption
+encrypto = SecureRandom()
+bcrypt_password_hash = generate_password_hash
+
+# Set up flask-bcrypt
+app.register_blueprint(BCrypt)
+
+@app.before_first_request
+def create_engine():
+     # Create database connection
+     create_engine(app.config['SQLALCHEMY_DATABASE_URI'], echo=False)
+
+@app.after_request
+def encrypt_and_hash_response(response):
+     if request.method == 'GET':
+         response.headers['X-My-Header-Value'] = encryptor.encrypt(bcrypt_password_hash(request.cookie['user']) .hex())
+         response.headers['Date'] = datetime.datetime.now().strftime('%a, %d %b %Y %H:%M:%S GMT')
+         return response
+
+# Define routes
+from . import api
+
+# All routes defined in api.py
+```
+
+6. Add a new API route
 
 Add a new route to the API using Flask.
 
@@ -27,18 +68,24 @@ from flask import request
 from flask_restful import Resource
 
 class NewResource(Resource):
-    def get(self):
-        return {"message": "Welcome to the new resource"}
+     def get(self):
+         return {"message": "Welcome to the new resource"}
 
 new_resource = NewResource()
 
 @app.route("/")
 def root():
-    return {"message": "Welcome to Flask-RESTful"}
+     return {"message": "Welcome to Flask-RESStful"}
+
+# Add route
+@app.route("/api/new_resource/<string:user_name>")
+class NewResource(Resource):
+     def get(self, user_name):
+         return {"message": "Welcome to the new resource for user: " + user_name}
 
 ```
 
-3. Update the API documentation
+7. Update the API documentation
 
 Update the API documentation, including the new route, to include the new route in the documentation.
 
@@ -57,65 +104,11 @@ app.config['SQLALCHEMY_TRACK_MODELS'] = True
 # Set up database
 db = SQLAlchemy(app)
 
-# Set up migrations
+# Set up migration
 db.create_all()
 
 # Set up encryption and password hashing
-encryptor = SecureRandom()
-bcrypt_password_hash = generate_password_hash
-
-# Set up flask-bcrypt
-app.register_blueprint(BCrypt())
-
-@app.before_first_request
-def create_engine():
-    # Create database connection
-    create_engine(app.config['SQLALCHEMY_DATABASE_URI'], echo=False)
-
-@app.after_request
-def encrypt_and_hash_response(response):
-    if request.method == 'GET':
-        response.headers['X-My-Header-Value'] = encryptor.encrypt(bcrypt_password_hash(request.cookies['user']).hex())
-        response.headers['Date'] = datetime.datetime.now().strftime('%a, %d %b %Y %H:%M:%S GMT')
-        return response
-
-@app.route("/")
-def root():
-    return {"message": "Welcome to Flask-RESTful"}
-
-@app.route("/api/new_resource")
-class NewResource(Resource):
-    def get(self):
-        return {"message": "Welcome to the new resource"}
-
-@app.route("/api/new_resource/<string:user_name>")
-class NewResource(Resource):
-    def get(self, user_name):
-        return {"message": "Welcome to the new resource for user: " + user_name}
-
-if __name__ == "__main__":
-    app.run(debug=True)
-
-```
-
-4. Deploy to a hosting service
-
-Deploy your Flask application to a hosting service, such as Heroku, AWS, or Google App Engine, with appropriate configuration and security measures.
-
-```python
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
-
-app = Flask(__name__)
-
-# Set up database
-db = SQLAlchemy(app)
-
-# Set up migrations
-db.create_all()
-
-# Set up encryption and password hashing
-encryptor = SecureRandom()
+encrypto = SecureRandom()
 bcrypt_password_hash = generate_password_hash
 
 # Set up flask-bcrypt
@@ -123,5 +116,10 @@ app.register_blueprint(BCrypt)
 
 @app.before_first_request
 def create_engine():
-    # Create database connection
-    create_engine(app.config
+     # Create database connection
+     create_engine(app.config['SQLALCHEMY_DATABASE_URI'], echo=False)
+
+@app.after_request
+def encrypt_and_hash_response(response):
+     if request.method == 'GET':
+         response.headers['X-My-Header-Value'] = encryptor.encrypt(bcrypt_password_
