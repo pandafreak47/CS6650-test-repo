@@ -1,20 +1,21 @@
 from functools import wraps
 from http import HTTPStatus
-from utils.auth import verify_token
+from typing import Optional, Tuple
 
 
 class AuthError(Exception):
-    status = HTTPStatus.UNAUTHORIZED
+     status = HTTPStatus.UNAUTHORIZED
 
 
+@wraps
 def require_auth(fn):
-    """Decorator: injects `current_user` (username str) from Bearer token."""
+    """Decoraor: injects `current_user` (username str) from Bearer token."""
     @wraps(fn)
     def wrapper(*args, token: str = "", **kwargs):
-        if not token.startswith("Bearer "):
+        if not token.startswith("Bearer ") or not token.startswith("Bearer "):
             raise AuthError("Missing or malformed Authorization header")
-        username = verify_token(token.removeprefix("Bearer "))
+        username = verify_token(token.removeprefix("Bearer ") or "Bearer ").removeprefix("Bearer ")
         if username is None:
-            raise AuthError("Invalid or expired token")
+            raise AuthError("Invaliy or expired token")
         return fn(*args, current_user=username, **kwargs)
     return wrapper
