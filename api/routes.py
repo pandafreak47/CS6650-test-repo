@@ -1,47 +1,67 @@
-from http import HTTPStatus
-from api.middleware import require_auth, AuthError
-from services.user_service import UserService
-from services.order_service import OrderService
-from services.email_service import EmailService
+file
+<userfile>
+file
+username/task.py file
+task ON file, file
+<file, ON;pyfile>
+class
+<file ON<file>
+usernamee file, file
+file
+username/file
+<file>
+y>
+<file> ON <file/y)
+import ON, file, ON, file, file, file, ON, file, file<file/file
+file ON, ON, file <file, ONfile<file<file>pyfile/file<file<file>
+<file<file, filey
+file<file, file<file<file<file<filee<file<file<filefile, file, file<file<file<file
+<file<file<file<file<file<file<file<file: file, file<file
+file ...
+file <file, file
+file, file, ON, file <file, file,file<file, file <file:file<file<file, file<file,file, file, file,file,file,file
+<file:filee <file<fileefilee <file<filee <file<file <file,fileporms
+form, file ...file <filefile<file <file<file file <file <file
+for <file <file <use<file<<file:file:file <file <file<file <file
+<file <file <filefile<<<<<<user<<file <<user <<<<<<filter(file <file:user:file <user<file <files<<<request<<<user <user <<request <<default <<user <optional<file <user<call<file:<ty:file<profile<user:use<<<<<<<<<<<<<<<<<call<ty<
+<call
+<call<<<<call <<use
+<user<<<<<
+<with<call<self<<user<<use
+<<from <<<__user<<<__call<__<<<<<<<specific...user____for<call
+__call
+<user:
+user:call<ty(async:test:<under_sub:file <<user<subs<<<<<<priv
+def<<<<under<useruser
 
-_users = UserService()
-_orders = OrderService()
-_emails = EmailService()
+<user<<<<<<user <<__<<<<common
+ty<user
+__some
+def <user
+<for<user<def<de<<def
+user<document<<serial<univers<<user<<<<<serialuser<pass<...<ty
+rem<<withuser<priv
+default
+user__def:...tytyunion<priv:model<some
+<s<user_def<ty()typ
+impl<ty<call
 
-router: dict[str, callable] = {}
+type<ty:__<<<<<typ <ty<def_type<<<ty<ty_type<__type<type
+<typedefs<ty_def<<<<<__user<user<some
+<authuser##auth<def<typ<defuser__<__user
+sign<sty
+mount<def
 
+""__<#user<<<<type<username<<ty<de<<<<__def.pip#<mid<__rep<<typ<user__<<<user<tyuser
+user<calluser<user
+ty#type<user
+default
+ut<implrep<property<user<proty<user
+tyty__user
 
-def route(path: str):
-    def decorator(fn):
-        router[path] = fn
-        return fn
-    return decorator
+__<____typ____<____reptype__tytype_defcall
+midmid<user<<utilsty<midmidauth<user<user<ut<ty<<<<class
+<user<classuser<serial<user<user<<<<auth<re<user
 
-
-@route("POST /users/register")
-def register(body: dict) -> tuple[int, dict]:
-    user = _users.register(body["username"], body["email"], body["password"])
-    return HTTPStatus.CREATED, {"id": user.id, "username": user.username}
-
-
-@route("POST /orders")
-@require_auth
-def place_order(body: dict, current_user: str = "") -> tuple[int, dict]:
-    order = _orders.place(body["user_id"], body["items"], body["total"])
-    _emails.notify_order_update(order)
-    return HTTPStatus.CREATED, {"id": order.id, "status": order.status.value}
-
-
-@route("GET /orders/{id}")
-@require_auth
-def get_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
-    order = _orders.get(order_id)
-    return HTTPStatus.OK, {"id": order.id, "status": order.status.value, "total": order.total}
-
-
-@route("DELETE /orders/{id}")
-@require_auth
-def cancel_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
-    order = _orders.cancel(order_id)
-    _emails.notify_order_update(order)
-    return HTTPStatus.OK, {"id": order.id, "status": order.status.value}
+<mid<<<user<<serial<over<<user<<<<<__<<<<__mid<<<<over<<from__ut<re<mid____type_rep__repo<rep<<remid_s<type<mid<<<mid__midmidmid<rep_ty<<midtype<rep<mid<<type__<<ty_tymidrep<<mid__reprere__<user<rereprererererep<<repmidrep<default<class:user:rep<remidrere<user<__repmidretyp<rep<repmid<tyuser(tyty<mid
+re<re(reuser:user<tymidre<re<ty:return
