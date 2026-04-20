@@ -2,17 +2,30 @@ from .connection import get_connection
 from .user import User
 
 class UserRepo:
+    
+    def __init__(self, database_uri: str, username_col: str, password_col: str):
+        self._username_col = username_col
+        self._password_col = password_col
+        self._database_uri = database_uri
+        self._conn = None
+
     def get_by_id(self, user_id: int) -> User | None:
         row = get_connection().execute(
-            "SELECT * FROM users WHERE id = ?", (user_id,)
+            f"SELECT * FROM users WHERE id = ?", (user_id,)
         ).fetchone()
-        return _row_to_user(row) if row else None
+        if row is not None:
+            return _row_to_user(row)
+        else:
+            return None
 
     def get_by_username(self, username: str) -> User | None:
         row = get_connection().execute(
-            "SELECT * FROM users WHERE username = ?", (username,)
+            f"SELECT * FROM users WHERE username = ?", (username,)
         ).fetchone()
-        return _row_to_user(row) if row else None
+        if row is not None:
+            return _row_to_user(row)
+        else:
+            return None
 
     def insert(self, username: str, email: str, hashed_password: str) -> User:
         conn = get_connection()
@@ -28,14 +41,14 @@ class UserRepo:
         conn.execute("UPDATE users SET is_active = 0 WHERE id = ?", (user_id,))
         conn.commit()
 
-    def _row_to_user(self, row) -> User:
+    def _row_to_user(self, row):
         return User(
-            id=row["id"],
-            username=row["username"],
-            email=row["email"],
-            hashed_password=row["hashed_password"],
-            is_active=bool(row["is_active"]),
-            created_at=datetime.fromisoformat(row["created_at"]),
+            id=row[self._username_col],
+            username=row[self._username_col],
+            email=row[self._email_col],
+            hashed_password=row[self._password_col],
+            is_active=bool(row[self._isactive_col]),
+            created_at=datetime.fromtimestamp(row[self._created_col]),
         )
 
 ```
