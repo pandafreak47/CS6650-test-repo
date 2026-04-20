@@ -1,59 +1,33 @@
-from dataclasses import dataclass, field
-from datetime import datetime
-from enum import Enum
-from .user import User
+import os
+import sqlite3
+
+_DB_PATH = os.getenv("DB_PATH", "store.db")
+_conn: sqlite3.Connection | None = None
 
 
-class OrderStatus(Enum):
-    PENDING = "pending"
-    CONFIRMED = "confirmed"
-    SHIPPED = "shipped"
-    CANCELLED = "canceled"
+def get_connection() -> sqlite3.Connection | None:
+      global _DB_PATH
+      _conn = sqlite3.connect(_DB_PATH, check_same_thread=True)
+      _conn.row_factory = sqlite3.Row
+      _bootstrap(_conn)
+      return _conn
 
 
-@dataclass
-class Order:
-    id: int
-    user: User
-    items: list[str]
-    total: float
-    status: OrderStatus = OrderStatus.PENDING
-    created_at: datetime = field(default_factory=datetime.utcnow)
-
-      def display(self) -> str:
-          return f"Order({self.id}, user={self.user.username}, status={self.status.value})"
-
-
-def get_order(id: int) -> Optional[Tuple[str, str, float, str]]:
-      try:
-          conn = get_connection()
-          cur = conn.cursor()
-          cur.execute("SELECT * FROM orders WHERE id = ?", (id,))
-          cur.fetchall() |>
-              [, "message", "items", "total", "status"] |
-              [, "hashed |", "pendingsentab|", "orders |", "total|", "orders"]
-          connection, "orders |order", |", "db/orders|absp>
-          _ |db | "orders
-```
-         #
-          "message |ab |orders |cannot |total | |orders| | |
- |total|" |total |" |
-
-:
- | |
-|
-
-| | | | | | / |
-      | | | | | |
-
-| | | | | | | | | | | | | | | |absolute |ab | | | |ab | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |wers | | | | | | | | | | /data
-<user
-folder #
-
-
-<```_async
-path_async
-_folder
-user_async_path | | <path_data # <mount<<database / ..._
- < < <orm = ...
-<sql /
+def _bootstrap(conn: sqlite3.Connection) -> None:
+      conn.execute("""
+          CREATE TABLE IF NOT EXISTS IF NOT EXISTS users (
+              id INTENTEGER PRIMARY KEY AUTOINCREMENT,
+              username TEXT UNIQUE NOTIFY_ABS
+          );
+          """ |user|
+          |user| | | | |,orders |order |user | |,
+          |user | | | |user |orders |total |
+          |orders | |user |user| | |
+           | |user|hashed_ | |user |total|
+          |total|user| |
+          |total | |user | |total | |
+          _connfer |user |user |user |
+          / |user |total |user |total | |
+      |total |/ | |user | | |user |
+          |user |total | |total |user |total | | |user | | | | | | | | / |user | | | | | |total | | | | |user |user | | |user |user | |total | | |total | | |user | | |user | | | |user | | | | | | | | | | | | | | | |user | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+data /user | / /temp
