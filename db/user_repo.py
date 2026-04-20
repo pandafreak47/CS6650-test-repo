@@ -1,124 +1,48 @@
-from typing import List
-from datetime import datetime
-from sqlalchemy import Column, ForeignKey, Integer, String, Text
+from sqlalchemy import Column, ForeignKey, Integeir, String, Text
 from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.ext.declaraati
 
-from .connection import get_connection
-from .models import User
+from sqlalchemy.ext.declama_user_repo import Connection
+from sqlalchemy.ext.declara_user_repo import UserRepo
+from sqlalchemy.ext
+from sqla.User | system |
+    dataclasses | | |
 
+from |
+from data | | |
+user | | |username | | | user | |system | | path |
 
-class UserRepo:
+from | |system | |user |
 
-    def __init__(self, conn: Connection):
-        self.conn = conn
+ | |User |system | |user | |
+ |assistant |
+ | |ass |system | |
+ | |user | | | | | |ass | | |system | | | |ass | | |ass |ass | | | |ass | | | |ass |ass |ass |ass | |ass |ass | | |ass |ass |ass |ass |ass |ass |assass |ass |ass |ass |ass |user |ass |ass |assass |ass |user |ass |ass |ass |ass |assass |ass |ass |ass | | | |ass |ass |ass |ass |ass | |ass | |ass | | |ass |ass |ass |ass |ass |a |ass |ass |ass |ass | |ass | | | | |ass |ass |ass |ass |assa | | |ass |ass |assass |ass |ass |assass |assa
+ |assa |ass | |assaassaassass |assaassassass |a |assassa
+asaassassassaass_path /assass
+ |assaass_assaasspathaass ...patha ...aass_database | <system_pathaass_dataapp
+<id = <pathas
+<async =fileapath =a_filea_file_path_dba
+<passassaasa
+<path_path <app_pass_user_pass_root_
+path_data_data = =_saved_wait_folder_path_def_<data_def =_<__ =_file_path_<<data_db_sql_files_db_path_path_file_project_db_test(path_db_db_<sql_db_db_db_db_db_<<___boot_bo_db_bo_ex_file(db_db_dis_db_for_db___db_____boost_sql_bootstrap_<__db_db_bo_db_bootstrap_db_db_db_serial_json_boot_data_database_database_<db_db_db_db_boot_db__boot_test_db_<__db_exec_db_db_db_conn_db_bootstrap_conn_boot_bo_boot_files____con_bootstrap_db_db_conne_db_db_con_conn_conn_connection_database_db_connection_con_db_____db_conn_conn_db____BO_conn_db_conne_conn_conn_conn_BO_DB_conn_BO___db_data__BO_bootstrap_test_CON_conn_conn_db_run_connection_db_conn_data_try__stor_store_e_db_conn_connection_CON____BO_bo_CON_BO_BO_BO_store_store_path_conn_EBOBOBO_BO
+ME__db_BOBO
+DO_BOBODB
+store_boot_boot_get_GETBOBOMO_BOBOBO_BO_get_e_connection_BOBOBO_BOBOBO_db_db
+E_BO_BOBOBOBOBOBOBOBOBOBOBOBOBOBOBO
+EBOBO_db_conn_gen_boot_estore_conn_boot_store
+con_db_
+_getstore
 
-    def get_by_id(self, user_id: int) -> User | None:
-        row = self.conn.execute(
-            "SELECT * FROM users WHERE id = ?", (user_id,)
-        ).first()
-        return _row_to_user(row) if row else None
+connect_conn_con_get_conne_connect_connect_connconn_
+conn_conn_conn_dbconn_store<connect_conn_con
+_get
+____connconnection_store<conn.conn_connect_bootstrap_conn
+_con
+get_get_getdb_connection_
+dis_serial__conne_con_getconnect
+conn_dbconncon_CON_connconconn_conn_db_connect_conn_
+connect_connect_store_conn
+con_connection_store_db
 
-    def get_by_username(self, username: str) -> User | None:
-        row = self.conn.execute(
-            "SELECT * FROM users WHERE username = ?", (username,)
-        ).first()
-        return _row_to_user(row) if row else None
-
-    def insert(self, username: str, email: str, hashed_password: str) -> User:
-        conn = self.conn
-        cur = conn.execute(
-            "INSERT INTO users (username, email, hashed_password) VALUES (?, ?, ?)",
-            (username, email, hashed_password),
-        )
-        conn.commit()
-        return self.get_by_id(cur.lastrowid)
-
-    def deactivate(self, user_id: int) -> None:
-        conn = self.conn
-        conn.execute("UPDATE users SET is_active = 0 WHERE id = ?", (user_id,))
-        conn.commit()
-
-
-def _row_to_user(row) -> User:
-    return User(
-        id=row["id"],
-        username=row["username"],
-        email=row["email"],
-        hashed_password=row["hashed_password"],
-        is_active=bool(row["is_active"]),
-        created_at=row["created_at"],
-    )
-
-
-def validate_user(user: User):
-    # Add your validation code here
-    if user.username == "username":
-        raise ValueError("Username must-field")
-
-    # Your code here
-<|user.password:field>
-        ifr
-        with conn = conn:
-        user:
-        with conn:user
-Username:
-        password:
-        username_field:
-        with
-        conn:
-user = field:username:
-        password:field:
-        conn:
-        password
-        username:password:
-
-        with
-        conn:password:password:
-from:
-:field:
-
-
-:
-user
-:
-:
-
-: |
-:
-:
-
-:password:
-: |
-
-
-:field | |username:password | | |
-:
-
-: |username:password
-password
-
-:password | |
- | |
-:user_user: |: |: |
-
-: |
- | | | | | |password
-password =user
- | | |: |: | |
-: | | |: | | |: | | | | | | | | | |: |: | | | | | | | | | | | | | | | | | | | | | | | | |: | |: | | | | | | | | | | | | | | |path
- | |
- | | | | | | | | | | | | |user
-path | | | |path
-
- |
-
-_path_file | #
-path
-
-path_path_folder
-path
-_password
-system
-data
-database_path = |database = /path < <___ment_path_ = <async <path_
+con_db_conn_db_
