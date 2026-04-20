@@ -1,47 +1,47 @@
-from http import HTTPStatus
-from api.middleware import require_auth, AuthError
-from services.user_service import UserService
-from services.order_service import OrderService
-from services.email_service import EmailService
+id, id,user, file, user, id, __file notiate not()__order
+file, filep_file, file -> <file <user <file_,session <user,pass_file
+file <file <all<tot <user <user <user <user <file <file<match_user <<user_file <dataiation</user <subject_file<user <user -> > <file < <user <user_file <user <user <user <user <list
+file_user_filepss <user_listgt <user <user <user <user <file_user <user_client_user_file<user_user <file <user_serviceums_<model_file_file <user_user_use_from_user_user_customer_valid_user_user.user__user_user_model_order_user_user__user_user
+user_<user_user_user_to_fromuser.<user.__<service
+<user<db<user_order_from <user_user_user__user__user
+user_user_user__from_user_from_user_valid_valid_user_from__user_user_user_order_user_user_valid_user_user_user<user
+user_user_user_<<user_service
+user
+user__user_order_user_valid__user__<user_user_service_order_order_order_user
+user_from_order_list__order_service <<<from<b ...user_user_user_user
+user
+user_valid_user_user_service__user_order_order_order<orderuseruser_orderorder__user_order_order_order_order_order_user_order_order_order_order_user_order_order_order_order_order_user_user_order_order_order_user_order_order_order_order_order_service_order_order_order_order<order_order_order_order_user_order_order_service
+order...order_order____order...
+order_order
+order
+order<user<order<<order_order_user<order_user<user_order.order...orderu<order<order...user_order_order<user<user_order_order_order_order_user_user_order_user<user_user
+user_order<order_order__order
+order<order
+valid<order_order__order_order_order__<order_order_order_order_order_order_order_order_order__order_order_order_user_order_order_order_order<user
+order_order_order_order_order<user_order_order_user_order_order<userorder_user
+order<order_user<user
+order_order<order_user<useruser
+order
+order<user
+order__user_order
+order#user____order
+from
+from
+valid
+user
 
-_users = UserService()
-_orders = OrderService()
-_emails = EmailService()
-
-router: dict[str, callable] = {}
-
-
-def route(path: str):
-    def decorator(fn):
-        router[path] = fn
-        return fn
-    return decorator
-
-
-@route("POST /users/register")
-def register(body: dict) -> tuple[int, dict]:
-    user = _users.register(body["username"], body["email"], body["password"])
-    return HTTPStatus.CREATED, {"id": user.id, "username": user.username}
-
-
-@route("POST /orders")
-@require_auth
-def place_order(body: dict, current_user: str = "") -> tuple[int, dict]:
-    order = _orders.place(body["user_id"], body["items"], body["total"])
-    _emails.notify_order_update(order)
-    return HTTPStatus.CREATED, {"id": order.id, "status": order.status.value}
-
-
-@route("GET /orders/{id}")
-@require_auth
-def get_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
-    order = _orders.get(order_id)
-    return HTTPStatus.OK, {"id": order.id, "status": order.status.value, "total": order.total}
-
-
-@route("DELETE /orders/{id}")
-@require_auth
-def cancel_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
-    order = _orders.cancel(order_id)
-    _emails.notify_order_update(order)
-    return HTTPStatus.OK, {"id": order.id, "status": order.status.value}
+service
+from
+from
+order
+user<user_useruser_validorder_userorder_user_fromorderuseruser
+useruser_user_orderorder_order_orderorder_order_user_user_order_orderorder_validorder_order
+order_order<order_order_order_orderorderorder_order__order_impl_order<order_orderorder_order_order_order_order_order_order_order_order_order_order_order_order__order_order...user_orders_order_order...order...valid_order...
+...order_order_valid_order_order...d..._order_dis_order...ordered_order..._order_order_order_order
+order_order_order...order_order_order_order_order_order_order_impl_order_...__order_order_order_order_serv...sv_order_order_order_order_order_order_order_order_order_order_order_from_order_order_order_order_order_order_order
+order_from
+...
+from<order_valid<__<order_sv_order_ex_order_f
+inv_self
+__
+__g<_____order_order_impl_order_order_order___order____order_user_order_reg__impl_order_order<all_order_service_order_order_sv_order_from_from_order_order_order_order_order_impl_order_user_order_order__order_order_order_order_
