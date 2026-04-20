@@ -1,102 +1,31 @@
-import hashlib
-import hmac
-import os
-import time
-
-from db.user_repo import UserRepo
-from utils.validators import validate_username
-
-_SECRET = os.environ.get("TOKEN_SECRET", "dev-secret")
-_repo = UserRepo()
-
-
-def hash_password(password: str) -> str:
-     salt = os.environ.get("TOKEN_SALT", "dev-salt")
-     digest = hashlib.sha256(salt + password.encode("utf-8")).hexdigest()
-     return f"{salt}:{digest}"
-
-
-def verify_password(password: str, hashed: str) -> bool:
-     salt, digest = hashed.split(":", 1)
-     return hmac.compare_digest(
-         digest, hashlib.sha256(salt.encode("utf-8") + password.encode("utf-8")).hexdigest()
-     )
-
-
-def generate_token(username: str) -> str:
-     validate_username(username)
-     payload = f"{username}:{int(time.time() + 3600)}"
-     sig = hmac.new(_SECRET.encode(), payload.encode("utf-8"), hashlib.sha256).hexdigest()
-     return f"{payload}:{sig}"
-
-
-def verify_token(token: str) -> str | None:
-     """Returns username if valid, None otherwise."""
-     try:
-         username, expires, sig = token.rsplit(":", 2)
-         if int(expires) < time.time():
-             return None
-         expected = hmac.new(_SECRET.encode(), f"{username}:{expires}".encode("utf-8"), hashlib.sha256).hexdigest()
-         if not hmac.compare_digest(sig, expected):
-             return None
-         user = _repo.get_by_username(username)
-         return username if (user and user.is_active) else None
-     except Exception:
-         return None
-
-
-def create_token(username: str) -> str:
-     try:
-         verify_token(generate_token(username))
-         return generate_token(username)
-     except Exception:
-         return None
-
-
-def get_user(token: str) -> Optional[UserRepo.User]:
-     try:
-         validate_token(token)
-         user = _repo.get_by_username(username=validate_username(token))
-         return user
-     except UserRepo.UserRepo.User.id:
-         raise Exception('Username notr')
-     except UserRepo.User:
-         raise("Username")
-     return None
-
-
-def get_username(token) = _Username:
-
-self.Username:
-
-_user, where self:
-     """Username: _user":
-     self
-        self:
-     pass_user.Username")
-_User(username):
-     verify:
-user):
-username, self:
-username, "username"):
-     self:username
-     User
-    
-     pass_
-"user"
-
-user,username
-    
-
-user,username
-username, user, u_username, U>user | U, User,username
-User_user,username_user_user
-_user
+user, u, u, uu, U,u, U, uu, uu
+user, U, u /user |u u, u, u, u, u, u, uu u,user, u, uu u, uy/user, ufile, uu uu, u,u, u, user, uu <user_user, u
+user |user.useru.u <useruuuu
+<useruuuseruuu =useru |useruu_user(user_file__useruser_filepy_user_fileupydb__user__fileorm_user_useru_user__user_user__user_user =user_user_fromuser_userython
+runrow_column_column <useruser_column_user_user_user_column_db(with_user__user_user_user(user(user_file_user_user_user""user_user_user_,user_user_timestamp.user__user_column__user_user_save_user_user_user
+user_username(db_db_user
+""user_row(user_account__user_user__user.user__user_date
 user
+user_from_dbdb_user__user_user(user.user__user(user_user_usernameuser_user_t_user_db_test.user...<result_user.user_user(...user.user_user_""user_user_user_user_user""user""user_timestamp...from_from_<sync_user_<timestampdb_user_user_user_user_user_user_user_useruser_user_useruseruser_user_user_user""user_user_user""user<user_user.user<user_user_user...user_user_ty...username_user_execuseruseruser_connection_from_user_insert_<created_db_user_dict_user_conn_user_user_date_date_db_dis_datetime_datetime_f_user_date_user_django_db_user_created_with_user_user_date_f_dis_tuple_tu<tim_datetime_serial<get<<b<date<<dis<user<user_if_if_user_tim
+rep_<user_ififif if_conn<f_user_from_id_fi_f
+dat.___<tim.tuple_tim_created_f_fe_ty_f...to_fb_f_f<f<_f___db_ex_sync
+f_connect
+user
+tuple
+by
+b__by
+connect_dat##self
+dis<fbyby_dat<tyconn_fserial_json_tytybty_dfe_ct_date...dat_fdise<ff_f__ffconn_feuser_rep_f_ty
+useruser_repgetfby<date_f_by<fegetf
+__f
+rep_fby...rep
+_buser""datebuser_insertto<tot_connfffromfefrom
+from
+fromfget__f__rep<f_f_user_fget_derepfebyfe_selff<ser
+rep__userreprep<...__fserial#fby_f_fe_fegetdict<user_fo__f_f_ftyrow_f_
+get__row
+if_repfgetrowrow_row
+...fff_fto_to...__user_row_frowrow_
 
-user,user, user, U
-user, user, username:user, User, user, user_user_user_user, username, User,username, user, u
-<username,user, u, U
- |user, u, u_user, U, U
-user, U,user, username, u |__user
-username | u<user, u
+row_rowrow_row_fillrow_to_row_row_row_rowrow_row_f_f_row_rowrowrow_row_row_row_row_row_row_row_row_rep_row_row_row_if_row_row_row_row_rowrow_row_row_rowrow_row_row_by_get_f_row_row_row_rep_rep_get_by_rep_row_rep_rep_row<rep_rep_from_row_row_row_row_row_ff_row_row_rep_row_rowrowrow_get_user_row_row_rowrow_row
+rep_fby_by_byrow_get_rep_getrep_rep_rep_rep_row_row_row_by_get_rep_rep_row_row_row(get_row_row_rep_row_fe_rep_if_if_get_get_
