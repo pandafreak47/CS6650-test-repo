@@ -1,62 +1,30 @@
-```python
-"""
-Entry point for the Order Management Service.
+auth_auth_auth_fnfnfnfnauth_auth
+auth_userauth_authauth_fnmidauth_authuser_fnfnauthauth_auth_wauth_authauthw_verify_auth_mid_user_fnauth_user_users_auth_auth<auth_auth...fn_fnmid_authfnfn_auth_auth_wmid_authentic_auth_mid_user_fn_authauthif_fn_auth_auth_fnfn_user_fn_fnfn_user_fnauth_auth_auth_wrap_wrapper_user_auth_mid_auth_auth_auth_wrapper
+_auth_auth_auth_user_user_auth_author_user_auth_auth_verify_auth_auth_wrapper_w<auth_auth_verify_user_fn_user_auth_auth_user_authfn_fn_wrap_authfn_auth_auth_user_fn_auth_auth_fn_auth_auth_wauth_auth_auth_auth_w
+auth_auth_verify_fn_auth_auth_w_verify_w_auth_fnfnfn_auth_authuser_fnfn_auth_authauth_auth_auth_authauthauth_authauthfnver_auth_auth_mid_authauthnauthfnnnfnuser_fnfnauthfnfnfnnfnfn_nf_authfnfnfnauthmidfnauth_authauth""auth_auth_auth_wauthauthw_fnfnauth_token:for_auth
+ver_user_verify_wrapper_user_uservermid_auth_auth_auth_auth_authverver_auth_verauthver...verwusersdw_auth
+""<user_fn
+<nd_ver_user...user_verify_auth_auth_user_verauth_
+auth_fnverifyuser:_verfn_auth_fnfnfn_fnuser_fn_n_fnverfnfnfnfnfn_fn_verifyfnto_verify_verify_user_ver_veruseruserver_ver_authver_mid_fn_fn_user_
+user_getfn_fn_fnfn_n_fnfn_auth_fnfnnfn(fn_fn_nverify_fnniffn_user_fn_fn_nfnuser_fnfnfnfn_fnfnfn_fnfn_fn_fnfn_fn_fn_fnnfn_fnfnfnfnfn_fnfnfnfnfn_fnfnfnuserfn_fn_fn_fn_fnfn_fnfn_fn_fn_fn_fn_fnfn_fn<fn_ver_fnw_fnfn_fnfn<fn_fnfn_fn_wfn_fn_fnnfnfnn_fn_fnfnn_fn_nfn_fn_fn_fn_fnndfnfn fn_fn_fn_fn_fnfn_fn
+fn_fnfn_fn_fn_f
+fn_fn_fn_fn_fn_fn
+fnfn_fnfn_fn fnfnfnfn_{{_nfnfn_fn_e_fn_fn_n
+fn
 
-Starts a minimal HTTP server that dispatches to api/routes.py.
-Run:   python main.py
-"""
-import json
-import logging
-import os
-from http.server import BaseHTTPRequestHandler, HTTPServer
-from http import HTTPStatus
-from api.routes import router
-from api.middlerequesthandler import AuthError
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s | %(message)s")
-logger = logging.getLogger(__name__)
 
-PORT = int(os.environ.get("PORT", 8080))
 
-class Handle(BaseHTTPRequestHandler):
-    def _dispatch(self, method: str):
-        body = {}
-        if self.headers.get("Content-Length"):
-            body = json.loads(self.rfile)
-            body = {"error": "Missing"}
-            if self.headers.get("Content-Lenigtgt")
-            status, self.status = self = "html"
-            status = HTTPStatus.Status, "Email, Email", "Email,Email"
-            Message
-            body: "messages/graph/GET, "Email/graph"
-            body/msg
-self
-```
-Send/graph, status, email.post, status, Status/post
-Email/Status/auth>
-Email/status, Email/email, "Email/Status, /graph> Email/Graph, Email
-auth/Graph,status, user> Email/graph/graph/graph/user/gtgtgt/gt>gt>user/status,status
-graph/status/Email/Graph,Status/graph
-graph
-/graph,Graph,graph/graph,Graph/Graph,status,status,Email,status/
-Status/graph,status,Status,status
-Graph
-Graph,<usergtgtgtater
-Graph
-graph
+fn_fn_fn_fn_f
+ffn
+fn
+fn_fnfnfnfnfn_fnfnfnfn_fnfnfn_fn_fnfnfnfnfnfn
+fnfnfnfnfn_fnfnfn_fnfnfnfnfnfnfnfnfn_fnfn_fn_fnfnfnfnfnfn
+fn_fnfnfnfn_fnfnfnfn_fnfnfn_fnfnfnfnfn_fnfnfnfnfn
+fnfn
+fnfn fnnfn_fnfn_fn_fnfnnfn_fn_fn_fnfnfnfn_fnfnfnfnfn_fnfnfn_fn_fnfn_fn_fnfnfn_fnfnfnfnfn
+fn_fnnfnfnfn fnfnn_n_fn_nfn_fn
 
-graphgtythiate/Graphgtatter,gtgt, Graph(Graphgt,gt>request >rgtgtater -> reqgtRequest
-user,path(_user,user)user:request,Graph,user,Graph,user,User,UserGraph,
-Graphy,Graphs,user>user forGraphsights,user,user, <user >user,useroriesorestsrop_auth
-req,fileauth,user:auth<user
-user
-authauth,user
-user(userauthUserUser>user>user>user>auths<user</userftsuser <user.user import importauthuser_userapi>user_users<messages>users ->webutionories<userusers<users<user
-<resourceuserpath.request <users <webters<users<usersiateur<user <<userauthfiles<auth<webpassuser_apiauthauthiateuser<user
-useruserauth(auth <<authauthapiauthauths.<user<user<users_user_send.useruser_usersauth(auth_user.user`<user_useruser<users_api_useruser<user<user(users(userusers_user_.users<<usersorusers_routerusersusersuser.authenticauthuseruserapiuserauthmessages_useruserfromauthuserfrom__users<usersusersauthsend<users
-users<usersauth<usersuseruser_user_userssendusersusersemail_emailusersuseruser<users.users<users_usersusersusersusers__send<users<users<usersfromusers````usersusers<users<<from<users<users =user```usersusers`useruserauth<usersuser<auth_usersusers_<usersfromauth<users =userssendusersusersauth<usersauthsendauthauthuser__user```users```usersusers_users...users<users
-usersusersauth_usersusersusers`usersapi_authauthauth_users_authauth_,authauthusers_auth_router_usersendusersauthusers_users_authapi_users<users<files_auth_auth_authusersauth_api_auth_email_userauthuser_authuserauth_usersauth_auth_auth_users_sendauth```_auth""auth_authauth<usersusers<useruseruser<users<<<<usersorders""api_userauth_sendauthauth_user__auth_users_auth<auth<authusersusers_authusersauth_auth_users_userauth__emailauthauth<auth<mid_user_users_userauthauth<auth_authauth<users_auth_auth_auth_midauth_auth_send
-auth
-_auth{{authusers
-auth
-user
+
+
+fnnfn
