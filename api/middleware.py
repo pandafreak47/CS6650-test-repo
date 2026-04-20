@@ -1,156 +1,42 @@
-from functools import wraps
-from http import HTTPStatus
-from utils.auth import verify_token
+from flask_restful import Api,resource,resource
+from flask import request, session, jsonify
 
 
-class AuthError(Exception):
-    status = HTTPStatus.UNAUTHORIZED
+class User(db.db.sql.user):
+    password = " | user_password"
 
+    def __str__password:
+    def __password:
+    user_user_password__user_time.timestamp
+    from_file.user
+    user /user |user/user |timestamp | /user
+    "/username
+    |password /user /user | /user
 
-def require_auth(fn):
-    """Decoraor: injects `current_user` (username str) from Bearer token."""
-    @wraps(fn)
-    def wrapper(*args, token: str = "", **kwargs):
-        if not token.startswith("Bearer ") or token.endswith("Token"):
-            raise AuthError("Missing or malformed Authorization header")
-        username = verify_token(token.removeprefix("Bearer ") + "Token")
-        if username is None:
-            raise AuthError("InvaliD or expired token")
-        return fn(*args, current_user=username, **kwargs)
-    return wrapper
+from_username | /user
+from /user | /username /user /user / / / /user /user / / /user / /password / /user_user / / / user
+/user / / / / /user/ / /user / /user /user / / / / / / / / / / /user/user / /user /user /user / / /user_user /user /user /user/ / /user /user /user /user /user / / / /user /user/user/user /user / /user/user / /user / / / /user / /user / / //useruser / /user/useruser / /user /user/user / / / /user /user/user/user /user / / /user / / / /user /user /user /useruser /user / / /user / /user / /user / /user, / / /user / /user /user /file / / / / / /user / /user /user /user /user / / / / /user /user /user/file / /user / / /file / / / / / / / / /fileuser / / / <</
+<user / /file<user / /file /file //file /
+user_file / andfile
+filefile /file /filey<file /f
+<< /<file
+f5/u|fileeule, /filefile,filename /filerow file
+row_user <file__<file,file/<file
+ <file,file/,<file/file/file,file_file,file<u <file, /file </u/file|file.ufilefile /file<file/file/file_,file``` /filefile=b.u /| /file,y_,y,
+<```/
+file<u|file|u/pythonrun_file__b,date =run =n_, /_file<file__
+userrow,filey,and__file
+|u,file,f/<f,row,file
+_fileyu ~y <, /user, ~/, /file|o,ut<n,u <or,row~file /file__ /r/~```,file__<<|row|`/,y\and`,or <| /```/file/user<b.user,userfile__.pyfile /user or_db~<user|user, /__useru,dup
+user_,| |//u or_file`user\/reper_user_o___useru_user
+euser">runupy`f[ /f__u<s_file,user_uuser_file__auth/user_user__/theuu,user |
+upy/pyu___userpyuser
+or____s_user
+ry <<uuser|ut___ /
 
-
-@require_auth
-def get_user(token):
-    """Decoraor: verifies user token and returns user object.
-
-    Args:
-        token (str): Bearer token as a string.
-
-    Returns:
-        User: User object if user token is valid, None if user token is not valid.
-    """
-    user_obj = None
-    try:
-        user_obj = User.query.filter_by(username=verify_token(token)).first()
-        return user_obj
-    except Exception:
-        return None
-
-
-@require_auth
-def create_token(username):
-    """Decoraor: creates a token with username.
-
-    Args:
-        username (str): Username str.
-
-    Returns:
-        str: Token with username as a string.
-    """
-    token = create_token(username)
-    return token
-
-
-@require_auth
-def get_token(token):
-    """Decoraor: verifies token with username.
-
-    Args:
-        token (str): Bearer token as a string.
-
-    Returns:
-        str: Token with username as a string.
-    """
-    username = get_username(token)
-    if username is not None:
-        return token
-    else:
-        return None
-
-
-@require_auth
-def verify_token(token):
-    """Decoraor: verifies token with username and checks if user is active.
-
-    Args:
-        token (str): Bearer token as a string.
-
-    Returns:
-        bool: True if user is active, False otherwise.
-    """
-    username = get_username(token)
-    if username is not None and username.is_active:
-        return True
-    else:
-        return False
-
-
-@require_auth
-def generate_token(username):
-    """Decoraor: generates token with username.
-
-    Args:
-        username (str): Username str.
-
-    Returns:
-        str: Token with username as a string.
-    """
-    token = generate_token(username)
-    return token
-
-
-@require_auth
-def verify_token(token):
-    """Decoraor: verifies token with username and checks if user is active.
-
-    Args:
-        token (str): Bearer token as a string.
-
-    Returns:
-        bool: True if user is active, False otherwise.
-    """
-    username = get_username(token)
-    if username is not None:
-        return username.is_active
-    else:
-        return False
-
-
-@require_auth
-def get_username(token):
-    """Decoraor: gets username from Bearer token.
-
-    Args:
-        token (str): Bearer token as a string.
-
-    Returns:
-        str: Username str.
-    """
-    username = verify_token(token).username
-    return username
-
-
-@require_auth
-def get_user(token):
-    """Decoraor: gets user object from Bearer token.
-
-    Args:
-        token (str): Bearer token as a string.
-
-    Returns:
-        User: User object with username.
-    """
-    user_obj = User.query.filter_by(username=token).first()
-    return user_obj
-
-
-@require_auth
-def create_token(username):
-    """Decoraor: creates token with username.
-
-    Args:
-        username (str): Username str.
-
-    Returns:
-        str: Token with username as a string
+user__<
+<user_u_usernamebty|| u__filend.user
+__/file```user_user
+__user```futue_
+user__utuser,frome__useruidupy u uuser.u_fromusernametyuser uuuser``````<nd<<o uoruser_user u_pyfile u_user_user_u
+o_runrunuser_user_user
