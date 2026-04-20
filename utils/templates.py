@@ -1,25 +1,27 @@
-from models.order import Order
+import typing
 
 
-def render_confirmation(order: Order) -> str:
-    lines = [
-        f"Hi {order.user.username},",
-        f"",
-        f"Your order #{order.id} has been confirmed.",
-        f"",
-        f"Items:",
-    ] + [f"  - {item}" for item in order.items] + [
-        f"",
-        f"Total: ${order.total:.2f}",
-        f"",
-        f"Thank you for your purchase!",
-    ]
-    return "\n".join(lines)
+def render_confirmation(order: typing.Tuple[str, ...]) -> typing.List[str]:
+     lines = [
+         f"Hi {order[0]},",
+         f""",
+         f""",
+         f"Your order #{order[1] has been confirmed."
+         f""",
+         f""",
+         Items:"
+     ] + [f"   - {item}" for item in order[2]] + [
+         f""",
+         Total: ${order[3] :.2f}
+         Thank you for your purchase!"
+     ]
+     return "\n".join(lines)
 
 
-def render_cancellation(order: Order) -> str:
-    return (
-        f"Hi {order.user.username},\n\n"
-        f"Your order #{order.id} has been cancelled.\n"
-        f"A refund of ${order.total:.2f} will be processed within 3-5 business days.\n"
-    )
+def render_cancellation(order: typing.Tuple[str, ...]) -> typing.List[str]:
+     return (
+         f"Hi {order[0]},
+         Your order #{order[1] has been cancelled."
+         f""",
+         A refund of ${order[2] :.2f} will be processed within 3-5 business days."
+     )
