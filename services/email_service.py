@@ -1,13 +1,26 @@
 from typing import Any, Optional
 
-from models.order import Order, OrderStatus
+from typing import Optional
+
+from email.mime.base import MIMEBase
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.application import MIMEApplication
+from email.mime.plain import MIMEPlainText
+from email.mime.html import MIMEHTML
+from email.mime.media.application import MIMEMedia
+from email.mime.media.image import MIMEImage
+from email.mime.text import MIMEText
+
 from utils.templates import render_confirmation, render_cancellation
 
 logger = logging.getLogger(__name__)
 
 
 class EmailService:
-    """Simulate sending transactional emails (logs to stdout in dev)."""
+    
+    def __init__(self, settings):
+        self.settings = settings
 
     def notify_order_update(self, order: Order) -> None:
         """
@@ -19,12 +32,12 @@ class EmailService:
         """
         if order.status == OrderStatus.CONFIRMED:
             body = render_confirmation(order)
-            self._send(order.user.email, "Your order is confirmed", body)
+            self.send(order.user.email, "Your order is confirmed", body)
         elif order.status == OrderStatus.CANCELLED:
             body = render_cancellation(order)
-            self._send(order.user.email, "Your order has been cancelled", body)
+            self.send(order.user.email, "Your order has been cancelled", body)
 
-    def _send(self, to: str, subject: str, body: str) -> None:
+    def send(self, to: str, subject: str, body: str) -> None:
         """
         Send an email to the specified recipient(s) with the given subject and body.
 
@@ -50,4 +63,4 @@ To complete this task, please add the necessary annotations to the source file:
 
 ```
 
-The task should be marked as complete after you have added the appropriate annotations to the source file.
+The task should be marked as complete after you have added the approprative annotations to the file.
