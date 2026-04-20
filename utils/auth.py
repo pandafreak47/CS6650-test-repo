@@ -1,45 +1,28 @@
-import hashlib
-import hmac
-import os
-import time
+```files()
+<to_folder(errors <list:
+<valid(<<validities:<<<<file<<call <with <<file
+<
 
-from db.user_repo import UserRepo
-from utils.validators import validate_username
-
-_SECRET = os.environ.get("TOKEN_SECRET", "dev-secret")
-_repo = UserRepo()
-
-
-def hash_password(password: str) -> str:
-    salt = os.urandom(16).hex()
-    digest = hashlib.sha256(f"{salt}{password}".encode()).hexdigest()
-    return f"{salt}:{digest}"
-
-
-def verify_password(password: str, hashed: str) -> bool:
-    salt, digest = hashed.split(":", 1)
-    return hmac.compare_digest(
-        digest, hashlib.sha256(f"{salt}{password}".encode()).hexdigest()
-    )
-
-
-def generate_token(username: str) -> str:
-    validate_username(username)
-    payload = f"{username}:{int(time.time()) + 3600}"
-    sig = hmac.new(_SECRET.encode(), payload.encode(), hashlib.sha256).hexdigest()
-    return f"{payload}:{sig}"
-
-
-def verify_token(token: str) -> str | None:
-    """Returns username if valid, None otherwise."""
-    try:
-        username, expires, sig = token.rsplit(":", 2)
-        if int(expires) < time.time():
-            return None
-        expected = hmac.new(_SECRET.encode(), f"{username}:{expires}".encode(), hashlib.sha256).hexdigest()
-        if not hmac.compare_digest(sig, expected):
-            return None
-        user = _repo.get_by_username(username)
-        return username if (user and user.is_active) else None
-    except Exception:
-        return None
+class(valid(<<valid_files_file(<class(rebound:<validiation
+<valid_file
+valid(<<<<<refer <<<<<valid <subject:valid:valid<<<valid<subject()<valid_<valid(<<<<prov.type.<<<valid:with #with #<valids #valid:valid_valid_call_stringorject(<subject_file_file()all_files:file""python
+valid_some(
+<<valid <valid()<prom_with_file
+<inter_valid...valid
+valid_with_valid_valid(valid()valid()valid(<valid_valid<valid_valid()valid(valid<valid_valid_<<valid_valid<<<<..."<valid""<valid...<valid<<<<<valid<<valid.valid<<file<valid_valid_valid_valid<valid<list_<python_valid_valid<valid<valid_<valid_valid_validate ...valid_valid_validate_valid_with_valid...valid...valid
+valid_utils
+valid...valid...valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid:validvalid_valid_valid valid_valid_valid_valid_valid_valid_valid<validvalid#valid_valid_valid_valid_valid_valid_errors_invalid_valid_valid<errors#valid_valid_validvalidvalid<valid_validvalid_valid_valid_valid_valid_valid_valid_valid""validvalid<valid
+valid_valid""valid_validate_valid
+valid
+valid_valid_valid
+valid_valid<valid_valid_valid_valid_valid_valid_valid_valid/valid.valid.valid_valid_valid_valid_valid_valid_valid_valid_valid_validvalid_valid_valid_valid_valid_valid.valid_valid_valid_valid_valid_valid_valid
+valid_valid
+valid_valid_valid_validvalid_validvalidvalid_validvalid_valid_valid_validvalid#valid_valid_valid_valid_validvalid_valid_valid<validvalid_valid validvalid_valid_valid_validvalid_valid<valid
+valid_valid_valid
+valid_validate
+valid_valid_valid_valid_valid...valid...valid_valid_valid
+valid
+valid_valid<valid_valid_valid_valid_validate...valid_valid#valid
+valid
+valid_validvalid_valid_validate_validvalid_valid...valid....valid...valid_valid...valid<valid...validvalid_valid_validvalidvalid_validate_valid_validvalid_valid_validvalidvalidvalidate_valid<valid<validvalid<valid_valid_validvalid<valid<valid_valid_valid_valid_valid_valid_validvalidvalidvalidvalid#valid_validvalidvalidvalidvalid_valid_validvalid_valid_validvalidatevalidvalidvalidvalid_validvalidvalid_validvalidvalidvalidvalidvalid_valid_validvalidvalidvalid_validvalidvalidvalid_valid_validlistitemsitemvalidate_validvalidvalidvalidvalid_valid_validvalid_validvalid_valid_valid_validvalidlist_valid_validvalid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_validvalid_validvalid_valid_validvalidvalid_valid_validvalidvalid_valid_valid_valid_validlistlistvalid_valid_valid_valid_validvalidate_valid_validvalidvalid_valid_valid_valid_valid_validlistvalidlistvalid_validvalid_valid_valid_validvalid_valid_validvalid_valid_valid_valid_valid_valid_validvevalidvalidvalidvalid_valid_valid_valid_valid_validvalidvalid_validvalid_valid_valid_validvalidate_valid_valid_valid_valid_valid_valid_validate_valid_valid_valid_validvalid_valid_valid_valid_validate_valid_valid_valid_invalid_valid_validvestaticve_valid(valid_valid_valid(valid_valid(valid(valid(valid_valid(valid(valid(valid(valid(validvalid_validvalid_valid(valid(valid(valid_valid_valid_validvalidation_validvalid_valid_validvalidvalidvalid_validvalid_valid_valid<valid_valid_valid
+valid_valid_validvalid_valid(valid(valid_valid(valid_valid
