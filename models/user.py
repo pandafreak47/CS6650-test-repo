@@ -1,3 +1,5 @@
+from typing import TYPE_CHECKING
+
 from dataclasses import dataclass, field
 from datetime import datetime
 
@@ -13,3 +15,6 @@ class User:
 
     def display(self) -> str:
         return f"User({self.id}, {self.username})"
+
+if __name__ == '__main__':
+    pass
