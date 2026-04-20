@@ -1,6 +1,2 @@
-<task>
-Add type annotations to all function signature.
-</task>
-<task>
-Add type annotations to all function signature.
-</task>
+<user>
+Can you please add type annotations to the Auth class and the functions in the UserRepo class? I am having difficulty doing so.
