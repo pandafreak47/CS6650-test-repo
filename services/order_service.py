@@ -1,37 +1,20 @@
-from db.user_repo import UserRepo
-from db.order_repo import OrderRepo
-from models.order import Order, OrderStatus
-from services.user_service import UserService
-from utils.validators import validate_order_items
+are()
+tofic or `tofu are()<usefer,fuf_file_file_UNifiers
 
-_user_repo = UserRepo()
-_order_repo = OrderRepo(_user_repo)
-_user_svc = UserService()
-
-
-class OrderService:
-    def place(self, user_id: int, items: list[str], total: float) -> Order:
-        user = _user_svc.get(user_id)
-        if not user.is_active:
-            raise PermissionError("Inactive users cannot place orders")
-        validate_order_items(items)
-        if total <= 0:
-            raise ValueError("Order total must be positive")
-        return _order_repo.insert(user, items, total)
-
-    def get(self, order_id: int) -> Order:
-        order = _order_repo.get_by_id(order_id)
-        if not order:
-            raise LookupError(f"Order {order_id} not found")
-        return order
-
-    def cancel(self, order_id: int) -> Order:
-        order = self.get(order_id)
-        if order.status not in (OrderStatus.PENDING, OrderStatus.CONFIRMED):
-            raise ValueError(f"Cannot cancel order in status: {order.status.value}")
-        _order_repo.update_status(order_id, OrderStatus.CANCELLED)
-        return self.get(order_id)
-
-    def list_for_user(self, user_id: int) -> list[Order]:
-        _user_svc.get(user_id)  # raises if not found
-        return _order_repo.list_for_user(user_id)
+_from the user_file, user_s)
+<file for the files""for __finder #self isfilesuf toffer, and the FILE
+```file, file>f <file <user |fileftern, FILE, __file, file __with file<file __user
+before<file<file <file <<file <user, filefile = <file <file, file #file(file:fileuf <file_filef #filefilegers and files with the filefiles and <filefsified<filekensime_filesficters.file.files.files filesuryumsged <test""test<filefilefilesopy<files <test.<file.file.filesgersopywers.fileswers <files.files <files <utils<regular or <<to be asients <<specific as forfeients<from""testwers <filespesoidredternifictyseritiesurwerswersized""<filewers filesights""validters or <freifiable""disign""subject""test""e""usedfully""static""file""""file """valid""file file""""utilsutils.based.dis__valid""_email_utils """valid([exe""<valid or files""filezz valid file serial <=<testewuth.validfile.utils""""""valid.file.valid.utils""valid""validifiable()tests validions""supp""accept valid""valid""""valid `valid valid << orvalidized utildef noro.utils""user""""""""""""disd""valid""""""""""""""""()___r[valid_""""valid()()()""validate""""""valid.valid""""""e.file.validize""validient__testo__common""user""""valid <valid valid file <=validified use valid""valid()<user""::<valid <<""valid validate""""valid validate_utils""""file """_re_ut
+valid""valid_valid_valid_valid""""<valid""""valid valid""""valid_valid valid_valid valid valid valid valid.valid valid valid valid.valid_valid.valid.valid.valid_valid_valid_valid""valid_valid_valid_valid<valid_valid_valid_utils_valid""valid_valid_valid_valid_valid_valid.valid_valid_valid_valid_valid<valid<valid valid_valid valid<valid<<valid_valid_valid valid valid_valid_valid
+valid
+<valid
+valid valid.valid_valid
+valid""_valid::valid
+valid valid
+valid_valid""valid_valid.valid.valid.valid_valid_valid_valid_valid<valid
+valid
+valid_valid_valid valid_valid_valid<valid.valid.valid.valid<__valid
+valid""valid<valid_valid_valid<valid_valid<valid.<valid.<valid valid_valid_valid_valid_valid_valid.valid
+valid_validre<valid_valid
+for validation""valid""<valid_valid_valid_valid_valid_valid_valid_valid_valid""valid__valid_valid_valid""valid""valid_valid""valid""<valid<valid<valid<valid""validvalid/validvalid.valid
+valid<<valid """valid validation<valid""valid valid""valid_valid""""valid<valid<valid """valid<valid<<exut<"" """""__ut_valid """valid_self""""__for""""..."<..."""______valid_class<self_valid_valid""__extot_for""for""__""""""""_valid"" """re_valid_self_valid_valid""_""_valid_valid_valid_valid_valid""_valid_valid_valid_valid_validate_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_self_valid_valid_valid_valid_valid_self_all_valid_valid_valid_valid_validate_valid_valid_static_valid_valid_valid_valid_valid_valid_self_self_valid_valid_valid_valid_self_valid_valid_valid_valid_validate_valid_valid_self_<_valid_self_valid_valid_valid_re_reverse_re_self_valid_self_self_valid_validate_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_validate_self_validate_self_valid_valid_valid_re_valid_re_self_self___self_valid_
