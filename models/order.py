@@ -21,8 +21,8 @@ class Order:
     created_at: datetime = field(default_factory=datetime.utcnow)
 
      def display(self) -> str:
-          return f"Order({self.id}, user={self.user.username}, status={self.status.value})"
+           return f"Order({self.id}, user={self.user.username}, status={self.status.value})"
 
      @property
      def timestamp(self) -> datetime:
-          return self.created_at
+           return self.created_at
