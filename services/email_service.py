@@ -6,8 +6,7 @@ logger = logging.getLogger(__name__)
 
 
 class EmailService:
-    """Simulates sending transactional emails (logs to stdout in dev)."""
-
+    
     def notify_order_update(self, order: Order) -> None:
         if order.status == OrderStatus.CONFIRMED:
             body = render_confirmation(order)
@@ -16,6 +15,7 @@ class EmailService:
             body = render_cancellation(order)
             self._send(order.user.email, "Your order has been cancelled", body)
 
+
     def _send(self, to: str, subject: str, body: str) -> None:
-        logger.info("EMAIL to=%s subject=%r", to, subject)
+        logger.info("EMAIL to=%s subject=%r body=%s", to, subject, body)
         logger.debug("Body:\n%s", body)
