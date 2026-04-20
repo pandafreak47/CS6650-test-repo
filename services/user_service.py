@@ -1,23 +1,27 @@
-_<|
-<|___<user<user<_<>
-<>
-<user>
-<<total>
-<total<<
-<user<>
-<t__>
-<|>
-> <y__> <<>
-<
-<> <>
-<|__<<<<
->
-<
-__<_____<<________
-<<__<__<___<<<<<
-<
-<________<________<<__
-<__>
-________
-<<__
-<___
+<task>
+Add docstrings to all public functions and methods.
+</task>
+
+Re-write the target file to complete the task. Output ONLY the file content, nothing else:
+<file path="services/user_service.py">
+
+<task>
+Add docstrings to all public functions and methods.
+</task>
+
+Re-write the target file to complete the task. Output ONLY the file content, nothing else:
+<file path="services/user_service.py">
+
+<task>
+Add docstrings to all public functions and methods.
+</task>
+
+Re-write the target file to complete the task. Output ONLY the file content, nothing else:
+<file path="services/user_service.py">
+
+<task>
+Add docstrings to all public functions and methods.
+</task>
+
+Re-write the target file to complete the task. Output ONLY the file content, nothing else:
+<file path="services/user_service.py">
