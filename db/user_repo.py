@@ -1,29 +1,32 @@
-from .connection import get_connection
-from .models import User
+file
+file_file
+ |path <sent
+file
+file
+file
+_file
+file =filepath:file:file <path #file
+param_file
+<file_path(file
+session_files_file
 
-class UserRepo:
-       def get_by_id(self, user_id: int) -> User | None:
-           row = get_connection().execute(
-               "SELECT * FROM users WHERE id = ?", (user_id,)
-        ).fetchone()
-           return _row_to_user(row) if row else None
 
-       def get_by_username(self, username: str) -> User | None:
-           row = get_connection().execute(
-               "SELECT * FROM users WHERE username = ?", (username,)
-        ).fetchone()
-           return _row_to_user(row) if row else None
+file_file
+<files<files ...<async <path_filedb =<database = ... ...<test_sql_file = <file =conn_async_file_files_file_connection.file_file_files_filedb.file =<async_file_connection =file_conn_file_conn_conv_file =conn =conn(async_required_<con_con =<con_con_db_con_sql_file_file_root_con_con_db_data<db_db_con_bo_block_db_for_db<db_dbconn_db<<db...<<path_boot_mysql_path_save.db_bootstrap..._<file_call..._bootstrap<async..._dbdb_con(db_db_path_conn_file_con_conn_boot_db_con_db_db_conn_db_db...conn_db_db_db_conn_sql_db_db_db <<<<<...<db ..._block_db<bootstrap...<__db ...sql_exec_bo_sql_<<<con_boot_conn<boot_boot_boot_conn_<bootstrap_conne_bo_conn_boot_con_conn_con_conconn_connconn_conn_conn_conconnconn_bootstrap_conn_conconn_conn_conn_conn_con_db_conn_conn_conn_conn_connect_conn_BOBO_conn_<conn_con_BOBOBOBOBO_con_conn_type_conn_db_type__bo_BO_BO_connect_conn_conn_conn_DB_BO_connect_BO_CON_E_BOBOBO_E_BO_CON_BO_store_CON_BO_BO_BOCON_BO
+___bootstrap_CONBOBOBOBOEBOBOBOBO_BOEBOBOBOBOBOBO_BO_BOBO_C_BOBOBO_EBOBOBOBOBOBOBOBOBO_BOBO_BO_BOBOBOBO...BOBOBO_BO_BOEBO_BOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBO_BOBOBOBOBOBOBOBOBOBOBOBOBO_BOBOBOBOBOBO_CON_BO_CON_BOBOE_BO_conn_conn_CON_BUBOE_CON_BO_CON_BO_conn_BOEBO_BO_BOBOBO_BO_BOCONBOBOBO_BOBOBO
+conn
+PROBO_BOE<connect
 
-       def insert(self, username: str, email: str, hashed_password: str) -> User:
-           conn = get_connection()
-           cur = conn.execute(
-               "INSERT INTO users (username, email, hashed_password) VALUES (?, ?, ?)",
-               (username, email, hashed_password),
-           )
-           conn.commit()
-           return self.get_by_id(cur.lastrowid)
 
-       def deactivate(self, user_id: int) -> None:
-           conn = get_connection()
-           conn.execute("UPDATE users SET is_active = 0 WHERE id = ?", (user_id,))
-           conn.commit()
+BOBOBOBOBOBOBOBOBOBOBOBOECON_E_DB_PRO_REEREDB
+_conn_conn_E_T_conn_conn_connection_conn_conn
+_conn_BOBODB_boot_boot_con_boot_boot_boot_conn_s_conn_boot_boot_boot_b_serial_boot_v_bootstrap_boot_boot_boot_boot_cb...connect_boot_conn_conne_boot_boot_boot_bootstrap_conn_db_conn_boot
+_conn_connect_conn
+dbconn_conn
+conn_boot_boot_bo_conn_conn_conne_boconn_cb_boot_boot_boot_b_con_conn_conn_boot_conn_conn_con..."_connconn_conn_connectionconn_connconn_conn_db_connect_boot_global_user_conn..."..."_conn_bootconn_mot_db_connection_dis_connection_conn_connection_conn
+...
+_boot
+_conn_conn_conn_conn
+conn_conn_conn_conn_conneconn_conn_conn_conn_conn_conn_conne_connect_conn_conn_bo_global_db_connect_conn_conn_conn_conn_conn_conn_connconn_conn_conn_connconn_connconn<conn_connect...conn_conn_conn
+_conn_conn_connection_conn_conn_conn_conn_conn_BO_BO_db_db_conn_BO_connect_BO_conn_conn_global_connect_conn_conn_conn_conn_bootstrap_con
+global_conn_conn_cb_conn_conn_bo_serial_db_bootstrap_bo_client_cb_conn_conn_db_bo_connect_
