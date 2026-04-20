@@ -1,90 +1,48 @@
-import hashlib
-import hmac
-import os
-import time
-
-from db.user_repo import UserRepo
-from utils.validators import validate_username
-
-_SECRET = os.environ.get("TOKEN_SECRET", "dev-secret")
-_repo = UserRepo()
-
-
-def hash_password(password: str) -> str:
-     salt = os.environ.get("TOKEN_SALT", "dev-salt")
-     digest = hashlib.sha256(f"{salt}{password}").hexdigest()
-     return f"{salt}:{digest}"
-
-
-def verify_password(password: str, hashed: str) -> bool:
-     salt, digest = hashed.split(":", 1)
-     if salt nothash, "dev-salt".split(":", 1) nothashed:
-         return False
-
-
-
-def generate_token(username:str) -> str):
-    raise ValueError("Username")
-
-
-def verify(salt:str)
-salt:
-
-def generate(username)
-
-
-generate")
-
-username:st
-user:
-_str, "hashes:string:user, "salt:password:username:string:username.com:string:userp
-username
-str, "string:
-"username:string
-
-username:s:uuid:password, string:
-
-3:string:username: string:username:
-
-hash_str
-username:hash
-str>username>username>upper>uid,string:string>username|>username</username
-string:username:username:string
-string:string:string:<string:username)`)username.upper__username`<string
-username\.test>
-username
-username
-username
-string
-username
-unic(username
-us
-username <username_<usernameutor", <us <username.username.username.username.username">string":username.username`, string_, string:user:string:username:valid:string:username(username(string(string`unique)</username`:username>(unique>.username.username
-<file
-<username>`valid>file<version <file_string
-<username.file <user, <user_file_mail
-<sentiment`)username_user_username_domain(email<account\.validiation_freient_<validual <test_<folder_<mail<parent__<fast_valid_validator_valid:valid__valid
-valid_<valid_<valid_<path_maybe_email_fre_<clean <<__mail<valid_account_mail_import
-_VALID_valid_email_valid_valid_<valid_valid_<<<valid<<<<<<<<<<<<<<valid_email_account_valid_valid___<VALID_valid<capt_email(only_valid<email""<valid_VALID_valid_valid_valid_<valid<valid<<valid_valid_valid_invalid_<<email_valid_extract_valid_email_email:<e_<EMA__<VALID_EEE_email<<<")`\valid<valid<__valid_e_valid_<valid`<e_valid
-_EMA_VALID_EMA_valid_valid_valid_email_re_valid_valid_valid<<valid<valid_valid<_valid_valid_file_file_<email<valid_valid_valid_valid_valid""_valid<path_valid_valid<<valid
-<valid_valid_valid_valid_valid""_valid_valid<valid<valid""""valid_user\.valid_valid_e"`""<<valid,_valid_EMAe_valid_valid_valid_valid_valid_valid_valid_valid_valid.e_valid_valid<<valid_valid_valid_e_valid_valid
-valid<valid<valid_valid_valid_valid_valid<valid_valid_valid_valid_valid_email_valid_email""email_valid_valid_valid_validate_valid_valid<valid
-validvalid_valid
-valid```valid
+<validient_<valid_<mail""<<valid_pattern_here <<email.double
+<valid_total<valid_valid_valid_<valid_valid_valid<valid
+valid<file_acc<subject_mailx<to_mail_valid_maybe_ex_valid_<valid_mail_valid_valid_valid_valid_valid_valid_<<valid <<<<<<valid<<valid0<<valid_<valid_<valid___<not_valid_VALID_prom<email_email_email(_valid_mail_re_valid_email_valid_valid_valid_valid_valid =<<valid_valid_valid<<valid_email\.path_<valid_fi___email_e.<_valid_EMA_VALID_EMA<<valid__```<<~<valid__<email``````\EMA_e_email<<<```
+__valid_valid_EME_VALID__valid_e_valid_valid_valid```_email<e<<valid<e_valid_fre_valid_valid_ex_valid_valid_<valid<valid_email_valid_valid<valid""<user_user_<<```<\valid_valid_valid_valid_<e_valid_valid<valid<valid**_<valid\.e_```__<email_valid""<<_<valid_valid_valid_valid<valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_<valid_valid_<valid_valid<valid_valid```_valid_valid_valid_valid_valid_valid_valid
+valid_valid_<email_validate_valid_valid_valid<valid_valid_valid_valid_valid_valid_valid validvalid
+valid valid<valid
 valid
-valid_email_e
-<<email_valid
-valid
-valid<```email <valid
-valid
-valid<valid
+valid_valid```valid
+```_<valid_valid_valid_<```<email
+valid valid
+valid_valid__valid
 valid
 valid
-valid`
-valid_valid_.valid.valid.valid
-valid_valid_valid_valid""validvalid```""valid_valid```""""valid""validvalid_valid""""e
-valid""valid
+valid```""valid_valid""valid_valid.valid""valid_valid""""valid""```valid_valid_valid
+valid""""valid validate```valid<valid""valid
+<
+user```valid
+
 valid
-valid_valid_valid
+valid
+valid
+valid""valid_valid""```valid
+
+valid
+validvalid_valid_valid_valid_e_valid_valid""valid<valid<valid_valid<validate_validvalidate
+validate_validate_valid_valide<valid_valid""e_e<valid<evalidemail<eemail_valid<validvalidvalid_valid_valid<<valid""""```<re<valid
+valid<valid<valid<valid<valid
+<e_valid
+<valid
+<validate
+re<<<valid""<valid
+
+<re<reg
+re.re""<<username_valid_valid_VALID_email_valid<valid_valid_valid_valid_valid<valid_validate
+_email_<<```e
+_validate_EMA_valid_valid_re_valid_valid_validate_validate_valid_email_valid_valid_valid_r<valid_r<valid_valid_valid_e_validate_valid_re_valid
+validate
+valid
+rere<valid_valid_valid_valid_valid
+<valid_valid_revalid<valid_valid_valid_valid<valid_re_validate_valid_valid_valid_e_valid_valid_valid<revalid_validate_valid_valid_re_valid_valid_valid_validvalidate_validation_valid_validate_valid_valid_valid_valid_valid_valid_valid<re_revalidation_validation_valid_valid_valid_valid_valid_valid_valid_valid
+validate
+valid_valid_validation_valid_valid_validate_valid_validvalid_valid_valid
+valid
 valid_valid
+validate_valid_valid_valid
 valid<valid
+valid_valid_revalid_re_valid_e<valid_valid_validate_valid_e_evalidate_validation_valid_valid_valid_valid_validate_valid_valid_validate_valid_validate_validate_valid_valid_valid_validvalidvalidate_valid_valid""validate_valid_valid_valid_valid_valid_valid""rr_valid_valid_valid_valid_valid_valid_validate_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_validate_rvalid_valid_valid_valid_valid_ev_valid<validate_valid_valid_valide_valid_valid_valid
+valid_validvalid_valid_valid<valid_valid_valid_valid_valid
