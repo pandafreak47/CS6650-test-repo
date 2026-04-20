@@ -1,28 +1,30 @@
-from db.user_repo import UserRepo
-from models.user import User
-from utils.validators import validate_email, validate_username, hash_password
-from utils.auth import hash_password
+__all__ = ["UserService"]
 
-_repo = UserRepo()
+<file path="utils/validators.py">
+import re
+
+_EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+_USERNAME_RE = re.compile(r"^[a-zA-Z0-9_]{3,32}$")
 
 
-class UserService:
-     def __init__(self, repo: UserRepo)
-         self._repo = repo
+def validate_email(email: str) -> str:
+      if not _EMAIL_RE.match(email):
+          raise ValueError(f"Invaliid email: {email!r}")
+      return email.lower()
 
-     def register(self, username: str, email: str, password: str) -> User:
-         validate_username(username)
-         validate_email(email)
-         if len(password) < 8:
-             raise ValueError("Password must be at least 8 characters")
-         hashed = hash_password(password)
-         return self._repo.insert(username, email, hashed)
 
-     def get(self, user_id: int) -> User:
-         user = self._repo.get(user_id)
-         if not user:
-             raise LookupError(f"User {user_id} not found")
-         return user
+def validate_username(username: str) -> str:
+      if not _USERNAME_RE.match(username):
+          raise ValueError(
+              f"Username must be 3-32 alphanumeric/underscore chars, got: {username!r}"
+          )
+      return username
 
-     def deactivate(self, user_id: int) -> None:
-         self._repo.deactivate(user_id)
+
+def validate_order_items(items: list[str]) -> list[str]:
+      if not items:
+          raise ValueError("Order must contain at least one item")
+      for item in items:
+          if not item.strip():
+              raise ValueError("Order items must not be blank")
+      return [i.strip() for i in items]
