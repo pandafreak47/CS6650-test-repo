@@ -1,9 +1,10 @@
 from datetime import datetime
 from .connection import get_connection
-from models.user import User
+from .user_repo import UserRepo
 
 
 class UserRepo:
+    
     def get_by_id(self, user_id: int) -> User | None:
         row = get_connection().execute(
             "SELECT * FROM users WHERE id = ?", (user_id,)
@@ -33,7 +34,50 @@ class UserRepo:
 
 def _row_to_user(row) -> User:
     return User(
-        id=row["id"], username=row["username"], email=row["email"],
-        hashed_password=row["hashed_password"], is_active=bool(row["is_active"]),
+        id=row["id"],
+        username=row["username"],
+        email=row["email"],
+        hashed_password=row["hashed_password"],
+        is_active=bool(row["is_active"]),
         created_at=datetime.fromisoformat(row["created_at"]),
     )
+
+
+def main():
+    repo = UserRepo()
+
+    # Insert a new user
+    username = "JohnDoe"
+    email = f"{username}.example.com"
+    hashed_password = bcrypt.generate_password_hash(str(username).encode()).decode()
+    repo.insert(username, email, hashed_password)
+
+    # Deactivate a user
+    user_id = 1
+    repo.deactivate(user_id)
+
+    # Get a user by ID
+    user = repo.get_by_id(user_id)
+    print(user)
+
+    # Get a user by username
+    user = repo.get_by_username("JohnDoe")
+    print(user)
+
+    # Get all users by status
+    users = repo.get_by_status("active")
+    for user in users:
+        print(user)
+
+    # Get the last added user
+    users = repo.get_by_status("pending")
+    print(f"Last added user: {users[-1]}")
+
+    conn = get_connection()
+    conn.close()
+
+
+if __name__ == "__main__":
+    main()
+
+```
