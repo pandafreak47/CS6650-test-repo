@@ -1,83 +1,43 @@
-from datetime import datetime
-from .connection import get_connection
-from models.user import User
+__file_db_db_
+_____db_file_file_sqlite_user_async_app_file_user_file_________<__ <_____<___<___cond____file_database_conn_run_db_file_folder_file_database_file_<__files:<boot_db_file_db___db____files_<__c_tb_BO_<<<db_boot_test_<boot_
+_t_data_boot_for_python_user_db_db_def_____db_default_db_datab_mount_sql_conn_bootstrap_db_data_db_exec_data(async_db_database_data_bo_db_t
+______________<tb_async_db_mount_bo_tb_db_c_db =__tb_fre_bo_bo_bootstrap_fn_boot_boost_fi_data_conn_db_conn_
+db_conn_conn_conn_conn_conn_db_user_conn_c_conn__conn_db_data_conn_conn
+data_db_conn_conn_conn_conn_connconn_conn_conn_conn_conn_db_db_tb_con_conn_sql_conn_db_conn_conn_db_conn_conn_get_connection_store_fn_async_serial_db_db
+_boot_conn_connect_database_boot_db_db_path_f_<db_get_get<con_dis
+
+<conn_connect_boot_for_bootstrap
+boot_boboot_get_get_store_get_get_database_dis_get_get_get_bootstrap_f_get_get_boot_boot_db_conne_store_global_boot_get_get_dis
+boot_f_f_f_get_bootstrap_get_get_get_
+get_db_store_get_dise_connect_def_get
+connection_conn_f_db_conne_conn_get_conn_get_get_conn_conn_db_f_store_conn_get_f_get
+boot_t_f_boot_conn_conne
+def...boot_db
 
 
-class UserRepo:
-     def get_by_id(self, user_id: int) -> User | None:
-         row = get_connection().execute(
-             "SELECT * FROM users WHERE id = ?", (user_id,)
-         ).fetchonone()
-         return _row_to_user(row) if row else None
-
-     def get_by_username(self, username: str) -> User | None:
-         row = get_connection().execute(
-             "SELECT * FROM users WHERE username = ?", (username,)
-         ).fetchonone()
-         return _row_to_user(row) if row else None
-
-     def insert(self, username: str, email: str, hashed_password: str) -> User:
-         conn = get_connection()
-         cur = conn.cursor()
-         cur.execute("""INSERT INTO users (username, email, hashed_password) VALUES (?, ?, ?, ?)""" |username=?, email=email, hash_password=hashed, email=email, username, email=email)
-         conn
-         """"user, email=email=, email;username=email, hashed, email=email
-            
-         |_username(email, string email) | email=user, email, hashed=email, username
-, email, email, hash=email, email) | email, email:email, email
-
-|
-email, email, email, email,
-         |email, email, email, email,
-,email, |, email, email_username, email, email |, email, email, email,  |,  |email, email, email, email, email |, email, _ |, email, email, email, email, email, email |, email, email,  |, email,email, (, |, email, email,  | |, file |,  | | |, file | |,
-
-,  |, email, file |, | | file | | |, file |, __, |, |, |, __ |, __ | |
-
-
-
- | | | | __ | | | |, |, |, |, | |, |, |ment |, user, 
-
- | | | file
-
-
-
- | | |
- |
- | ___file
- |
-file | | | | | | | __file_user
-
-
-file_file:
-test: | <user
-data
-file_file_file
-file: |
-
-file_file(____
- |
-
- |
-exec_file_
-
-__ <__test_file_run __file_test_user_dis___<user_file_async___<_con___
-__
-_conn_file_os_id_async_file_____mysql_file_file:___db <___user_file.
-__<async_sql_db_<____db_data_mount_<(db_sql_<_____<<_file___
-
-___<____conn_db_insert_<_user_db_app_def____database_db_db_BO_fs____run_db_db___db_graph_db_boot_exec_user_db_boot_async ... __t_store
-__<___db
-fs_t_sql: <tb_mount_db___db_tb_boot_drop
-db_fn_db_<bootstrap_mag_con_sb_con_con_def_conn_db_con_conn
-conn_tb_conn_sql_conn_db_fi_conn_db_conn""con__bootstrap_execcb
+connection
+f
+bootstrap_get_boot
+getconnect_con_concon_dis_dis_con_connection
 conn
-__conn_conn_conn_conn_con_conn_db_connconn_db_conn_conn_connect_db_conn_conne_con_conn_conn_data_con_db_async_fn_conn_bootstrap_db_conn_db_storage_store_boot_db_db_e_get_async_data_db
-db_boot_boot_bootstrap__disk___boot_db
-get
-conne
-_get_store_t_bootstrap_get_store__db
+get_con_conn_con_sql_connect_get_path_conne
+store
+connect
 get_connect
-__get_get
+conn
 
-conn_get_conn_get_get_store_get_bootstrap___boot_serial_f_priv_get_bootstrap_bootstrap_ty_serial_boot_bootstrap_t_bootstrap
-conn_connect
+_con__db
+
+
+boot_f_conn_boot_f_f_storage_s_f_serial_store_conn_conn_con_connect_fe_conn
+conn_sql_db_f
+_conn_conn_db_f_os_sql_boot_storage_sql_f
+f
+fdb
+ff
+condb_f_
+fdb_f_serialf<get_conosdb_store_get_ffget_f_ffe_f_storage_f
+f
+serial_f_get
+_con_store_b_store_dbdb_conne_conn_store_get_conn_get_get_conn_db_conn_connconn_f_get_create_conn_conn_get__f_conn_store_conn_conn_conn_connconnconn_conn_store_getdbget_storage_db_conn_get_conn_b_db_create_conn_get_conn_get_conn_conn_get_conn_conn_connconn_conn_connconnconn_conn_connconn_conn_get_conn_conn_store_conn_os_con_get_conn_getcon_con_get_conn_conn_get_get_conn_get_get_get_con_conn_conn_conn_b_bconn_connbbconnb_conn_connconn_conn_connconn_connconn_conn_conn_get_get_cb_get_conn_bconn_get_conn_conn_connconn_connbconn_getbbgetgetgetbbot_conn_getget_get_con_conn_conn_getconnconnget_connconn_getgetconn
+getget_getbgetconnconnget_getconn_getconnconngetgetconconn_connconn_get_get_get_conn_getconn_connconn_conn_get_conn_connconnconnconnconn_connconn_conn_connconn_get_get_conn_conn_get
