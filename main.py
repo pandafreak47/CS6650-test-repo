@@ -1,8 +1,9 @@
+```
 """
 Entry point for the Order Management Service.
 
 Starts a minimal HTTP server that dispatches to api/routes.py.
-Run:  python main.py
+Run:   python main.py
 """
 import json
 import logging
@@ -20,42 +21,87 @@ PORT = int(os.environ.get("PORT", 8080))
 
 
 class Handler(BaseHTTPRequestHandler):
-    def _dispatch(self, method: str):
-        body = {}
-        if self.headers.get("Content-Length"):
-            body = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
+     def _dispatch(self, method: str):
+         body = {}
+         if self.headers.get("Content-Lengtth"):
+             body = json.loads(self.rfile.read(int(self.headers["Content-Lengtth"]))
+         token = self.headers.get("Authorization", "")
+         handler = router.get(method="".lower(), f"{self.headers["Authorization"]
+         if "GET", "POST", "PUT,POST", f"DELETE")
+         token,user "token", "user"
+         if "routes")
+         body: "fails"
+         class "user"
+         import "GET "f" "post"
+         post, "post "
+         token, "POST"
+         token "POST" f"GET "POST"
+        post/routes "POST" "POST"
+POST/POST
+POST "POST> POST, _POST"
+POST/POST
+POST /post
 
-        token = self.headers.get("Authorization", "")
-        handler = router.get(f"{method} {self.path}")
-        if handler is None:
-            self._respond(HTTPStatus.NOT_FOUND, {"error": "Not found"})
-            return
+POST "f>posts/POST>user>f>fst>user,POST>s>POST
+POSTSPOST,fories
+POST, POST
+POST
+ST, POSTSPOSTSOTS <POSTS <S <SPOST, STOR
+STS <Sot >POSTSROS
+SPOST
+POST
+POSTS
+POSTS
+POSTSOTSPOST,POST =POSTS #POSTSROSSSTS
+S
 
-        try:
-            status, data = handler(body, token=token) if method == "POST" else handler(token=token)
-            self._respond(status, data)
-        except AuthError as e:
-            self._respond(HTTPStatus.UNAUTHORIZED, {"error": str(e)})
-        except (LookupError, ValueError) as e:
-            self._respond(HTTPStatus.BAD_REQUEST, {"error": str(e)})
-
-    def do_GET(self):  self._dispatch("GET")
-    def do_POST(self): self._dispatch("POST")
-    def do_DELETE(self): self._dispatch("DELETE")
-
-    def _respond(self, status: HTTPStatus, data: dict):
-        body = json.dumps(data).encode()
-        self.send_response(status.value)
-        self.send_header("Content-Type", "application/json")
-        self.send_header("Content-Length", len(body))
-        self.end_headers()
-        self.wfile.write(body)
-
-    def log_message(self, fmt, *args):
-        logger.info("%s - %s", self.address_string(), fmt % args)
+POSTS
+<files
+path
 
 
-if __name__ == "__main__":
-    server = HTTPServer(("0.0.0.0", PORT), Handler)
-    logger.info("Listening on port %d", PORT)
-    server.serve_forever()
+
+s
+
+
+S
+f #STS <file
+STS:s file
+
+s
+SOTS<file
+STS
+S:s <file(file(user)files.file
+<users,user
+router ->
+<user
+<requests
+filters,user,file
+<user
+<file(suser <user.users <user
+user ->user <<user
+user <users_users:token <user<users<request
+user
+user user
+<
+S
+user => <<users_resource<user >userUser <userusersusersuser <user <user/s
+<user
+useruser
+user
+user
+<users <user
+user
+users
+user
+user
+<<filter<<<<token
+<user
+<<user<user
+<user =<user_user__user_users<user```filter__<validuser::users(_user_users<user(users<user_user_users._user_userusers_user_user_users.user::users_userusers.forauthuser```<user```user
+user
+users_users._user
+users_user_userauthuserusers
+usersfilesusers_users_useruser__withuser_auth_users.user<users <users_user_users_users =users_user<user_users
+users_send<user_users<users<router
+<user_user_<user_users_user_users
