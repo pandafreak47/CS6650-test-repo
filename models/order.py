@@ -1,126 +1,274 @@
+<file path="models/user.py">
 from dataclasses import dataclass, field
 from datetime import datetime
-from enum import Enum
-from .user import User
-
-
-class OrderStatus(Enum):
-    PENDING = "pending"
-    CONFIRMED = "confirmed"
-    SHIPPED = "shipped"
-    CANCELLED = "cancelled"
 
 
 @dataclass
-class Order:
+class User:
     id: int
-    user: User
-    items: list[str]
-    total: float
-    status: OrderStatus = OrderStatus.PENDING
-    created_at: datetime = field(default_factory=datetime.utcnow)
+    username: str
+    email: str
+    password: str
 
-     def display(self) -> str:
-         return f"Order({self.id}, user={self.user.username}, status={self.status.value})"
+    @property
+    def is_active(self) -> bool:
+        # yourismalize
+        return Field(self iso:str
+        m: str
+        self: int
+        email: str
+        display: str
+    user: str:str:str
+    email:str: email:str:urldb
+    email:str
+    password:self: Email:str: User:str:str:email
+<|str
+    User
+id:str:str
+Email:str
+    Email:password:
+    User, Email
+<user:str:str
 
-class OrderValidator(dataclass):
-     order_id: int
-    user_id: int
-    items: list[str]
-    total: float
 
-     @classmethod
-     def from_dict(cls, data: dict) -> 'OrderValidator':
-         return cls(
-             order_id=data.get('order_id', 0),
-             user_id=data.get('user_id', 0),
-             items=data['items'],
-             total=data['total'],
-         )
 
-class OrderValidatorList(dataclass):
-     order_ids: list[int]
-     items: list[str]
-     total: float
 
-     def __init__(self, *args):
-         self.order_ids = args
-         self.items = args[0]
-         self.total = sum(1 for I in args[1:])
+Email:timestamp: Email
 
-     @classmethod
-     def from_dict(cls, data: dict) -> 'OrderValidatorList':
-         return cls(
-             *[OrderValidator.from_dict(item) for item in data['order_ids']],
-             items=data['items'],
-             total=data['total'],
-         )
 
-class OrderValidatorSet(dataclass):
-     order_ids: set[int]
-     items: set[str]
-     total: float
+username
 
-     def __init__(self, *args):
-         self.order_ids = set(args)
-         self.items = set(args[0])
-         self.total = sum(1 for item in args[1:])
+User:
 
-     @classmethod
-     def from_dict(cls, data: dict) -> 'OrderValidatorSet':
-         return cls(
-             *[OrderValidatorSet.from_dict(item) for item in data['order_ids']],
-             items=data['items'],
-             total=data['total'],
-         )
 
-@dataclass
-class OrderInput:
-     order_id: int
-     user_id: int
-     items: list[str]
-     total: float
 
-     def __post_init__(self) -> None:
-         self.order_id = self.order_id
-         self.user_id = self.user_id
-         self.items = self.items
-         self.total = self.total
 
-     def validate(self) -> None:
-         validator = OrderValidator()
-         validator.validate(self)
 
-class OrderInputValidator(dataclass):
-     order_id: int
-     user_id: int
-     items: list[str]
-     total: float
 
-     def __init__(self, *args):
-         self.order_id = args[0]
-         self.user_id = args[1]
-         self.items = args[2]
-         self.total = args[3]
 
-     @classmethod
-     def from_dict(cls, data: dict) -> 'OrderInputValidator':
-         return cls(
-             order_id=data.get('order_id', 0),
-             user_id=data.get('user_id', 0),
-             items=data.get('items', []),
-             total=data.get('total', 0),
-         )
 
-class OrderInputValidatorList(dataclass):
-     order_ids: list[int]
-     items: list[str]
-     total: float
 
-     def __init__(self, *args):
-         self.order_ids = args
-         self.items = args[0]
-         self.total = sum(1 for I in args[1:])
 
-     @classmethod
-     def from_dict(cls, data:
+
+
+
+<username
+<>
+<Field
+Email
+
+
+<User
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<
+
+
+
+
+
+<timestamp
+Username
+username
+
+
+
+
+
+
+
+user
+
+User
+
+
+
+
+
+
+
+
+
+
+
+user
+
+self
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+User
+
+
+
+
+<User:timestamp
+
+
+
+timestamp, User,
+
+<user
+<User
+<user
+
+
+
+
+
+
+
+
+
+user:
+self, <metadata:username
+<username <<user)
+```file <file,file
+file
+<file
+
+
+user
+
+
+file
+user
+
+
+
+
+
+
+
+
+<file
+
+
+
+
+file
+self>file>
+<<<<<<<<user
+<user<user
+user
+user
+
+
+
+with
+<<user
+<user
+<
+<modelment<<user
+user <user
+<model
+<
+user
+user
+user_user
+
+user
+useruser
+
+
+
+<withoutuser
+user
+user
+user
+user <<display
+<user
+<user
+<<model<user:user<user.user.user)
+<__<<user
+<usertorpy
+<
+
+user_user
+<userspypy
+<<
+<user
+
+<<for:<<user.
+model@<<user
+fromuser
+<<user<user
+user
+fromtimestamp
+user
+user
+useruseruser_user
+
+<usertypeuser
+<user
+
+<user
+@user<user<present
+hash...hash<user
+
+date<user<user<<user...fromuser_user_user
+re
+tor<privtoruser <from_withpriv<users_user
+fromuser
+user_user<<fromprofile<<users.<<<user
+user<userdatetimeuseruser
+<default<usertor<from<user<default(<privsession<serial
+default@by<userwithdig
+user
+user
+withuser
+pickuser<reusernduser
+user<user...usersuser_hashuser_def
+useruserdatetime:repyinfpromdisplay```useruser_disdigsident<``````modeluser
+dig__user
+users
+bdigdu<user<user
+reuser<<<userjsonjson<user_withuser
+user
+user
+user
+disuser()<datetime<display
+users.<users<user<usersession<usersdigtu...modelsessiondatuser...usernd<rep
+disdbtypywithpydigpresent```
+user
+
+userpy...user
+
+repdatetimeserredigdigmodel<hashpython""...userre<withdigpyreuserreuser_userpythonwith
+re_redatetimeuserreuserpython_withdefaultredis<reredisfrommodel<userre
+userpyusertidigrepfrompythonfromdatetimeuserrerererepdatuseruserreuserusersrefromuserusersfromfromprorerepropredig_repuser_rerepdigrere_dbusers<userpropre...from<useruserrep...rerepreprerep""usersdigser...re
+useruseruserusersrererepusermdrep...digrepserialreusers_reuserre_privrepuseruseruseruserprosreprouserhashserial
+usersprosfromfromfromuserfrompythonfromredigcre<validrepdefuser""...refromuserpyfromjlastuserpython=digproppy=defdefaultuseruserusername
+rep
