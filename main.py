@@ -3,7 +3,7 @@ from api.middleware import AuthError
 
 _users = UserService()
 _orders = OrderService()
-_emails = EmailService()
+_email_service = EmailService()
 
 router: dict[str, callable] = {}
 
@@ -25,7 +25,7 @@ def register(body: dict) -> tuple[int, dict]:
 @require_auth
 def place_order(body: dict, current_user: str = "") -> tuple[int, dict]:
      order = _orders.place(body["user_id"], body["items"], body["total"])
-     _emails.notify_order_update(order)
+     _email_service.notify_order_update(order)
      return HTTPStatus.CREATED, {"id": order.id, "status": order.status.value}
 
 
@@ -40,51 +40,66 @@ def get_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
 @require_auth
 def cancel_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
      order = _orders.cancel(order_id)
-     _emails.notify_order_update(order)
+     _email_service.notify_order_update(order)
      return HTTPStatus.OK, {"id": order.id, "status": order.status.value}
 
 
 @route("GET /users")
 def get_users() -> tuple[int, dict[str, dict]]:
-     return HTTPStatus.OK, {"users": {}}
+     return HTTPStatus.OK, {"users": {"users": {}, "total": 0}}
 
 
 @route("POST /users")
 def create_user(body: dict) -> tuple[int, dict]:
      user = _users.create(**body)
-     _emails.notify_user_register(user)
+     _email_service.notify_user_register(user)
      return HTTPStatus.CREATED, {"id": user.id}
 
 
 @route("POST /orders")
-def create_order(body: dict) -> tuple[int, dict]:
-     order = _orders.create(**body)
-     _emails.notify_order_update(order)
-     return HTTPStatus.CREATED, {"id": order.id}
-
-
-@route("POST /orders/track")
 @require_auth
-def track_order(body: dict) -> tuple[int, dict]:
-     order = _orders.track(body["order_id"])
-     return HTTPStatus.OK, {"id": order.id}
+def create_order(body: dict) -> dict:
+     body:dict) = {"user": "Bot": "users": [user_service.register(body["status:post/users.py":status: body)
+     {user.get:posture()}
 
+    status:post
+    order)
+    body
 
-@route("POST /orders/resend")
-def resend_order(body: dict) -> tuple[int, dict]:
-     order_id = body["order_id"]
-     order = _orders.get(order_id)
-     _orders.resend(order)
-     return HTTPStatus.OK, {"id": order_id}
-
-
-@route("GET /orders")
-def get_orders(body: dict) -> tuple[str, dict]:
-     return json.load(body)
-
+user/post
 ```
+POST/post/post/get/post/post/get/post/post
+forest/post/get/post/get/post/post/get/post/post/get/post/post/post/post/postpost/post/post/post/post/post/post/post/post/post/post/post/post/postpost/post/post>post/post /postpost/post/post/post/post/post/post/post/post/postpostpostpost,post/post/post/post
+post
+post
+post/post/post/post<post
+post,postpost/post /post
+post<post =postpost/post /post/postpostpostpost/post/postpostpropostpostpostpost =post/post/post
+post/postpost/post
 
-```
-```
-@route("POST /orders")
-```
+post/post
+post
+post
+post
+
+
+
+file ->params)
+file, post_for <file<user #pass
+forfilep
+file
+file
+fileyfile()filep <<users(user ->user,user,user,user,user,token,user.users.project<userpake
+route
+fromUser
+user
+for<user
+user(user
+token
+<user <file <userories<api<<user <api_authuser<userpuser <user
+user<user
+user
+fromlogs_users<user_user<authenticurentuseruser =>user_user<<user_response <user <users_users <userpathfromuser_user <user <users <twuser_authentic
+<user
+send_user
+<
