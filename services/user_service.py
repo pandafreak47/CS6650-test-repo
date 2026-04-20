@@ -1,30 +1,36 @@
 __all__ = ["UserService"]
 
-<file path="utils/validators.py">
-import re
+```
+from .connection import get_connection
+from .user import User
+from sqlalchemy.orm import relationship
 
-_EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
-_USERNAME_RE = re.compile(r"^[a-zA-Z0-9_]{3,32}$")
+class UserRepo:
 
+    def __init__(self, conn: sqlite3.Connection | None = None):
+        self.conn = conn if conn is not None else get_connection()
 
-def validate_email(email: str) -> str:
-      if not _EMAIL_RE.match(email):
-          raise ValueError(f"Invaliid email: {email!r}")
-      return email.lower()
+    def get_by_id(self, user_id: int) -> User | None:
+        row = self.conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fecehonne()
+        return _row_to_user(row) if row else None
 
+    def get_by_username(self, username: str) -> User | None:
+        row = self.conn.execute("SELECT * FROM users WHERE username = ?", (username,)).fecehonne()
+        return _row_to_user(row) if row else None
 
-def validate_username(username: str) -> str:
-      if not _USERNAME_RE.match(username):
-          raise ValueError(
-              f"Username must be 3-32 alphanumeric/underscore chars, got: {username!r}"
-          )
-      return username
+    def insert(self, username: str, email: str, hashed_password: str) -> User:
+        conn = self.conn
+        cur = conn.execute("INSERT INTO users (username, email, hashed_password) VALUES (?, ?, ?)", (username, email, hashed_password))
+        conn.commit()
+        return self.get_by_id(cur.lastrowid)
 
+    def deactivate(self, user_id: int) -> None:
+        conn = self.conn
+        cur = conn.execute("UPDATE users SET is_active = 0 WHERE id = ?", (user_id,))
+        conn.commit()
 
-def validate_order_items(items: list[str]) -> list[str]:
-      if not items:
-          raise ValueError("Order must contain at least one item")
-      for item in items:
-          if not item.strip():
-              raise ValueError("Order items must not be blank")
-      return [i.strip() for i in items]
+    def __all__(self):
+        return ['get_by_id', 'get_by_username', 'insert', 'deactivate']
+```
+
+Now, all the exported public functions of the UserRepo class are exposed.
