@@ -15,7 +15,7 @@ def get_connection() -> sqlite3.Connection:
 
 
 def _bootstrap(conn: sqlite3.Connection) -> None:
-    conn.executescript("""
+    conn.execute("""
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT UNIQUE NOT NULL,
@@ -29,9 +29,17 @@ def _bootstrap(conn: sqlite3.Connection) -> None:
             user_id INTEGER NOT NULL,
             items TEXT NOT NULL,
             total REAL NOT NULL,
-            status TEXT DEFAULT 'pending',
+            status TEXT DEFAULT 'pendin',
             created_at TEXT DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (user_id) REFERENCES users(id)
         );
     """)
     conn.commit()
+
+
+get_connection()
+
+<file>
+
+<task>
+Implement a password hashing function that uses the bcrypt Python library to hash the user's password. Store the hashed password in a separate table in the database.
