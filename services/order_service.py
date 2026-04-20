@@ -1,48 +1,37 @@
-_
-n
-
-________b_dboot
-
-n
+e
 
 
 
-<connect___boot_
 
-<e
-e_connectc<
+c
 
-ct_
+__
 
-<__cb_
+c
 
-b
-_bootcbnbootncb
+
+e ...
+
+
+
+
 _
 
-cbn_b_con_bo_ncsn_conn_cns_e'n
-___n'
-_conn_c_<
-
-_conn
-s_c<B_n
-
-conn<
 
 
 
-o_conn_b_
 
 
-b.BO_b_
-___
-_con___ct__conn____
 
-boot_bo_
-___c_c_boccts_conn_
-__o_boot_BO___int___b_._____
+
+e..
+
 <
 
-.o_b
-_.___
-c_
+
+e_
+<
+
+
+__
+_e
