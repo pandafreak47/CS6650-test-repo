@@ -1,26 +1,149 @@
-from db.user_repo import UserRepo
-from models.user import User
-from utils.validators import validate_email, validate_username
-from utils.auth import hash_password
+<file path="user.py">
+```
+```
+```
+```
+```
 
-_repo = UserRepo()
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+<user>
+register(username: "example_username", "example")
+password:example
+```
+```
+```
+```
+```example
+```
 
+<user```
+password_example
+username:example
+```
+insert_username:example:
+```
+_user:example:example:username)
+```
+password
+username:example
+example
+user | password:example
+username
+username:db.password:username, example:user:example:example)
+username)example, example_username:example
+example
+user
+```
 
-class UserService:
-    def register(self, username: str, email: str, password: str) -> User:
-        validate_username(username)
-        validate_email(email)
-        if len(password) < 8:
-            raise ValueError("Password must be at least 8 characters")
-        hashed = hash_password(password)
-        return _repo.insert(username, email, hashed)
+example_example |example
+example
+example
 
-    def get(self, user_id: int) -> User:
-        user = _repo.get_by_id(user_id)
-        if not user:
-            raise LookupError(f"User {user_id} not found")
-        return user
+example
+username,example:username:example:example_user:user:example |example:username:user:example,example:user:user:
+example =user
 
-    def deactivate(self, user_id: int) -> None:
-        self.get(user_id)  # raises if not found
-        _repo.deactivate(user_id)
+example
+username:user:
+example =example,example,user:example:user:example_user:__user,__user,example, example,username, username, example,password,
+      #username, 0 |file | example:username, use:user: example, username,  #user,example,example
