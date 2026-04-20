@@ -1,37 +1,58 @@
-from db.user_repo import UserRepo
-from db.order_repo import OrderRepo
-from models.order import Order, OrderStatus
-from services.user_service import UserService
-from utils.validators import validate_order_items
+<__<<<<<<
+_valid_EMA_VALIDE_valid_valid"e_valid_e
 
-_user_repo = UserRepo()
-_order_repo = OrderRepo(_user_repo)
-_user_svc = UserService()
+for
+<<<<<```<<valid_valid_email_email_path_<email_<valid
+<<valid_VALID_valid<valid<<<email_<<valid<valid_<valid_valid_valid_valid_valid`<valid_valid<<__valid_<<valid_user_e_valid_email<email<email<valid_valid_e<valid_valid_valid_email_valid_valid<valid_valid_valid_valid_valid_valid_valid_valid_valid_re_email<valid_valid_<valid_valid_validate<valid_valid_valid<valid_valid_valid_valid_valid_valid_valid_valid<valid""valid_valid
+valid_e_valid_valid_valid validevalid<valid<valid
+valid<valid```<<<e_valid
+__valid```valid_email
+<valid._valid re```
+valid_valid
+<valid
+valid_.valid```valid~valid_valid_valid_.valide_valid.validvalidvalid<valid""validate""<valid
+validate_valid
+valid<valid""```valid```validate_valid if.valid_valid_valid""valid""_valid_valid
+valid```valid""valid
+valid<valid_valid
+valide
+valid_e
+e""<valid_valid_valid_valid
+validate_validate_valid_valid
+valid """_<valid_e""e<valid
+eevalidate_valid<e_valid_valid_valid
+evalidvalidvalidate_valid<validevalid_e
+valid
+valid""valid_valid<<validvalidvalid_valid<valid
+valid_valid<valid_valid_valid<<valid#re
+"<<valid
+valid<valid<<order
+valid<<```<valid""<valid<VALID_VALID_valid_valid
+re_valid_valid_valid_valid_valid_valid_valid_<<""valid_valid_valid_valid_valid_valid_valid_validate_valid_if<valid_validate_re_valid_email_valid_re_validate_validation_e_valid_valid_valid_valid_validation_validvalid
+valid
+valid_valid_valid_valid_validate_re_valid<order.valid_validate_validate_valid_valid_valid_valid_valid_re_valid_valid_revalid_username_revalid_valid_username_valid_re_valid_validate_valid_validate_valid_validvalid_valid_valid_valid_valid_valid_valid_validate_e_valid<valid_valid_validate_re_valid_valid_valid_valid_valid_validre_valid_validvalid
+validvalidate_valid_valid
+valid_valid_valid...valid_valid_validate_valid<validevalid_valid
+valid_valid
+validdefregvalidationvalidvalidvalid_valid
+```all
+valid_validate_valid<valid_e
+valid_valid_valid_evalidation_valid<validation_valid_validate_valid_valid<validvalid_valid_validvalid_valid_valid...e:valid_valid_validvalid_valid_valid```validvalid_reruser_valid_valid_validre_valid_valid_re_valid_validvalidate_valid_valid_valid_r_revalid_valid(valid_valid_valid_valid_vanvalid_valid_valid_valid_rr_valid_valid_valid_ex_valid_exvalid_valid_valid_valid_valid_valid_valid_validr<valid_valid_user_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid(valid_valid_valid(valid(validate_valid_valid_valid_valid_valid<valid_valid(valid_valid_valid
+valid_valid
+validvalidvalid_re_re_valid_valid_valid_validate_valid_valid_valid(valid_valid_re_valid(valid_valid_if
+_valid_valid_valid _valid_valid_valid_valid:_valid:_valid_regex_validate_valid_<(_(valid_valid_r_((_valid_valid_validate_len_valid_valid_validate
+valid(valid
+_valid<desr
+r<valid
+re_valid
+ty_
 
 
-class OrderService:
-     def place(self, user_id: int, items: list[str], total: float) -> Order:
-         user = _user_svc.get(user_id)
-         if not user.is_active:
-             raise PermissionError("Inactive users cannot place orders")
-         validate_order_items(items)
-         if total <= 0:
-             raise ValueError("Order total must be positive")
-         return _order_repo.insert(user, items, total)
+_
+regex
 
-     def get(self, order_id: int) -> Order:
-         order = _order_repo.get_by_id(order_id)
-         if not order:
-             raise LookupError(f"Order {order_id} not found")
-         return order
 
-     def cancel(self, order_id: int) -> Order:
-         order = self.get(order_id)
-         if order.status not in (OrderStatus.PENDING, OrderStatus.CONFIRMED):
-             raise ValueError(f"Cannot cancel order in status: {order.status.value}")
-         _order_repo.update_status(order_id, OrderStatus.CANCELLED)
-         return self.get(order_id)
-
-     def list_for_user(self, user_id: int) -> list[Order]:
-         user = _user_svc.get(user_id=user)
-         return _order_repo.list_for_user(user)
+valid_valid`__d
+__
+_reg<valid_valid:
+valid__valid_len_r_ex___rvalid(r_valid(username_
