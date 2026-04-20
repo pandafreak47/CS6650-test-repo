@@ -10,100 +10,98 @@ from models import db, User, Order
 from utils.templates import render_confirmation, render_cancellation
 
 if TYPE_CHECKING:
-     from flask import Flask, request, render_template, url_for
+      from flask import Flask, request, render_template, url_for
 
 
 def render_confirmation(order: Order) -> str:
-     lines = [
-         f"Hi {order.user.username},",
-         f"",
-         f"Your order #{order.id} has been confirmed.",
-         f""",
-         Items:"
-     ] + [f"    - {item}" for item in order.items] + [
-         f""",
-         Total: ${order.total:.2f}
-         Thank you for your purchase!"",
-     ]
-     return "\n".join(lines)
+      lines = [
+          f"Hi {order.user.username},",
+          f"""Your order #{order.id} has been confirmed."""
+      ] + [f"     - {item}" for item in order.items] + [
+          f""",
+          Total: ${order.total:.2f}
+          Thank you for your purchase!"""
+      ]
+      return "\n".join(lines)
 
 
 def render_cancellation(order: Order) -> str:
-     return (
-         f"Hi {order.user.username},",
-         f"",
-         f"Your order #{order.id} has been cancelled.\n"
-         f"A refund of ${order.total:.2f} will be processed within 3-5 business days."
-     )
+      return (
+          f"Hi {order.user.username},",
+          f"""Your order #{order.id} has been cancelled.\n"
+          f"A refund of ${order.total:.2f} will be processed within 3-5 business days."""
+      )
 
 
 def check_recaptcha():
-     """
-     Check if the request comes from a genuine user, according to the reCAPTCHA
-     v2 rules.
-     """
-     reCAPTCHA_URL = "https://www.google.com/recaptcha/api2/anchor.php"
-     reCAPTCHA_SECRET_KEY = get_recaptcha_secret_key()
-     response = fetch_recaptcha_response(reCAPTCHA_URL, reCAPTCHA_SECRET_KEY)
+      """
+      Check if the request comes from a genuine user, according to the reCAPTCHA
+      v2 rules.
+      """
+      reCAPTCHA_URL = "https://www.google.com/recaptcha/api2/anchor.php"
+      reCAPTCHA_SECRET_KEY = get_recaptcha_secret_key()
+      response = fetch_recaptcha_response(reCAPTCHA_URL, reCAPTCHA_SECRET_KEY)
 
-     # If the response is not a valid chaellenge, raise a custom exception.
-     if not isinstance(response, dict):
-         raise ValueError("Invaliad reCAPTCHA response")
+      # If the response is not a valid chaellenge, raise a custom exception.
+      if not isinstance(response, dict):
+          raise ValueError("Invaliad reCAPTCHA response")
 
-     # Check if the user has already submitted a response.
-     if "challenge_secret" in response:
-         return response["challenge_secret"]
+      # Check if the user has already submitted a response.
+      if "challenge_secret" in response:
+          return response["challenge_secret"]
 
 
 def generate_recaptcha_secret_key():
-     """
-     Generates a random string of length 30.
-     """
-     charsets = "0123456789ABCDEFGHIJKLMNOPRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-     secret_key = "".join(charsets[:30])
-     return secret_key
+      """
+      Generates a random string of length 30.
+      """
+      charsets = "0123456789ABCDEFGHIJKLMNOPRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+      secret_key = "".join(charsets[:30])
+      return secret_key
 
 
 def get_recaptcha_secret_key():
-     """
-     Returns the secret key of the reCAPTCHA API.
-     """
-     secret_key = generate_recaptcha_secret_key()
-     return secret_key
+      """
+      Returns the secret key of the reCAPTCHA API.
+      """
+      secret_key = generate_recaptcha_secret_key()
+      return secret_key
 
 
 class RecaptchaField(RecaptchaField):
-     """
-     Re-implementation of RecaptchaField, adding some type annotations and
+      """
+      Re-implementation of RecaptchaField, adding some type annotations and
      some warnings.
-     """
-     def __init__(self, *args, **kwargs):
-         """
-         Override the default RecaptchaField, adding some type annotations and
-         some warnings.
-         """
-         super().__init__(
-             *args,
-             validators=[InputRequired()],
-             input_class="captcha",
-             help_text="Please solve the captcha to continue",
-             label_class="label",
-         )
-         self.secret_key = get_recaptcha_secret_key()
+      """
+      def __init__(self, *args, **kwargs):
+          """
+          Overrides the default RecaptchaField, adding some type annotations and
+          some warnings.
+          """
+          super().__init__(
+              *args,
+              validators=[InputRequired()],
+              input_class="captcha",
+              help_text="Please solve the captcha to continue",
+              label_class="label",
+          )
+          self.secret_key = get_recaptcha_secret_key()
 
 
 class UserForm(FlaskForm):
-     """
-     A form to create a new user account.
-     """
-     username = StringField("Username", validators=[InputRequired()])
-     password = PasswordField("Password", validators=[InputRequired()])
-     confirm_password = PasswordField(
-         "Confirm password", validators=[InputRequired(), EqualTo("password")]
-     )
+      """
+      A form to create a new user account.
+      """
+      username = StringField("Username", validators=[InputRequired()])
+      password = PasswordField(
+          "Password", validators=[InputRequired(), EqualTo("password")]
+      )
+      confirm_password = PasswordField(
+          "Confirm password", validators=[InputRequired(), EqualTo("password")]
+      )
 
-     def validate_username(self, form):
-         username = form.username.data
-         try:
-             user = User.query.filter_by(username=username).first()
-         except User.Does
+      def validate_username(self, form):
+          username = form.username.data
+          try:
+              user = User.query.filter_by(username=username).first()
+          except User.Does
