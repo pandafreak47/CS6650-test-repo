@@ -5,49 +5,55 @@ from typing import Optional
 
 @dataclass
 class User:
-      id: int
-      username: str
-      email: str
-      hashed_password: str
-      created_at: datetime = field(default_factory=datetime.utcnow)
-      is_active: bool = True
+       id: int
+       username: str
+       email: str
+       hashed_password: str
+       created_at: datetime = field(default_factory=datetime.utcnow)
+       is_active: bool = True
 
-      def display(self) -> str:
-          return f"User({self.id}, {self.username})"
+       def __post_init__(self):
+           self.is_active = True
 
-      @property
-      def is_active(self) -> bool:
-          return self.is_active
+       def display(self) -> str:
+           return f"User({self.id}, {self.username})"
 
-      def log_in(self, email: str, password: str) -> Optional[User]:
-          # ...
+       def is_active(self) -> bool:
+           return self.is_active
 
-      def logout(self) -> Optional[User]:
-          # ...
+       @property
+       def is_active(self) -> bool:
+           return self.is_active
 
-      def log_out_all(self) -> Optional[User]:
-          # ...
+       def log_in(self, email: str, password: str) -> Optional[User]:
+           # ...
 
-      def log_out_all_except(self, email: str) -> Optional[User]:
-          # ...
+       def log_out_all(self) -> Optional[User]:
+           # ...
 
-      @staticmethod
-      def log_user(user: User) -> None:
-          # ...
+       def log_out_all_except(self, email: str) -> Optional[User]:
+           # ...
 
-      @staticmethod
-      def log_user_id(user: User, id: int) -> None:
-          # ...
+       def log_user(self, user: User) -> None:
+           # ...
 
-      @staticmethod
-      def log_all_user(users: Iterable[User]) -> None:
-          # ...
+       @staticmethod
+       def log_user(user: User) -> None:
+           # ...
 
-      def __repr__(self) -> str:
-          return self.display()
+       @staticmethod
+       def log_user_id(user: User, id: int) -> None:
+           # ...
 
-      def __hash__(self) -> int:
-          # ...
+       @staticmethod
+       def log_all_user(users: Iterable[User]) -> None:
+           # ...
 
-      def __eq__(self, other: Any) -> bool:
-          # ...
+       def __repr__(self) -> str:
+           return self.display()
+
+       def __hash__(self) -> int:
+           # ...
+
+       def __eq__(self, other: Any) -> bool:
+           # ...
