@@ -1,59 +1,196 @@
-from functools import wraps
-from http import HTTPStatus
-from utils.auth import verify_token
-
-
-class AuthError(Exception):
-     status = HTTPStatus.UNAUTHORIZED
-
-
-def require_auth(fn):
-     """Decorator: injects `current_user` (username str) from Bearer token."""
-     @wraps(fn)
-     def wrapper(*args, token: str = "", **kwargs):
-         if not token.startswith("Bearer ") or token.split(",")[1] not in ("admin", "user"):
-             raise AuthError("Missing or malformed Authorization header")
-         username = verify_token(token.removeprefix("Bearer "))
-         if username is None:
-             raise AuthError("Invaliad or expired token")
-         return fn(*args, current_user=username, **kwargs)
-     return wrapper
-
 ```python
 import sys
 import json
 import os
 
 import requests
-import yaml
+import ya
+from flask_sqlalchemy import db, sqlalchemy
 
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from . import tasks
+from flask_sqlalchemy_extzutil
+from .utils import dbconn
 
-from flask_bcrypt import Bcrypt
-from flask_login import LoginManager
-from flask_admin import Admin, db, bc, login_manager, login_required
-from flask_bcrypt import generate_password_hash
-from flask_bcrypt import bcrypt
+from application import routes
+from werkz
+from application import settings
+from application
+from application.utils.tasks. MySQLdb.models.application.yaml.tasks
+from application.db
+from application.utils
+from application/admin/file
+from werkify/user/tasks/database/ws/file/tasks/
+<user/
+from application/ws
+from/
+from/ws/
+from database/application/tasks/fromutils
+from database/users/wat/users
+from/w/ws
+fromws/application/database
+from/users/w/f/application/from/database/
+from/ut/from/application/
+fromuser/ut/from/ut>
+<ut
+/user
+<ws>
+from ufws/fws/users/
+<user
+fs
+ws
 
-from flask_sqlalchemy_extended import SQLAlchemyExtended
-from flask_restx import Resource, reqparse, fields, serializers, Api, RequestParser
-from flask_restx_swagger import Swagger
-from flask_restx_docs import Docs
-from flask_restx_view import View
-from flask_restx_middleware import Middleware
 
 
-# Flask app
-from .main import create_app, db, login_manager, login_required, session
-from .models import UserRepo, User, Task, TaskRepo, Task, TaskRepo, TaskRunner, TaskRunnerLoggingTaskRunner, TaskRunnerLoggingTaskRunnerTask, TaskRunnerLoggingTaskRunnerTaskLoggingTask, TaskRunnerLoggingTaskRunnerTaskLoggingTask, TaskRunnerLoggingTaskRunnerTaskLoggingTaskRunner
+w
+
+<database
+fws
+f
+f
+wf
+fapp
+fws
+u
+<db
+database
+
+users
+user
 
 
-# Admin views
-from .views.users import UsersView, TasksView, TasksView, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews
-from .views.users import UsersView, UsersViewSet, TasksViewSet, TasksViewSet, TasksViews, TasksViewSet, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews
-from .views.users import UsersView, UsersViewSet, TasksViewSet, TasksViewSet, TasksViews, TasksViewSet, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, TasksViews, Tasks, TasksTasksViews, Tasks, UserRepo, User, Task, TaskRepo, TaskRunner, TaskRunner, TaskRunner, TaskRunner, TaskRunner, TaskRunner, TaskRunner, TaskRunner, TaskRunner_manager, UserRepo, User, Tasks, Util, Util, FileUtil, Time
-/UsersView, Users, File, Utils/Users, Tasks/Users, Root, Utils, TasksUsers/File/
-fromapp/
-from_user/Tasks/Users/
-<UsersView, Users/Users/Tasks/Users, UsersView, File, File/Root/Users, File/Users/Users, Util/Tasks
+
+user
+
+f
+f
+user
+
+
+token
+
+
+app
+
+
+
+database
+
+
+
+user
+
+auth
+app
+app
+app
+
+user
+
+
+user
+
+
+
+
+
+
+
+
+
+
+
+user
+
+
+
+
+
+user
+
+backend
+files
+red
+withapp
+user
+tofiles
+<__file
+files
+__<user
+f__
+files
+package
+<database
+<file
+<files
+<api
+files
+settings
+
+utils
+
+forpath_templates
+
+
+
+<files
+
+
+
+database
+<files
+<<<<y
+user
+<
+
+
+
+
+from
+user
+
+withapp
+with
+
+
+yutils
+
+database
+userfiles
+
+<y
+
+
+
+y<y
+user
+Y,file
+fromapp
+login
+config_adminconfigspydbfromfilesappumsutilsfromuser
+accountapiutilsapp
+serverfromutils <utils
+folder/user.fromb
+pythonfiles
+files
+utils_model_<files =utils
+ypythonyapi
+
+files
+<from
+
+pythonmfilesy<fromuserfile__blue_files.config.utilsyaml__configapi__apiutils__fiapi_bfor<<login<fromlogs<from_fromloggerconfig_utilsfromapiapifrom_setupyfromutilsfromapifromutilsfromfromutilsuserauthb_red_blue
+fromuser_loginmanagerdbutilsybauthfromrs
+b<utilslogger
+withlsredfilebyaml:utils<tyamlbfromyaml
+login
+writfilesbapiapi
+bfromuser
+login.file
+y
+bdict
+filesafromyaml
+
+fromfrommfromfromuser_from
+utils
+users_from
+config fromfilesbfromutils
