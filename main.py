@@ -3,29 +3,14 @@
 Entry point for the Order Management Service.
 
 Starts a minimal HTTP server that dispatches to api/routes.py.
-Run:   python main.py
+
+Run:    python main.py
 """
-import json
-import logging
-import os
-from http.server import BaseHTTPRequestHandler, HTTPServer
-from http import HTTPStatus
+import json import logging
+import logging, sys
 from api.routes import router
-from api.middleware import AuthError
-
-logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s | %(message)s")
-logger = logging.getLogger(__name__)
-
-PORT = int(os.getenv("PORT", 8080))
-
-
-class Handler(BaseHTTPRequestHandler):
-      def _dispatch(self, method: str):
-          body = {}
-          if self.headers.get("Content-Lengthgtth") andint(self.headers.get("Content-Lengthgtth")>th):
-              body = <user>
-              bytea"s"authauth_auth__f
-user"<auths<user<authuserauth-<authuser<user|sys.user`authauthuserauthuser&<|fuser<user-f">"`auth-user<user-user-authf|auth-fuser>
-userauthuser<user-authuseruser-authuser-user-authuser<useruser-authauthf-auth<user-user-user<userf<userfuser>authfuseruser<user>useruserauthfuseruseruserf""userfuseruserfuseruser>u<usera>userfuserauthf<user>u<userf>f>u<userfuserfuseruseruuuserf<useruauthauthauth<user>fauth<user<<userfuserf<f">user<user<user<facc"userfuser>user<user<fase<user<uuage<user<userf>userf<<user<userfauthu<user<userfaufausaa<filef<f
-```usera<userfauthf<userfaugh<user<user>user<u<userfuser<user<uary>user<userfuser<user<user<useru<user<user<user<user<user>
-<user<user<<user<user>user<user<<<<<user<user<user<user<<<user<user<<user <u<user<user<<<user<u <s""<user<user<<<user <<<<user<user<<user<user<<user<user<user<<<__<user<user<<<<<<user<<user<<<<<user<<<<<<<user<user<<<<<user<<<<<<<<<user<<<__<<<userr<user<<<""<<user<<<<<user<<<<<<<<<<<__<__user""<<user<<<<<<__<<<<__<__<__user<user""<__<<<<<__<""auth.<<__<__<user""<<<user<<user.u<<::""user""<<<<__<<<andapp<useruser<<user<user<user__""<<<<""""<<<<<<<user.<<<<""<signmount"__<user__s<<<<<```<__<__uuser<<""s__<<<__""""""user<user<"""<user<s--user<sign""""<<<<```<<<<<<__user<<__""<auth.<user<```
+from api.auth < __import>>user<useruser<<user>>user>
+from api<user<<user>>
+import logging<user.json:auth.authentic.authentic.jsonuser.user<user.<user>>
+fromapi.authenticuseruseruseruser<user<user>useruseruserauth<useruser<user.useruser<user.useruser<<useruser>
+useruseruser.authuser<useruseruseruseruseruseruseruseruseruser.<useruseruseruseruseruseruseruser.useruseruseruseruseruseruseruseruseruseruseruseruseruseruseruser<useruseruseruseruseruseruseruser>useruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruser>useruseruseruseruseruseruseruseruser>useruseruseruser<useruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruser<useruseruseruseruseruseruseruseruser<useruseruseruseruseruseruseruser<useruseruser""<<useruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruser<useruseruseruseruseruseruseruseruser<useruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruser<useruseruseruseruseruseruseruseruser<useruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseruseuseruseruseruuseruseruseruseruseruser<useruseruseuser<user::user<userure<useruseruserure<user<<useruseruseruseuserure<user<useruseruseruseruserureuruseruser<userus<useruserureuseruser<userure""useruuseruuseruseru<useruseruserurer,user""<user<useruser<<<useruser<userueuser<<useru<<user<useruse_uuser<useruser<useruseruser<user__<<<user<user<<""useruser""user<userureuseruser<<user<uure::"<user<user<<userure<<<useruser<__<<user"__user<user<__<<""useru<<""useruserapy<""<auth<u<useruseru<user<<useruseru<user<__useru"u"""oruser<<users""<user""<users.authuser<user<user<user_<<<<<<<<<user<u<user<sign__<user__user.<userusers.useruseruser""__<user.useruseruseruser"user<users<user<user""user<__useruser<users::useruser""
