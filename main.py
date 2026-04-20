@@ -1,42 +1,29 @@
-getrtf__ <|user>
-<|>
-```
-
-file|>
-<file|file|<file|user|file|<path|file__filep>
-<file>
-/file|rt>
-
-<|user|file|password|file|only|get__rt|file|>
-<__file|file/file|file/file|file|__file|file|file|file|file|file>file
-<file|file|user<<file<<file<<____file<file/file<file__file|file<file<file/file<file|file<file|file
-file|file/file:file<file
-file<file<file|file<file|file|file<file/file<file|file:file<file<file__file:file <file:filepfile, file__file,file,filep<file<filep<file <filep<file<file:file,file<file,file,filepfile:filepfilefile<filepfilepfilepfilefile<filepfile()file <file,file,file,filef <file
-file:file<file<file<filea <file<file<pass<from <self<file <file<<file<filefile<user:file>file>file <file<user <filep
-<file<filee<file <<file<file<<<<<file <<request <user <file <file ...file <files <user_file<file<file<async<<<<<data <<<<<<<async <<<request <<<<<user<<<user(ty<<file<user<use <user:user<<<<<<<<<call<call<<signs<<<<<<<<<<<<<<<
-<type<<<<<<<<<ty<call.typ<class<file<call<inter__file<```<...<<<ty<...<<<re...<def
-def__<call<__<sign_user_user:user:def...user:call:call:<username:call:<user <user<__<<<<<<<<__user_some<den<<ty<priv<
-call
-<from
-user<<user
-priv<<ty<<<<user
-
-
-<user
-priv
-call
-<def<e<sign<ty<def<ty...m<<<typ<user<<<ty
-<<rem<user""(<##ty__<<for<ty<ty<<use(...userauth<<__typ...dety<optionaluse<auth_imty.username<utsty<call
-user<default<call
-<some_user_<__<type<<rep<<<__<type<<type <=
-<<
-<type<typ_type
-typ<user<ty<self<<ty<type<auth__<<__e__user<ex##<def<ty<def<<user<typ<<sign<defaultuser<def
-default
-
-call
-<__user<__<typ#typ.<<user<re<<def<__ty<<ty<typ<user
-<priv<user<<def<tyuser
-#user<user<serialuser<#user<users.user<<ut<def<user<pypython<ut#user__ut<__<defaultrep__ut##__user__type__declass______tytype<type____user__<<utils<<typ<ty<ut<rep<usernameusertypeuser<auth<<<__<memauth<tyuseruid<typ<<user__tyauth<user<typ
-<<<ut<<mid<<<<<ty
-<ut<mid<<<__<mid<<<<<<def<__<<__ut<type_<utserial<mid<desty_type<rep__rep<<<mid<type<<<<mid<<mid__<mid<midtype_<def<rep<def<rep<def___check<mid_str:__repreprep<rerere<rereprep<reprerep<repre<tyrepmid<re<__midre<re<<<midty<rep_rep(re<type<sty__username<usernameuserself(__rep__redict<__<self(usernamere:<user<re__user<midrekwargsremidre__miduserreover
+<__user
+def<<<__<<mem__user<__typedef<__user<<__<<ty<<tyut<ty<serial<ut__rep__prop##__tyut__<__typety__tydefault__tydef__conremid<typuser<<re<<repuser<ty<ty<rep<authuser<<<<<<user<<<tyty<
+defuser<rep#<auth<<mid<<__ty
+<<<tyuser<<mid<default<user<<<user<<<__<<__<<<from__<__<<__type<over__mid<<re<typetype__user__userrc<<<reptypemid<<class<<<type<mid<user<repty____re_s<type<reprep<__def__<__type<type__<<re<mid<midusernameusernamerepo(rep<rerere<repreprep<tyty:repo:<<call<user<__rep<user<rere<reretype<user<rep_username<tymidmidrerepmidrep____tyremidremidre__username<user<__rety<reusertyoverrelowermidreprere__miduserrepuser_userrepdefmidtytytytytystring:tyty<username_midmidmidty<<usertyty<usernametypeuser<midusername
+<usernameusername<user
+con
+username
+auth_miduser<tytydef<usernameusernameusernametypeusername<typetypetypemidusernameretypeusernameusernameretyusernametyusername
+midusernamemidtymidmidauthdeftypeusernamedeffromusernametyusermidtyuserfromtypeusernameimplselfmidfrommiddefaultmiddefreid<selfredesredictretypereretypeusername:ty:impl:usernameusernameusermid:user:midtyusernamereusername
+username
+usernamemid
+strusernamemidusername
+ty
+auth
+usernameauthauthauthauthauthtymidusernameusernameauthauthusernameuser:mid__username___reusernamereimplcheck__default__mid__midtypeusernametypepasswordtype#username____midauth__tymid
+username__usernametypeusernamemidmid__username:user:__mid:__ty_usernameauth__ty__midself(authty______desauth(re(__deftype(user::usernametydictusername__typ:data:user(decusernameauthmidmid(des:usernamepassword:<midtyuser_deself#class__usernamecheckcheckself(reselfcheck(ty__:userself_<midchecktype(def<<usernamemidtypemidoverchecktypeauthtype:tytytype<
+retypeprop(mid<de<typType<Usermid<prop__Auth__de__frommidtype(checkdeftypropmid:de:pro__type:strtymid:deredetyde:dec(re:typemid(selfde:type:prop:tyusertypmidre<typtimid:check(inv(usermidre(typmidde<remid<<typemidre<deself:declrereself<tireselfuserty<over<<deselfredetypemidaliasrerereretyperetypetype
+tyuser::tymidcheckmid<tyrere:__data:retype__redefre<recheckmidrere<rededetyre<reselfreredefreredefremid<implretyselfmidtychecktimidcheckrerecheckre(defredetypetire
+midrereusernameuserimpltytyreclass#tyselfreclasstyreuserreselfrerererereselfmidremidretytytyperemidrereselfretyredefselfreself:demidrerereselfrereselfselfself<reself<selfselftyselfreselfself
+self<selfreselfself:self:retype:selfself:retyself
+selfselfselfselfselfselfself:type<self:self:ty<selfself:reself<self<rerere<self:selfreselfre<self
+self<selfself:self
+midtypetyperetype:typetype:type<selfmidselfself:selfderety:selfretype<selfreselftypeself
+selftypere:selfselfretypeselfreselfselfreselfrere:<self:self:
+self:typere:self:type:self:self:typere
+self:self:self:
+re
+mid:re:re:self:rep:type:type:self:type:selfre:self:selfretypeselfre
+:
