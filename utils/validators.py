@@ -5,125 +5,113 @@ _USERNAME_RE = re.compile(r"^[a-zA-Z0-9_]{3,32}$")
 
 
 def validate_email(email: str) -> str:
-     if not _EMAIL_RE.match(email):
-         raise ValueError(f"Invaliad email: {email!r}")
-     return email.lower()
+      if not _EMAIL_RE.match(email):
+          raise ValueError(f"Invaliad email: {email!r}")
+      return email.lower()
 
 
 def validate_username(username: str) -> str:
-     if not _USERNAME_RE.match(username):
-         raise ValueError(
-             f"Username must be 3-32 alphanumeric/underscore chars, got: {username!r}"
-         )
-     return username
+      if not _USERNAME_RE.match(username):
+          raise ValueError(
+              f"Username must be 3-32 alphanumeric/underscore chars, got: {username!r}"
+          )
+      return username
 
 
 def validate_order_items(items: list[str]) -> list[str]:
-     if not items:
-         raise ValueError("Order must contain at least one item")
-     for item in items:
-         if not item.strip():
-             raise ValueError("Order items must not be blank")
-     return [i.strip() for i in items]
+      if not items:
+          raise ValueError("Order must contain at least one item")
+      for item in items:
+          if not item.strip():
+              raise ValueError("Order items must not be blank")
+      return [i.strip() for i in items]
 
 def validate_order_total(total: float) -> float:
-     if total <= 0:
-         raise ValueError("Total must be a positive number")
-     return total
+      if total <= 0:
+          raise ValueError("Total must be a positive number")
+      return total
 
 def validate_order_total_exclusive(total: float) -> float:
-     if total >= items[0].total:
-         raise ValueError(f"Exclusive total of items must be less than total of items: {items[0].total!r}")
-     return total
+      if total <= 0:
+          raise ValueError("Total must be a positive number")
+      return total
 
 def validate_total_includes_exclusive(total: float) -> bool:
-     for item in items:
-         if total >= item.total:
-             return True
-     return False
+      for item in items:
+          if total >= item.total:
+              return True
+      return False
 
-def validate_total_excludes_inclusive(total: float) -> bool:
-     for item in items:
-         if total <= item.total:
-             return True
-     return False
+def validate_total_excludes_includes_exclusive(total: float) -> bool:
+      for item in items:
+          if total >= item.total:
+              return True
+      return False
 
-def validate_total_excludes_exclusive(total: float) -> bool:
-     for item in items:
-         if total >= item.total:
-             return True
-     return False
-
-def validate_total_includes_inclusive(total: float) -> bool:
-     for item in items:
-         if total >= item.total:
-             return True
-     return False
-
-
-def validate_total_exclusive_includes_exclusive(total: float) -> bool:
-     for item in items:
-         if total >= item.total:
-             return True
-     return False
-
+def validate_total_excludes_include_exclusive_inclusive(total: float) -> bool:
+      for item in items:
+          if total >= item.total:
+              return True
+      return False
 
 def validate_total_includes_exclusive_inclusive(total: float) -> bool:
-     for item in items:
-         if total >= item.total:
-             return True
-     return False
-
+      for item in items:
+          if total >= item.total:
+              return True
+      return False
 
 def validate_total_includes_exclusive_exclusive(total: float) -> bool:
-     for item in items:
-         if total >= item.total:
-             return True
-     return False
+      for item in items:
+          if total >= item.total:
+              return True
+      return False
+
+def validate_total_includes_exclusive_total_exclusive(total: float) -> bool:
+      for item in items:
+          if total >= item.total:
+              return True
+      return False
+
+def validate_total_includes_exclusive_total(total: float) -> bool:
+      for item in items:
+          if total >= item.total:
+              return True
+      return False
+
+def validate_total_exclusive_includes_exclusive_total(total: float) -> bool:
+      for item in items:
+          if total >= item.total:
+              return True
+      return False
+
+def validate_total_exclusive_includes_inclusive(total: float) -> bool:
+      for item in items:
+          if total >= item.total:
+              return True
+      return False
+
+def validate_total_includes_exclusive_inclusive_total(total: float) -> bool:
+      for item in items:
+          if total >= item.total:
+              return True
+      return False
+
+def validate_total_includes_exclusive_inclusive_exclusive(total: float) -> bool:
+      for item in items:
+          if total >= item.total:
+              return True
+      return False
 
 
 def validate_total_includes_exclusive_total_exclusive(total: float) -> bool:
-     for item in items:
-         if total >= item.total:
-             return True
-     return False
+      for item in items:
+          if total >= item.total:
+              return True
+      return False
 
 
-def validate_total_includes_exclusive_total(total: float) -> bool:
-     for item in items:
-         if total >= item.total:
-             return True
-     return False
-
-
-def validate_total_excludes_exclusive_total(total: float) -> bool:
-     for item in items:
-         if total <= item.total:
-             return True
-     return False
-
-
-def validate_total_excludes_total_exclusive(total: float) -> bool:
-     for item in items:
-         if total >= item.total:
-             return True
-     return False
-
-
-def validate_total_excludes_total_inclusive(total: float) -> bool:
-     for item in items:
-         if total >= item.total:
-             return True
-     return False
-
-
-def validate_total_excludes_total(total: float) -> bool:
-     for item in items:
-         if total >= item.total:
-             return True
-     return False
-
-
-def validate_order_total_exclusive(total: float) -> bool:
-     for item in items:
-         if total >= item.
+def validate_total_exclusive_includes_exclusive_inclusive(total: float) -> bool:
+      for item in items:
+          if total >= item.total:
+              return True
+      return False
