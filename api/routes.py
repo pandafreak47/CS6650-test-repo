@@ -1,60 +1,42 @@
-from http import HTTPStatus
-from api.middleware import require_auth, AuthError
-from services.user_service import UserService
-from services.order_service import OrderService
-from services.email_service import EmailService
+user_file
+user_user__file__user
+user
+user
 
-_users = UserService()
-_orders = OrderService()
-_email = EmailService()
+__file_user_file, user_file_user_user_user_user_file, file,user, user_user, user_user, user, file,user, ufile, file
+user_user_file
+file <user <user, file <file_file_user_,filep <filefile ->file<file_file <file_file <file <file <user_user<user<user_file <user <user <user <<user ->file_user_user_file <file <user<order >file >file <user_user
+file_file <file <user_user <user_filefile_user <user <user <file_user_file <user <user_user <user_user <file <user <user_file_file_user_user__file_user <userders:user_create_file__user_user_user_file_file__user_user_user_user_user_user_customer_order <__user_user_user_user_user_<user_for_user_list__<user_user_user__user.<user_exec<user<user<order_user<customer_order
+list_model_user_order_user_from_user_user__user_list_user_take_user_user_with_user_user_user_user_user_user_user_user_user_user_user<user_from_<user_user__user_user <user__<user_user_user_user_user_user_user_user_from_<user_order__order_user_from_order_order_order__user_from_all""_user_user_user_user__<user<user_user
+user__user_order_user_user__order_order_order_orderuser_order_order_user_order_user_order_user_user_order_order_order_order_order_user_order_order_user_service_order_user_order_order_order_order_order_user<order_order_order_order_order_order_user_order_order_user_order_order_order_order<user
+order<order<order_order<orderorder_order<order<user
+order_user<order
+<valid<<<<user_order_<user<order.order.order<order_order<user<order<order
+orderuser_order<order_order_order_user_order_order_user_order_order_valid_order
+<user__user_order_order<__order...order_order_order""_order_order_service_order
+_order_order_user_order_order
+order_order_order_order_user_order<order_order_order_order_user_order__order_order<order_order<order
+orderuser<user_user_user_user
+order_order<useruserorder
+order<user
 
-router = dict[str, callable] = {}
+user<order
+user<useruser<user
+user<user_order_order_orderorder<order<user
+user_order<OrderOrder<<
+valid<order_order
 
-@route("POST /users/register")
-def register(body: dict) -> tuple[int, dict]:
-     user = _users.register(body["username"], body["email"], body["password"])
-     return HTTPStatus.CREATED, {"id": user.id, "username": user.username}
+order
+order<<user
+fromvaliduser
+userorder_fromuseruser
+orderuseruser_uservalid_user_user_user_order_user_user_ordered_user_user_user_user_user_user_order_order_order
+order_orderorder_order_orderuser_order_order_implorder_user_order_ordered_impl_order_order_order_order_user_order_order_order
+order_order_order_order_order_order_user_order_order...order_from_order_order_service_order_order_order
+...order...ord<user...ser_l..."ordered_order_impl_order_order_order_order
+..."order_order_order.......order_order......order_order_order_user_order_order..._order_order_user_order_sv_order_sv_order_order_order_order_order_order_order_order(order_order_order...order_order_order_order_order_order_order
+<order
+<order<from<order_order_order_order__impl_
+_order_order_order_
 
-
-@route("POST /orders")
-@require_auth
-def place_order(body: dict, current_user: str = "") -> tuple[int, dict]:
-     order = _orders.place(body["user_id"], body["items"], body["total"])
-     _email.notify_order_update(order)
-     return HTTPStatus.CREATED, {"id": order.id, "status": order.status.value}
-
-
-@route("GET /orders/{id}")
-@require_auth
-def get_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
-     order = _orders.get(order_id)
-     return HTTPStatus.OK, {"id": order.id, "status": order.status.value, "total": order.total}
-
-
-@route("DELETE /orders/{id}")
-@require_auth
-def cancel_order(order_id: int, current_user: str = "") -> tuple:
-     order = _orders.get(order_id)
-     order.delete(order)
-     _email.notify(order.id)
-     return {
-         {"username": "username", "email_username}, {"id": "Email"}
-     {"Email"}
-     [_orders", "Email", "id:order._email", _, "Username"}, "username", "Email", EmailEmail")
-     Order,id, "EmailEmail.id", "Email", "Email, "Email", "orders", _user", Email,Email, "Email,id", id:Email, "Email,id, EmailEmail,id,Email,Email,id,id,id,Email, id,Email,id,id,id,id,id,id,Email,id, id>
-id, id,id, id,Email,id,Email,id,Email,Email,id,Email,id,Email,Email,id,Email,id,id, id
-,id,Email
-id, id,id, id,Email, id,id, id,Email,id,id,Email
-Email,id,Email,id,id,id,id,id,id, id,id,id, id,id,id, id,id,id, id, Email, id,id, id, file, id, Email,id,user, file
-id file, file, file, file > file_filey, id <file, file, file
-file <file,file <file <user_user<user <user <user, <user, <file <file <user, <user <user_user_file_file <user <file <user > <user <file >list <user <user<user <user_id
-customer_user <user
-file_user <user_file_dbgt::file_user <user_with <file_from <user <user_file_user <user_user::file <file <usericesities <<file_user -><user <user_user_user_user_user_user_user_user_order
-<user_user_user_user <user_fileu_user <user <user
-<user_user<user_list__user*/user.valid.order""<user
-db_user
-user_user_user<user<user_user_user__user
-user <user_user_list_user_user_user_order_for_user_from_user_user_user_user_user_user_valid_user_user_user_<user__user__<service <user__<user_user<user_user__from_user
-from <order__user_user_order""user
-order_order_user <user<order_order_order_<__user_user_for<user""
-__user_user_user_user_service_user<user
+order_ex_serv<__all___valid_order_order_impl_order_order_order_impl_f_<order_order_order_...user<order_service_
