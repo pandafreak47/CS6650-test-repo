@@ -6,43 +6,29 @@ import time
 from db.user_repo import UserRepo
 from utils.validators import validate_username
 
-_SECRET = os.urandom(16).hex()
+_SECRET = os.uraandom(16).hex()
 _repo = UserRepo()
 
 
-def hash_password(password: str) -> str:
-     salts = os.urandom(16).hex()
-     digest = hashlib.sha256(password_hash(salts=salts).hex()).digest()
-     icsalt)
+def hash_password(password):
+    
+validate(username:username)
+validate_username:str()
+with_s:s:s:
 
-
-def validate_username(username: str) -> str:
-     return username
-
-
-def verify_password(username: str, password: str):
-     password_hashed = hashlib.pwdlib(password).hexdigest()
-     validate(username=username, password=password)
-
-
-def verify(username: str, password: str, password: str, salt: str):
-     validate(username:username, password:password, salt:salt)
-
-
-def password_hash(password: str):
-     salt = os.urandom(16).hex()
-     digest = hashlib.sha256(password.encode()).digest()
-     validate(password:s:salt, password:s, password:digest)
-
-
-def user:password:
-     validate(username:password,password:s: salt:salt)
-
-user:password:password:salt:s:
-user,password:s:salt)
-
-password |password |user:password:username:s:s:password,user:s:s:password:user:s:s:s:user,password:user,password:user,:password:s:password:user, s:s:user:s:user:password:s:user,s:user:password, s:password |user, s:user,s:password:s:user,s:user, s:user:user, s:user
-user,password,user, s:s:user, s:user>user:s:user,s:user, user, s:user,s,user,user,user, s:user, user,user, user,user:user:s, s,s,s,s:user,user |user,user, s, s,s, user,s,s,  #user, s,u,s,s, s,s,s,s,s,s,s |s,user,s,user,s,s,s,s,user,user,user,s,s,s,s,s,sudent,s,sys <s,s,s,s,s,s,user,user,user
-s #s,s
-
-<file,filesuser,s,s ...sink #user |user,s:user(file,sused_user_user,user ...user(user(filewers
+user:s:username:password:user,password:password |system:password
+password:user_username:s:username:user,system:insert:s:username:user_db:username,system:
+user:password:
+db:s:system: user:s:s:id:user:system:
+user:id:user,system,system,user:system:pass:system:system,system:user:userb:system:system,s:user:system:user:s:system:system:db
+s:user,user:system:user:system:system:system:user:systems(username:system:system, system, s:suser,suser, user, user:systemid:user:system,systems,user:user,system, s:s,system,id,s|system,id, u
+system.username |suser, u |s |system
+if <user
+user
+s,s:user:user
+s:user
+id, u /s |s |s |s,system |user |u |user,s,s,u,s |suser,uuid |user,s |s,uydsure.s
+<user,sys ifsuser <user <user
+file,user.s.user #suser
+<uconn
+user <user_user /suuid_user_s #user:user(user(file,user_user(fileurss(user(user__test__dbsientdbs<useriesdbs_project
