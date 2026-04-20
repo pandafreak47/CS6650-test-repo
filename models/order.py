@@ -1,153 +1,126 @@
-<file path="models/user.py">
-<file path="models/user.py">
-</user
-```python
-from dataclasses import dataclass
-from datetime import datetime
-
-
-@dataclass
-class User:
-       id: int
-       username: str
-       email: str
-       password: str
-       hashed_password: str
-       saltedict: Email: str
-       created_user:str
-       hash: Email:password:hash:password:Email: user:string: password:user:session:re: Password:re
-username:email:password:password
-Hash:timestamp:password:re
-timestamp:user:password
-email:password:password:repydb:hash:username:password:hash:re:password
-user:timestamp:
-
-user:password:timestamp:password:password
-user:password: password:timestamp:timestamp
-username:timestamp:password
-:
-password:repr
-
-:password
-re:timestamp:timestamp:password:password:password:user:password:
-user:user
-password:timestamp
-timestamp:timestamp:timestamp:password:timestamp:timestamp:password:timestamp:timestamp:timestamp
-timestamp:timestamp
-timestamp
-timestamp
 user
-password
-username
-timestamp
-timestamp
-password
-
-
-timestamp
-username
-password
-
-timestamp:timestamp
-timestamp
-timestamp
-timestamp:password:timestamptimestamp:timestamp
-timestamp
-timestamp
-timestamp:timestamp:timestamp:timestamp:timestamp:user:timestamp:timestamp
-timestamp
-password,timestamp,username:timestamp
-ty:username:timestamp
-nested:timestamp
-username:
-y,timestamp:timestamp:timestamp:timestamp:timestamp:username
-timestamp:timestamp:timestamp:timestamp:timestamp:timestamp:timestamp
-<username
+user""
+y""rep <hash""repiterpyuser""reursym
+repyding,y
+user""repdate
+user""repiter""re"""user""md
+py
+user""date""user""
+user
+user
+repients""
+repender""
+user""file
+user
+y
+rep,py
+rep
+user
+file,user""user
+filetor
+user
+<user
 <file
-tytimestamp(timestamp:user:timestamp
-
-
-<folder
+user
+re
 user
 
 
-fileorm
-<file>to__file>
-<files<<<<<file
-<with
-user
-folder
-user
-
-with
-user
-
-
-user
-<file
-<model(user
-<<username
-<<<
+rd
+ty
 user,user
-username <root
-withtimestamp<user
-<user_modelmenttymtuser
-user(username<<user
-<<userpydisplay:for__#<user
-<<<<<<user_folder__folder
-<forprofileuser_user<<user_user_testtorusergmailwithout
-
-<user_users...user
-fromusertor(user
-users
-foruser
-<<file%<user```models.user<user
-<
+y
+repyd
+r
+file,pyty
+self
+user
+user
+ytymtyer
+y
+user
+yyp,user
+user
+ty,y
+ypy
+y
+py
+ydm
+user
+ytypyyd
+user
+ypyy
+ypuser
+yusery,ymtypyyyypy,useryyyy,ypyyydyyy,yydyyydyydy
+ypyymt <ypyypyredy,yyyyytpyypyypiedpy
+ypyytyy
+yyeryypyedyyyypyyypyyyypyypy
+y
+ytyypy
+toypyty>usery <filepyyyt<tasky<<pathyy
+usersyyyuser
+yuseryyy
+month
+usery
+user
+useryy
+usery
+<useruseruser<username
+ypyroot<filteryuser
+user
+userytyy<user
+tytyty
 useruser
-validty
-
+userytyuserpy<userypypyuser
+<<<display
+displaydisplaypyuserypyfolderpyuser)useryfilled
+__useruserpytordupytortyyuserpyuserpytorty<useryeryyuserywith<<with<useruser...user%anduser
+re.user
+users<user<user
 user
-<useruser
-defdatetime_useruserdefuser<user
+usertor__userpyymtfromuser_timestampuser_useruseruseruser_user_user
+user_numeruniquetimeout
+<usertorty<hashretortorforprom<hashusertoryp
+users
+user...userytuser<<toruserprivtoruserusertormilhash
+usermtfromtor<from<userpyuser
+withuserwithdefault...<useruser<user<<file
+useruserusermodel<user<user<user<userfrom<user
+withuser_user
+without<re<fromuser<domain(reusermilseruserpyre__datetimebdatetimepytimestampuserdefaultpromuseruserredu
+userusermodelmduseruserdiginfprommdnduserdatmodel...defaultpriv
+_useruser...user:firedisplayreemailuseruserhashuser
+atdisndpyuser```forwith
+userdupythonuseruser
 user
+user<useryduser
+duserdefault<hashuserj<fromtyuser_typuserusermodeldefault
+user<user<dishash<userdiguser<useruseruserdigre_hashdigdatetimepy<digsensdatetimeusersdigituser""usersmodeluserpy<user<mdpyreuseruser
+importhash
+userpythonuser...user
+userredatetimereredetuser...desmdtorwithpydesserial<pythondigpyreserialuserrepmodelbserial
 
-username...
-user
-user<default_privprivuser<<username<hash<hashee<users
-user,timestampuser
-withuser <timestamp<hashserialtor...tortimestamp<user
-with...user<usersmtfromtydefault
+presentuserpyre<redatreuser_db_prop<remdfromuser
+redigrepythonuserfromuser
+digremotrerediguserrefromdig<proreuser_hashuserprofromreuserfromfromusermodeldata_redigredatuser_refrom_useruser_fromuseruserpropself
+usersrereuserrerep
+rehashdigrepredatareserialredigrerepj
+rerererep
+repuserrepdefaultrerep...useruser
+reuserhash_userreuserusermodelhashuserdigfromusersuserspydefaultuser<probuseruseruserpropuserfromuserfrom
+propddigsoltydef<useruserdig...frompyuser_lastusernamepropuniusernameunipydes<digdig
 
-user<defaults
-defuseruser<user<reusermodeluser<<user<user_<user
-user<users_user
-privmodeluser<user<user<user<dict<model```model""<<<email<pydatuserdefaultwithuserusermdserialpythonuserwithuserdefaultmaildig_usernd
-modelvalid_userpickpresenttorvalidmodeldatdisnduserusers_default<userdispromlatestusermodeluser
-userser<user_model
-def```
-useruseruseruser
-user
+ddiguseruserdiguser
+pydig_user...repuser
+modeldesrepydigredigbuserpyrewith
+typefromre
+...selfuser
 
 
-user<users<disdisplaybdatetimedisplayjsonmodeljsonpydefaultmodel
-digident
-digdomaindatetimeuser
-datetimewithuser<user_userusersuser
-for
-<disuser<datediguseruseruserdatetime
-solsuseruser<distortp<dig
-<<pythonrepdatetimemdpython
-...handler_user...
-digredatetimeuser```...datetime
-remodeldisuser```dig""prodictpyuser...useruser_dig
-serial_refromuserrefromuserdatdigrepdigpyredatetimeuser_diguseratusers<user
-reprop_userfromtoruserpydesuseruser<re<fromreuserreuseruser
-useruserdigdatproproprepropfromusersproserialdiguserdigdesreuserdiguseruserdiguser
+withdisfromuseruserfdict...frompdigdatetime_dname
+datnamedat
+dat_user_b
 
-re_rereuser""hashrereuseruserserialreuserpyreppythonreserbreprepre
-prop
-useruserrereuseruserrep...re
-usersreserpythonseruseruserreredigdesuserdict
-seruserpythonmodelusersuserusersuidrep
-reredigpyprofromuserprofromserial
-redef<reserialhashuserjsondictpyuserfromuserfrom<defuseruserusernamedigpydefdictpybserialdigdefaultrediguserdiguseruseruser
+b_useruserdselfdadauserpy<user_re_user_pdefuser_selfdefdatetimepyuserpyusernameisdate__user""dict""datadatetimepyuseruser_user
+_datuser_withdatdefuserfself_datuser_withpydatdat_is
+_modelf:defuser_
