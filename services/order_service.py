@@ -1,95 +1,173 @@
-class OrderService:
-     def __init__(self, user_repo):
-         self.user_repo = user_repo
+valid_valid_valid_valid_re<valid_valid_validate_validate_valid_valid_re_valid_valid_validate
+valid_valid_valid_validate_valid_validate_valid_valid_re_validation_re_re_valid_valid_valid_valid_valid_valid_validate_valid_valid_valid_valid
+valid_valid
+re_valid_validate valid_valid...validate_validation<validrevalidate_validrevalid_valid_valid
+validrevalidtyvalid_valid
+valid
+reg
+validation
 
-     def get_order_by_id(self, order_id: int) -> Order:
-         row = self.user_repo.execute("SELECT * FROM orders WHERE id = ?", (order_id,))
-         if row:
-             user = self.user_repo.get_by_id(row["user_id"])
-             return _row_to_order(row, user)
-         return None
-
-     def list_for_user(self, user_id: int) -> list[Order]:
-         rows = self.user_repo.execute("SELECT * FROM orders WHERE user_id = ?", (user_id,))
-         user = self.user_repo.get_by_id(user_id)
-         return [_row_to_order(row, user) for row in rows]
-
-     def cancel(self, order_id: int):
-         row = self.user_repo.execute("SELECT * FROM orders WHERE id = ?", (order_id,))
-         if row:
-             order = _row_to_order(row)
-             self.user_repo.update_status(order_id, OrderStatus.CANCELLED)
-             return order
-         return None
-
-     def list_for_user(self, user_id: int) -> list[Order]:
-         rows = self.user_repo.execute("SELECT * FROM orders WHERE user_id = ?", (user_id,))
-         order_ids = [row["id"] for row in rows]
-         return [_row_to_order(row) for row in rows]
-
-     def insert(self, order_id: int, user_id: int, items: list[str], total: float):
-         # Your code
-         pass
-
-     def get_by_id(self, order_id):
-         # Your code
-     def get_user(user_id:json.json):
-         # Your code
-     def get(user_id):
-         pass
-         # code:json:json)
-         # 
-         user:
-         user, json:
-         total:
-         # id)
-         # Your json:
-user:
-        
-         # user_id:json:json
-         # user:json:json:
-json:
-         # User
-# json:json:
-
-#id
+validev
+valid<validvalid_valid_<valid_valid_valid_valid_validate_van_evalid<valid_valide<valid_validrerevalid_valid_validatevalid_valid_validate_validvalid_valid_valid_validatevalidvalidatevalid_validatevalid_valide_valid""validvalid_valid_validation_valid_validvalid_valid""rvalidation_valid_r_valid_rvalidvalid_valid_valid_validvalid:invalid:validate_valid_validr_valid_user_valid_re_valid_valid_re_rege_validation_valid_valid_validvalid_username_valid_valid_e
+```usernamevalid<validvalidvalid_validvalid<valid_validvalidvalid_valid_valid_valid_valid(validvalidation<valid(valid(valid_validrvalid_valid_valid_valid```validvalidvalidvalidvalid_valid_valid_valid""valid
+valid_valid_valid_valid_re_re_valid(_valid(valid_valid_validvalid(valid_re_valid_valid(valid_valid_valid<valid__valid _i_valid(valid_valid_user____valid_valid__v_valid_valid_(_(_(l_valid_(_(re_valid<reg
+s_regex_valid_valid_valid(len
+f
+rege
+valid
 
 
-id |id:json:
-id
+try
+re_
+<valid
+f<valid
+<re
 
+reg
+valid(<valid_reg_regex_validation_valid
+re<"re_<validrv_valid_e_
+<lendr_re__valid_valid_valid_ex_ex
+<reg
+<_ex_ex_len_<if_r_valid_ex_ex_regex_int_validate_regrssl_valid<r<fv<_valid_user_<username:len_exre_valid_username_re_len_exusername_user_reg_valid._reg_reg<reg_re
+re
 
-user,user |user |id |user_user |json>user |user >user
-id
-user_user_user
-#id, user
+regex_mut_valid_valid
+username_valid_
+r
+
+r
+
+reg_ex
+ex_validate_r
+
+valid_ex_ex_lenreg
+exusername""
+e
+e
+valid_valid_valid_exvalid""""valid
+valid
+
+regex_re_f
+
+<reg
+valid
+
+regex
 
 
 
+r
+reg
+re
+if
+
+regex_
+
+
+valid
+valid_
+reg
+valid
+
+
+e
+
+r
+
+
+re
 
 
 
-user, user
-user, user
-user
-user, u
-user
-#user, user
-user_user:id:user,user, u, user, user |id
-user #user
-id
-user |user
-user, id,
-user, user,user, id, id, id
-user|id |id |id #
-id
-user | user, ... |user, __for,y |user, #fileydpid #id #user,idid:user |user:filep:row |file |file
-file =uid
-user,user_from_user
-user,user
-user,user,filepy
-id.user_userient_user_user_project
-from_user_user_file_file
-file_user_user_user__user_user_file.user
-user__file_user_project.____user_user__user_user =file =__user_user_user_user_from_from =from_db_user_filter_with_to_file_project(from_json_mut__user_user_date_database_file__project._______________exec_user_list_database__from__<db__json__user_user_project_user_user_user__dict_user_database_cursor_data__file_model_users_with__from__data_from__user_user.filter__user__user__from__from_user_from_db__fromdb_user_user_db_user_user_mut_user____user__with_user_db_database_list_list_user_user_user =<user__from____from_user_list_user_user_fromuser_from_from_from_date.from
-json_dis_from_from""<fromdbuser_user__user.from__user
+
+
+
+valid_f
+reg
+e
+
+e_
+reg
+f
+r
+
+
+valid
+
+
+
+
+
+valid
+
+
+
+_e_
+
+
+
+
+
+ex
+
+
+
+e
+
+
+
+
+r
+ex
+valid
+
+e
+regexe
+ex_
+username
+
+username
+
+f_e_username_
+
+valid
+
+
+
+
+
+
+
+
+valid
+
+
+
+username
+
+
+
+valid
+
+reg
+reg
+reg
+
+valid
+
+
+valid
+r
+regex
+
+f
+e
+
+f
+
+f
+f
+
+f
+
+f
