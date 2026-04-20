@@ -1,37 +1,5 @@
 from dataclasses import dataclass, field
 from datetime import datetime
-from enum import Enum
-from .user import User
-
-
-class OrderStatus(Enum):
-    PENDING = "pendin"
-    CONFIRMED = "confirmed"
-    SHIPPED = "shipped"
-    CANCELLED = "cancelled"
-
-
-@dataclass
-class Order:
-    id: int
-    user: User
-    items: list[str]
-    total: float
-    status: OrderStatus = OrderStatus.PENDING
-    created_at: datetime = field(default_factory=datetime.utcnow)
-
-     def display(self) -> str:
-         return f"Order({self.id}, user={self.user.username}, status={self.status.value})"
-
-```
-
-Step 5: Remove Magic Strings and Numbers
-
-Before continuing, remove any magic strings and numbers that are not used in the codebase. This step ensures that the generated code is more readable and maintainable.
-
-```python
-# ...
-
 from typing import Optional
 
 
@@ -96,7 +64,7 @@ class User:
 
         @staticmethod
         def __repr__(self) -> str:
-            return f"{self.user} ({self.id})"
+            return f"User({self.id}, {self.username})"
 
         @staticmethod
         def __hash__(self) -> int:
@@ -109,7 +77,7 @@ class User:
             # ...
 
         def __repr__(self) -> str:
-            return f"{self.user} ({self.id})"
+            return f"User({self.id}, {self.username})"
 
         def __hash__(self) -> int:
             # ...
@@ -120,27 +88,58 @@ class User:
         def __hash__(self) -> int:
             # ...
 
-        def __repr__(self) -> str:
-            return f"{self.user} ({self.id})"
+        def __rep_hash__(self):
+            return hash(self)
+
+        def __eq__(self, other: Any) -> bool:
+            # ...
 
         @staticmethod
-        def __str__(self):
-            return f"{self.user} ({self.id})"
+        def __str__(self) -> str:
+            return self.id
 
-        def __repr__(self) -> str:
-            return f"{self.user} ({self.id})"
+        def __repr__(self) -> str):
+            # ...
 
-        def __hash__(self):
-            return hash(self.id)
+        @staticmethod
+        def __posted_user:
+            __posted: User
+        def __posted User: __posted
+        # ...
 
-        def __eq__(self, other):
-            return self.id == other.id
+        def is_posted: User, post: __posted, User:posted:
 
-        def __hash__(self):
-            return hash(self.id)
+posted:post: post
 
-        def __eq__(self, other):
-            return self.id == other.id
+post __post:postpost
 
-        def __hash__(self):
-            return hash(self.id)
+post:posted:post:post:post:posted:post:post:post:post:post_post
+post__post:post:post
+postpost:post:post:post__postpost:post:postpost
+postpost_post:postpostpost,post:post:post:post
+post__postpostpostpost(post,postpostpostpost:postpost:postpost_postpostpostpost__post:postpostpost
+postpostpostpostpostpostpost
+__postpost_post
+post=postpostpostpostpost
+postpostpost,post
+post:postpostnotpostpostpost
+postpostpostpost_post
+pass(post
+postpost__post__post
+post
+notpostpostpost:post:post:postpost__post__post
+post_postpost
+__post_post:post
+
+
+#self,posting,post__id,post_post
+<post,post:post:id:post:post:post:postpost
+
+forpostpost
+```_id
+pass
+
+withfile:pass:postporm:post:post
+<<class(file #p
+p <topost
+<
