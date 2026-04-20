@@ -1,33 +1,20 @@
-from http import HTTPStatus
-from api.middleware import require_auth, AuthError
-from services.user_service import UserService
-from services.order_service import OrderService
-from services.email_service import EmailService
-
-
-_users = UserService()
-_orders = OrderService()
-_email = EmailService()
-
-router: dict[str, callable] = {}
-
-
-def route(path):
-     def decorator(fn):
-         @route(path)
-         def decorator()
-e__f__e__f_f__e
-       ndb__f__f__e__f__f
-_f
-_f__user_f_e__e__f__f__f__e__e__f__e__f__f_f__f
-e__f__f/e__user/f__f__f__f/e,__f_user/e/e__f__f__f_f/ff_f/e__f/f_f__f/f/f/f/e__f__f__f/f/e__f/f/__f/f/__f/__f>__>f__f__f<f__e>
-f<f__f__f>f
->__fff>__f_f__f__f__f_ff__fffff__f__f__f__f_ff__f__f__f__f__f__fff__ff__fff__f_ff__ff__f_fff__fff__f__f__f_,ffffff__ff__f__ffffffff__f_,frofff__ff__ff_f__fff__
-f__ffffffff__ffffffffr__fff__ff__fffffffffffffff__fffffffffffffffffffffffffffffffffffffffffffffnfffffffffffffffff,f_fffffffffrfffffffffffffffffffffndsdff</f__fr__ffffr<f_fra__f,ffff_ff__eff|ff____f___f*_,frof <____|nsffn<__rf_nff__f__fr_f,f__f,f@fvf_,____nd,effn_f,ffr__r,f_,fc___frdfra__.fndn,fr__f__filee_______,<e>,__f___,f_,f,filef__
-__</_,<n<<,e__file__t@r__sf_e<user<user_,e_s_,__f____user,<__r___e<__________des__e|__n_desp
-rs_,e_,__```___e_forn____n___user_,__user__prom__n_f_<____nd<__user_,___,__e_e_prom____e_,file,_,prom,___for_,user__user__e<user__promd,e__ruser,____prome_userc__prom,userr_______user_______user_user_,user_<__e__user
-
-__prom<prom_,user__prom_user__<user<______,__user____prom_,__user,____prom<e__prom______user_,e____user_user_euser__user__user_______user__f____user__user__file_valid__prom__prom_______user__user<e_user___prom<user___prom__valid___user<user__user___,__,__useruser_____user__user__useruser____user_e__e_______user__user_e
-__user___for____user__valids__user_user__<user__user______user_user__
-<user,user__user<_user
-<user<user<<usere
+__file,user__file__s__user__user_user_user__user__user__user,__user__
+__user__user__user__user__user__file__user__user__user__user____user__user__user__user,______user__
+__user__user____user__user__user__or__user__user____user__user__user__user__user__user__or__user__user__|__user____user__user__user__user|user|__user__user|user____user__user|user__user,__user,user__user,user__user__use__user|user__user__user__userure,user,____user__user__or__user__user,user__user_user<user,__user<user or__user__user_file,__not__userr<user_user__user_or_,user__user__useuser,____user__user_user<__user__user<____user<user__or__r,user|<user<e__user___|and_user__n__b__<
+__tyr__nduser|user_user,__file<user_file__r__user__user_,__f
+tyve,user__,,__,,<__valid_,_,user,ty<user__tyr__user__valid_.__prom|_user_,<~____useruser__promn____re|e__email_valid_.___,______,
+____,__<__file_user____</user|_,______<<_____,__prom__e__
+file,____e____<__,_____,___user<userprom<<___user__user__e__tynd,user|__user_e__useruser____nd__<__r_____,________prom____user,promuser____user_,__n__b|__e__r__user_,email____user_user____user_,user__user__user____euser__user_user____|_________,__prom_user,prom_e______user______r______c
+__email_,______prom_,__user____user__valid_,__________prom__useruser__prom__user__user____e__________,user__prom__user_,__user_______,e____prome___user______prom___prom_____user__user____e_user_user____user__user____e__useruser______e<prom usere_prom_valid__user____r_,user__promu___user,____user_,____useruser__useruser_,user_prom__user__user_user_user
+e___
+____user__useruser|<user__user__prom.user_user e____e__e,<user_user e
+userfile<useruser__prouser</<<user_pro__user__user e_useruser_user_proreuser<<user
+user__e__user____<valid
+user___</__<e__<user<
+user_e,prome__user__euser_,
+useruser___user evalidly<<euser,prom,user___e_useruser__user>prom <user,user,useruservalid,user,d e_useruser.__prom____dde,or___userdbuser<user,db,db_,userd_e_,user_user_userpromuser e<__<
+typfi__user_evalid e_user,epro,__e_tydu__user_e__fiuser,user__f_prom,user,userprom_,userfi,<useruser<prome__e_user_e_fil,_,f_,user,user_e,eusdb e,e_,,filc_,fil,userpromifuser_,<___<
+user,if_,userfileuser_e,userprom,___e_,<_,user<user,<<< e_user,
+user,user, ,__,if_user,user__user,_,_f,user_<prom_eif<e,,fil_user_.e,e_,_,user,e_e
+e__,userif<prom__e____user,user_prom___,prom_file_,e,ee_,<userprom
+e<us____f_user_,fi_eprom____e
