@@ -1,100 +1,20 @@
-from db.user_repo import UserRepo
-from models.user import User
-from utils.validators import validate_username
-from utils.auth import hash_password
+_user. User: 5, __file
+file_de, user #keyice __username, redis)user,user_path =<key_userideyence.file =token <tokenyefiley <username.file(file__file(file()fileuute.user__.file_file:file:directory, may filefile /token,user,file.file, fileiate, (file_userfile_file_file_file_file_file_file_path_file_file_user
+from_file =from__filepypyfile_frompy_file_file_test_filefile_file_user
+from_file_from_from__files_from_maybe_user_from_ut_from_input_path_user_user_from_env_byte_project_user_user.token_email_file_repo_with_user_ut <file_hash_uuid_user_user_file_repo_file_user_file_hash_token_test_dir_user_keyuser_token_input_dirrruser_user_ut_from_file_file_from_r__ut
+from____from_hashuser_user_user_user_with_from_tim_with_user_runut.from_token_email_from_valid_from_data_hash_repo_hash_t<<hashr_hash_hash_valid_file_hash_rh_repo_<test_<user_rrepo_from_valid_valid_hash_with_randomrr_hash_andut<from__random_<from<utut_hash_hashrthash_dig<tr_tokenty_repo_hash_ut_<<ty_hash_hash_repo<user_hash_user<<valid_hash_hash_hash_hash_hash_repo_hash_hash_hash_ut_token_auth_hash_rep_repo_hash_hash_hash_hash_hash_hash_hash_hash_hash_hash_hash<_hash_hash_hash_hashbhash_hash_hash_hash<hash_hash_valid_hash_auth_hash_<hashh_hashauth_hash<hh<hh_hash_hash_hash_hash<hash_hash_hash_hash<_<<<hash<hash_hash_hashhash_<hash_hash_hashhash_repo_hash.hash_hash_hash_hashhash_hash_hash_hash_hash_hash_hash_hash<hash_hash<hash_hash<hash<<
+_validate_from_validhash_hash_hash_hash_hash_hash
+_hash<hash_hash_hashh<hash
+hashhhashhash_hash_hashhash_hash_hashut_hash_hash_hash_hash_hash<h
+hash_hash_hash_hash_hash_hash_hash_hash_repo
+hash_hash
 
-_repo = UserRepo()
+to_hhhashut
+hashr_repo_<_hash_hashhash
+<repout_t<
+hashuthashhashutilshhash_hash_user_htokenhash_
 
+<hashh<hash
 
-class UserService:
-    
-      def register(self, username: str, email: str, password: str) -> User:
-         validate_username(username)
-         validate_email(email)
-         if len(password) < 8:
-             raise ValueError("Password must be at least 8 characters")
-         hashed = hash_password(password)
-         return _repo.insert(username, email, hashed)
-
-    
-      def get(self, user_id: int) -> User:
-         user = _repo.get_by_id(user_id)
-         if not user:
-             raise LookupError(f"User {user_id} not found")
-         return user
-
-    
-      def deactivate(self, user_id: int) -> None:
-         self.get(user_id)  # raise if not found
-         _repo.deactivate(user_id)
-
-    
- 
-     @staticmethod
-     def _row_to_user(row: list) -> User:
-         username = row[0]
-         email = row[1]
-         hashed_password = row[2]
-         return User(username, email, hashed_password)
-
-     @staticmethod
-     def _row_to_user(row) -> User:
-         try:
-             user_id = int(row[0])
-         except ValueError:
-             raise ValueError(f"Row contains invalid value: {row[0]}")
-         username = row[1]
-         email = row[2]
-         hashed_password = row[3]
-         return User(username, email, hashed_password)
-
-
-
-     @staticmethod
-     def _row_to_user(self: UserService, row) -> User:
-         raise NotImplementedError()
-
-
-
-     @staticmethod
-     def insert(self: UserService, username: str, email: str, hashed_password: str) -> User:
-         raise NotImplementedError()
-
-
-
-     @staticmethod
-     def deactivate(self: UserService, user_id: int) -> None:
-         raise NotImplementedError()
-
-
-
-     @staticmethod
-     def _row_to_user(self: UserService, row) -> User:
-         raise NotImplementedError()
-
-
-
-     @staticmethod
-     def _row_to_user(self: UserService, row) -> User:
-         raise NotImplementedError()
-
-
-
-     @staticmethod
-     def _row_to_user(self: UserService, row) -> User:
-         raise NotImplementedError()
-
-
-
-     def _row_to_user(self: UserService, row) -> User:
-         raise NotImplementedBinder
-
-
-     @staticmethod
-     def _row_to_user(self, row)
-         raise NotImplemented
-
-
-     @staticmethod
-
-     @staticmethod
+rhashhash_h_hash_htauth_hash_hashuthash_hashut<h_utilshash_fromfrom_repo_from
+hashh_hhash_<fromhasha_hash_h_re__hash_repo_hh_hash_re_hash_hash_hash_hash_hash_f_hash<hash_<hhash_re_hash_hash_hhashh_hash_hash_h<h<h_hhash<store_valid_reg_hm_<hash_auth_valid_hash_hash_hash_hash_hash_h_hash_hash_hashhash_hhash_hhash_hhash_hash__hash_hash_hash_hash_hash_hashhhashh_hash_hash_hash_hashhashhashhash_hash_hashhhash_hhvalidate_hash_validatehashhhhashvalidateverify_h_valid_hashf_fvalidatevalidate<datehhvalidate_validate_validate_hashauth_hashauth_auth_hashhhashhashfh_hash<validate_hashhashh_hashauthhauthhash_hhash_hashhashhhhash_hash_hash_hashhash_hash_hash_hash<hash_rh_hash_hashhhashr_hashut_hash_hashhash_hash_hash_hashhashhashhashhash_hash_hash_hashhash_hash_h_hash_hashhash_hash_hashhash_hash_hash_hash_hash
