@@ -1,50 +1,34 @@
-user.<order<order <order...<...user...customer..order_user::user_order_order<order<list_user..."...order.with__order<user_users_user_check ..._account_order...order_order_order<user__ordered_order_order_order...or_or_service_order_order_ordered<order...order...order
-service_order(order_service_valid_order<order(...<order(prom(prom(for<order
-order.order...order<order_user_order_order_order:error<order(order_valid<order_order
-order:order__order_service_order_valid_service_order_order_dis_order::order<user_order_order_order_order__user__order_order__find_filter.order.user.order_order(get__order_order_order:__order__or.__order_order_disden_user_order_user_order_order.__order_order_exec____<order::user_order:user__user_order_order_order_self_user<order_ororder_order_user_comm.order_fill_orders_user
-order_order_order<order_order_order_order
-user.<user_for_user_user_user_or_<user_ordered__order_order(order(order_order_order...ordered__order_order_order.user<user<user_order_self_order:user:ordered<user:user<<cuser_user_<user
-<```<data<user...user...user_user_user....user_user<user_user
-user_user<user_user_c....user_c:c_user_user_<order_order_user
-for<order
-for
-user_user:enter_order<user(order<user<user...valid ident<<prom<user...user...user,...user_user
-userorder_user(order<ordered<user_corder:order:user_order:order:user:order:order__order:user_order
-order_user
-order_order(order(order_order(order_order_order_order(order(order(order
-order_order_order_order_user_user_order_order_order_user_order_order_order_valid_validate
-user
-user_valid_order_order_order_order_order_order_order_order<order_order_order<order<order<orderorder(order
-order<user_order_order_order_order_
-<user
+auth<authauthauth_authuser""auth_authauthsauthauth""user_auth<authmiduiduserauthauth_authuser<authauthauthauth<<auth_auth
+mid_authenticauthauthauth
+authauth_authmid_userauth:user_auth
+_userauthauthmidauth_usermidauth_userauthauth_authauthusermid
+userfn_authusermidauthfn_user_user_fauth_user_auth_user_fnuser_user_fndeffnuser_authuser_fn...authfnfn_fn_f_auth_fn_user_verify_user_fn_authauthauthauthfn_auth_authauth_auth_authauth_userauthmidauthwuser_userauth_user_fn_w_fnfn_auth_auth_fnfn<authfn_midfnfnfn_user_fn_fnauthauth_auth_fnfnauth_auth_auth_mid_auth_fnauth_auth_midauth_auth_authfn_fn_fn_fnuser_verify_auth_fn_fn_fnfn_fnauthuser_user<auth_auth_auth_auth_auth_auth_user_user_authauthauth_auth_auth_mid_user_login_user_mid_author_auth_login_auth_ver_user_miduser_auth_auth_authmidauth_user_authauth_auth_authauthauthfnauthauthuser
+auth_authauthauthauthif_authuserauthuser_auth_auth_auth_auth_useruser_auth_auth_auth_auth_auth_authauth_auth_fnauth<authauthuserfnauth_auth_user_fnauthfnuserfnuserauth_auth_ver_authauth_authauth_authfnfnuser_wrapauthauthauth_authfn_authfn_authauth_userfnfn_verify_fnfnverifyfnfnfnfnfnfnfnfnfnfnfnauth(verauth_auth_auth_auth_authauthuserverify_fnauth_ver""_nauthauthauthauthauthauthfnmidauthuser<apifn_verify_verauthmid_userverauthapiuser_verwuser*user_auth_verify
+auth_verifyvermiduser<verifyuser_userauthnusernduserauthuser_user""user_user""fn_verify_fn_verify_user_auth_auth_def
+auth_auth_fn:fnver_verify_mid_user_fn
+fnauthfn_mid_w_nuseruserverfn_nfnfn""
+fn_fn""for_fnn
 
-order
-user
-user_user_userorder<user_user_order_user_user_user(useruseruser_user_user:user:order_order_user(user(self_order_user_orderuser_user_user_user_user<order_self_self_self(order_user(order(user(user_user(ordered<user_useruserorder(order_user(user(user(user(user(must(user((user(user(user(user_user_user(order_order_order(user_order<user.user_user:order_useruser<user_user(useruser(user(order(user(user(user.order.user<user(user(user(user(user(user(user(user(user(user(user(user(user<user(user(self<user<user(user(user(user(user<user(user(order.user.user.user(user(user(user_user(user(order(user_order(user(user_<user(self(order(order(order(order(self(s(order(user(user (user(user(order(self(user(user(order(user(user(user(user(user(user(user(user(self(order(user(user_order(user(orderselfself(order(user(self(userselfselfuser.self(self_self(selfself(selfselfself(user_self(self(user(self(self(self(self(self#selfuser(user(user(self(self_self(self(selfselfselfselfself(selfselfself_selfselfordered(self
-ordered(userselfuser_user
-user
-self
-user
-order
-
-selfuser
-(order(selforder<order#selforder#order
-order
+withuser_wuser_authver_if_ver
+ver_l(all_ver_
+_user:n_n_useruser<<<withn_fn_fn_fn_fnver_ver...user_fn_fnif_<_fnnverfnfnnfnfnfn_fn_n_fnfnfnfnfnfnfnfn_fn_fn_fnfnfnfnndfnfn_fnnfn_fnfnfnfnfn<fnfnfnfnfn<nfnfnfnfnfnfnfnfnfnfnfn_fn_<<verfnfn_fn_fn_fn_fnuserfn_fnw_fn
+user_<fnfnfn_fn_fn_fn_fn_<fnfnfnfnfnfn_fnfnfnfn_fn<fnfn_fn_fnn_fnfnfn_user_fnfnfnfnfnfnfn
+n_fnfn_fn_fnfnn.f
+fn_fnfn_ffnnfnfnfnfnfn_fn_fnfnfnfn_fn_fn_fn_verwrap_fnfn_user_fn_wrapper_fn_fn
 
 
-self
-
-_user
-
-
-
-
-
-order
-
-order
-orderorder
-
-orderselforder
-
-order
+fnfn
+fn_fn_fn_fn
+{{fnfnfn_fn_fnfnfnfnfnfn
+fnfnfnfnfnfnfnfnfn_fnfnfnfnfnfn
+nfnfnfnfnnfnfn fnfn_fn_fnfnfnfn_nfnfnfnfnfnfn_fn_fnfnnfnfnnfnfnfnfnfnfn_fn_fnffn
+fnfnfnfn""fnfnfnfnfn_
+fnfn
+fn
+fn fnfnfnfn_fnfnfn
+nfnfnfnfn_fnfnfnfnfnfnfnnfn
+fnfn
+fnfnfnfnfnfnfn fnfnfnfnfn fn fn_fnfnfn
+fn
+nfn_fnfn_nfnfnfnfn_fnfn fnfnn
+fn_fn_fn_fnfn_
