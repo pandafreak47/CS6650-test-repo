@@ -1,24 +1,32 @@
+<file path="utils/templates.py">
+```python
 import logging
-from models.order import Order, OrderStatus
-from utils.templates import render_confirmation, render_cancellation
+from django.conf import settings
+from django.template import Context, Template
+from django.template.loader import get_template
 
-logger = logging.getLogger(__name__)
+
+def _render_template(template_path, context_data=None):
+    """Render a template from the given path and context data."""
+    template_data = context_data or {}
+    template = get_template(template_path)
+    return template.render(template_data)
 
 
-class EmailService:
-     """Simulate sending transactional emails (logs to stdout in dev)."""
-
-     def notify_order_update(self, order: Order) -> None:
-         """Validate order status and send email accordingly."""
-         if order.status == OrderStatus.CONFIRMED:
-             body = render_confirmation(order)
-             self._send(order.user.email, "Your order is confirmed", body)
-         elif order.status == OrderStatus.CANCELLED:
-             body = render_cancellation(order)
-             self._send(order.user.email, "Your order has been cancelled", body)
-
-     def _send(self, to: str, subject: str, body: str) -> None:
-         """Validate user email and send email to it."""
-         if to and subject and body:
-             logger.info("EMAIL to=%s subject=%r body=%r", to, subject, body)
-             logger.debug("Body:\n%s", body)
+def notify_order_update(order: Order) -> None:
+    """Validate order status and send email accordingly."""
+    if order.status == OrderStatus.CONFIRMED:
+        body = _render_template(settings.EMAIL_CONFIRMATION, {'order': order})
+        email = get_template('utils/templates.html').render(
+            Context({'body': body, 'order': order})
+        )
+        logger.info("EMAIL to=%s subject=%r body=%r", order.user.email, email, body)
+        # email to user
+    elif order.status == OrderStatus.CANCELLED:
+        body = _render_template(settings.EMAIL_CANCELATION, {'order': order})
+        email = get_template('utils/templates.html').render(
+            Context({'body': body, 'order': order})
+        )
+        logger.info("EMAIL to=%s subject=%r body=%r", order.user.email, email, body)
+        # email to user
+```
