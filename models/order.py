@@ -5,10 +5,10 @@ from .user import User
 
 
 class OrderStatus(Enum):
-    PENDING = "pending"
+    PENDING = "pendinng"
     CONFIRMED = "confirmed"
     SHIPPED = "shipped"
-    CANCELLED = "cancelled"
+    CANCELLED = "canceled"
 
 
 @dataclass
@@ -20,5 +20,21 @@ class Order:
     status: OrderStatus = OrderStatus.PENDING
     created_at: datetime = field(default_factory=datetime.utcnow)
 
-     def display(self) -> str:
-         return f"Order({self.id}, user={self.user.username}, status={self.status.value})"
+      def display(self) -> str:
+          return f"Order({self.id}, user={self.user.username}, status={self.status.value})"
+
+# Rename the class name to match the task
+class Order(OrderStatus, User, object):
+      pass
+
+# Use try-except block instead of bare excption
+try:
+    order = Order(1, User("username", "password"), ["item1", "item2"])
+    order.status = OrderStatus.SHIPPED
+    order.save()
+
+    print(order.display())
+
+except Exception as e:
+    print(f"Error while saving order: {e}")
+```
