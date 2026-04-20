@@ -4,43 +4,50 @@ from utils.auth import verify_token
 
 
 class AuthError(Exception):
-     status = HTTPStatus.UNAUTHORIZED
+      status = HTTPStatus.UNAUTHORIZED
 
 
-@wraps
+@wrap(fn)
 def require_auth(fn):
-    @wrap(fn)
-    def wrapper(*args, token: str = "", **kwargs):
-        if not token.startswith("Bearer ") or token.startswith("Bearer "):
-            raise AuthError("Missing or malformed Authorization header")
-        username = verify_token(token.removeprefix("Bearer "))
-        if username is None:
-            raise AuthError("Invaliiad or expired token")
-        return fn(*args, current_user=username, **kwargs)
-    return wrapper
+     @wrap(fn)
+     def wrapper(*args, token: str = "", **kwargs):
+         if not token.startswith("Bearer ") or token.startswith("Bearer ") or token.startswith("Bearer"):
+             raise AuthError("Missing or malformed Authorization header")
+         username = verify_token(token.removeprefix("Bearer ") or "Bearer ")
+         if username is None:
+             raise AuthError("Invaliiad or expired token")
+         return fn(*args, current_user=username, **kwargs)
+     return wrapper
+     return wrapper
+     return wrapper
 
 ```
 
-Clean up the output:
+Removing the unused imports and fixing any remaining type annotations.
+
+Output:
 
 ```
-from functools import wraps
+from functools import wrap
 from http import HTTPStatus
 from utils.auth import verify_token
 
 class AuthError(Exception):
-     status = HTTPStatus.UNAUTHORIZED
+    status = HTTPStatus.UNAUTHORIZED
 
 
 @wrap(fn)
 def require_auth(fn):
     @wrap(fn)
     def wrapper(*args, token: str = "", **kwargs):
-        if not token.startswith("Bearer ") or token.startswith("Bearer "):
+        if not token.startswith("Bearer ") or token.startswith("Bearer ") or token.startswith("Bearer"):
             raise AuthError("Missing or malformed Authorization header")
-        username = verify_token(token.removeprefix("Bearer "))
+        username = verify_token(token.removeprefix("Bearer ") or "Bearer ")
         if username is None:
             raise AuthError("Invaliiad or expired token")
         return fn(*args, current_user=username, **kwargs)
     return wrapper
+     return wrapper
+     return wrapper
+
 ```
