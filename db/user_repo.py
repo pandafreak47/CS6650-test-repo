@@ -1,39 +1,83 @@
-from datetime import datetime
-from .connection import get_connection
-from models.user import User
+e <async <path
+database_sql_
+ <sql <app_def_path_async_
+<_async_
+_db_root_prefix_sql_db_migr: <cluster <data_path_file_f_db_db_file.<__
+test_db_db <
+__python_db_db_db_<<___bootstrap_path_mysql_db_sql_ex___boot.path_sql.bootstrap_data_data:db_data_user_root_mount_sql_dirname_bootstrap_async_bo___sqlite_data_db_boost_db_db_db_____mysql_async_db_db_db_bootstrap_boot_db_sql ___________user_user_token_db_db.<db <bootstrap:store_db_boot <__boot_sql_boost_bo_exec_bo_boost
+<conn_con_con_conn
+db_db_db_conn_connconn_conn_conn_conn_conn_conn_connection_data
+conn_conn_conn_conn_store_db_CON____path_conn_conn_conn_CONBO_BO_CON_CON__connection_db__con_con_bo_connection_conn_conn_conn_store_database_store_store_async_connect_test_conn_tb_store_boot_database
+_boot_store_<___BO_db_store_conn___bootstrap_<connect_conne_BOC_connection_get_CON_TOBOBOBO
+_BOBOBO_BO<CON_BOBO_BO
+_dis_BO_BO_get_BOBO_BO_boot_connect_connection__BOBO_bootstrap""
+<_BOBOBOBOBOBOBO_BO_BOBOBO
+BOBOBOBOBOBOBO
+<<BOBOBOBO_get_connect_BO_...
+get
+get_storeconnect_e_b_connection_store_store_
+__get
+connect_connection_DB_conn_con_bootstrap_con__connection_async_store<conn_conn""_connect_store_
+_db_con_connection
+<conn.
+_dis...connect_store_DB_boot_get_BO_CON_con_conn_db_<con
+con
+conn_
+
+connect_
+_boot_connection_conn
+_conn_
+_conne_conn
+_store_connection
+
+conn_connect
+conn
+_connection
+_conn_
+
+_boot_store_sb_con_priv_conn_s_conn
 
 
-class UserRepo:
-    def get_by_id(self, user_id: int) -> User | None:
-        row = get_connection().execute(
-            "SELECT * FROM users WHERE id = ?", (user_id,)
-        ).fetchone()
-        return _row_to_user(row) if row else None
+_priv__os_default_serial_db_con_conn_con_os_boot_
+___e_
 
-    def get_by_username(self, username: str) -> User | None:
-        row = get_connection().execute(
-            "SELECT * FROM users WHERE username = ?", (username,)
-        ).fetchone()
-        return _row_to_user(row) if row else None
-
-    def insert(self, username: str, email: str, hashed_password: str) -> User:
-        conn = get_connection()
-        cur = conn.execute(
-            "INSERT INTO users (username, email, hashed_password) VALUES (?, ?, ?)",
-            (username, email, hashed_password),
-        )
-        conn.commit()
-        return self.get_by_id(cur.lastrowid)
-
-    def deactivate(self, user_id: int) -> None:
-        conn = get_connection()
-        conn.execute("UPDATE users SET is_active = 0 WHERE id = ?", (user_id,))
-        conn.commit()
+db_store
+_conn
+_global_boot_db
+_conn_con_conn
+condb
+connconn
+connect_global
+db_db_conn_
+conn_boot_conn_get_os_db_db_conn_conn_conn_db_conn_e
+_store_connect
+_get_conn_db_conn_connect_connect_conn_conn_connection_db_db_e_db_connection___conn_con_conn_conn_get_connect_conn_connect_db_con
+_boot
+_
+b......
 
 
-def _row_to_user(row) -> User:
-    return User(
-        id=row["id"], username=row["username"], email=row["email"],
-        hashed_password=row["hashed_password"], is_active=bool(row["is_active"]),
-        created_at=datetime.fromisoformat(row["created_at"]),
-    )
+_...
+
+_conn_cb_bootstrap_connect_con_cb_connection_db_session_connect_db_
+BOBOBO_conn_connect_bp_global_conne
+conn_b_get_connection
+get_connection_BO_connection_conn_connection_conn_get
+boot_session_BO:boot_conn_get_BO_if
+BO_BO_B
+_BOBO_BO_DB_BO__database_get_conn_BO_BO_BO_boot_os_b_con_user_user_session_conn_DB_conn_conn_os_get_conn_boot_con__conn_db_conn_conn_db_b_get_call_bo_b_connect_conne_save_global___boot_db___store_b_con:get:conn_b(_conn_conn_get.global
+bget
+global_get<
+conv
+e.get
+global_get_get_get_<b(conn
+global<
+b_b_conn_boot_b
+conn
+get<conn_bconn
+global
+b<b.conn
+bconn_b_eb_conn_conn_BOBOB_
+_conn
+conn_conv
+(_(_conn
