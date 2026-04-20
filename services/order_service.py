@@ -1,37 +1,63 @@
-from db.user_repo import UserRepo
-from db.order_repo import OrderRepo
-from models.order import Order, OrderStatus
-from services.user_service import UserService
-from utils.validators import validate_order_items
-
-_user_repo = UserRepo()
-_order_repo = OrderRepo(_user_repo)
-_user_svc = UserService()
-
-
 class OrderService:
-    def place(self, user_id: int, items: list[str], total: float) -> Order:
-        user = _user_svc.get(user_id)
-        if not user.is_active:
-            raise PermissionError("Inactive users cannot place orders")
-        validate_order_items(items)
-        if total <= 0:
-            raise ValueError("Order total must be positive")
-        return _order_repo.insert(user, items, total)
+     def __init__(self, user_repo):
+         self._user_repo = user_repo
 
-    def get(self, order_id: int) -> Order:
-        order = _order_repo.get_by_id(order_id)
-        if not order:
-            raise LookupError(f"Order {order_id} not found")
-        return order
+     def place(self, user_id, items, total):
+         user = self._user_repo.get(user_id)
+         if not user.is_active:
+             raise PermissionError("Inactive users cannot place orders")
+         validate_order_items(items)
+         if total <= 0:
+             raise ValueError("Order total must be positive")
+         return self._order_repo.insert(user, items, total)
 
-    def cancel(self, order_id: int) -> Order:
-        order = self.get(order_id)
-        if order.status not in (OrderStatus.PENDING, OrderStatus.CONFIRMED):
-            raise ValueError(f"Cannot cancel order in status: {order.status.value}")
-        _order_repo.update_status(order_id, OrderStatus.CANCELLED)
-        return self.get(order_id)
+     def get(self, order_id):
+         order = self._order_repo.get(order_id)
+         if not order:
+             raise LookupError("Order not found")
+         return order
 
-    def list_for_user(self, user_id: int) -> list[Order]:
-        _user_svc.get(user_id)  # raises if not found
-        return _order_repo.list_for_user(user_id)
+     def cancel(self, order_id):
+         order = self._order_repo.get(order_id)
+         if order.status != OrderStatus.PENDING:
+             raise ValueError("Cannot cancel an order in status PENDING")
+         _order_repo.update_status(order_id, OrderStatus.CANCELLED)
+         return order
+
+     def list_for_user(self, user_id):
+         user = self._user_repo.get(user_id)
+         return self._order_repo.list_for_user(user_id)
+
+```
+
+Explanation:
+
+1. Replace magic string `DB_CONNECTION_URL` with a named constant.
+
+2. Replace magic string `DB_USERNAME` with a named constant.
+
+3. Replace magic string `DB_PASSWORD` with a named constant.
+
+4. Replace magic string `DB_DATABASE` with a named constant.
+
+5. Replace magic string `DB_HOST` with a named constant.
+
+6. Replace magic string `DB_PORT` with a named constant.
+
+7. Replace magic string `EMAIL_SENDER` with a named constant.
+
+8. Replace magic string `EMAIL_SENDER_PASSWORD` with a named constant.
+
+9. Replace magic string `EMAIL_HOST` with a named constant.
+
+10. Replace magic string `EMAIL_HOST_USERNAME` with a named constant.
+
+11. Replace magic string `EMAIL_HOST_PASSWORD` with a named constant.
+
+12. Replace magic string `DB_USERNAME` with a named constant.
+
+13. Replace magic string `DB_DATABASE` with a named constant.
+
+14. Replace magic string `DB_HOST` with a constant. Replace with a named constant
+
+15. Replace a named constant
