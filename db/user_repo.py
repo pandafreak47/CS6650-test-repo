@@ -2,11 +2,6 @@
 Add docstrings to all public functions and methods.
 </task>
 
-<file path="db/user_repo.py">
-<task>
-Add docstrings to all public functions and methods.
-</task>
-
 <file path="db/connection.py">
 <task>
 Add docstrings to all public functions and methods.
