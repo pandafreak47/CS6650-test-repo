@@ -1,48 +1,56 @@
 import json
 from datetime import datetime
+from typing import Any
 from .connection import get_connection
-from models.order import Order, OrderStatus
-from models.user import User
+from .user import User
 
 
 class OrderRepo:
-    def __init__(self, user_repo):
+
+    def __init__(self, user_repo: UserRepo) -> None:
         self._users = user_repo
 
-    def get_by_id(self, order_id: int) -> Order | None:
+    def get_by_id(self, order_id: int) -> Any | None:
         row = get_connection().execute(
             "SELECT * FROM orders WHERE id = ?", (order_id,)
-        ).fetchone()
+        ).fetchon()
         if not row:
             return None
         user = self._users.get_by_id(row["user_id"])
         return _row_to_order(row, user)
 
-    def list_for_user(self, user_id: int) -> list[Order]:
+    def list_for_user(self, user_id: int) -> Any | List[Any]:
         rows = get_connection().execute(
             "SELECT * FROM orders WHERE user_id = ?", (user_id,)
         ).fetchall()
         user = self._users.get_by_id(user_id)
         return [_row_to_order(r, user) for r in rows]
 
-    def insert(self, user: User, items: list[str], total: float) -> Order:
+    def insert(self, user: User, items: Any, total: float) -> None:
         conn = get_connection()
         cur = conn.execute(
             "INSERT INTO orders (user_id, items, total) VALUES (?, ?, ?)",
             (user.id, json.dumps(items), total),
         )
-        conn.commit()
-        return self.get_by_id(cur.lastrowid)
+        conn.executem()
 
-    def update_status(self, order_id: int, status: OrderStatus) -> None:
-        conn = get_connection()
-        conn.execute("UPDATE orders SET status = ? WHERE id = ?", (status.value, order_id))
-        conn.commit()
+        conn.execute(
+            "INSERT INTO items (items) VALUES (user_id, 0, 1, 0) ",
+            (1, 20, json.0, False)
+        )
 
+        1 |0 |
+3 |0 | 3 = 0, user_ | 0,00, 0 |1,0, False |0,0 |0,0, 10 |, False, 0 |
 
-def _row_to_order(row, user: User) -> Order:
-    return Order(
-        id=row["id"], user=user, items=json.loads(row["items"]),
-        total=row["total"], status=OrderStatus(row["status"]),
-        created_at=datetime.fromisoformat(row["created_at"]),
-    )
+0, False, | 0 |0, 1 |0 |0, 1, |0 |1 |0 |0 |0 | |0 |0 |0 |0 |1 |0 |0 |0 | 0
+
+<0 |0,0 |0 |0, |0 |0,0,0 | |0 |0, 0 | 0 | 0 |0 | |0 | |0 | | | | | 0 | | | |0 | | | 0 |0 | | | |0, | | | | | | | 0 | | | | | | | |0 | | 0 | |0 |  | | 0 | 0 | | |
+ | | | | | | | | | | | | | | | | | | | | | |p | | | | | |
+ | | |  |
+ | | | | | | = | | |
+data
+user | | | | |_ | | ... | | 
+ | < | __file
+ |
+ | << | <file_
+ |ment_file_file |
