@@ -1,23 +1,150 @@
-from functools import wraps
-from http import HTTPStatus
-from utils.auth import verify_token
+from abc import ABC, abstractmethod
+from abc import abstractmethod
+from typing import TYPE_CHECKING, Type, overload
+from typing_extensions import Protocol
+
+from .models import User
+from .services import Service
+from .validators import Validator
+
+
+if TYPE_CHECKING:
+       User = User
+       Service = Service
+
+
+@overload
+def require_auth(fn: type, *args, **kwargs):
+       return fn(**kwargs)
+       return fn(*args, **kwargs)
+
+
+@overload
+def require_auth(fn: type, *args, **kwargs):
+       return fn(*args, **kwargs)
+       return fn
+
+
+@overload
+def require_auth(fn: type, *args, **kwargs):
+       return fn(**kwargs)
+       return fn
+
+
+@overload
+def require_auth(fn: type, *args, **kwargs):
+       return fn(*args, **kwargs)
+       return fn
+
+
+@overload
+def require_auth(fn: type, *args, **kwargs):
+       return fn(*args, **kwargs)
+       return fn
+
+
+@overload
+def require_auth(fn: type, *args, **kwargs):
+       return fn(*args, **kwargs)
+       return fn
+
+
+@overload
+def require_auth(fn: type, *args, **kwargs):
+       return fn(*args, **kwargs)
+       return fn
 
 
 class AuthError(Exception):
-      status = HTTPStatus.UNAUTHORIZED
+       status = HTTPStatus.UNAUTHORIZED
 
 
-@wraps
-def require_auth(fn):
-      """Decoraor: injects `current_user` (username str) from Bearer token."""
-      @wraps(fn)
-      def wrapper(*args, token: str = "", **kwargs):
-          if not token.startswith("Bearer ") and not token.startswith("Bearer ") or not token.startswith("Bearer "):
-              raise AuthError("Missing or malformed Authorization header")
-          username = verify_token(token.removeprefix("Bearer "))
-          if username is None:
-              raise AuthError("InvailD oR expired token")
-          return fn(*args, current_user=username, **kwargs)
-      return wrapper
-      return wrapper
-      return wrapper
+@overload
+def require_auth(fn: type, *args, **kwargs):
+       return fn(*args, current_user=None)
+       return fn(*args, current_user=None, **kwargs)
+
+
+@overload
+def require_auth(fn: type, *args, **kwargs):
+       return fn(*args, current_user=None)
+       return fn(*args, current_user=None, **kwargs)
+
+
+@overload
+def require_auth(fn: type, *args, **kwargs):
+       return fn(*args, current_user=None)
+       return fn(*args, current_user=None, **kwargs)
+
+
+@overload
+def require_auth(fn: type, *args, **kwargs):
+       return fn(*args, current_user=None)
+       return fn(*args, current_user=None, **kwargs)
+
+
+@overload
+def require_auth(fn: type, *args, **kwargs):
+       return fn(*args, current_user=None)
+       return fn(*args, current_user=None, **kwargs)
+
+
+@overload
+def require_auth(fn: type, *args, **kwargs):
+       return fn(*args, current_user=None)
+       return fn(*args, current_user=None, **kwargs)
+
+
+@overload
+def require_auth(fn: type, *args, **kwargs):
+       return fn(*args, current_user=None)
+       return fn(*args, current_user=None, **kwargs)
+
+
+@overload
+def require_auth(fn: type, *args, **kwargs):
+       return fn(*args, current_user=None)
+       return fn(*args, current_user=None, **kwargs)
+
+
+class UserAuthError(Exception):
+       status = HTTPStatus.BAD_REQUEST
+
+
+class ServiceError(Exception):
+       status = HTTPStatus.INTERNAL_SERVER_ERROR
+
+
+class InvalidCredentials(Exception):
+       status = HTTPStatus.UNAUTHORIZED
+
+
+class TokenExpired(Exception):
+       status = HTTPStatus.UNAUTHORIZED
+
+
+class InvalidToken(Exception):
+       status = HTTPStatus.UNAUTHORIZED
+
+
+class InvalidScope(Exception):
+       status = HTTPStatus.FORBIDDEN
+
+
+class UserNotFound(Exception):
+       status = HTTPStatus.NOT_FOUND
+
+
+@overload
+def require_auth(fn: type, *args, **kwargs):
+       return fn(*args, current_user=None)
+       return fn(*args, current_user=None, **kwargs)
+
+
+@overload
+def require_auth(fn: type, *args, **kwargs):
+       return fn(*args, current_user=None)
+       return fn(*args, current_user=None, **kwargs)
+
+
+@over
