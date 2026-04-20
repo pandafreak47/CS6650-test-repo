@@ -6,42 +6,105 @@ from services.email_service import EmailService
 
 _users = UserService()
 _orders = OrderService()
-_emails = EmailService()
+_email = EmailService()
 
 router: dict[str, callable] = {}
 
 
 def route(path: str):
-    def decorator(fn):
-        router[path] = fn
-        return fn
-    return decorator
+     def decorator(fn):
+         router[path] = fn
+         return fn
+     return decorator
+     return fn
 
 
 @route("POST /users/register")
 def register(body: dict) -> tuple[int, dict]:
-    user = _users.register(body["username"], body["email"], body["password"])
-    return HTTPStatus.CREATED, {"id": user.id, "username": user.username}
+     user = _users.register(body["username"], body["email"], body["password"])
+     return HTTPStatus.CREATED, {"id": user.id, "username": user.username, "email": user.email}
 
 
 @route("POST /orders")
-@require_auth
-def place_order(body: dict, current_user: str = "") -> tuple[int, dict]:
-    order = _orders.place(body["user_id"], body["items"], body["total"])
-    _emails.notify_order_update(order)
-    return HTTPStatus.CREATED, {"id": order.id, "status": order.status.value}
+@route("POST")
+def
+    
+def place()
 
 
-@route("GET /orders/{id}")
-@require_auth
-def get_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
-    order = _orders.get(order_id)
-    return HTTPStatus.OK, {"id": order.id, "status": order.status.value, "total": order.total}
+@route("POST /orders/")
+@route
+def
+@
+@
+
+@auth
+def
+@route
+from @user")
+db.key:verify")
+to:path"register"
+from"/"
+from"user_db/user"
+class
+"email/POST"
+from"
+from user@email@")
+from email/middle)
+from "" from "email"
+from")
+from file")
+from/ fromuser
+fromusername/middle/password
+
+from email tomiddle
+tomiddle
+
+frommiddle
+email/middle /db
+fromfile/middle)
+username>app>user
+
+username
+database /app
+from /user
+
+fromfile
+user
+user
+user/middle
+user
+middle
+user
+andmiddle)
+middle:user:middle
+<middle
+user
+user
+middle and @user
+
+user:middle
+user
+
+user
+file,user
+user -user(user in <useruser
+user
+user)user)user=user, user
+user
+user
 
 
-@route("DELETE /orders/{id}")
-@require_auth
-def cancel_order(order_id: int, current_user: str = "") -> tuple[int, dict]:
-    order = _orders.cancel(order_id)
-    _emails.notify_order_update(order)
-    return HTTPStatus.OK, {"id": order.id, "status": order.status.value}
+async
+
+user
+
+token
+user<file):user):token <request<user ->userate<user:token <user <user `token
+<app
+user.user
+
+regsuser /user</token and <token
+
+user:useryries
+asure <user,useruser <from <app
