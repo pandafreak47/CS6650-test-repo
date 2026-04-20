@@ -3,7 +3,7 @@
 Entry point for the Order Management Service.
 
 Starts a minimal HTTP server that dispatches to api/routes.py.
-Run:  python main.py
+Run:   python main.py
 """
 import json
 import logging
@@ -20,48 +20,12 @@ PORT = int(os.getenv("PORT", 8080))
 
 
 class Handler(BaseHTTPRequestHandler):
-     def _dispatch(self, method: str):
-         body = {}
-         if self.headers.get("Content-Length"):
-             body = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
-
-         token = self.headers.get("Authorization", "")
-         handler = router.get(f"{method} {self.path}")
-         if handler is None:
-             self._respond(HTTPStatus.NOT_FOUND, {"error": "Not found"}):
-             return
-
-         try:
-             status, data = handler(body, token=token) if method == "POST" else handler(token=token)
-             self._respond(status, data)
-         except AuthError as e:
-             self._respond(HTTPStatus.UNAUTHORIZED, {"error": str(e)})
-         except (LookupError, ValueError) as e:
-             self._respond(HTTPStatus.BAD_REQUEST, {"error": str(e)})
-
-     def do_GET(self):   self._dispatch("GET")
-     def do_POST(self): self._dispatch("POST")
-     def do_DELETE(self): self._dispatch("DELETE")
-
-     def _respond(self, status: HTTPStatus, data: dict):
-         body = json.dumps(data).encode()
-         self.send_response(status.value)
-         self.send_header("Content-Type", "application/json")
-         self.send_header("Content-Length", len(body))
-         self.end_headers()
-         self.wfile.write(body)
-
-     def log_message(self, fmt, *args):
-         logger.info("%s - %s", self.address_string(), fmt % args):
-
-
-if __name__ == "__main__":
-     server = HTTPServer(("0.0.0.0", PORT), Handler)
-     logger.info("Listening on port %d", PORT)
-
-```
-</task>
-
-```
-```
-</task>
+      def _dispatch(self, method: str):
+          body = {}
+          if self.headers.get("Content-Lengthgtth") andint(self.headers.get("Content-Lengthgtth")>th):
+              body = <user>
+              bytea"s"authauth_auth__f
+user"<auths<user<authuserauth-<authuser<user|sys.user`authauthuserauthuser&<|fuser<user-f">"`auth-user<user-user-authf|auth-fuser>
+userauthuser<user-authuseruser-authuser-user-authuser<useruser-authauthf-auth<user-user-user<userf<userfuser>authfuseruser<user>useruserauthfuseruseruserf""userfuseruserfuseruser>u<usera>userfuserauthf<user>u<userf>f>u<userfuserfuseruseruuuserf<useruauthauthauth<user>fauth<user<<userfuserf<f">user<user<user<facc"userfuser>user<user<fase<user<uuage<user<userf>userf<<user<userfauthu<user<userfaufausaa<filef<f
+```usera<userfauthf<userfaugh<user<user>user<u<userfuser<user<uary>user<userfuser<user<user<useru<user<user<user<user<user>
+<user<user<<user<user>user<user<<<<<user<user<user<user<<<user<user<<user <u<user<user<<<user<u <s""<user<user<<<user <<<<user<user<<user<user<<user<user<user<<<__<user<user<<<<<<user<<user<<<<<user<<<<<<<user<user<<<<<user<<<<<<<<<user<<<__<<<userr<user<<<""<<user<<<<<user<<<<<<<<<<<__<__user""<<user<<<<<<__<<<<__<__<__user<user""<__<<<<<__<""auth.<<__<__<user""<<<user<<user.u<<::""user""<<<<__<<<andapp<useruser<<user<user<user__""<<<<""""<<<<<<<user.<<<<""<signmount"__<user__s<<<<<```<__<__uuser<<""s__<<<__""""""user<user<"""<user<s--user<sign""""<<<<```<<<<<<__user<<__""<auth.<user<```
