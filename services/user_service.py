@@ -1,60 +1,12 @@
-from db.user_repo import UserRepo
-from models.user import User
-from utils.validators import validate_username, validate_email, validate_password, hash_password, verify_token, generate_token, verify_token, validate_order_items, _SECRET, _repo, UserRepo, User, validate_email, validate_username
+ut_hash_user_user.utils.project_file_<hash_ut_user_with_file_utilsr_user_from_utufrom_valid.token_utils_file_for_from_user_file_utils.repo_with_random_py_rubyuser_from_user_path_fi_from_red_valid_repo_user.timrbtoken_repo_validty_hash_key_valid_hash_<hash_to_hashe_file_hash_hashe_hash_hash_db.rep_repo_from_token_user_repo_hash_serial_valid_sign_fromrh<...<<<_file_token_hash_from<<ut_hash<hashrrrlkeyrs_hash_token_token_rr_hash_hash_<t_hash_valid_e_user_e_hash_<<hash_tr_hash_token_file_hash_hash_hash_hash_hashut_hashhash_hash_repo_hash_hash_repo_repo_hash_hash_hash_hashhashhash_hash_hash_hash_hash<hash_hash_repo_<hash_hash_hash_hash_hash<hash<<auth_hash<hhash_auth_t_hash_hash_hash<time_hash_valid_hash_hash<hashrepo<hash_hashhash_repo<<hash<hash<hash_hash_hash<hash_hash_hash<hash_hash<hash_hash_hash_hash_hash_hash_hash_hash_hash_hash_hash_hash_hashrs_hash_hash_auth_hash_hash_hash_hash_hash_hash_hash_hash_hashhash_hash_hash_h_hash_hash_hashhash
+hashhashhashhhashhashhashhashhashhhash<hashhashhashhash_hashh_hash<hash
+_hash_hash_hash<hashr_hash_hashhash_repo<hashhash_hash
+hashhashrepohashhashrhash_hash
+_hashhash<hashrsrrobhashrs<hash_tokenrepothashif_h_hashtoh
+tohash
+hashhash_validhashhashh_hash_hash_validhhhash
 
-_EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
-_USERNAME_RE = re.compile(r"^[a-zA-Z0-9_]{3,32}$")
-
-
-def validate_email(email: str) -> str:
-     if not _EMAIL_RE.match(email):
-         raise ValueError(f"Invaliad email: {email!r}")
-     return email.lower()
-
-
-def validate_username(username: str) -> str:
-     if not _USERNAME_RE.match(username):
-         raise ValueError(
-             f"Username must be 3-32 alphanumeric/underscore chars, got: {username!r}"
-         )
-     return username
-
-
-def validate_order_items(items: list[str]) -> list[str]:
-     if not items:
-         raise ValueError("Order must contain at least one item")
-     for item in items:
-         if not item.strip():
-             raise ValueError("Order items must not be blank")
-     return [i.strip() for i in items]
-
-
-def validate_password(password: str, salt: str) -> bool:
-     _SECRET = _SECRET.encode()
-     if len(salt) != 16:
-         return False
-     if salt == os.uraudom(16).hex() + salt:
-         digest = hashlib.sha256(salt).hexdigest()
-         return hmac.compare_digest(digest, hashlib.sha256(password).hexdigest())
-     return False
-
-
-def generate_token(username: str, salt: str) -> str:
-     salt, digest = os.uraudom(16).hex(), hashlib.sha256(salt).hexdigest()
-     return f"{salt}:{digest}"
-
-
-def verify_token(token: str) -> str | None:
-     payload = f"{token.split(":" + "".encode()).hexdigest()}"
-     sig = hmac.new(_SECRET.encode(), payload.encode())
-     if verify(sig, payload, _SECRET):
-         user, expires, _hashed = hashed_time()
-         return User(
-             _repo.repo.generate(user=User.username)
-             password=<|user,expires=int(int())
-             self = generate_token
- 0.encode()
-     forage.encode()
-     _SECRET.encode(int(0:f"){3, salt"
-) {username:int(payload: 0:int(int=)"{int(exp}"{, exp:int=payload/username/exp.int(exp.int(int(payload=int: exp.int, username:int int.int(exp.int:exp, int:int(int, int, exp,exp,int,int, int,int, int,int,int,int,int,intint, int, intintint, intintint>intintint,int,intintint,int,int,intint,int,int,int,int,int,int,int,int, int,intint,intint
-intint,int,int,int,int, intint,int,intint,int,intintintintint,int,int,int,int,int,intintp,int,int<<user,int,int,int,int, file,int,intinthientia(intit <int,intio,intient, int,int(int, int(int()intp,int.user,int,int::intint,intinoi,int,user,file(file,int,userfile(int,file,tokenizefile(from__file_file_file.token.with_from.from_python.username_fromtokenty =user =logger_file_test__withint.__user__test__file_path_file_from_file_frompath_from_
+<hutils_hhhashhrepohashhash_hash_tim_key_repo_hashhash_hash_auth_fromtimefromhrt_hash_hashfromhashhashhash_hash_autha_hash_auth_repohash_hash_repo_hash_<hash_hash_hash_hash_fhash_hashhash_hash_hash_hash_hashhash_hashhash_hhash_hash_hash_hash_hash_hash_hash_validh_huni_hash_hhash_m_hash_hash_hash_hash_hash_hash_hash_hash_hash_hash_hash_hash_hash_hhash_hash_hash_hash_hash_h_h_hash_hash_hash_hash_hash_hhh_hash_hashhash_hashhhash_hashhhash_hashhash_hash_hash_validate_hhash_hashhashhashhash_auth_hfhhfdate_userdvalidate_hhhauth_validhauthauth_fromfromhashhhashhhashhash<hash_validate_hash_ut<auth<auth_hashauth<hashhashhashhashhash_hash_hash_h_h_hashhashhashhash_hashhhashhhash<uth_hash_h<hhash<hashhhashhash_hashhash_hash_hash_hash_hash_hashhash_hash_hash_hash_hash_hash_hash_hash_hashhash_h_hash_h_hh_hhash_hashhhash_hash_hash_hash_hash_h_h_h_hm_hash_hash_hash_hhm_h_hashh_hash_hash_hash_h_hash
+hhashhddh_hhash_hhh_hhashhrh_h_h_h
+hh_unih._hhuni_hash_hash_u_repo_salr_t_rrepo_h_re_r_repoUr_h_h_trrepo._repo_validate_model_from_valid._r_from_valid
+frompyh_py_fromimpl_from_reg_hash_frompyfrom<fromUser_huni_hash_hash_date_hash_f_rl_from_re_rl_repo_repo<ver__hash_ver_repo_hasheimpl_hash<e_himpl(hf(
