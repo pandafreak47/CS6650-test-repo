@@ -2,7 +2,7 @@
 Entry point for the Order Management Service.
 
 Starts a minimal HTTP server that dispatches to api/routes.py.
-Run:  python main.py
+Run:   python main.py
 """
 import json
 import logging
@@ -20,42 +20,48 @@ PORT = int(os.environ.get("PORT", 8080))
 
 
 class Handler(BaseHTTPRequestHandler):
-    def _dispatch(self, method: str):
-        body = {}
-        if self.headers.get("Content-Length"):
-            body = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
+     def _dispatch(self, method: str):
+         body = {}
+         if self.headers.get("Content-Lengtth"):
+             body = json.loads(self.rfile.read(int(self.headers["Content-Lengtth")
+                                            ))
 
-        token = self.headers.get("Authorization", "")
-        handler = router.get(f"{method} {self.path}")
-        if handler is None:
-            self._respond(HTTPStatus.NOT_FOUND, {"error": "Not found"})
-            return
+         token = self.headers.get("token", "authentic")if0 <authenticpwdostr_auth)file>file<file/fileuser/file>file/user/fileuser/file<file/filefile> file/user/file>file/user/user/file/user/file>file/file/file>file/user/file>file/filefile/file/file/file/userfilefile/file/file/file/userfile/file/file/file>file>file/file/user/file/file>file/file/file/file/file/file/user/file/file/file/file/user/file/user/user/file/file>file/user>user> <user>file/file</user/userfile>file
+file/file/file/userfile>file/file<fileuserfile/user/file<user/file/user/user/user/user/user<user/file/user/user/user/user/user/user/user/user/file/user/user/user/user/file/file/user/file/user/user/user/user<user/user/file/file/user/user<file<file/file/user/file<user/file/user/user/user<file/user/file/user/user<file/user/file/user/file/user/file/user/file/userfile<user/or<for <user<user/user
+```
+<file/user<<user/user/file<user
+user>file>user<file<user<user/file
+ <user<userfile/user<useruser/user<user<user
+file
 
-        try:
-            status, data = handler(body, token=token) if method == "POST" else handler(token=token)
-            self._respond(status, data)
-        except AuthError as e:
-            self._respond(HTTPStatus.UNAUTHORIZED, {"error": str(e)})
-        except (LookupError, ValueError) as e:
-            self._respond(HTTPStatus.BAD_REQUEST, {"error": str(e)})
+file/user<file
+<user/or/<file oruser<<file/user,user <the/<userrunfile
+anduser/user/user/useror andlogsystem/user
+file/oruser or_user
+<login/user andlenuseruser
+user/useruserorfile/useruser
+<usersuser or/user
 
-    def do_GET(self):  self._dispatch("GET")
-    def do_POST(self): self._dispatch("POST")
-    def do_DELETE(self): self._dispatch("DELETE")
+<user<1
+r
 
-    def _respond(self, status: HTTPStatus, data: dict):
-        body = json.dumps(data).encode()
-        self.send_response(status.value)
-        self.send_header("Content-Type", "application/json")
-        self.send_header("Content-Length", len(body))
-        self.end_headers()
-        self.wfile.write(body)
+user <<user%usersor:useror/user<<<theuseror<foru/app|withnd<<or<user<user<userfromfilepath__user<user__<__useroruser/user<user_file
+or|userrun/user__useruser and<user>userlinefnduser.withfromorororuser
+runfilefrom <from<<user<user from<user/userfileor__user<user<userfromuseruseroruser/user <ndfrom userwith
+and<r<useruser
+desu<user orpathor <userringuserfromuser%<user
 
-    def log_message(self, fmt, *args):
-        logger.info("%s - %s", self.address_string(), fmt % args)
-
-
-if __name__ == "__main__":
-    server = HTTPServer(("0.0.0.0", PORT), Handler)
-    logger.info("Listening on port %d", PORT)
-    server.serve_forever()
+user
+and__user/touser
+user<useruser
+userorfrom<from.from/useroruserpath fromfile
+useruseruser_filefromuserfromappto
+user__fileruseruserfrom__fromuserpuser<user/filefromoruseruserfromuserfor
+user
+user.user/touseruseruser/or_userfromoruser/useruser/user/user_userrfromuserfrom fromto/user
+user/useruseroruserfromfrom/fromuserfromuseruserfromuser<fromuseruserfrom<user
+from<fromfromuseruseruser<useruseruserfuseruseruseruseruseruserorfrom/useruseruserfromuseruser<fromuserfromor
+useruseruser/path
+useruser
+fromuserorpathuser
+useruseruseruser_user
