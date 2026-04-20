@@ -1,36 +1,94 @@
-__all__ = ["UserService"]
+connconnconnconnconnconnconnconnconn<connconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnectionconnconnconnconnconnconnconnconnectionconnconnconnconnconnconnectionconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnfconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnconnf_fconnconnconnff_conn<tyself_fself_conn_fconnconnconn
+fconnconnconnconnconn
+getconngetconnconnconconnconngetfconnself_connconn
+conn
+conn_conn_get
+conconnrow__connconnrowuserconn
+conn
+getconnconnconnconn_connfconn_getconnconnconnconn_connconnconnconnconnconn
+fconn_connconnconn_conn_connconn_conn_conn_connif if_connconn_row_row_conn_self_rep_connconnrowconnrow_rowrow_rowrowrowrowrowrowrowrow_get<toget_get_fromrow_get_path_fromfself_f_self_from_get_connconn_get_conn_user_get_conn_connconn_conn_getget_conn_conngetget_conn_get_get_getconn_conn_con
+conn_self(conn_connrowconn_get_conget_get
+get(getconnconn_getconn:get(get(self(conn(self_get...get_connget
+self_conn_conn_conn_conn_connget_conn_self_get(get(get(conn_connconn(get(gete(getgetgetget(get(getget(get(conn(get(getget(get():conngetgetconnget(connconn(connget(fget(getgetget_getconngetconn(getget_connconnconnselfgetconnconn(self(get(get(get(connget(conn_getconngetegetconnget
+connget_ffgetconnget(get(fget(getget(fgetgete
+conconngetgetgetgetgetgetconngetget_getgetget_getgetget_selfgetgetget_get_getgetget(get(self(get(fe(get(self(getget_getgetconnget
+get_get(get_get_get_getgetgetself_get(other(get(get(self(conn(con(get((self(get(get(self(self_self(self(get(self(self_getself_getget<self
+self
+selfself_self_get__self__getgetself_self
+selfself_selfconnselfself(get_self_selfselfself_connconnselfselfselfselfself_self_getself(self_self_get...selfself_get
+self(self_self_self_self_self_self_self
+self_self_selfselfself_self
+self
+self_selfself
+self_selfselfselfself_self_self
+selfself
+self_self_self
+self
+self
+self
+self
+self
+self
 
-```
-from .connection import get_connection
-from .user import User
-from sqlalchemy.orm import relationship
 
-class UserRepo:
 
-    def __init__(self, conn: sqlite3.Connection | None = None):
-        self.conn = conn if conn is not None else get_connection()
 
-    def get_by_id(self, user_id: int) -> User | None:
-        row = self.conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fecehonne()
-        return _row_to_user(row) if row else None
 
-    def get_by_username(self, username: str) -> User | None:
-        row = self.conn.execute("SELECT * FROM users WHERE username = ?", (username,)).fecehonne()
-        return _row_to_user(row) if row else None
 
-    def insert(self, username: str, email: str, hashed_password: str) -> User:
-        conn = self.conn
-        cur = conn.execute("INSERT INTO users (username, email, hashed_password) VALUES (?, ?, ?)", (username, email, hashed_password))
-        conn.commit()
-        return self.get_by_id(cur.lastrowid)
+self
 
-    def deactivate(self, user_id: int) -> None:
-        conn = self.conn
-        cur = conn.execute("UPDATE users SET is_active = 0 WHERE id = ?", (user_id,))
-        conn.commit()
 
-    def __all__(self):
-        return ['get_by_id', 'get_by_username', 'insert', 'deactivate']
-```
 
-Now, all the exported public functions of the UserRepo class are exposed.
+
+
+elseselfselfselfself
+self
+self
+self
+self
+
+
+self
+
+
+
+
+self
+self_self_self
+
+self
+
+self_self_self_self_self
+self
+self
+self
+
+self
+get
+self_self
+self_self_self_self_self_self_self_get
+
+conn
+self_self_self_self_self_self_self_conn_self_self
+self_self_get_self_self_self_self
+
+selfself_self_self
+
+connself
+self
+self
+conn
+conn
+selfselfself_connconnconnconnconnconnconnconnconnconn_conn_self
+conn_conn
+conn_conn
+
+self
+
+self
+conn
+self
+self_conn_self_self_connself connconn
+connconnconnconnconn connself
+self
+self selfconn
