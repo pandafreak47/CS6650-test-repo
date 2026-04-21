@@ -1,102 +1,63 @@
-from email.mime.text import MIMEText
+from email.mime import base
 from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
-from email.header import decode_header
 from email.mime.image import MIMEImage
 from email.mime.text import MIMEText
-import email.mime.application as application
-import email.mime.binary as binary
-from email.mime.multipart import MIMEMultipart
+from email.mime.application import MIMEApplication
+from email.mime.plain import MIMEPlainText
+from email.mime.attachment import MIMEAttachment
+from email.mime.binary import MIMEBase
+from email.mime.html import MIMEHTML
+from email.mime.media import MIMEMedia
 from email.mime.text import MIMEText
-import logging
-import os
-import re
-import sys
-from pathlib import Path
-
-
-from django.core.exceptions import ImproperlyConfigured
-from django.core.management.base import BaseCommand, CommandError
-from django.conf import settings
-from django.db.utils import IntegrityError
-from django.template import loader
-from django.template.loader import render_to_string
-
-from services.models import Email, Order, OrderStatus
-from services.templatetags.user_tags import render_confirm_template
-
-logger = logging.getLogger(__name__)
-
-class Command(BaseCommand):
-    help = 'Send an email notification'
-
-    def __init__(self):
-        raise ImproperlyConfigured('This is a Command')
-
-    def __call__(self, user: 'This is a command', order:Order) -> None:
-        """
-        Sendar a.
-        Send
-        An email)
-        Email (<file)
-        Yourname
-        Email (bearman Order.
-        Email)
-        This email
-
-Order ID: OrderEmail, Shipped
-Email a, Order
-Email, Order
-Email, Order
-Email, Order
-Email, This is
-
-Order, email a, Email, user, Sendpath, file
-Email, email/email, email
-Email, order, email:Email, email, a, Email
-Email, Order.email,
-Email, Email, email,email
-Email,Email, Email, Email,email,Order, Email,email, email, Email, Email, Email,Email, Email, Email, email
-email, email, Email, Email,Email,email, Email, Email, email, Email, Email, email, email, Email, Email, Email, Email, Email, Email, Email, Email, Email, Email, Email, Email, Email, email, Email:email: email, Email, Email, Email(batter email, Email, Email if file.
-email, Email user, EmailEmailOrderEmail if file if Email
-file
-Email(file(email(email ifeline(file(file(file(user
-file, Email, EmailFile if, Email)
-<file:file.File<file:file:file:file.EmailFile, File(...files<files.Files
-file,file.File
-<file,user, file<sentation,file.file <file.File.file.File.files(file ...file <user(request<import ...
-<user <file <accounts.file
-for ...<file <request.Accounts.errors <filehtd<ut<user:sent(...
-messages:
-message:file.message:
-email_file
-ut <ut <subjectscenttygtty <or <mailionty <mail.for.<mail <=<<user <mail<<ut<user_file
-
-<ut<order.files
-errors <ut<email
-<accounts <mails<file <user_product
-
-fromced
-__mail.account.from<utils...file.
-mail.ut
-<email
-email...,
-user_utils
-email<product_email_mail_account(...email
-mail(...email(email
-mail.<email...ut<utils(user.email
-ut.mail.email..., emails...mail
-<files.items...,render(email...,for.<order<order:confirm
-for <render ...required ...order...order ...red<user <user.<elect<order<<product
-<user:from...<product_admin<priv<mail_email...email tem...for
-ty...email__order*mail<email:mail ...sent*email```for__email <email<account.user...optionalemail*email<mail_order<mails<ut_utuser<mail_email_email*order*mail_,mail.mail
-utils:<email<email*mail<email...email
-or
-
-email
-
-types
-ty...accounts email::cancel.ty
-tem""<<string<bank<mailsemail<email_email<total
-email
-account_email email email email:<
+from email.mime.image import MIMEImage
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultiPart
+from email.mime.application import MIMEBase
+from email.mime.base import MIMEBase
+from email.mime.plain import MIMEPlainText
+from email.mime.attachment import MIMEAttachment
+from email.mime.base import MIMEBase
+from email.mime.html import MIMEHTML
+from email.mime.media import MIMEMedia
+from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultiPart
+from email.mime.application import MIMEBase
+from email.mime.base import MIMEBase
+from email.mime.plain import MIMEPlainText
+from email.mime.attachment import MIMEAttachment
+from email.mime.base import MIMEBase
+from email.mime.html import MIMEHTML
+from email.mime.media import MIMEMedia
+from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultiPart
+from email.mime.application import MIMEBase
+from email.mime.base import MIMEBase
+from email.mime.plain import MIMEPlainText
+from email.mime.attachment import MIMEAttachment
+from email.mime.base import MIMEBase
+from email.mime.html import MIMEHTML
+from email.mime.media import MIMEMedia
+from email.mime.text import MIMEText
+from email.mime.application import MIMEBase
+from email.mime.application import MIMEBase
+from email.mime.application import MIMEApplication
+from email.mime.application import MIMEApplication
+from email.application import MIMEApplication
+from email.application import Application
+from email.application.application import MIMEApplication.application.email.Application.text.email ...file ..."EmailApplication.MIME...
+Email ...MIME ...Email ...MIMEApplication.order.MIMEApplication.user ...email. application.MIME ...MIME application.user, MIME ...Application.application.MIME ...application.application.MIME ...MINE.Application.Migration.MIME. MIME.Email.application.ME, Application. MIME.MEME.user.MIME. MIME.ME.MEMEM.M(file.MEMEMorm
+MIMEMMEMIMEMMEMEMIMEMorm:MEMIMEMeter.MEMMatten]MMEMEMitory.MINEMEMEMINEMIDEMEMorm MIMEMEMINEMMEMIDE_MEREMEMINEMINEMEMINEMEMFTMMP: MIMEM<ME.MATIONSMP<MEMient<<MAMINEMEMMEMATEMEMINEMEMatter(file(file(userMEMEM.Mail <file
+ME <md.Make
+file_mes ...matten:MEMormation.MEM filefile <files ...mesiation <mock:response.folderiate <response ...files()<file.sent<message <ordered <file filemlmartiate <sentideatteniate.M.Mail<accounts
