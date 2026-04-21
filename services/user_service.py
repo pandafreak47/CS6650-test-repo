@@ -1,18 +1,47 @@
-<file path="db/user_repo.py">
-<file path="db/user_repo.py">
-<file path="db/user_repo.py">
-<file path="db/user_repo.py">
+_repo_repo<hash_repo_hash_hash_hash_hash_repo<hash_pathrepo_auth_hash_rep_file_repo_hash_hash_hash_hash_hash_hash_hash_hash<h_hash_hash_hash_hash<_<hashh_hash_hash_hash_hash_hashtrl_hash_auth_b<hash<hvalidate_<t_hash<<<hashhash<<hash_repo_hash_hash_hash_hash<hash_hash<hash_<<<<<hashhash_hash_hash<hash_hashe_hash<repo_hash_hash_hash_hash_hash_hash_hash<hash_hash_hash_hash<_hash_hashe_hash_hash_hash_hash<user_from_hash<hashhashvalid
+hash
+hash_hash
+hashut<hash<hash
+h_hash
+hashhashrepo_hashhashehashhashhash_hash_hash_hashhash_hashhashhash_hash_valid_hash_hash_repo<hash_hash
+hashrepo<hash_hash_hash_hashrepo_hash
+hash_hash<<r_hashrlut_hashhash<hrepo_hashrepohashutreporepo_ut_hashrshashhashhashfromhashrs
+repo_hhashuser_hash<hash
+<
+UserU
+trhashhash_hrepohashrepo_hashhashb_valid<sec_h_hrunhash_user_from
+_fromhash_hfrom
+hashhuni_rehashutyfrom
+<hvalidateh_hhrepo_hash_repo_repo_hash<hash_hash_hashhash_hash_hhashh_hashhashhash
 
-<task>
-Add an `__all__` list that exports all files under the `services/user_service` folder.
-</task>
+hash___hhhash_hash_hash_hash_a_hash_hashh_u_fhash_hashbh_h_hash_valid_hash_hashhash_hashhhash_hash_hash_hash_valid_int_hhash_hash_hash_hash_hashhash_hash_hash_hash_hash_h_hashhash_hashh_hhashhh_hash_hashhash_hashhashhhashhash_hashhash_hashhinthash_hashhashhhhhashhhash<hashhmhhash_fvalidh_auth_ffhuseruser_authvalidate_validatef_hash<fromhfromhvalidatehauthfvalidate_hash<hhashhhfromauth<hhvalid_hashhash_hashhashhashhhashhhashhashhashhash_hashhash_hashhashhashhashhashhash_h_hashhashhhashhash_hashhhashhhash_hash_h_h_hash_hash_hashh_hashhashhash_hash_hash_hash_hash_hash_hash_hashhhhash_hashhashhashuth_hhash_hashhhhashhhashhhash_hash_hashhashhhhth_hashh_hash_hashhashhash_hash_hashhmhashhhmhashhashhhashhashhashtoken_hash_huserhhashhhhashhashhhashrepohhhashhashhfhhhash_hhhrereghhashrepohashuuidhtokenfhashrephashutokenhash
+fihashrfromhashrvalid
+repo_univalid._model_fromu_valid
+_valid
+valid_repo_
+f
+valid_d_
+uuid_fromhash
 
-Add this list to the `all_files` variable in the `main()` method, and the task will be completed.
-```
-all_files = [
-    "db/user_repo.py",
-    "db/user_repo.py",
-    "db/user_repo.py",
-    "services/user_service.py",
-]
-```
+fromffromfromh
+fromf_validffromfromfrom_rerfromfrom_fromrfromUHfromUrfipya_
+_hvalid__re_reghff_user_h
+hashh_hregmodel
+ut_h<userhashapiufrrefh(f(hash(himpl(andf(regf_regr:re:frep<f<<<fint<
+reg...d
+<<from<modelreghwithdf
+fjsonrhver_r
+<reguser<h
+hfh
+h<
+<<hash<b_hr<hashfromuser_h_v_hregef<reqimplhash<regehhashhregfhashhhhhhhhhashhver:re_hr_h
+fhashhhhreghshellhohhmhhh
+f
+hhhhhhh_hhhashhhhhreghhff
+hash_hrehhhashhimpl
+
+hashhhashhash
+
+hashrehhashh
+hashrhverifyvrehashhimplhehashehhhhashregdfhashr
+f
