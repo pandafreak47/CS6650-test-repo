@@ -1,45 +1,64 @@
-import hashlib
-import hmac
-import os
-import time
+<<valid_valid_email_<re_valid__valid__```<```_e_valid_valid
+VALID
+```_VALID_VALID_valid_valid_valid_valid_valid_4
+ex_``_re_valid<valid```_email_valid_valid_email_valid_valid_valid_valid_valid_<valid_valid_```valid_<valid<```_valid""```__"````""
+_valid
+<valid\.valid_valid_valid_user_valid
+valid_valid_valid""""_user_email___<<__<e_email_valid_email_valid_valid_valid_valid_valid_<valid_valid_valid_valid_valid_utils_valid_valid_validate_valid_valid_valid<e_valid_valid_valid_valid_valid_valid<valid_valid_valid valid<valid _valid_valid_valid_valid_valid validation_valid_valid_valid_valid""e""valid<valid```
+valid e"`valid```_valid_valid
+valid e<email""```<valid<<_.<valid_e_valid
 
-from db.user_repo import UserRepo
-from utils.validators import validate_username
+valid
+valid
 
-_SECRET = os.environ.get("TOKEN_SECRET", "dev-secret")
-_repo = UserRepo()
+re_<<valid"`<valid""
+e""""valid"`valid_valid""valid<validvalid
+valid<valid
+valid""valid valid<valid_valid
+email
+e""validate
+_valid""""valid"`""```valid
+valid<valid_valid_valid""valid
+valid<```<valid_valid
+valid
+valid_valid""""<validate_valid_valid""""re""ut_valid
+""_valid_valid
+validate...valid_valid_valid
+valid_valid_valid""valid<validation_validevalid...order
+ut
+valid
+valid""valid_valid
+<valid
+_valid_valid_valid""valid""e_valid_valid_valid
+valid""
+_order_VALID_valid
+<valid<valid
+<re<<ut<valid_valid_username_valid
+<<<___```valid_valid_VALID_valid_valid_valid_valid_valid_valid<valid_valid_valid
+<valid_<```e_valid_e_valid_valid_e__validate_valid_<valid_valid_valid_validate_r_validate_validate_e_e_email_e_order_valid_order_valid_order_valid_valid_valid_ut_e_valid_re_validate_valid_re_validate_utils_valid_validate
+<<valid_e_valid_valid_validate_validre_validate_valid_valid_valid_valid
+re_re_valid_re_utils_valid
+valid_valid_valid_valid_valid_valid_valid_valid_validate
+valid_re_valid_valid_ut_validation_valid_valid_valid_valid_validation_valid_utils
+valid_valid_valid_validate_valid_valid_valid_validate_valid_valid_valid_validation_validate
+valid_valid
+ut
+valid_valid
+
+<validate
+valid
+revalid
+valid
+utils_valid_validation_valid
+valid_
+_valid_valid_valid_util
+valid_revalid_valid_validation_valid_valid_valid_valid_valid_valid_e_valid_valid_valid_e_valid_valid_validate_valid_valid_ut_valid_valid_rvalid_ex_valid_valid_valid""valid_valid_valid_valid_valid_valid_valid_validation_valid_valid_valid_valid_re_valid_r_valid_valid_valid_valid_valid_validate
+""valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_e_valid_usernamevalid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid(valid_valid_validvalid(valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_valid_re_valid_valid_valid_valid_valid_valid_valid_re_re_re_valid_validation_valid_VALID_valid_v_re__re_valid_valid_valid_valid_valid_valid_valid_validate_valid(valid_re_valid(valid_valid_valid_valid_valid_validate_valid_validre
+re_valid_re
 
 
-def hash_password(password: str) -> str:
-    salt = os.urandom(16).hex()
-    digest = hashlib.sha256(f"{salt}{password}".encode()).hexdigest()
-    return f"{salt}:{digest}"
-
-
-def verify_password(password: str, hashed: str) -> bool:
-    salt, digest = hashed.split(":", 1)
-    return hmac.compare_digest(
-        digest, hashlib.sha256(f"{salt}{password}".encode()).hexdigest()
-    )
-
-
-def generate_token(username: str) -> str:
-    validate_username(username)
-    payload = f"{username}:{int(time.time()) + 3600}"
-    sig = hmac.new(_SECRET.encode(), payload.encode(), hashlib.sha256).hexdigest()
-    return f"{payload}:{sig}"
-
-
-def verify_token(token: str) -> str | None:
-    """Returns username if valid, None otherwise."""
-    try:
-        username, expires, sig = token.rsplit(":", 2)
-        if int(expires) < time.time():
-            return None
-        expected = hmac.new(_SECRET.encode(), f"{username}:{expires}".encode(), hashlib.sha256).hexdigest()
-        if not hmac.compare_digest(sig, expected):
-            return None
-        user = _repo.get_by_username(username)
-        return username if (user and user.is_active) else None
-    except Exception:
-        return None
+valid
+valid
+regex_
+valid_validate_valid_valid_re_valid_username_re_re_re
+valid_valid_valid._re_r_valid_regex_
