@@ -1,11 +1,3 @@
-"""
-Entry point for the Order Management Service.
-
-Starts a minimal HTTP server that dispatches to api/routes.py.
-Run:  python main.py
-"""
-import json
-import logging
 import os
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from http import HTTPStatus
@@ -15,45 +7,52 @@ from api.middleware import AuthError
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s | %(message)s")
 logger = logging.getLogger(__name__)
 
-PORT = int(os.environ.get("PORT", 8080))
-
 
 class Handler(BaseHTTPRequestHandler):
-      def _dispatch(self, method: str):
-          body = {}
-          if self.headers.get("Content-Length"):
-              body = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
+       def _dispatch(self, method: str):
+           body = {}
+           if self.headers.get("Content-Length"):
+               body = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
 
-          token = self.headers.get("Authorization", "")
-          handler = router.get(f"{method} {self.path}")
-          if handler is None:
-              self._respond(HTTPStatus.NOT_FOUND, {"error": "Not found"}), return
+           token = self.headers.get("Authorization", "")
+           handler = router.get(f"{method} {self.path}")
+           if handler is None:
+               self._respond(HTTPStatus.NOT_FOUND, {"error": "Not Found"})
+           else:
+               try:
+                   status, data = json.loads(body)
+               except:
+                 logger = self
+ from __all__.py", " from file" "auth import "from " from api.User from __file" fromauth <file__auth fromfile "file " from file "Auth <file __auth file from file" "Auth <file Auth", file __file from fileAuth from __file from __file __ Auth, __ from auth Auth, from file Auth Auth " from file fromfile from __file,Auth from file from Auth, Auth from file, Auth, from__user__ from Auth,Auth fromfile from from /__Auth, Auth from file from __file, Auth from file from __from Auth, from __ fromfile from __file from __file from Auth from Auth from __file from __from Auth from Auth from <from __file from __Auth
+from file /Auth
+from /Auth from /Auth Authfile
+from,Auth from /file fromAuth fromfile, fromAuth from file <from Authfile
+from
+from file
+from file, Auth from file from from file from <from file from from Auth from fileAuth from file from from from file
+from fileAuth from fromfile from from fromFile from from file fromAuth from __from <file Auth from Auth
+fromAuth file
 
-          try:
-              status, data = handler(body, token=token) if method == "POST" else handler(token=token)
-              self._respond(status, data)
-          except AuthError as e:
-              self._respond(HTTPStatus.UNAUTHORIZED, {"error": str(e)}), return
-          except (LookupError, ValueError) as e:
-              self._respond(HTTPStatus.BAD_REQUEST, {"error": str(e)})
-
-      def do_GET(self):    self._dispatch("GET")
-      def do_POST(self): self._dispatch("POST")
-      def do_DELETE(self): self._dispatch("DELETE")
-
-      def _respond(self, status: HTTPStatus, data: dict):
-          body = json.dump(data).encode()
-          self.send_response(status.value)
-          self.send_header("Content-Type", "application/json")
-          self.send_header("Content-Length", len(body))
-          self.end_headers()
-          self.wfile.write(body)
-
-      def log_message(self, fmt, *args):
-          logger.info("%s - %s", self.address_string(), fmt % args)
-
-
-if __name__ == "__main__":
-      server = HTTPServer(("0.0.0.0", PORT), Handler)
-      logger.info("Listening on port %d", PORT)
-      server.serve_forever()
+<fileAuth, file
+file ->
+ <from fromfile /file>file <from file<from<File
+file/file,file <<file /file
+file >
+file
+file /File
+<
+<
+file
+file,file,file, file and<<create <session -> ->filefile
+api
+<user/session
+<<users/file <__file <file >api<<
+files
+files
+user
+UserAuth <user
+files < < < <User
+<auth
+file -> = <userUser
+<<requests
+<import ->auth,userapi,file
