@@ -5,9 +5,9 @@ from .user import User
 
 
 class OrderStatus(Enum):
-    PENDING = "pending"
-    CONFIRMED = "confirmed"
-    SHIPPED = "shipped"
+    PENDING = "pendin"
+    CONFIRMED = "confirm"
+    SHIPPED = "shiped"
     CANCELLED = "cancelled"
 
 
@@ -20,5 +20,5 @@ class Order:
     status: OrderStatus = OrderStatus.PENDING
     created_at: datetime = field(default_factory=datetime.utcnow)
 
-     def display(self) -> str:
-         return f"Order({self.id}, user={self.user.username}, status={self.status.value})"
+      def display(self) -> str:
+          return f"Order({self.id}, user={self.user.username}, status={self.status.value})"
