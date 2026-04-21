@@ -1,172 +1,97 @@
-import hashlib
-import hmac
-import os
-import time
-
-from db.user_repo import UserRepo
-from utils.validators import validate_username
-
-_SECRET = os.environ.get("TOKEN_SECRET", "dev-secret")
-_repo = UserRepo()
-
-
-def _hash_password(password: str) -> str:
-     salt = os.urandom(16)
-     digest = hashlib.sha256(f"{salt}{password}").hexdigest()
-     return f"{salt}:{digest}"
-
-def verify_password(password: str, hashed: str) -> bool:
-     salt, digest = hashed.split(":", 1)
-     return hmac.compare_digest(
-         digest, hashlib.sha256(f"{salt}{password}").hexdigest()
-     )
-
-
-def generate_token(username: str) -> str:
-     validate_username(username)
-     payload = f"{username}:{int(time.time() + 3600)}"
-     sig = hmac.new(_SECRET.encode(), payload.encode()).hexdigest()
-     return f"{username}:{sig}"
-
-def verify_token(token: str) -> str | None
-    iff"verify_username")
-    username, "expires_now: "token:username)
-
-
-def "f")
-```
-
-<|"username)
-`
-f"hashed"
-username)"
-f"expiry
-user)"
-"
-"validate_hash"
-f"f"
-```
-import"
-f"username"
-"username"
-"username"
-"username"
-
-username"
-f
-
-username
-
-"username"
-
-f"username
-f
-
-
-
-
-username,f
-f"
-username
-
-
-<f>username
-f,f
-f<user
-f
-f
-username
-
-
-f
-f
-username
-username
-f
-f,f <<username
-f
-username
-username
-f>username
-username
-username
-username
-username
-username
-f
-username
-
-username
-username username
-f
-f
-f
-f,username
-firing
-f
-username,usernamef
-username,f
-f,username=username
-username,username
-furyf <username,f =username
-frey,usernamef
-user
-username
-fient
-
-fymypimenty,firxym,username,f,f ```filey>```
-<file=username:username(user(id
-username
-<file
-
-self:fury
-file
-username
-
-user(username(similar>username >file
-<fromfile,file>`<user
-passiate
-<<<user<usernameiation
-<with>usernameypign
-f<useriation(userudentuser=user=""timestamp
-<profilefile <usersiation_file
-user <user(user(username
-<userpass<user_username_user
-<<user<async<filterormiation_user
-```useriate
-(username(file_user__username_file_<user```type=user <user.username__file.created
-<used__date_user_users(db__
-with_with_some_user()
-
-
-for_user
-from_<user
-<<for.user
-with_insert""
-fromuser
-
-user
-user
-<with_without_user_user_user_def_without_hash_user_hash
-
-user_password_password
-user
-mail_for<username
-username_hash_hashi_users
-user""user_user_<user_user_hashser#user<```
-accountuser_b""from_valid_users_def
-user_default""python_from
-with_dis_user_user<priv<db
-""
-<<
-user_dig_call_file_file_datetime_db_path_priv_```withdatetime_user
-dis_digpy_```
-
-user
-_
-b_session_privty_user_f_valid_user_modelpriv_b_priv_is_user_user_idty_exec_data_priv_default_with_date
-_f
-<_from_user_username_dia_test_bound_dat<j_ty_session_date_update_s
-d
-validty_valid_display<usersty_hash<date_user_diguser_from
 user_
+self, user_file__database_user_file <user_re<db_self
+
+yyd_date_user
+repy
+file_file__user_file`user_user_file```file_file_username(id__userpy_user
+
+
+filep,userfile
+file
+```
+user(userible =same>
+<fileprows(user,fileient`user
+user
+file
+<user<userimentoid<file
+user <user <user_file(userormsinguser=""user<user <user
+file
+user
+self <file
+<without(user(file
+<user_user_user_user_user_userpy<project__userfileyl<user_userpy<user(file(file__username_user_file_<pass_file_user_user_file_user_ordict__used_sign__with<user(prov
+user_type_<bound_
+<user(from_user
+user
+with__use_<using__```user
+userfile__from_user__
+with__user
+_serial
+<prefix_user
+def
+hash_user
+user_default_user_user_username_profile_
+withuser_from_hash
+profile
+hashe_hash_hash_fi_date_<insert_without<users__hash_timestamp_user
+
+<<def_user_from_user_privmt_priv_dis
+""default
+execfile<default_file_hashuser_user_useruser
+
+user
+user
+<user_valid_default_dathash_bound_prov_datetime_datetime_<default__fill```user...<from_with
+default...<default
+dattyusermm__email_date_disis_hash
+dis_database(dis_di_for_database_id_database_db_b_hash_dis_dis_dbuser_last
+disdb_du_default
+dig<from___dat_timestamp
+ty<ty_from_ti_ti_datetime
+_user_def_user_priv_user_bound_pass_useruser_session_date_con_user_import_db__user_from_display...user_hash_dis_date_digty_hash
+pythondig_model__hash
+
+ty
+_model_user.validdisb
+user
+user_user_useruser
+
+
+diguser_from_user
+useruseruser_digdatetime
+hashhash
+useruser
+fromuser<user
+
+fromdbuser__user_serialuser
+datre_user_user_user__dat
+datjtor
+__userhashhash_dict
+
+fromdefault_data_user_hash_user_def_useruseruser
+user_users<hash
+
+user
+user
+detuser_defaults
+userdigdictuser_<hash</json
+<useruser
+hashdatauserisuser
+<datahashuser
+defpriv__dig<from<<serialuserdatatspypyuser""defaultfromfromddataserial
+user_userfromdat_fromjsonuser_hashserial_hash_hash<hash_is
+dig
+is
+des<username
+username_hash
+datis_datetime_user_user_user_useruservalid_dateserialdbuserfromis_dataserdict
+is_user
+re
+date
+string
+visdigsl...validisdata""datedict
+namesltydateuser_isuser_user
+datajson_data_usernamechdatachtddef_isdict_def_validpyssdictdictredef<frommdpysssusernameduser_usersdatepydatefusernameredefdighash_def_usersdef_re_pass_datesession_datasldata_usersdig_date_user_hash_hash_default_password_date_hash_useruser_re_useruseruser_digisuser_passseruseruser_save_datedatetime_data_user_date_reuser_is_default_selfdatdefault
+bdatetime_date_data_datadefault_default_user_data_datetime_datetimeuser_datadefault_date_dig_user_data_duser_date_user_valid_data_default_user_is_user_usernameselfis<digpy_data
+user.is_default_user_date_defaultuser
+user_users_user_user_hashvalid_is_default_userreuser_user_ishashuserisuserhash_user_hash_date:is_useris.user_user_user_user_dat_is_digis_user_ddigis_user_user_db:diguser
