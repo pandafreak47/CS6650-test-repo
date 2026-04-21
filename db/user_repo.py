@@ -1,65 +1,46 @@
-from .connection import get_connection
-from .user import User
-from .user_repo import UserRepo
+<BOBOBO<<connect_conn...BOBOBOCON_connect_con_boot_store_connconn_connect_store_conn_store_get_con_con_connect_connect_conn_conn_database_conn_get_conn_conn_connection_conn_connect
+con_get_con_connect
 
+store
+._getconnection
+_e_bootstrap.conn
+_conn_con_con_serial
+get_cone_conn
+s_
+<_conndb.conn
+conn_con_conn_DB_con_connect_con_conn
+conn_con_conn_conn_
+connect
 
-class UserRepo:
-    def __init__(self, db_path: str) -> None:
-        self._db_path = db_path
-        self._conn = None
-        self.get_by_id = get_connection().execute(
-            f"SELECT * FROM users WHERE id = ?", (self._user_id,)
-        ).fechtionne().first()
-        self._conn = None
+con_conconn_conn_connection_db_connection_serial
+_con_con_con_connection
+store
+con_def_con_con_con_cb_os
+_bootstrap_os_sb_conn_store_con_conn_osos_conn_b_db_connconn_serial__bo_conn_conn_conn
+_db_boot
+e
+_con_conncon
+conn_conndb
+connectionconncb_conndb_conn__conn_db_conn_conn_storage
+global_conn_connconcon_conconn_store_conn_conn_
+session_db_conconn_connconn_connect_connecon_db_conn_con_db_conne_connection_connection_db_connconn_conn_connconconn_connection_connection_connection_connect_bconn
 
-    def get_by_id(self, id: int) -> User:
-        self.get(id)
-    if not self._conn:
-        return None
-        _ | self._db_path = f"{self._conn.get_user_by._get_user_id. _ | self._id|")
-        for_user_conn. | | | id
-            self =get | self:f_id |.f_id |f | |id
-        :user |
-        self:
-     |
-        self | id |: | |
-        self:
-|f |
-        | |
-    | | | |
-        | | / | | | | | | | | |
-         |fy | |
+conn_cb
 
-| | | | 
- | | | f |_ | | | | | |
-f_ | | | | | | |f,f_ | | | | | | | | | | | | | | | | | | | | |f | | | | | | | | | | | | | | | | | | | | | | | |f | | | | | | | | | | | | | | | | | | | | | | |f: | | | | | | | | | | | | | |
- | | |
- | | | | | | | | | | | | | | | | |s | | | | | | | | | | __path |ments
- | | ... |_
-async
-async_async | ..._path | <db | | | _dbp | |file_folder |
- <folder_data |_file_data_fs_from ... ...file |fs: # <file_file_file_filement_
-<<defs
-from: root_saved < <sql_file_data_root_db_sql_e_async_file_file_db <mysql_database_
-___
-_
-_file_sql_db_work_data < < <con_get_file_sqlite_path_e_cond.__db___<__<boot <user_db_user_db_database_db_db_sqlite_ex_<_____serial_connection_file_user <(db.db_<insert_sqlite_file_db_data_file_file_path___file_db_database___
-db_boot_bo_bo_<___db_exec_db_database_user_sql_db_bootstrap_db_db
-dis_db <_______
-___
-boot_file_db_db_file < < <__serial_db_boot_boot_db_db_con_path_boot_serial_bootstrap_
-
-connection_con_conn_db_conn_conn_conn_conn_sql_conn_connection_connect_conn_connect_user_default _conn_conn_conn__conn_db__con_conn_conn_conn_db_BO_CON_conn_DB_POS_conn_mount_connect_conn_conn_connection_store_conn___cb_conn_connection_connect_connection_conn_path_connection_conn_connection_dbo_BO_dis_boot_conn
-get_store_db_try_conn_BOBO_BO_DB<_connection_get__<store_BO
-__CONBO_CBO_DO_BO_connection_conn_data
-store get
-__get_BO<connection_con_get_bootstrap_connect_get__BO_serial_BO:<
-
-CONBOBOBO_BOBOBO
-
-BOBOBOBOBOBOBOBOBOBOBOFA<default_bootstrap_...disdb_db_get<BO_dis_bootstore
-<store
-_connstore_connect_get_connected_dis_connect
-conn_conn_DBconnect_conn_bootstrap_connect_connection_connection_conn_connection_dis_data_store_store_connect
-_serial_boot_dis_conos.connection_CON<conn_conn
 conn
+connconn
+serial_con
+conconconn_con_conn_connect_con_dbbp_con_global_conn_connconn_conn_conn_cb_conn_con_b_conn_get_conn_conn_conn_conn_getconnect_connconn_connconnconn_boot_os_connect
+cb_connection_session_con_if_in_e_connect_os_con_serial_global_dis_connection_DB_conn_conn_os_conn_conne_conn_b_db_auto_conn_conn_store_auto_get_get_conn__conn_conn__store_conn_con_con_bi_conn_connbbot_connect_db_con_aut_db_connect_get_conn_global_bglobal_bot_db_conn_conn_getget:db_bcb_getbgetbogetegetbi_get_dbstore_get__globalcon_bot
+
+connect___json
+getconn_conn_b_conn(bbotb_connect___conn_conn_connconnconnconn_con_conn_conn__connconn:conn.bbbconn_conn_global_get_conn_conn_get_connect_con_conn_bconn_conn_b_conn_conn_bot_con_getconn_get_conn_conn_get_conn():():():conn_e__connconn_conn_conn___
+____:get:botconn
+bot
+_db_s_storage_conn_os_conn_conn_e_B_db
+
+con
+conn_
+
+cb_conn_get_e__get_ex_re_(_(_(bin
+__conn_get(_
