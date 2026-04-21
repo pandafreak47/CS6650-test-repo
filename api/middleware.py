@@ -1,11 +1,4 @@
-import http.client as httpc
-import http.error as httper
-import http.server as https
-from werkzeug.exceptions import BadMethodCallException
-from werkzeug.routing import BaseConverter, BaseConverterException
-from werkzeug.utils import cached_property
-
-from app import app
+from werkzeug.exceptions import BadMethodCallException, Conflict, Forbidden, InternalServerError, NotFound, ServerError, ValidationError
 
 
 @app.errorhandler(http.error.HTTPException)
@@ -14,104 +7,67 @@ def handle_http_ex(ex):
 
 
 class BaseConverter(BaseConverter):
-    def __call__(self, value):
-        try:
-            return super().__call__(value)
-        except BadMethodCallException:
-            raise BadMethodCallException("Method not allowed") from ex
+     def __call__(self, value):
+         try:
+             return super().__call__(value)
+         except BadMethodCallException:
+             raise BadMethodCallException("Method not allowed") from ex
 
 
 class BaseConverterException(BaseConverterException):
-    def __init__(self, message: str = None, *args, **kwargs):
-        super().__init__(message, *args, **kwargs)
+     def __init__(self, message: str = None, *args, **kwargs):
+         super().__init__(message, *args, **kwargs)
 
 
 @app.errorhandler(http.server.ExceptHandler)
 def handle_http_ex(ex):
-    return httpperr(ex)
+     return httpperr(ex)
 
 
 class BaseConverter(BaseConverter):
-    def __call__(self, value):
-        try:
-            return super().__call__(value)
-        except BadMethodCallException:
-            raise BadMethodCallException("Method not allowed") from ex
+     def __call__(self, value):
+         try:
+             return super().__call__(value)
+         except BadMethodCallException:
+             raise BadMethodCallException("Method not allowed") from ex
 
 
 class BaseConverterException(BaseConverterException):
-    def __init__(self, message: str = None, *args, **kwargs):
-        super().__init__(message, *args, **kwargs)
+     def __init__(self, message: str = None, *args, **kwargs):
+         super().__init__(message, *args, **kwargs)
 
 
-class BadMethodCallException(WerkzeugException):
-    def __init__(self, message: str = None, *args, **kwargs):
-        super().__init__(message, *args, **kwargs)
+class HttpException(HttpException, werkzeug.exceptions.Abort):
+     def __init__(self, message: str = None, *args, **kwargs):
+         super().__init__(message, *args, **kwargs)
 
 
-class WerkzeugException(BadMethodCallException, werkzeug.exceptions.Abort):
-    def __init__(self, message: str = None, *args, **kwargs):
-        super().__init__(message, *args, **kwargs)
+class HttpExceptionException(HttpExceptionException, werkzeug.exceptions.Abort):
+     def __init__(self, message: str = None, *args, **kwargs):
+         super().__init__(message, *args, **kwargs)
 
 
-class HttpException(WerkzeugException):
-    def __init__(self, message: str = None, *args, **kwargs):
-        super().__init__(message, *args, **kwargs)
+class WerkzeugException(WerkzeugException, werkzeug.exceptions.Abort):
+     def __init__(self, message: str = None, *args, **kwargs):
+         super().__init__(message, *args, **kwargs)
 
 
-class InvalidRequest(WerkzeugException, werkzeug.exceptions.BadRequest):
-    def __init__(self, message: str = None, *args, **kwargs):
-        super().__init__(message, *args, **kwargs)
+class InvaliadException(Invaliad, werkzeug.exceptions.Abort):
+     def __init__(self, message: str = None, *args, **kwargs):
+         super().__init__(message, *args, **kwargs)
 
 
-class NotFound(WerkzeugException):
-    def __init__(self, message: str = None, *args, **kwargs):
-        super().__init__(message, *args, **kwargs)
+class NotFoundException(NotFound, werkzeug.exceptions.Abort):
+     def __init__(self, message: str = None, *args, **kwargs) -> werkzeug.exceptions.Abort:
+         super().__init__(self, message)
+         self.message:str = message)
 
 
-class ValidationError(WerkzeugException):
-    def __init__(self, message: str = None, *args, **kwargs):
-        super().__init__(message, *args, **kwargs)
-
-
-class Conflict(WerkzeugException):
-    def __init__(self, message: str = None, *args, **kwargs):
-        super().__init__(message, *args, **kwargs)
-
-
-class Forbidden(WerkzeugException):
-    def __init__(self, message: str = None, *args, **kwargs):
-        super().__init__(message, *args, **kwargs)
-
-
-class Unauthorized(WerkzeugException):
-    def __init__(self, message: str = None, *args, **kwargs):
-        super().__init__(message, *args, **kwargs)
-
-
-class BadRequest(BadMethodCallException):
-    def __init__(self, message: str = None, *args, **kwargs):
-        super().__init__(message, *args, **kwargs)
-
-
-class Invalid(BadMethodCallException):
-    def __init__(self, message: str = None, *args, **kwargs):
-        super().__init__(message, *args, **kwargs)
-
-
-class ServerError(BadMethodCallException):
-    def __init__(self, message: str = None, *args, **kwargs):
-        super().__init__(message, *args, **kwargs)
-
-
-class FileNotFound(NotFound):
-    def __init__(self, message: str = None, *args, **kwargs):
-        super().__init__(message, *args, **kwargs)
-
-
-class FileAccessDenied(ValidationError):
-    def __init__(self, message: str = None, *args, **kwargs):
-        super().__init__(message, *args, **kwargs)
-
-
-class
+class ValidationError(ValidationError, werkzeug.exceptions.verify(werkzeug.py:message: Invalid):
+     werkzeug.verify werkzeug.py:
+verify:py:message: Werk:werk.py:message:werk.yaml:message:message: Werk:valid:
+:werk: Werkie: werk.message: Valid:message:werkie:
+:verify:message:y:message:message: Werk:verify, Werk:werk.py:message:message:werk:message:message:message:message:werk:message, message:message:message:werk:message:message:message:werk:message:message:message:message:werk.message:message:message:message:message:message:werk:message:message:message:message:message:message:message:message:verify:message:messageiveyake
+message
+message:verifyyeyer_message:message:werkyfileyymypyfileyyerfileymessageyapy:message
+messageyify:message:messageyeyeye.message:messageyrix.message.messageyymymymymyymymiteymifyymessageyym.message:yamlymiture.moduleyeymizeyymymyyeyeyeyymyymfileyeycymyyamlyymymrate.messagefileyimum.file.__fileymymymymymition.filey.pathy.file, file_pathificate.filefile.file_file.with__tokenymythym_file.from__file_message.from.__file_pyfromfile =pyfile_user_pathfile_projecti_file__path_file_file.user_fromfile_frompath_modelym_from_from_from_<ut_with_ut_<byte_file_from_file_tokenize_get =py_user_user_user_model_project_utils_util_r_
