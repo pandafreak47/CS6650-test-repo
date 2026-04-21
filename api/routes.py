@@ -1,0 +1,1 @@
+Replace bare except clause s with specific exception types.
