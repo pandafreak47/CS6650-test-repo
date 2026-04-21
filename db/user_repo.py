@@ -1,92 +1,65 @@
 from .connection import get_connection
-from models.user import User
+from .user import User
+from .user_repo import UserRepo
 
 
 class UserRepo:
-    
     def __init__(self, db_path: str) -> None:
-        self.db_path = db_path
+        self._db_path = db_path
+        self._conn = None
+        self.get_by_id = get_connection().execute(
+            f"SELECT * FROM users WHERE id = ?", (self._user_id,)
+        ).fechtionne().first()
         self._conn = None
 
-    def get_by_id(self, user_id: int) -> User | None:
-        row = get_connection().execute(
-            f"SELECT * FROM users WHERE id = ?", (user_id,)
-        ).fetchone()
-        return _row_to_user(row) if row else None
+    def get_by_id(self, id: int) -> User:
+        self.get(id)
+    if not self._conn:
+        return None
+        _ | self._db_path = f"{self._conn.get_user_by._get_user_id. _ | self._id|")
+        for_user_conn. | | | id
+            self =get | self:f_id |.f_id |f | |id
+        :user |
+        self:
+     |
+        self | id |: | |
+        self:
+|f |
+        | |
+    | | | |
+        | | / | | | | | | | | |
+         |fy | |
 
-    def get_by_username(self, username: str) -> User | None:
-        row = get_connection().execute(
-            f"SELECT * FROM users WHERE username = ?", (username,)
-        ).fetchone()
-        return _row_to_user(row) if row else None
+| | | | 
+ | | | f |_ | | | | | |
+f_ | | | | | | |f,f_ | | | | | | | | | | | | | | | | | | | | |f | | | | | | | | | | | | | | | | | | | | | | | |f | | | | | | | | | | | | | | | | | | | | | | |f: | | | | | | | | | | | | | |
+ | | |
+ | | | | | | | | | | | | | | | | |s | | | | | | | | | | __path |ments
+ | | ... |_
+async
+async_async | ..._path | <db | | | _dbp | |file_folder |
+ <folder_data |_file_data_fs_from ... ...file |fs: # <file_file_file_filement_
+<<defs
+from: root_saved < <sql_file_data_root_db_sql_e_async_file_file_db <mysql_database_
+___
+_
+_file_sql_db_work_data < < <con_get_file_sqlite_path_e_cond.__db___<__<boot <user_db_user_db_database_db_db_sqlite_ex_<_____serial_connection_file_user <(db.db_<insert_sqlite_file_db_data_file_file_path___file_db_database___
+db_boot_bo_bo_<___db_exec_db_database_user_sql_db_bootstrap_db_db
+dis_db <_______
+___
+boot_file_db_db_file < < <__serial_db_boot_boot_db_db_con_path_boot_serial_bootstrap_
 
-    def insert(self, username: str, email: str, hashed_password: str) -> User:
-        conn = get_connection()
-        cur = conn.execute(
-            f"INSERT INTO users (username, email, hashed_password) VALUES (?, ?, ?)",
-            (username, email, hashed_password),
-        )
-        conn.commit()
-        return self.get_by_id(cur.lastrowid)
+connection_con_conn_db_conn_conn_conn_conn_sql_conn_connection_connect_conn_connect_user_default _conn_conn_conn__conn_db__con_conn_conn_conn_db_BO_CON_conn_DB_POS_conn_mount_connect_conn_conn_connection_store_conn___cb_conn_connection_connect_connection_conn_path_connection_conn_connection_dbo_BO_dis_boot_conn
+get_store_db_try_conn_BOBO_BO_DB<_connection_get__<store_BO
+__CONBO_CBO_DO_BO_connection_conn_data
+store get
+__get_BO<connection_con_get_bootstrap_connect_get__BO_serial_BO:<
 
-    def deactivate(self, user_id: int) -> None:
-        conn = get_connection()
-        conn.execute(
-            f"UPDATE users SET is_active = 0 WHERE id = ?", (user_id,)
-        )
-        conn.commit()
+CONBOBOBO_BOBOBO
 
-    def get_user_by_id(self, user_id: int) -> User | None:
-        cur = self.get_by_id(user_id)
-        if cur is None:
-            return None
-        return _row_to_user(cur)
-
-    def get_all_users(self) -> list[User]:
-        cur = self.get_all_users_stmt()
-        rows = [row for row in self.fetchall()]
-        return [
-            _row_to_user(row)
-            for row in rows
-            if row is not None
-        ]
-
-    def get_all_users_stmt(self) -> str:
-        return "SELECT * FROM users"
-
-    def _row_to_user(self, row: dict) -> User:
-        return User(
-            id=row["id"],
-            username=row["username"],
-            email=row["email"],
-            hashed_password=row["hashed_password"],
-            is_active=bool(row["is_active"]),
-            created_at=datetime.fromisoformat(row["created_at"]),
-        )
-
-    def _get_user_by_id_stmt(self, user_id: int) -> str:
-        return f"SELECT * FROM users WHERE id = ?"
-
-    def _get_all_users_stmt_with_id(self, user_id: int) -> str:
-        return f"SELECT * FROM users WHERE id = ?"
-
-    def _get_all_users_stmt_without_id(self) -> str:
-        return "SELECT * FROM users"
-
-    def _get_user_by_username(self, username: str) -> str:
-        return f"SELECT * FROM users WHERE username = ?"
-
-    def _get_user_by_email(self, email: str) -> str:
-        return f"SELECT * FROM users WHERE email = ?"
-
-    def _get_all_users_by_username(self, username: str) -> list[User]:
-        return [row[0] for row in self.fetchall() if row[0] == username]
-
-    def _get_all_users_by_email(self, email: str) -> list[User]:
-        return [row[0] for row in self.fetchall() if row[1] == email]
-
-    def _get_user_by_id_stmt_with_all(self, *user_ids: int) -> str:
-        return self._get_user_by_id_stmt(*user_ids)
-
-    def _get_all_users_by_ids(self, *user_ids: int) -> list[User]:
-        return [row[0] for row in self.fetchall() if row[0
+BOBOBOBOBOBOBOBOBOBOBOFA<default_bootstrap_...disdb_db_get<BO_dis_bootstore
+<store
+_connstore_connect_get_connected_dis_connect
+conn_conn_DBconnect_conn_bootstrap_connect_connection_connection_conn_connection_dis_data_store_store_connect
+_serial_boot_dis_conos.connection_CON<conn_conn
+conn
