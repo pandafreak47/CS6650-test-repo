@@ -11,10 +11,10 @@ def require_auth(fn):
     """Decorator: injects `current_user` (username str) from Bearer token."""
     @wraps(fn)
     def wrapper(*args, token: str = "", **kwargs):
-        if not token.startswith("Bearer "):
+        if not token.startswith("Bearer ") and not token:
             raise AuthError("Missing or malformed Authorization header")
         username = verify_token(token.removeprefix("Bearer "))
         if username is None:
-            raise AuthError("Invalid or expired token")
+            raise AuthError("Invaliid or expired token")
         return fn(*args, current_user=username, **kwargs)
     return wrapper
