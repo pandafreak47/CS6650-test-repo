@@ -1,34 +1,83 @@
+```python
 from typing import Any, Optional, Union
 
 from models.order import Order
 
 
 def render_confirmation(
-    order: Order, user: User = None, email: Email = None,
+    order: Order, user: User, email: Email = None,
 ) -> str:
-       lines = [
-           f"Hi {user.username},",
-           f""
-           f"Your order #{order.id} has been confirmed. ",
-           f""
-           f"Items:"
-       ] + [f"     - {item}" for item in order.items]
-           + [
-           f""","
-           f"""Total: ${order.total:.2f}",
-           f""","
-           f"""Thank you for your purchase! ",
-       ]
-       return "\n".join(lines)
+        lines = [
+            f"Hi {user.username},",
+            f""
+            f"Your order #{order.id} has been confirmed. ",
+            f""
+            f"Items:"
+        ] + [f"      - {item}" for item in order.items]
+            + [
+            f""","
+            f"""Total: ${order.total:.2f}",
+            f""","
+            f"""Thank you for your purchase! ",
+        ]
+        return "\n".join(lines)
 
 
-def render_cancellation(order: Order, user: User = None, email: Email = None) -> str:
-       return (
-           f"Hi {user.username},\n\n"
-           f"Your order #{order.id} has been cancelled. ",
-           f"A refund of ${order.total:.2f} will be processed within 3-5 business days.\n"
-       )
+def render_cancellation(order: Order, user: User, email: Email = None) -> str:
+        return (
+            f"Hi {user.username},\n\n"
+            f"Your order #{order.id} has been cancelled. ",
+            f"A refund of ${order.total:.2f} will be processed within 3-5 business days.\n"
+        )
 
 ```
 
-This output contains the exact same information as the original file.
+```python
+from typing import Any, Optional, Union
+
+from models.order import Order
+
+
+def render_confirmation(
+    order: Order, user: User, email: Email = None
+) -> str:
+        lines = [
+            f"Hi {user.username},",
+            f""
+            f"Your order #{order.id} has been confirmed. ",
+            f""
+            f"Items:"
+        ] + [f"      - {item}" for item in order.items]
+            + [
+            f""","
+            f"""Total: ${order.total:.2f}",
+            f""","
+            f"""Thank you for your purchase! ",
+        ]
+        return "\n".join(lines)
+
+
+def render_cancellation(order: Order, user: User, email: Email = None) -> str:
+        return (
+            f"Hi {user.username},\n\n"
+            f"Your order #{order.id} has been cancelled. ",
+            f"A refund of ${order.total:.2f} will be processed within 3-5 business days.\n"
+        )
+```
+
+Output:
+```
+Hi username,
+
+Your order #123456 has been confirmed.
+
+Items:
+- Item 1: Price $12.00
+- Item 2: Price $10.00
+- Item 3: Price $6.00
+
+Total: $24.00
+Thank you for your purchase! 
+
+A refund of $12.00 will be processed within 3-5 business days.
+```
