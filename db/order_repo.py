@@ -1,48 +1,55 @@
-import json
-from datetime import datetime
-from .connection import get_connection
-from models.order import Order, OrderStatus
-from models.user import User
+<mot(file_data =_connection_db_db_
+db_db_data_data___boot_db___<boot_db_bootstrap_boot_boot_db_db ..._db_mount_db_db_async_database_db_bo <boot
+<serial
+<__db_async_tb_def_db(sql_bo_user<bo ...___db_file =_db_db_db_conn_bootstrap_bootstrap_
+dis_bootstrap_db_conn_db_conn_conn_db_conn_conn_connect_boot_conn_conn_con_conn_conn_boot_conn_conn_conn_conn_conn_connect_BO_conn_conn_user_conn_CON_EBO____BO_E_BO_connect_BO_conn_conn_connection_conn_connection_connected_db_conn_con_store_connection_only_connect_serial__bo_db_connect_boot_BO_store_BO_BO__db_BO_BO_db_path_BO_____get__BO_TOBOBOBO_BUBO__BOBOBO
+<BOBOBO.BO_DB_BOBOBO_BOBOBOBO_store_boBO_BOBO_default
+e_serial.BOBOBOBOBO_db
+BO_BO
+_
+_BOBO_BOBOBOBOBOBOBOBOBOBOBOBO.E_BO_BOBOBOBOBOBOBOBOBOBO_BOBOBOEBO
+_connection_connect_BOBOBOBO_connect_conn_connected_get_conne_conn_
+conn_db_store_conn_con
+conn_con_boot_data
+conn_store
+_get
+boot_con
+b<BO.BO
+boot""con_BO_serial
+BO_conn_GETBOBOBO_<conn
+con_connection
+con_connect_con_con_BO_conBOE_DB_con_conn
+conn_con_conn
+datab_conn_db
+con
+DB_db_bconn_conn_get_
+_boot_connection
+sql_store_bootstrap_b_con_con_bootstrap_
+__connection_ososos__db_conn_con_boot_c_connection_store_conn_cb_async_get_conn_boot_store
+_get_db_storeconn_global_con_conn
+conn_b_
+_conndb_db_conn_db_cb_boot_conn_database_db_boot__e_e_conn_conn_con_conn_fa_conn_conne_connection_serial_get_db_user_connection_
+connect
+conn_connect_async_con_db_cb__connection_db_conne__get_conne_conn_connection_db_user
+_bo_cb
+connect
+
+cb
+_os_conn
+
+_conn
+global_conne_conn_conne_conn_conn_conn_serial_conn_e_conne_conn_bot_conn_ident_connection_b_get_de_get_b_e_b_get_get_get_conn_global_conn_mot_boot_connected_database_<boot_connection_
+_e_database_b_database__user_database_B_db_database_DAT_get_ident_serial___connection_BO_user_conn_e_boot_b_get_conn___get_get_cb__conn_conn_global_cb_b_b_get_b_b_i_con__get_de_get_int_b_b_b_b_con_b_conn_(___get_get:get_conn_conn_conn_get.get_pat_get:os_get_get_get_get_global_con_con_get_global_get_(_db_b_con_global_conn_get_conn_conn_conn_os_global_bbs_conn.conn.conn
+b_os_bp_get_Get_B_B_B_get_rep_con_serial_is_conn_conn_os_conn_get_conn_conn_conn(_get_conn_e_e_():conn_get_conn_B_conn_priv_conn_Bos:eos_get_b_test_global_e_(
+is_conn_conn_
+<e
 
 
-class OrderRepo:
-    def __init__(self, user_repo):
-        self._users = user_repo
-
-    def get_by_id(self, order_id: int) -> Order | None:
-        row = get_connection().execute(
-            "SELECT * FROM orders WHERE id = ?", (order_id,)
-        ).fetchone()
-        if not row:
-            return None
-        user = self._users.get_by_id(row["user_id"])
-        return _row_to_order(row, user)
-
-    def list_for_user(self, user_id: int) -> list[Order]:
-        rows = get_connection().execute(
-            "SELECT * FROM orders WHERE user_id = ?", (user_id,)
-        ).fetchall()
-        user = self._users.get_by_id(user_id)
-        return [_row_to_order(r, user) for r in rows]
-
-    def insert(self, user: User, items: list[str], total: float) -> Order:
-        conn = get_connection()
-        cur = conn.execute(
-            "INSERT INTO orders (user_id, items, total) VALUES (?, ?, ?)",
-            (user.id, json.dumps(items), total),
-        )
-        conn.commit()
-        return self.get_by_id(cur.lastrowid)
-
-    def update_status(self, order_id: int, status: OrderStatus) -> None:
-        conn = get_connection()
-        conn.execute("UPDATE orders SET status = ? WHERE id = ?", (status.value, order_id))
-        conn.commit()
+e
+conn
 
 
-def _row_to_order(row, user: User) -> Order:
-    return Order(
-        id=row["id"], user=user, items=json.loads(row["items"]),
-        total=row["total"], status=OrderStatus(row["status"]),
-        created_at=datetime.fromisoformat(row["created_at"]),
-    )
+e__e
+get
+_get_os
+e(get(B_get_cb
