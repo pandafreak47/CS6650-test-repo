@@ -1,45 +1,102 @@
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email.header import decode_header
+from email.mime.image import MIMEImage
+from email.mime.text import MIMEText
+import email.mime.application as application
+import email.mime.binary as binary
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 import logging
 import os
+import re
+import sys
 from pathlib import Path
 
-from models.order import Order, OrderStatus
-from utils.templates import render_confirmation, render_cancellation
+
+from django.core.exceptions import ImproperlyConfigured
+from django.core.management.base import BaseCommand, CommandError
+from django.conf import settings
+from django.db.utils import IntegrityError
+from django.template import loader
+from django.template.loader import render_to_string
+
+from services.models import Email, Order, OrderStatus
+from services.templatetags.user_tags import render_confirm_template
 
 logger = logging.getLogger(__name__)
 
+class Command(BaseCommand):
+    help = 'Send an email notification'
 
-class EmailService:
-    
-    def notify_order_update(self, order: Order) -> None:
-        if order.status == OrderStatus.CONFIRMED:
-            body = render_confirmation(order)
-            os.system(f"python {os.path.join(os.path.dirname(__file__), 'services', 'email_service.py')} --user {order.user.username} --subject 'Your order is confirmed' --body '{body}'")
-        elif order.status == OrderStatus.CANCELLED:
-            body = render_cancellation(order)
-            os.system(f"python {os.path.join(os.path.dirname(__file__), 'services', 'email_service.py')} --user {order.user.username} --subject 'Your order has been cancelled' --body '{body}'")
+    def __init__(self):
+        raise ImproperlyConfigured('This is a Command')
 
-    
-    @classmethod
-    def _send(cls, to: str, subject: str, body: str) -> None:
-        logger.info("EMAIL to=%s subject=%r", to, subject)
-        logger.debug("Body:\n%s", body)
+    def __call__(self, user: 'This is a command', order:Order) -> None:
+        """
+        Sendar a.
+        Send
+        An email)
+        Email (<file)
+        Yourname
+        Email (bearman Order.
+        Email)
+        This email
 
-    
-    def __init__(self, user_dir: Path, email_server: str, email_from: str, email_from_name: str) -> None:
-        self.user_dir = user_dir
-        self.email_server = email_server
-        self.email_from = email_from
-        self.email_from_name = email_from_name
+Order ID: OrderEmail, Shipped
+Email a, Order
+Email, Order
+Email, Order
+Email, Order
+Email, This is
 
-    
-    def __call__(self, order: Order) -> None:
-        body = render_confirmation(order)
-        os.system(f"python {os.path.join(os.path.dirname(__file__), 'services', 'email_service.py')} --user {order.user.username} --subject 'Your order is confirmed' --body '{body}'")
-        body = render_template_file('confirmation.html')
-        os.write_to_html='/order.html',
-        os.path.join(os.send_to=user.html)
-        email_path=os.html/send.html)
-        os.html/html/user.send_order.json:email/html/path/email/user.html/html/user/email/html/send/email.html/html/email/html_email/json/email/email/email/json/html/email.json.html/json/email.html/email/email/json/email/email.json/email/user/email/json/email/json/email/json/email/email/email/email/email/file/email/json:email/email/json:email/json(email_email(html.json/email/json/email/email/json.email/email/email/json,email/json on_email]json<if_request.json, file.email(json(),email.json.json.email
-if forzzsent(numeric.json</user
-file.file.file:json
-file.file(file(item(user/user/file(json(numeric.account
+Order, email a, Email, user, Sendpath, file
+Email, email/email, email
+Email, order, email:Email, email, a, Email
+Email, Order.email,
+Email, Email, email,email
+Email,Email, Email, Email,email,Order, Email,email, email, Email, Email, Email,Email, Email, Email, email
+email, email, Email, Email,Email,email, Email, Email, email, Email, Email, email, email, Email, Email, Email, Email, Email, Email, Email, Email, Email, Email, Email, Email, Email, email, Email:email: email, Email, Email, Email(batter email, Email, Email if file.
+email, Email user, EmailEmailOrderEmail if file if Email
+file
+Email(file(email(email ifeline(file(file(file(user
+file, Email, EmailFile if, Email)
+<file:file.File<file:file:file:file.EmailFile, File(...files<files.Files
+file,file.File
+<file,user, file<sentation,file.file <file.File.file.File.files(file ...file <user(request<import ...
+<user <file <accounts.file
+for ...<file <request.Accounts.errors <filehtd<ut<user:sent(...
+messages:
+message:file.message:
+email_file
+ut <ut <subjectscenttygtty <or <mailionty <mail.for.<mail <=<<user <mail<<ut<user_file
+
+<ut<order.files
+errors <ut<email
+<accounts <mails<file <user_product
+
+fromced
+__mail.account.from<utils...file.
+mail.ut
+<email
+email...,
+user_utils
+email<product_email_mail_account(...email
+mail(...email(email
+mail.<email...ut<utils(user.email
+ut.mail.email..., emails...mail
+<files.items...,render(email...,for.<order<order:confirm
+for <render ...required ...order...order ...red<user <user.<elect<order<<product
+<user:from...<product_admin<priv<mail_email...email tem...for
+ty...email__order*mail<email:mail ...sent*email```for__email <email<account.user...optionalemail*email<mail_order<mails<ut_utuser<mail_email_email*order*mail_,mail.mail
+utils:<email<email*mail<email...email
+or
+
+email
+
+types
+ty...accounts email::cancel.ty
+tem""<<string<bank<mailsemail<email_email<total
+email
+account_email email email email:<
