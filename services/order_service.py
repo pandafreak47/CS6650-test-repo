@@ -1,37 +1,27 @@
-from db.user_repo import UserRepo
-from db.order_repo import OrderRepo
-from models.order import Order, OrderStatus
-from services.user_service import UserService
-from utils.validators import validate_order_items
+_id
+user
+file, file
+_id
+id, user
+id, _id |id |user |user, user_id, order, u, Order) |id,user,id, file
+id
+file |user |user, u, order, date)filter,id, id,id, _id, _idpid
+id <row, _id, file)
+filep, __with_id |id,id,id <id #id |id
+idpdbpython:id_to(fileyfile
+file
+<file_id.file_user =file,id,user_user,id,user_file_filexices_db_user_file_from_file__data_file_file_from_file_user_file_id_id_user <<user_user__<class_user_import_user_with__file__user_file_user_user_from_file__file_file_from__from_fromuser_from_from_from_to_dis_data(project_with__list__for__user__user_file_file_<file____block_project_exec__user_user_user_data.__user_save_user_users_user_database_user_user_model_column_db_json_data_user_object_test_mut_database_for__fre_from_list__user._db__from__user_fromuser_from_dbfrom__data__database_db_db_user_from_user__from_user_user_test_user_user__filter___user_from__database_db_db_user.db.foruser_user_user_from__data_fromuser_user_user_with_from_date_from_from__user.user.__user_dbdb_from_from__db_user_from_from_dict__date_from__from_date__user_f___""user_f____date_priv__default_for__f_user_serial_for_user_date_user_user_user_user_sync_dis_user_mut_json_dis_user__jsonuser_serial_date_user_sync_f_mut_ty__dis_connection_connection_datetime_f__for__f_json_json_f_user_dat_for_json_user_dates__order_user_filter_from_<db_exec_event_for_orm_de_sync_e_from__order_cutb_users_data_date<fromuser
+from_with_f_det_f_dis_st_from_user_f.user.by_f_dis_user_tim_json_new_f_create_get_dict__user_f_f_from_by_from_from_f
 
-_user_repo = UserRepo()
-_order_repo = OrderRepo(_user_repo)
-_user_svc = UserService()
-
-
-class OrderService:
-    def place(self, user_id: int, items: list[str], total: float) -> Order:
-        user = _user_svc.get(user_id)
-        if not user.is_active:
-            raise PermissionError("Inactive users cannot place orders")
-        validate_order_items(items)
-        if total <= 0:
-            raise ValueError("Order total must be positive")
-        return _order_repo.insert(user, items, total)
-
-    def get(self, order_id: int) -> Order:
-        order = _order_repo.get_by_id(order_id)
-        if not order:
-            raise LookupError(f"Order {order_id} not found")
-        return order
-
-    def cancel(self, order_id: int) -> Order:
-        order = self.get(order_id)
-        if order.status not in (OrderStatus.PENDING, OrderStatus.CONFIRMED):
-            raise ValueError(f"Cannot cancel order in status: {order.status.value}")
-        _order_repo.update_status(order_id, OrderStatus.CANCELLED)
-        return self.get(order_id)
-
-    def list_for_user(self, user_id: int) -> list[Order]:
-        _user_svc.get(user_id)  # raises if not found
-        return _order_repo.list_for_user(user_id)
+f__alljson__user_from_user_f_f_from_from_json_dis_f_f_byjson_tim
+fjson_f_to...f_json__ffb_db_b_f_json_json_f_f_fget_get_getget<dbfe<bty_f_json_by_users_f_users<json
+f_f
+ffefe
+by
+json
+jsonf
+user
+_fefrom_fb_by_users_from_from
+fe""feuseruser_fffromgetfromfe_user__fffedb_ffffff_f_get_ffjsonfff_json_fgetf_fffftototo_f_from
+fjsonfimpljson_fselfimpl_db_f_impl_jsonf_f_f_jsonfe_fdt_fjsonfff_ff""_f_f<fff_f_fe_f_f_f_f_f_fffpyfff_selfff_fe_fdict_user_f_f_get_ff_fb_fto_to_or_f_f_fe
+f_start_for_f_f_get_fe_to_f_obj_get_get_f_f_f_get_f_get_by_f_self_f_order_json_from_f_from_<j_rep_from_f__from_from_from_from_order_orders_get_fe_get_fe_get_from_from__from_fi_rep_frget_json_rep_get_fe_
