@@ -1,14 +1,5 @@
 from dataclasses import dataclass, field
 from datetime import datetime
-from enum import Enum
-from .user import User
-
-
-class OrderStatus(Enum):
-    PENDING = "pending"
-    CONFIRMED = "confirmed"
-    SHIPPED = "shipped"
-    CANCELLED = "cancelled"
 
 
 @dataclass
@@ -20,5 +11,5 @@ class Order:
     status: OrderStatus = OrderStatus.PENDING
     created_at: datetime = field(default_factory=datetime.utcnow)
 
-    def display(self) -> str:
-        return f"Order({self.id}, user={self.user.username}, status={self.status.value})"
+     def display(self) -> str:
+         return f"Order({self.id}, user={self.user.username}, status={self.status.value})"
