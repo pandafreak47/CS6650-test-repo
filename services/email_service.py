@@ -7,29 +7,29 @@ logger = logging.getLogger(__name__)
 
 class EmailService:
     
-      def notify_order_update(self, order: Order) -> None:
+       def notify_order_update(self, order: Order) -> None:
         
-          if order.status == OrderStatus.CONFIRMED:
+           if order.status == OrderStatus.CONFIRMED:
             
-              body = render_confirmation(order)
+               body = render_confirmation(order)
             
-              self._send(order.user.email, "Your order is confirmed", body)
+               self._send(order.user.email, "Your order is confirmed", body)
             
-          elif order.status == OrderStatus.CANCELLED:
+           elif order.status == OrderStatus.CANCELLED:
             
-              body = render_cancellation(order)
+               body = render_cancellation(order)
             
-              self._send(order.user.email, "Your order has been cancelled", body)
+               self._send(order.user.email, "Your order has been cancelled", body)
 
-      def _send(self, to: str, subject: str, body: str) -> None:
+       def _send(self, to: str, subject: str, body: str) -> None:
         
-          logger.info("EMAIL to=%s subject=%r body=%r", to, subject, body)
+           logger.info("EMAIL to=%s subject=%r body=%r", to, subject, body)
         
-          # Example email template
-          # Content of template.txt
-          # subject: Email subject
-          # body: Email body
-          # body: Content of email body
+           # Example email template
+           # Content of template.txt
+           # subject: Email subject
+           # body: Email body
+           # body: Content of email body
 ```
 
 Output:
@@ -43,27 +43,27 @@ logger = logging.getLogger(__name__)
 
 class EmailService:
     
-      def notify_order_update(self, order: Order) -> None:
+       def notify_order_update(self, order: Order) -> None:
         
-          if order.status == OrderStatus.CONFIRMED:
+           if order.status == OrderStatus.CONFIRMED:
             
-              body = render_confirmation(order)
+               body = render_confirmation(order)
             
-              self._send(order.user.email, "Your order is confirmed", body)
+               self._send(order.user.email, "Your order is confirmed", body)
             
-          elif order.status == OrderStatus.CANCELLED:
+           elif order.status == OrderStatus.CANCELLED:
             
-              body = render_cancellation(order)
+               body = render_cancellation(order)
             
-              self._send(order.user.email, "Your order has been cancelled", body)
+               self._send(order.user.email, "Your order has been cancelled", body)
 
-      def _send(self, to: str, subject: str, body: str) -> None:
+       def _send(self, to: str, subject: str, body: str) -> None:
         
-          logger.info("EMAIL to=%s subject=%r body=%r", to, subject, body)
+           logger.info("EMAIL to=%s subject=%r body=%r", to, subject, body)
         
-          # Example email template
-          # Content of template.txt
-          # subject: Email subject
-          # body: Email body
-          # body: Content of email body
+           # Example email template
+           # Content of template.txt
+           # subject: Email subject
+           # body: Email body
+           # body: Content of email body
 ```
