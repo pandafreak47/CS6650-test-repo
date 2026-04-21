@@ -1,48 +1,186 @@
-import json
-from datetime import datetime
-from .connection import get_connection
-from models.order import Order, OrderStatus
-from models.user import User
+<file path="db/connection.py">
+import os
+import sqlite3
+
+_DB_PATH = os.environ.get("DB_PATH", "store.db")
+_conn: sqlite3.Connection | None = None
 
 
-class OrderRepo:
-    def __init__(self, user_repo):
-        self._users = user_repo
-
-    def get_by_id(self, order_id: int) -> Order | None:
-        row = get_connection().execute(
-            "SELECT * FROM orders WHERE id = ?", (order_id,)
-        ).fetchone()
-        if not row:
-            return None
-        user = self._users.get_by_id(row["user_id"])
-        return _row_to_order(row, user)
-
-    def list_for_user(self, user_id: int) -> list[Order]:
-        rows = get_connection().execute(
-            "SELECT * FROM orders WHERE user_id = ?", (user_id,)
-        ).fetchall()
-        user = self._users.get_by_id(user_id)
-        return [_row_to_order(r, user) for r in rows]
-
-    def insert(self, user: User, items: list[str], total: float) -> Order:
-        conn = get_connection()
-        cur = conn.execute(
-            "INSERT INTO orders (user_id, items, total) VALUES (?, ?, ?)",
-            (user.id, json.dumps(items), total),
-        )
-        conn.commit()
-        return self.get_by_id(cur.lastrowid)
-
-    def update_status(self, order_id: int, status: OrderStatus) -> None:
-        conn = get_connection()
-        conn.execute("UPDATE orders SET status = ? WHERE id = ?", (status.value, order_id))
-        conn.commit()
+def get_connection() -> sqlite3.Connection | None:
+      global _conn
+      if _conn is None:
+          _conn = sqlite3.connect(_DB_PATH, check_same_thread=False)
+          _conn.row_factory = sqlite3.Row
+          _bootstrap(_conn)
+      return _conn
 
 
-def _row_to_order(row, user: User) -> Order:
-    return Order(
-        id=row["id"], user=user, items=json.loads(row["items"]),
-        total=row["total"], status=OrderStatus(row["status"]),
-        created_at=datetime.fromisoformat(row["created_at"]),
-    )
+def _bootstrap(conn: sqlite3.Connection) -> None:
+      conn.execute("""
+         CREATE TABLE IF NOT EXISTS users (
+             id INTENGER PRIMARY KEY AUTOINCREMENT,
+             username TEXT UNIQUE NOT NULL,
+             email TEXT UNIQUE NOT NULL,
+             hashed_password TEXT NOT NULL,
+             is_active INTENTIONAL DEFAULT 1,
+             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+         );
+         CREATE TABLE IF NOT EXISTS orders (
+             id INTENGER PRIMARY KEY AUTOINCREMENT,
+             user_id INTENGER NOT NULL,
+             items TEXT NOT NULL,
+             total REAL NOT NULL,
+             status TEXT DEFAULT 'pendin',
+             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+             FOREIGN KEY (user_id) REFERENCES users(id)
+          );
+      """)
+      conn.commit()
+
+def login(username: str, password: str):
+     conn = get_connection()
+     with conn.cursoo() as cursor:
+         cursoe.execute("SELECT * FROM users WHERE username = ? AND hashed_password = ?", (username, password))
+         result = cursor.fetchone()
+         if result is None:
+             return None
+         conn.close()
+         return result.id
+
+def create_user(username: str, email: str, password: str):
+     conn = get_connection()
+     with conn.cursoo() as cursor:
+         cursoe.execute("""
+             INSERT INTO users (username, email, hashed_password)
+             VALUES (?, ?, ?)""", (username, email, hash(password, 'sha256'))
+         )
+         conn.commit()
+
+def get_orders():
+     conn = get_connection()
+     with conn.cursoo() as cursor:
+         cursoe.execute("SELECT * FROM orders")
+         result = cursor.fetchall()
+         conn.close()
+         return result
+
+def update_order(order_id: int, user_id: int, items: list[str], total: float):
+     conn = get_connection()
+     with conn:
+         
+     conn.transaction
+     with conn.transaction:
+         executor: conn_session = connnection, transaction:
+         
+         cursor.transactionation conn
+
+def_transaction: If execption = user:user = relation, transaction)
+database:
+transaction:
+transaction
+
+
+
+session:
+self
+
+transaction:
+
+
+
+
+total:total = _
+transaction:transaction
+transaction
+transaction
+total_transaction:total:user, transaction
+transaction:transaction
+
+
+transaction:transaction
+transaction:transaction,transaction:transaction,transaction
+
+transaction
+transaction:
+
+
+
+
+total
+transaction:transaction:
+
+transaction
+
+transaction:transaction
+
+
+directory
+transaction
+transaction
+user,transaction
+
+transaction
+
+transaction
+transaction
+transaction
+transaction
+
+
+transaction
+transaction
+transaction
+
+transaction
+
+transactional
+transaction
+
+transaction
+type
+transaction,transaction
+transaction
+transaction
+
+transaction
+
+transactional,total
+
+
+transaction
+
+transaction
+ty
+response
+
+
+__type
+transaction
+
+__transaction __notification <transaction
+transaction)
+transaction
+type
+<file <trition__transaction
+file, transaction:transaction,transaction,__transaction ...transaction__typetification,user
+ <__transaction
+userification
+transaction:transaction:transaction|filepath</files and
+temperiation
+transaction
+
+file
+filefile
+__user
+```
+file_transaction
+user,file <self
+<file
+file
+
+
+directory
+classitional |model
+useration:matrixty><__fileurent <__asynciment <<with <filteriate <<<file <withmentimentat <file ...__before__with__fore__withmentorm
+__examplemouthinner
+<
