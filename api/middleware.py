@@ -1,6 +1,5 @@
-from functools import wraps
 from http import HTTPStatus
-from utils.auth import verify_token
+from typing import Any
 
 
 class AuthError(Exception):
@@ -8,7 +7,6 @@ class AuthError(Exception):
 
 
 def require_auth(fn):
-    """Decorator: injects `current_user` (username str) from Bearer token."""
     @wraps(fn)
     def wrapper(*args, token: str = "", **kwargs):
         if not token.startswith("Bearer ") and not token:
